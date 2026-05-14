@@ -1,901 +1,717 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerelt Solutions </title>
-  <meta name="description" content="Бид таны хэрэгцээнд нийцсэн брэнд өнгө төрх, медиа, веб хөгжүүлэлт болон
-      хэвлэлийн бүх төрлийн үйлчилгээг нэг дор шийдэж өгнө." />
-  <style>
-    :root{
-      --sideW: 260px;
-      --sideWc: 76px;
-      --cursorY: 120px; /* updated by JS */
-      --bg:#0b0b10;
-      --bg2:#0f111a;
-      --ink:#f5f7ff;
-      --muted:rgba(245,247,255,.72);
-      --line:rgba(245,247,255,.18);
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08);
-      --accent:#7c5cff; /* purple */
-      --accent2:#a892ff;
-      --radius:14px;
-      --max:1200px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerelt Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:#fff;color:#111;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      line-height:1.6;
-    }
+/* NAV */
+nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 2rem;height:68px;background:#D6E8F7;border-bottom:1.5px solid #111;position:sticky;top:0;z-index:200;}
+.nav-logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:.95rem;letter-spacing:-.01em;}
+.nav-logo svg{width:26px;height:26px;}
+.nav-links{display:flex;align-items:center;justify-content:flex-end;gap:2rem;}
+.nav-links a{font-size:.82rem;font-weight:500;color:#111;transition:.15s;}
+.nav-links a:hover{opacity:.5;}
+.nav-admin{background:#111;color:#fff;padding:.42rem .9rem;font-size:.78rem;font-weight:700;cursor:pointer;border:none;font-family:'Inter',sans-serif;letter-spacing:.02em;}
 
-    a{color:inherit; text-decoration:none}
+/* MARQUEE */
+.marquee-wrap{background:#111;overflow:hidden;white-space:nowrap;padding:.52rem 0;border-bottom:1.5px solid #111;}
+.marquee-track{display:inline-block;animation:marquee 20s linear infinite;}
+.marquee-track span{display:inline-block;padding:0 1.2rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;}
+.marquee-track span::after{content:'·';margin-left:1.2rem;opacity:.5;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-    /* ---------- Layout helpers ---------- */
+/* HERO */
+.hero-title{padding:2rem 2rem 1.8rem;border-bottom:1.5px solid #111;}
+.hero-title h1{font-size:clamp(3.5rem,9vw,8.5rem);font-weight:900;line-height:.93;letter-spacing:-.04em;}
+.hero-sub{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #111;}
+.hero-sub-left{padding:2rem;border-right:1.5px solid #111;}
+.hero-sub-left p{font-size:1rem;line-height:1.75;color:#444;max-width:400px;}
+.hero-sub-right{display:flex;align-items:flex-end;justify-content:flex-end;padding:2rem;}
 
-/* ===== Text animation (like your video): word-by-word rise + fade ===== */
-/* Add data-txt="reveal" to any heading/paragraph you want animated */
-[data-txt="reveal"]{opacity:1;}
-[data-txt="reveal"] .w{
-  display:inline-block;
-  opacity:0;
-  transform: translateY(18px);
-  filter: blur(2px);
-  will-change: opacity, transform, filter;
+/* BUTTONS */
+.btn{display:inline-block;border:1.5px solid #111;padding:.85rem 2rem;font-size:.88rem;font-weight:700;letter-spacing:.02em;cursor:pointer;transition:.18s;background:#fff;color:#111;font-family:'Inter',sans-serif;}
+.btn:hover,.btn.dark{background:#111;color:#fff;}
+.btn.dark:hover{background:#333;}
+.btn.full{width:100%;text-align:center;}
+
+/* GRADIENT SECTION */
+.blob{height:320px;position:relative;overflow:hidden;border-bottom:1.5px solid #111;background:#f0e6ff;}
+.blob-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 20% 60%,#a78bfa 0%,transparent 50%),
+  radial-gradient(ellipse at 80% 30%,#fb923c 0%,transparent 45%),
+  radial-gradient(ellipse at 55% 80%,#f472b6 0%,transparent 45%),
+  radial-gradient(ellipse at 70% 60%,#fbbf24 0%,transparent 40%);
+  animation:blobAnim 9s ease-in-out infinite alternate;}
+@keyframes blobAnim{from{transform:scale(1);}to{transform:scale(1.06) rotate(2deg);}}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #111;}
+.about-left{background:radial-gradient(ellipse at 40% 50%,#93c5fd 0%,#D6E8F7 65%);border-right:1.5px solid #111;display:flex;align-items:center;justify-content:center;padding:3.5rem 2.5rem;min-height:360px;}
+.about-left h2{font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-.04em;line-height:.95;}
+.about-right{padding:3.5rem 2.5rem;display:flex;flex-direction:column;justify-content:center;}
+.about-right p{font-size:1rem;line-height:1.85;color:#333;margin-bottom:1.2rem;}
+
+/* SERVICES */
+.svc-label{padding:1.2rem 2rem;border-top:1.5px solid #111;border-bottom:1.5px solid #111;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#888;}
+.svc-row{display:grid;grid-template-columns:300px 1fr;border-bottom:1.5px solid #111;}
+.svc-row:last-child{border-bottom:none;}
+.svc-arrow{display:flex;align-items:center;justify-content:center;padding:2rem;border-right:1.5px solid #111;}
+.svc-arrow svg{width:72px;height:72px;}
+.svc-body{background:#D6E8F7;padding:2.5rem;}
+.svc-body h3{font-size:1.25rem;font-weight:800;margin-bottom:.9rem;letter-spacing:-.02em;}
+.svc-body p{font-size:.92rem;line-height:1.75;color:#333;}
+.svc-tag{display:inline-block;background:#111;color:#fff;font-size:.68rem;padding:.22rem .65rem;margin-top:.8rem;font-weight:700;letter-spacing:.06em;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid #111;border-bottom:1.5px solid #111;}
+.stat{padding:2.5rem 1.5rem;border-right:1.5px solid #111;text-align:center;}
+.stat:last-child{border-right:none;}
+.stat-n{font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-.04em;line-height:1;}
+.stat-l{font-size:.78rem;color:#888;margin-top:.4rem;font-weight:500;}
+
+/* PRICING */
+.pricing-hd{padding:2rem 2rem 1.8rem;border-top:1.5px solid #111;border-bottom:1.5px solid #111;}
+.pricing-hd h2{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-.04em;}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1.5px solid #111;}
+.pcol{padding:2.5rem 2rem;border-right:1.5px solid #111;display:flex;flex-direction:column;}
+.pcol:last-child{border-right:none;}
+.pcol.feat{background:#D6E8F7;}
+.pname{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:.7rem;}
+.pamount{font-size:clamp(1.6rem,3vw,2.5rem);font-weight:900;letter-spacing:-.03em;margin-bottom:.3rem;}
+.pperiod{font-size:.78rem;color:#999;margin-bottom:1rem;}
+.pdesc{font-size:.85rem;color:#555;margin-bottom:1.5rem;line-height:1.6;}
+.plist{list-style:none;flex:1;margin-bottom:2rem;}
+.plist li{padding:.5rem 0;font-size:.85rem;border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;gap:.55rem;color:#444;}
+.plist li:last-child{border:none;}
+.ck{color:#16a34a;font-weight:800;font-size:.9rem;}
+.xk{color:#ccc;font-size:.9rem;}
+
+/* CONTACT */
+.contact-hd{padding:2rem 2rem 1.5rem;border-top:1.5px solid #111;border-bottom:1.5px solid #111;}
+.contact-hd h2{font-size:clamp(2.5rem,7vw,6.5rem);font-weight:900;letter-spacing:-.05em;line-height:.9;}
+.contact-body{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #111;}
+.c-form{padding:2.5rem;border-right:1.5px solid #111;background:#D6E8F7;}
+.c-form h3{font-size:.85rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.5rem;color:#555;}
+.c-info{padding:2.5rem;}
+.ci{margin-bottom:1.3rem;}
+.ci strong{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#aaa;margin-bottom:.2rem;font-weight:700;}
+.ci span{font-size:.92rem;color:#333;}
+
+/* FORM ELEMENTS */
+.fg{margin-bottom:.9rem;display:flex;flex-direction:column;}
+.fg label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.35rem;color:#666;}
+.fg input,.fg textarea,.fg select{border:1.5px solid #111;padding:.65rem .85rem;font-family:'Inter',sans-serif;font-size:.88rem;background:#fff;outline:none;transition:.15s;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:#2563eb;}
+.fg textarea{height:95px;resize:vertical;}
+.fg select option{background:#fff;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+
+/* FOOTER */
+.footer{padding:1.1rem 2rem;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:#999;border-top:1.5px solid #111;}
+.footer a{color:#999;}
+.footer a:hover{color:#111;}
+
+/* QPAY MODAL */
+.mbg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;align-items:center;justify-content:center;}
+.mbg.open{display:flex;}
+.mbox{background:#fff;border:1.5px solid #111;width:90%;max-width:390px;padding:2rem;position:relative;}
+.mbox h3{font-size:1.2rem;font-weight:900;letter-spacing:-.02em;margin-bottom:.3rem;}
+.mbox .msub{font-size:.83rem;color:#888;margin-bottom:1.2rem;}
+.mclose{position:absolute;top:.9rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#111;line-height:1;}
+.amtbox{background:#D6E8F7;border:1.5px solid #111;padding:1rem;text-align:center;margin-bottom:1rem;}
+.amtbox .av{font-size:1.9rem;font-weight:900;letter-spacing:-.03em;}
+.amtbox small{font-size:.72rem;color:#888;}
+.qrbox{border:1.5px solid #111;padding:.7rem;text-align:center;margin-bottom:1rem;background:#fff;}
+.qrbox p{font-size:.72rem;color:#aaa;margin-top:.3rem;}
+.msteps{list-style:none;margin-bottom:1.3rem;}
+.msteps li{display:flex;gap:.6rem;padding:.42rem 0;font-size:.8rem;color:#666;border-bottom:1px solid #eee;align-items:flex-start;}
+.msteps li:last-child{border:none;}
+.msn{background:#111;color:#fff;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;flex-shrink:0;margin-top:1px;}
+.mbtn{width:100%;background:#16a34a;color:#fff;border:none;padding:.85rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s;}
+.mbtn:hover{background:#15803d;}
+
+/* ADMIN */
+.abg{display:none;position:fixed;inset:0;background:#fff;z-index:500;overflow-y:auto;}
+.abg.open{display:block;}
+.anav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;border-bottom:1.5px solid #111;background:#D6E8F7;position:sticky;top:0;}
+.anav h2{font-size:.95rem;font-weight:800;letter-spacing:-.01em;}
+.abody{padding:2rem;max-width:1100px;margin:0 auto;}
+.alogin{max-width:360px;margin:8vh auto;}
+.alogin h2{font-size:2.5rem;font-weight:900;letter-spacing:-.04em;margin-bottom:.4rem;}
+.alogin p{color:#888;font-size:.85rem;margin-bottom:2rem;}
+.astats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #111;margin-bottom:1.5rem;}
+.astat{padding:1.4rem;border-right:1.5px solid #111;text-align:center;}
+.astat:last-child{border-right:none;}
+.astat .av{font-size:2rem;font-weight:900;letter-spacing:-.03em;}
+.astat .al{font-size:.72rem;color:#aaa;margin-top:.2rem;}
+.astat .ac{font-size:.72rem;margin-top:.25rem;color:#16a34a;}
+.atabs{display:flex;border:1.5px solid #111;margin-bottom:1.5rem;overflow:hidden;}
+.atab{padding:.65rem 1.4rem;font-size:.78rem;font-weight:700;cursor:pointer;background:#fff;border:none;border-right:1.5px solid #111;font-family:'Inter',sans-serif;transition:.12s;letter-spacing:.02em;}
+.atab:last-child{border-right:none;}
+.atab.on{background:#111;color:#fff;}
+.apane{display:none;}
+.apane.on{display:block;}
+.atable{width:100%;border-collapse:collapse;font-size:.8rem;border:1.5px solid #111;}
+.atable th{background:#D6E8F7;padding:.65rem 1rem;text-align:left;border-bottom:1.5px solid #111;border-right:1px solid #c5d8ea;font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;}
+.atable td{padding:.65rem 1rem;border-bottom:1px solid #f0f0f0;border-right:1px solid #f0f0f0;}
+.atable tr:last-child td{border-bottom:none;}
+.bdg{display:inline-block;padding:.12rem .55rem;font-size:.68rem;font-weight:700;letter-spacing:.04em;}
+.bdg.g{background:#dcfce7;color:#16a34a;}
+.bdg.y{background:#fef9c3;color:#a16207;}
+.bdg.b{background:#dbeafe;color:#1d4ed8;}
+.aform{border:1.5px solid #111;padding:1.8rem;}
+.aform h3{font-weight:800;margin-bottom:1.3rem;font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;}
+
+/* METHOD BUTTON */
+.method-btn{width:100%;display:flex;align-items:center;gap:1rem;border:1.5px solid #111;padding:.9rem 1rem;background:#fff;cursor:pointer;transition:.15s;font-family:'Inter',sans-serif;text-align:left;}
+.method-btn:hover{background:#f5f5f5;}
+.method-icon{width:38px;height:38px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:1rem;flex-shrink:0;}
+.method-info{flex:1;display:flex;flex-direction:column;gap:.15rem;}
+.method-info strong{font-size:.88rem;font-weight:700;color:#111;}
+.method-info span{font-size:.75rem;color:#888;}
+.method-arrow{font-size:1rem;color:#aaa;}
+
+/* CARD PREVIEW */
+.card-preview{
+  background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
+  border-radius:12px;padding:1.4rem 1.5rem 1.2rem;
+  color:#fff;position:relative;overflow:hidden;
+  min-height:160px;display:flex;flex-direction:column;justify-content:space-between;
 }
-[data-txt="reveal"].in .w{
-  animation: wordRise .75s cubic-bezier(.2,.9,.2,1) forwards;
-  animation-delay: calc(var(--i) * 0.045s);
+.card-preview::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05);}
+.card-preview::after{content:'';position:absolute;bottom:-30px;left:-20px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.card-chip{margin-bottom:.8rem;}
+.card-number-display{font-size:1.05rem;font-weight:600;letter-spacing:.18em;margin-bottom:.9rem;font-family:'Courier New',monospace;}
+.card-bottom{display:flex;align-items:flex-end;justify-content:space-between;}
+.card-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;opacity:.6;margin-bottom:.15rem;}
+.card-holder{font-size:.78rem;font-weight:700;letter-spacing:.06em;}
+.card-brand-icon{font-size:.7rem;font-weight:800;letter-spacing:.03em;opacity:.9;}
+
+@media(max-width:768px){
+  .hero-sub,.about,.contact-body{grid-template-columns:1fr;}
+  .hero-sub-left{border-right:none;border-bottom:1.5px solid #111;}
+  .about-left{border-right:none;border-bottom:1.5px solid #111;}
+  .c-form{border-right:none;border-bottom:1.5px solid #111;}
+  .svc-row{grid-template-columns:1fr;}
+  .svc-arrow{display:none;}
+  .stats,.pricing-grid,.astats{grid-template-columns:1fr 1fr;}
+  .stat,.astat,.pcol{border-bottom:1.5px solid #111;}
+  .nav-links a:not(.nav-admin){display:none;}
+  nav{grid-template-columns:1fr 1fr;}
+  .fg-row{grid-template-columns:1fr;}
 }
-[data-txt="reveal"].out .w{
-  opacity:0;
-  transform: translateY(10px);
-  filter: blur(2px);
-}
-@keyframes wordRise{
-  0%{opacity:0; transform: translateY(18px); filter: blur(2px);}
-  100%{opacity:1; transform: translateY(0); filter: blur(0);}
-}
-@media (prefers-reduced-motion: reduce){
-  [data-txt="reveal"] .w{
-    opacity:1 !important;
-    transform:none !important;
-    filter:none !important;
-    animation:none !important;
-  }
-}
-
-    .container{max-width:var(--max); margin:0 auto; padding:0 28px;}
-    .section{padding:84px 0; position:relative;}
-    .section.tight{padding:64px 0;}
-    .kicker{letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--muted)}
-    .title{font-size:44px; line-height:1.1; margin:10px 0 14px}
-    .lead{font-size:18px; color:var(--muted); margin:0; max-width:70ch}
-
-    /* ---------- Side Guide Bar (collapsible + cursor-reactive) ---------- */
-    
-   
-
-
-    /* ---------- Top nav ---------- */
-    .topbar{
-      position:fixed; inset:0 0 auto 0;
-      z-index:50;
-      background:linear-gradient(to bottom, rgba(5,5,8,.72), rgba(5,5,8,.25), rgba(5,5,8,0));
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .topbar .inner{
-      display:flex; align-items:center; justify-content:space-between;
-      height:74px;
-    }
-    .brand{display:flex; align-items:center; gap:12px; min-width:240px;}
-    .logo{
-      width:42px; height:42px; border-radius:12px;
-      background: radial-gradient(circle at 30% 30%, rgba(124,92,255,.95), rgba(124,92,255,.15) 55%, rgba(0,0,0,0) 70%),
-                  linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow: 0 12px 30px rgba(124,92,255,.18);
-    }
-    .brand b{display:block; font-size:18px; line-height:1.1;}
-    .brand small{display:block; font-size:12px; color:var(--muted); margin-top:2px;}
-
-    .nav{display:flex; gap:22px; align-items:center;}
-    .nav a{font-size:14px; color:rgba(245,247,255,.86); padding:10px 6px; border-radius:10px;}
-    .nav a:hover{background:rgba(255,255,255,.06)}
-
-    .navbtn{
-      display:none;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.06);
-      color:var(--ink);
-      border-radius:12px;
-      padding:10px 12px;
-      cursor:pointer;
-    }
-
-    /* ---------- Hero ---------- */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:flex-end;
-      padding-top:74px;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.45) 45%, rgba(0,0,0,.25)),
-        radial-gradient(circle at 70% 25%, rgba(124,92,255,.20), rgba(0,0,0,0) 45%),
-        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=70');
-      background-size:cover;
-      background-position:center;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:40px;
-      padding:40px 0 90px;
-      align-items:end;
-    }
-
-    .hero h1{
-      font-size:80px;
-       margin-top: -80px;    
-       line-height:1.05;
-      margin:0 0 16px;
-      letter-spacing:-.02em;
-      max-width:18ch;
-      transform: translateY(-20px);
-    }
-    .hero p{margin:0 0 26px; color:rgba(245,247,255,.78); font-size:18px; max-width:62ch;}
-
-    .ctaRow{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:13px 18px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      color:var(--ink);
-      font-weight:600;
-      font-size:14px;
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.26)}
-
-    .btn.primary{
-      background:linear-gradient(180deg, rgba(124,92,255,1), rgba(124,92,255,.72));
-      border-color:rgba(124,92,255,.9);
-      box-shadow: 0 14px 40px rgba(124,92,255,.28);
-    }
-    .btn.primary:hover{background:linear-gradient(180deg, rgba(140,118,255,1), rgba(124,92,255,.78));}
-
-    .heroPanel{
-      border-radius:var(--radius);
-      background:rgba(0,0,0,.38);
-      border:1px solid rgba(255,255,255,.12);
-      padding:18px;
-    }
-
-    .newsletterLabel{font-size:13px; color:rgba(245,247,255,.78); margin-bottom:8px;}
-    .formRow{display:flex; gap:10px;}
-    .input{
-      flex:1;
-      height:46px;
-      padding:0 14px;
-      border-radius:12px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.16);
-      color:var(--ink);
-      outline:none;
-    }
-    .input::placeholder{color:rgba(245,247,255,.55)}
-
-    .check{
-      display:flex; gap:10px; align-items:flex-start;
-      margin-top:10px;
-      color:rgba(245,247,255,.72);
-      font-size:13px;
-    }
-    .check input{margin-top:3px; accent-color: var(--accent);}
-
-    .scrollHint{
-      position:absolute;
-      left:28px;
-      bottom:26px;
-      display:flex;
-      gap:10px;
-      align-items:center;
-      color:rgba(245,247,255,.65);
-      font-size:13px;
-    }
-    .scrollHint .arrow{
-      width:42px; height:42px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      display:grid; place-items:center;
-      background:rgba(0,0,0,.22);
-    }
-
-    /* ---------- Dark feature section like Wix ---------- */
-    .darkCover{
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.62)),
-        radial-gradient(circle at 55% 15%, rgba(124,92,255,.18), rgba(0,0,0,0) 55%),
-        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=70');
-      background-size:cover;
-      background-position:center;
-      border-top:1px solid rgba(255,255,255,.06);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .quote{
-      text-align:center;
-      padding:90px 0;
-    }
-    .quote h2{
-      font-size:56px;
-      line-height:1.12;
-      margin:0 auto 18px;
-      max-width:22ch;
-      font-weight:500;
-      letter-spacing:-.01em;
-    }
-    .quote p{margin:0; color:rgba(245,247,255,.75)}
-
-    /* ---------- Courses grid ---------- */
-    .courses{
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.72)),
-        url('https://images.unsplash.com/photo-1529421306624-4c3d1a4a5f5b?auto=format&fit=crop&w=2000&q=70');
-      background-size:cover;
-      background-position:center;
-    }
-    .coursesHead{text-align:center; margin-bottom:36px;}
-    .coursesHead h2{margin:0 0 8px; font-size:44px; font-weight:600;}
-    .coursesHead p{margin:0; color:rgba(245,247,255,.7)}
-
-    .courseGrid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .courseCard{
-      background:rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--radius);
-      padding:22px;
-      min-height:168px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-
-    .courseCard h3{margin:0 0 8px; font-size:18px; font-weight:600;}
-    .courseCard p{margin:0; color:rgba(245,247,255,.7); font-size:13px;}
-
-    .pillBtn{
-      align-self:flex-start;
-      margin-top:14px;
-      background:rgba(124,92,255,.95);
-      border:1px solid rgba(124,92,255,.95);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:12px;
-      font-weight:700;
-      font-size:13px;
-    }
-    .pillBtn:hover{background:rgba(140,118,255,1)}
-
-    /* ---------- About banner like screenshot ---------- */
-    .aboutBanner{
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.68), rgba(0,0,0,.30) 55%, rgba(0,0,0,.22)),
-        url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=2000&q=70');
-      background-size:cover;
-      background-position:center;
-      border-top:1px solid rgba(255,255,255,.06);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .aboutGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:30px;
-      align-items:center;
-      min-height:520px;
-    }
-
-    .aboutTitle{font-size:52px; margin:0 0 6px; font-weight:650;}
-    .aboutSub{color:rgba(245,247,255,.75); margin:0;}
-
-    .aboutBox{
-      justify-self:end;
-      max-width:520px;
-      background:rgba(0,0,0,.28);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--radius);
-      padding:22px;
-    }
-
-    .aboutBox p{margin:0 0 12px; color:rgba(245,247,255,.78)}
-
-    /* ---------- Light features section ---------- */
-    .light{
-      background:#f7f7fb;
-      color:#101018;
-    }
-    .light .kicker, .light .muted{color:rgba(16,16,24,.70)}
-    .light .title{color:#101018}
-
-    .whyGrid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:26px;
-      align-items:start;
-    }
-
-    .whyBig{padding:10px 10px 0 0;}
-    .whyBig h2{font-size:46px; line-height:1.05; margin:0}
-
-    .tiles{display:grid; grid-template-columns: repeat(2, 1fr); gap:18px;}
-    .tile{
-      background:#fff;
-      border:1px solid rgba(16,16,24,.10);
-      border-radius:16px;
-      padding:18px;
-      min-height:170px;
-    }
-    .iconMark{
-      width:38px; height:38px; border-radius:10px;
-      border:1px solid rgba(16,16,24,.18);
-      display:grid; place-items:center;
-      position:relative;
-      background:#fff;
-      margin-bottom:12px;
-    }
-    .iconMark:after{
-      content:"";
-      position:absolute;
-      width:16px; height:16px;
-      border-radius:4px;
-      background:var(--accent);
-      right:-6px; bottom:-6px;
-      border:1px solid rgba(16,16,24,.18);
-    }
-    .tile h3{margin:0 0 8px; font-size:16px;}
-    .tile p{margin:0; color:rgba(16,16,24,.72); font-size:13px;}
-    .form-box{
-  width:100%;
-  max-width:420px;
-  padding:30px;
-  border-radius:18px;
-
-  /* glass style */
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(20px);
-
-  border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 20px 50px rgba(0,0,0,0.5);
-
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-
-/* inputs */
-.form-box input,
-.form-box textarea{
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,0.1);
-  background:rgba(255,255,255,0.05);
-  color:white;
-  outline:none;
-  transition:0.3s;
-}
-
-/* focus эффект */
-.form-box input:focus,
-.form-box textarea:focus{
-  border-color:#7c5cff;
-  box-shadow:0 0 10px rgba(124,92,255,0.5);
-}
-
-/* placeholder */
-.form-box input::placeholder,
-.form-box textarea::placeholder{
-  color:#aaa;
-}
-
-/* textarea */
-.form-box textarea{
-  min-height:120px;
-  resize:none;
-}
-
-/* button full width */
-.form-box button{
-  width:100%;
-}
-
-    /* ---------- Schedule + Gallery ---------- */
-    .twoCol{display:grid; grid-template-columns: 1fr 1fr; gap:22px;}
-    .panel{
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      padding:22px;
-    }
-    .panel h3{margin:0 0 10px; font-size:18px;}
-    .panel p{margin:0; color:rgba(245,247,255,.74)}
-
-    .galleryGrid{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;}
-    .ph{
-      height:170px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.35)),
-        radial-gradient(circle at 25% 20%, rgba(124,92,255,.22), rgba(0,0,0,0) 55%),
-        rgba(255,255,255,.05);
-      overflow:hidden;
-      position:relative;
-    }
-    .ph img{width:100%; height:100%; object-fit:cover; opacity:.88;}
-
-    /* ---------- Footer style from screenshot ---------- */
-    footer{
-      background:#050509;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-    .footerGrid{
-      display:grid;
-      grid-template-columns: 1fr 1px 1fr;
-      gap:34px;
-      padding:70px 0 56px;
-      align-items:start;
-    }
-    .vline{width:1px; background:rgba(255,255,255,.16); height:100%; justify-self:center;}
-
-    .footerLeft h2{font-size:54px; line-height:1.05; margin:0 0 18px; font-weight:600;}
-    .footerLeft .btn{border-radius:0; padding:14px 26px; border:1px solid rgba(255,255,255,.22); background:transparent;}
-    .footerLeft .btn:hover{background:rgba(255,255,255,.07)}
-
-    .footerRight{justify-self:end; width:min(520px,100%);}
-    .fCols{display:grid; grid-template-columns: 1fr 1fr; gap:26px;}
-    .fBlock h4{margin:0 0 10px; font-size:14px; color:rgba(245,247,255,.86)}
-    .fBlock p, .fBlock a{margin:0; color:rgba(245,247,255,.72); font-size:13px; display:block;}
-    .fBlock a{padding:4px 0; text-decoration:underline; text-underline-offset:3px;}
-
-    .footBottom{
-      display:flex; justify-content:space-between; align-items:center;
-      padding:18px 0;
-      border-top:1px solid rgba(255,255,255,.08);
-      color:rgba(245,247,255,.62);
-      font-size:12px;
-    }
-
-    .toTop{
-      width:44px; height:44px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      display:grid; place-items:center;
-      background:rgba(255,255,255,.06);
-    }
-    .toTop:hover{background:rgba(255,255,255,.10)}
-
-    /* ---------- Chat bubble (optional visual) ---------- */
-    .chatBubble{
-      position:fixed; right:22px; bottom:22px; z-index:60;
-      width:52px; height:52px; border-radius:14px;
-      background:var(--accent);
-      display:grid; place-items:center;
-      box-shadow: 0 16px 40px rgba(124,92,255,.34);
-      border:1px solid rgba(255,255,255,.18);
-      cursor:pointer;
-    }
-    .chatBubble svg{opacity:.95}
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 980px){
-      .heroGrid{grid-template-columns: 1fr;}
-      .courseGrid{grid-template-columns: repeat(2, 1fr);}
-      .aboutGrid{grid-template-columns: 1fr; min-height:auto; padding:70px 0;}
-      .aboutBox{justify-self:start;}
-      .whyGrid{grid-template-columns: 1fr;}
-      .galleryGrid{grid-template-columns: repeat(2, 1fr);}
-      .footerGrid{grid-template-columns: 1fr;}
-      .vline{display:none}
-      .footerRight{justify-self:start}
-    }
-    @media (max-width: 720px){
-      .nav{display:none;}
-      .navbtn{display:inline-flex;}
-      .hero h1{font-size:42px;}
-      .quote h2{font-size:38px;}
-      .title{font-size:36px;}
-      .courseGrid{grid-template-columns: 1fr;}
-      .tiles{grid-template-columns: 1fr;}
-      .twoCol{grid-template-columns: 1fr;}
-      .footerLeft h2{font-size:40px;}
-    }
-
-    /* Mobile menu */
-    .mobileMenu{
-      display:none;
-      position:fixed; inset:74px 0 auto 0;
-      background:rgba(10,10,14,.92);
-      border-bottom:1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      z-index:49;
-    }
-    .mobileMenu a{display:block; padding:14px 28px; color:rgba(245,247,255,.86)}
-    .mobileMenu a:hover{background:rgba(255,255,255,.06)}
-    .mobileMenu.open{display:block}
-  </style>
+</style>
 </head>
 <body>
 
-  <!-- Collapsible cursor-reactive guide bar -->
- 
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 26 26" fill="none">
+      <line x1="13" y1="1" x2="13" y2="25" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="1" y1="13" x2="25" y2="13" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="4" y1="4" x2="22" y2="22" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="22" y1="4" x2="4" y2="22" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+    Gerelt Solutions
+  </div>
+  <div></div>
+  <div class="nav-links">
+    <a href="#about">Бидний тухай</a>
+    <a href="#services">Үйлчилгээ</a>
+    <a href="#pricing">Үнэ</a>
+    <a href="#contact">Холбоо</a>
+    <button class="nav-admin" onclick="openAdmin()">⚙ Админ</button>
+  </div>
+</nav>
 
-  <div class="pageWrap"></div>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Бидэнтэй холбоо барина уу</span><span>Вэб хөгжүүлэлт</span><span>Мобайл апп</span><span>QPay холболт</span><span>IT Дэмжлэг</span><span>Дижитал шийдэл</span><span>UI/UX Дизайн</span><span>Клоуд үйлчилгээ</span><span>Бидэнтэй холбоо барина уу</span><span>Вэб хөгжүүлэлт</span><span>Мобайл апп</span><span>QPay холболт</span><span>IT Дэмжлэг</span><span>Дижитал шийдэл</span><span>UI/UX Дизайн</span><span>Клоуд үйлчилгээ</span>
+  </div>
+</div>
 
-  <!-- Top Nav -->
-  <header class="topbar" aria-label="Site header">
-    <div class="container inner">
-     <a class="brand" href="#home">
-  <img src="images/logo.png.png" alt="Gerelt Logo" style="width:42px; height:42px; border-radius:10px;">
-  <span>
-    <b>Gerelt Solutions</b>
-    <small>Цахими шийдэл, хэвлэлийн үйлчилгээ</small>
+<!-- HERO -->
+<div class="hero-title">
+  <h1>Таны бизнесийг<br>дижитал болгоё</h1>
+</div>
+<div class="hero-sub">
+  <div class="hero-sub-left">
+    <p>Gerelt Solutions нь Монголын бизнесүүдэд орчин үеийн вэб, мобайл болон IT шийдэл хүргэдэг. Таны санааг бодит бүтээгдэхүүн болгоно — эхнээс нь эцэс хүртэл.</p>
+  </div>
+  <div class="hero-sub-right">
+    <a href="#pricing" class="btn">Үнийн санал авах →</a>
+  </div>
+</div>
+
+<!-- GRADIENT BLOB -->
+<div class="blob"><div class="blob-bg"></div></div>
+
+<!-- ABOUT -->
+<div id="about" class="about">
+  <div class="about-left">
+    <h2>Бидний<br>тухай</h2>
+  </div>
+  <div class="about-right">
+    <p>Гэрэлт Шийдэл (Gerelt Solutions) нь Монгол Улсын дижитал хөгжлийн нэг хэсэг болж, хөгжил дэвшилд хөл нийлүүлэн ажилладаг.</p>
+    <p><strong>Манай зорилго:</strong><br>— Технологоор дамжуулан бизнесийн үр өгөөжийг нэмэгдүүлэх<br>— Цогц шийдлийг нэг дороос үзүүлэх</p>
+    <p>Манай баг нь таны хэрэгцээнд нийцсэн технологийн шийдлийг санал болгохоос гадна, график дизайн болон хэвлэлийн үйлчилгээ үзүүлдэг. Вэб апп, мобайл апп, e-commerce систем, график дизайн, хэвлэл.</p>
+    <a href="#contact" class="btn" style="margin-top:.5rem;display:inline-block;">Холбоо барих →</a>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div id="services">
+  <div class="svc-label">Бидний үйлчилгээ</div>
+  <div class="svc-row">
+    <div class="svc-arrow">
+      <svg viewBox="0 0 72 72" fill="none"><path d="M8 8 L64 64 M64 64 L64 28 M64 64 L28 64" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="svc-body">
+      <h3>Вэб хөгжүүлэлт</h3>
+      <p>Орчин үеийн, хурдан, мобайл бүрэн нийцтэй вэбсайт болон веб аппликейшн хөгжүүлэлт. React, Next.js ашиглан өндөр гүйцэтгэлтэй шийдэл бүтээнэ.</p>
+      <span class="svc-tag">React · Next.js · Node.js</span>
+    </div>
+  </div>
+  <div class="svc-row">
+    <div class="svc-arrow">
+      <svg viewBox="0 0 72 72" fill="none"><path d="M8 8 L64 64 M64 64 L64 28 M64 64 L28 64" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="svc-body">
+      <h3>Мобайл аппликейшн</h3>
+      <p>iOS болон Android платформд нэгэн зэрэг ажиллах мобайл апп хөгжүүлэлт. Хэрэглэгчдэд таатай UX дизайн бүхий React Native болон Flutter шийдэл.</p>
+      <span class="svc-tag">React Native · Flutter · iOS · Android</span>
+    </div>
+  </div>
+  <div class="svc-row">
+    <div class="svc-arrow">
+      <svg viewBox="0 0 72 72" fill="none"><path d="M8 8 L64 64 M64 64 L64 28 M64 64 L28 64" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="svc-body">
+      <h3>Онлайн дэлгүүр &amp; QPay</h3>
+      <p>QPay болон SocialPay бүрэн холбосон e-commerce платформ. Бараа, захиалга, хүргэлт, тооцооны иж бүрэн систем.</p>
+      <span class="svc-tag">E-Commerce · QPay · SocialPay</span>
+    </div>
+  </div>
+  <div class="svc-row" style="border-bottom:1.5px solid #111;">
+    <div class="svc-arrow">
+      <svg viewBox="0 0 72 72" fill="none"><path d="M8 8 L64 64 M64 64 L64 28 M64 64 L28 64" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="svc-body">
+      <h3>IT Дэмжлэг &amp; Клоуд</h3>
+      <p>Серверийн тохиргоо, аюулгүй байдлын аудит, AWS/GCP клоуд дэд бүтэц, 24/7 техник дэмжлэг. Тасралтгүй ажиллагааг хангана.</p>
+      <span class="svc-tag">AWS · GCP · DevOps · 24/7</span>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- PRICING -->
+<div id="pricing">
+  <div class="pricing-hd"><h2>Бодит, уян хатан үнэ</h2></div>
+  <div class="pricing-grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="pcol">
+      <div class="pname">Бэлэн загвар</div>
+      <div class="pamount" style="font-size:clamp(1.2rem,2.5vw,1.8rem);">₮300,000–500,000</div>
+      <div class="pperiod">Нэг удаагийн төлбөр</div>
+      <div class="pdesc">Хурдан, бэлэн загварт суурилсан вэбсайт</div>
+      <ul class="plist">
+        <li><span class="ck">✓</span> Бэлэн загвар сонгох</li>
+        <li><span class="ck">✓</span> Мобайл нийцтэй</li>
+        <li><span class="ck">✓</span> Агуулга оруулах</li>
+        <li><span class="ck">✓</span> Хурдан хүргэлт</li>
+        <li><span class="xk">—</span> QPay холболт</li>
+        <li><span class="xk">—</span> Админ панел</li>
+      </ul>
+      <button class="btn full" onclick="openMethod('Бэлэн загвар','300,000–500,000')">Захиалах →</button>
+    </div>
+    <div class="pcol">
+      <div class="pname">Basic багц</div>
+      <div class="pamount" style="font-size:clamp(1.2rem,2.5vw,1.8rem);">₮500,000–1,500,000</div>
+      <div class="pperiod">Нэг удаагийн төлбөр</div>
+      <div class="pdesc">Жижиг бизнес болон хувиараа бизнес эрхлэгчдэд</div>
+      <ul class="plist">
+        <li><span class="ck">✓</span> Захиалгат вэбсайт</li>
+        <li><span class="ck">✓</span> Мобайл нийцтэй дизайн</li>
+        <li><span class="ck">✓</span> Холбоо барих форм</li>
+        <li><span class="ck">✓</span> 1 сарын техник дэмжлэг</li>
+        <li><span class="xk">—</span> QPay холболт</li>
+        <li><span class="xk">—</span> Админ панел</li>
+      </ul>
+      <button class="btn full" onclick="openMethod('Basic багц','500,000–1,500,000')">Захиалах →</button>
+    </div>
+    <div class="pcol feat">
+      <div class="pname">★ Хамгийн их сонгосон</div>
+      <div class="pamount" style="font-size:clamp(1.2rem,2.5vw,1.8rem);">₮2,500,000–3,500,000</div>
+      <div class="pperiod">Нэг удаагийн төлбөр</div>
+      <div class="pdesc">Өсөн нэмэгдэж буй бизнест зориулсан иж бүрэн шийдэл</div>
+      <ul class="plist">
+        <li><span class="ck">✓</span> Вэбсайт хөгжүүлэлт</li>
+        <li><span class="ck">✓</span> QPay, SocialPay холболт</li>
+        <li><span class="ck">✓</span> Админ удирдлагын панел</li>
+        <li><span class="ck">✓</span> SEO оновчлол</li>
+        <li><span class="ck">✓</span> 3 сарын техник дэмжлэг</li>
+        <li><span class="ck">✓</span> Хурдны оновчлол</li>
+      </ul>
+      <button class="btn dark full" onclick="openMethod('Pro багц','2,500,000–3,500,000')">Захиалах →</button>
+    </div>
+    <div class="pcol">
+      <div class="pname">Enterprise багц</div>
+      <div class="pamount" style="font-size:clamp(1.2rem,2.5vw,1.8rem);">₮4,000,000+</div>
+      <div class="pperiod">Нэг удаагийн төлбөр</div>
+      <div class="pdesc">Томоохон байгууллага, нарийн хэрэгцээтэй захиалгат шийдэл</div>
+      <ul class="plist">
+        <li><span class="ck">✓</span> Бүрэн захиалгат хөгжүүлэлт</li>
+        <li><span class="ck">✓</span> iOS + Android апп</li>
+        <li><span class="ck">✓</span> Бүх төлбөрийн систем</li>
+        <li><span class="ck">✓</span> Клоуд байршуулалт</li>
+        <li><span class="ck">✓</span> 12 сарын техник дэмжлэг</li>
+        <li><span class="ck">✓</span> Хариуцлагатай менежер</li>
+      </ul>
+      <button class="btn full" onclick="openMethod('Enterprise багц','4,000,000+')">Захиалах →</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-hd"><h2>Хамт<br>дэвшицгээе.</h2></div>
+  <div class="contact-body">
+    <div class="c-form">
+      <h3>Захиалга илгээх</h3>
+      <div class="fg-row">
+        <div class="fg"><label>Нэр</label><input type="text" placeholder="Таны нэр"></div>
+        <div class="fg"><label>Утас</label><input type="tel" placeholder="+976"></div>
+      </div>
+      <div class="fg"><label>Имэйл</label><input type="email" placeholder="example@mail.com"></div>
+      <div class="fg">
+        <label>Үйлчилгээ</label>
+        <select>
+          <option>Вэб хөгжүүлэлт</option>
+          <option>Мобайл аппликейшн</option>
+          <option>Онлайн дэлгүүр &amp; QPay</option>
+          <option>IT Дэмжлэг</option>
+          <option>UI/UX Дизайн</option>
+          <option>Бусад</option>
+        </select>
+      </div>
+      <div class="fg"><label>Мессеж</label><textarea placeholder="Төслийнхөө талаар товч дурдна уу..."></textarea></div>
+      <button class="btn dark" style="width:100%;" onclick="alert('Таны захиалга хүлээн авлаа!\n\n24 цагийн дотор холбоо барина.')">Илгээх →</button>
+    </div>
+    <div class="c-info">
+      <div class="ci"><strong>Улаанбаатар хаяг</strong><span>БЗД, 7-р хороо 38А-М8</span></div>
+      <div class="ci"><strong>Дорнод хаяг</strong><span>Хэрлэн, 11-р баг 219/1-B2</span></div>
+      <div class="ci"><strong>Утас</strong><span>+976 7210-0262 · +976 7223-7326</span></div>
+      <div class="ci"><strong>Имэйл</strong><span>gereltsolutions01@gmail.com</span></div>
+      <div class="ci"><strong>Ажлын цаг</strong><span>Даваа – Баасан, 08:00 – 18:00</span></div>
+      <div class="ci"><strong>Онлайн дэмжлэг</strong><span>Чатаар 24/7 хүсэлт хүлээн авна</span></div>
+      <div style="margin-top:2.5rem;padding-top:2rem;border-top:1.5px solid #eee;">
+        <p style="font-size:.82rem;color:#aaa;line-height:1.75;">Ажлын цагаар 08:00–18:00, чатаар 24/7 хүсэлт хүлээн авна. Хурдан, найдвартай.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>© 2026 Gerelt Solutions. Бүх эрх хамгаалагдсан.</span>
+  <span style="display:flex;gap:1.5rem;">
+    <a href="#services">Үйлчилгээ</a>
+    <a href="#pricing">Үнэ</a>
+    <a href="#contact">Холбоо</a>
   </span>
-</a>
+</div>
 
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#about">Бидний тухай</a>
-        <a href="#programs">Үйлчилгээ</a>
-        <a href="#contact">Холбоо барих</a>
-      </nav>
-
-      <button class="navbtn" id="navbtn" aria-label="Open menu">
-        ☰
+<!-- PAYMENT METHOD SELECTOR -->
+<div class="mbg" id="methodModal">
+  <div class="mbox">
+    <button class="mclose" onclick="closeMethod()">×</button>
+    <h3>Төлбөрийн арга</h3>
+    <p class="msub" id="mDesc0">Бизнес багц</p>
+    <div class="amtbox">
+      <div class="av" id="mAmt0">₮2,490,000</div>
+      <small>Доорх аргаас сонгоно уу</small>
+    </div>
+    <div style="display:grid;gap:.8rem;margin-bottom:1rem;">
+      <button class="method-btn" onclick="pickQPay()">
+        <div class="method-icon" style="background:#1a56db;">Q</div>
+        <div class="method-info"><strong>QPay</strong><span>Монгол банкны QR төлбөр</span></div>
+        <div class="method-arrow">→</div>
+      </button>
+      <button class="method-btn" onclick="pickCard()">
+        <div class="method-icon" style="background:#111;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#fff" stroke-width="2"/><line x1="2" y1="10" x2="22" y2="10" stroke="#fff" stroke-width="2"/></svg>
+        </div>
+        <div class="method-info"><strong>Олон улсын карт</strong><span>Visa · Mastercard · Amex</span></div>
+        <div class="method-arrow">→</div>
       </button>
     </div>
-
-    <div class="mobileMenu" id="mmenu" aria-label="Mobile navigation">
-      <a href="#about">Бидний тухай</a>
-      <a href="#programs">Үйлчилгээ</a>
-      <a href="#contact">Холбоо барих</a>
+    <div style="display:flex;align-items:center;gap:.5rem;justify-content:center;margin-top:.5rem;">
+      <svg width="20" height="14" viewBox="0 0 48 32" fill="none"><rect width="48" height="32" rx="4" fill="#1A1F71"/><circle cx="19" cy="16" r="10" fill="#EB001B"/><circle cx="29" cy="16" r="10" fill="#F79E1B"/><path d="M24 8.5a10 10 0 0 1 0 15A10 10 0 0 1 24 8.5z" fill="#FF5F00"/></svg>
+      <svg width="26" height="16" viewBox="0 0 60 38" fill="none"><rect width="60" height="38" rx="5" fill="#EB001B"/><circle cx="23" cy="19" r="12" fill="#EB001B" stroke="#fff" stroke-width="2"/><circle cx="37" cy="19" r="12" fill="#F79E1B" stroke="#fff" stroke-width="2"/></svg>
+      <svg width="30" height="14" viewBox="0 0 60 28" fill="none"><rect width="60" height="28" rx="4" fill="#016FD0"/><text x="6" y="20" font-family="Arial" font-weight="900" font-size="16" fill="#fff">AMEX</text></svg>
+      <svg width="28" height="14" viewBox="0 0 56 28" fill="none"><rect width="56" height="28" rx="4" fill="#231F20"/><text x="5" y="20" font-family="Arial" font-weight="700" font-size="13" fill="#fff">UNION</text></svg>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <main id="home" class="hero">
-    <div class="container heroGrid">
-      <div>
-        <h1 data-txt="reveal">ТАНЫ АМАР СОНГОЛТ! </h1>
-        <p data-txt="reveal">
-          Бид таны хэрэгцээнд нийцсэн брэнд өнгө төрх, медиа, веб хөгжүүлэлт болон
-      хэвлэлийн бүх төрлийн үйлчилгээг нэг дор шийдэж өгнө.
-        </p>
-        <div class="ctaRow">
-          <a class="btn primary" href="#contact">Бүртгүүлэх / Холбогдох</a>
-          <a class="btn" href="#programs">Үйлчилгээ</a>
-        </div>
-      </div>
-
-     
-    </div>
-
-    
-  </main>
-
-  <!-- Quote / Cover section -->
-  <section class="darkCover">
-    <div class="container quote">
-      <h2 data-txt="reveal">График дизайнаас бэлэн бүтээгдэхүүн хүртэл бүрэн үйлчилгээг нэг газраас! </p>
-    </div>
-  </section>
-
-  <!-- Programs / Courses (dark) -->
-  <section id="programs" class="section courses">
-    <div class="container">
-      <div class="coursesHead">
-        <h2 data-txt="reveal">Үйлчилгээний төрлүүд</h2>
-        <p data-txt="reveal">Сургалт болон бүтээгдэхүүн гүйцэтгэл </p>
-      </div>
-
-      <div class="courseGrid" role="list">
-        <article class="courseCard" role="listitem">
-          <div>
-            <h3>График дизайн</h3>
-            <p>Бүх төрлийн дизайн, брэндинг, шийдэл / сургалт, үйлчилгээ.</p>
-          </div>
-          <a class="pillBtn" href="https://1gereltacademy-cpu.github.io/gereltacademy/" target="_blank">
-  Дэлгэрэнгүй
-</a>
-        </article>
-
-        <article class="courseCard" role="listitem">
-          <div>
-            <h3> Social контент видео эвлүүлэг сургалт</h3>
-            <p>Зураг авалт, видео хийх, эвлүүлэг сургалт, үйлчилгээ  </p>
-          </div>
-          <a class="pillBtn" href="https://1gereltacademy-cpu.github.io/gereltacademy/" target="_blank">
-  Дэлгэрэнгүй
-</a>
-        </article>
-
-        <article class="courseCard" role="listitem">
-          <div>
-            <h3>Вэб сайт</h3>
-            <p>Бүх төрлийн вэб хийх үйлчилгээ </p>
-          </div>
-          <a class="pillBtn" href="#contact">Дэлгэрэнгүй</a>
-        </article>
-
-        <article class="courseCard" role="listitem">
-          <div>
-            <h3>Хэвлэл</h3>
-            <p>Хэвлэлийн бүх төрлийн үйлчилгээ, оффсэт хэвлэл</p>
-          </div>
-          <a class="pillBtn" href="#contact">Дэлгэрэнгүй</a>
-        </article>
-
-      
-      </div>
-    </div>
-  </section>
-
-  <!-- About banner -->
-  <section id="about" class="section aboutBanner">
-    <div class="container aboutGrid">
-      <div>
-        <h2 class="aboutTitle" data-txt="reveal">Gerelt Solutions</h2>
-        <p class="aboutSub">Таны цаг зав, санхүүд ээлтэй цогц шийдлийг санал болгож тогтвортой хамтран ажиллах нь бидний зорилт. </p>
-      </div>
-
-      <div class="aboutBox">
-        <p>
-          Бид бүтээгдэхүүн гүйцэтгэлийн үйлчилгээ үзүүлэхээс гадна. Цахим сургалт, хичээл, технолгийн анхан, дунд шатны сургалтыг үзүүлж байна.
-        </p>
-       
-        <a class="btn" href="#contact" style="border-radius:0; padding:14px 22px;">Дэлгэрэнгүй</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why choose (light section like screenshot) -->
-  <section class="section light" id="why">
-    <div class="container">
-      <div class="whyGrid">
-        <div class="whyBig">
-          <h2 data-txt="reveal">Яагаад биднийг сонгох вэ?</h2>
-          <p class="muted" style="margin-top:12px; max-width:52ch;">
-            Биднийг сонгох үндсэн шалтгаан
-          </p>
-        </div>
-
-        <div class="tiles">
-          <div class="tile">
-            <div class="iconMark" aria-hidden="true"></div>
-            <h3>Цаг хэмнэнэ </h3>
-            <p>Олон газарт хандаж тус тусын үйлчилгээг хүлээх, тус бүрт нь мэдээлэл хүргэх шаардлагагүй</p>
-          </div>
-
-
-          <div class="tile">
-            <div class="iconMark" aria-hidden="true"></div>
-            <h3>Цогц шийдэл</h3>
-            <p>Үйлчлүүлэгчийн хүсэлт шийдлүүдийг нэг газар цогцоор нь хийж гүйцэтгэх нь бүтээгдэхүүний үр дүн нийцэлд хамгийн сайн.</p>
-          </div>
-
-          <div class="tile">
-            <div class="iconMark" aria-hidden="true"></div>
-            <h3>Санхүүгийн хэмнэлт </h3>
-            <p>Бид танд зах зээлийн хамгийн боломжит үнийн дүнг санал болгож байна.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Schedule + Gallery -->
- 
-  
-
-      
-      <div class="galleryGrid">
-        <div class="ph"><img alt="Gallery" src="images/Graphic.webp" /></div>
-        <div class="ph"><img alt="Gallery" src="images/media.webp" /></div>
-        <div class="ph"><img alt="Gallery" src="images/web.webp" /></div>
-        <div class="ph"><img alt="Gallery" src="images/Printing.webp" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer (split like Wix screenshot) -->
-  <footer id="contact">
-    <div class="container footerGrid">
-      <div class="footerLeft">
-        <h2 data-txt="reveal">Амар шийдэл!</h2>
-        <p>Дэлгэрэнгүй мэдээлэл, үнийн санал зэргийг утасны дугаар болон Fb чат, цахим шуудангаар хүлээн аваарай.</p>
-        <a class="btn" href="#home">Дээш буцах</a>
-      </div>
-
-      <div class="vline" aria-hidden="true"></div>
-
-      <div class="footerRight">
-        <div class="fCols">
-          <div class="fBlock">
-            <h4>Мэдээлэл</h4>
-            <p>Утас: +976 72100262</p>
-            <p>И-мэйл: gereltsolutions@gmail.com </p>
-          </div>
-
-         
-
-          <div class="fBlock">
-            <h4>Дагах</h4>
-            <a href="#" onclick="return false">Facebook</a>
-            <a href="#" onclick="return false">Instagram</a>
-          
-          </div>
-
-          <div class="fBlock">
-            <h4>Үйлчилгээ</h4>
-            <a href="#programs">Үйлчилгээ</a>
-          
-          </div>
-        </div>
-      </div>
-    </div>
-<section style="display:flex; justify-content:center; align-items:center; padding:80px 20px;">
-
-  <div class="form-box">
-
-    <h2 style="text-align:center;">Холбоо барих<br>үнийн санал авах</h2>
-
-    <form id="contactForm">
-
-      <input type="text" name="name" placeholder="Нэр" required>
-      <input type="text" name="phone" placeholder="Утас">
-      <input type="email" name="email" placeholder="И-мэйл" required>
-      <textarea name="message" placeholder="Мессеж"></textarea>
-
-      <button type="submit" class="btn primary">Илгээх</button>
-
-    </form>
-
+    <p style="font-size:.7rem;color:#bbb;text-align:center;margin-top:.5rem;">🔒 SSL шифрлэлтээр хамгаалагдсан</p>
   </div>
+</div>
 
-</section>
-    <div class="container footBottom">
-      <span>© <span id="y"></span> Gerelt Solutions Бүх эрх хуулиар хамгаалагдсан.</span>
-      <a class="toTop" href="#home" aria-label="Back to top">↑</a>
+<!-- QPAY MODAL -->
+<div class="mbg" id="payModal">
+  <div class="mbox">
+    <button class="mclose" onclick="closePay()">←</button>
+    <h3>QPay Төлбөр</h3>
+    <p class="msub" id="mDesc">Бизнес багц</p>
+    <div class="amtbox">
+      <div class="av" id="mAmt">₮2,490,000</div>
+      <small>QPay — Монгол банкны төлбөрийн систем</small>
     </div>
-   
-  </footer>
-
-  <!-- Optional floating chat icon (visual) -->
-  <div class="chatBubble" title="Chat" onclick="alert('Холбоо барих: info@yourdomain.mn');">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M7 8h10M7 12h7M21 12c0 4.418-4.03 8-9 8-1.1 0-2.15-.17-3.12-.49L3 20l1.6-4.06C3.6 14.6 3 13.36 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <div class="qrbox">
+      <canvas id="qrC" width="180" height="180"></canvas>
+      <p>Банкны аппаараа QR уншуулна уу</p>
+    </div>
+    <ol class="msteps">
+      <li><span class="msn">1</span>Банкны аппаа нээж QPay хэсгийг нээнэ</li>
+      <li><span class="msn">2</span>Дээрх QR кодыг камераараа уншуулна</li>
+      <li><span class="msn">3</span>Дүнг шалгаад төлбөрийг баталгаажуулна</li>
+    </ol>
+    <button class="mbtn" onclick="confirmPay()">✓ Төлбөр хийлээ — баталгаажуулах</button>
   </div>
+</div>
 
-  <script>
-    // ===== Text reveal animation (match your example video) =====
-    function splitIntoWords(el){
-      if (el.dataset.splitDone === '1') return;
-      const text = el.textContent.trim();
-      const words = text.split(' ');
-      el.textContent = '';
-      words.forEach((w, idx) => {
-        const span = document.createElement('span');
-        span.className = 'w';
-        span.style.setProperty('--i', String(idx));
-        span.textContent = w;
-        el.appendChild(span);
-        if (idx !== words.length - 1) el.appendChild(document.createTextNode(' '));
-      });
-      el.dataset.splitDone = '1';
-    }
+<!-- CARD MODAL -->
+<div class="mbg" id="cardModal">
+  <div class="mbox" style="max-width:420px;">
+    <button class="mclose" onclick="closeCard()">←</button>
+    <h3>Картаар төлөх</h3>
+    <p class="msub" id="cDesc">Бизнес багц</p>
 
-    (function initTextReveal(){
-      const els = Array.from(document.querySelectorAll('[data-txt="reveal"]'));
-      if (!els.length) return;
-      els.forEach(splitIntoWords);
+    <!-- CARD PREVIEW -->
+    <div class="card-preview" id="cardPreview">
+      <div class="card-chip">
+        <svg width="28" height="22" viewBox="0 0 28 22"><rect width="28" height="22" rx="3" fill="#d4af37"/><rect x="9" y="0" width="10" height="22" fill="#c9a227" opacity=".5"/><rect x="0" y="7" width="28" height="8" fill="#c9a227" opacity=".5"/><rect x="9" y="7" width="10" height="8" fill="#b8900e" opacity=".6"/></svg>
+      </div>
+      <div class="card-number-display" id="cNumDisplay">•••• •••• •••• ••••</div>
+      <div class="card-bottom">
+        <div><div class="card-label">Карт эзэмшигч</div><div class="card-holder" id="cHolderDisplay">ТАНЫ НЭР</div></div>
+        <div><div class="card-label">Дуусах</div><div class="card-holder" id="cExpDisplay">MM/YY</div></div>
+        <div class="card-brand-icon" id="cBrandIcon"></div>
+      </div>
+    </div>
 
-      const enableOut = true; // set false if you only want appear once
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-          const el = entry.target;
-          if (entry.isIntersecting){
-            el.classList.add('in');
-            el.classList.remove('out');
-          } else if (enableOut){
-            el.classList.remove('in');
-            el.classList.add('out');
-          }
-        });
-      }, { threshold: 0.22, rootMargin: '0px 0px -12% 0px' });
+    <div class="amtbox" style="margin-top:1rem;">
+      <div class="av" id="cAmt">₮2,490,000</div>
+      <small>Олон улсын карт — Visa · Mastercard · Amex</small>
+    </div>
 
-      els.forEach(el => io.observe(el));
-    })();
+    <div class="fg" style="margin-top:1rem;">
+      <label>Картын дугаар</label>
+      <div style="position:relative;">
+        <input type="text" id="cNum" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)" style="border:1.5px solid #111;padding:.65rem .85rem;font-family:'Inter',sans-serif;font-size:.95rem;width:100%;outline:none;letter-spacing:.08em;">
+        <div id="cBrandBadge" style="position:absolute;right:.7rem;top:50%;transform:translateY(-50%);font-size:.65rem;font-weight:800;letter-spacing:.04em;color:#888;"></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
+      <div class="fg">
+        <label>Дуусах огноо</label>
+        <input type="text" id="cExp" placeholder="MM / YY" maxlength="7" oninput="formatExp(this)" style="border:1.5px solid #111;padding:.65rem .85rem;font-family:'Inter',sans-serif;font-size:.9rem;width:100%;outline:none;">
+      </div>
+      <div class="fg">
+        <label>CVV / CVC</label>
+        <input type="password" id="cCvv" placeholder="•••" maxlength="4" oninput="this.value=this.value.replace(/\D/g,'')" style="border:1.5px solid #111;padding:.65rem .85rem;font-family:'Inter',sans-serif;font-size:.9rem;width:100%;outline:none;letter-spacing:.2em;">
+      </div>
+    </div>
+    <div class="fg">
+      <label>Карт эзэмшигчийн нэр</label>
+      <input type="text" id="cHolder" placeholder="BOLD GANTULGA" oninput="document.getElementById('cHolderDisplay').textContent=this.value.toUpperCase()||'ТАНЫ НЭР'" style="border:1.5px solid #111;padding:.65rem .85rem;font-family:'Inter',sans-serif;font-size:.9rem;width:100%;outline:none;text-transform:uppercase;">
+    </div>
 
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    <div style="display:flex;align-items:center;gap:.4rem;margin:.8rem 0;padding:.7rem;background:#f8f9fa;border:1px solid #e5e7eb;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z" fill="#16a34a" opacity=".2" stroke="#16a34a" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="font-size:.72rem;color:#666;">SSL шифрлэлтээр хамгаалагдсан · PCI DSS нийцтэй</span>
+    </div>
 
-    // Guide bar: cursor-reactive glow + collapse
-    
+    <button class="mbtn" id="payCardBtn" onclick="submitCard()" style="background:#111;">
+      <span id="cardBtnTxt">Төлбөр хийх →</span>
+    </button>
+    <p style="font-size:.7rem;color:#bbb;text-align:center;margin-top:.6rem;">Картын мэдээлэл шифрлэгдэж дамжигдана</p>
+  </div>
+</div>
 
-    // Mobile menu
-    const btn = document.getElementById('navbtn');
-    const menu = document.getElementById('mmenu');
-    btn.addEventListener('click', () => menu.classList.toggle('open'));
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+<!-- ADMIN OVERLAY -->
+<div class="abg" id="adminBg">
+  <div id="aLogin">
+    <div class="anav"><h2>⚙ Gerelt Solutions — Удирдлагын систем</h2><button class="btn" style="font-size:.78rem;padding:.4rem .9rem;" onclick="closeAdmin()">✕ Гарах</button></div>
+    <div class="alogin">
+      <h2>Нэвтрэх</h2>
+      <p>Зөвхөн зөвшөөрөлтэй хэрэглэгчид нэвтэрнэ</p>
+      <div class="fg"><label>Нэвтрэх нэр</label><input type="text" id="aU" placeholder="admin"></div>
+      <div class="fg"><label>Нууц үг</label><input type="password" id="aP" placeholder="••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <button class="btn dark" style="width:100%;margin-top:.5rem;" onclick="doLogin()">Нэвтрэх →</button>
+      <p style="font-size:.72rem;color:#bbb;margin-top:1rem;text-align:center;">Туршилт: admin / admin123</p>
+    </div>
+  </div>
+  <div id="aDash" style="display:none;">
+    <div class="anav"><h2>📊 Удирдлагын самбар — Gerelt Solutions</h2><button class="btn" style="font-size:.78rem;padding:.4rem .9rem;" onclick="closeAdmin()">✕ Гарах</button></div>
+    <div class="abody">
+      <div class="astats">
+        <div class="astat"><div class="av">₮14.2M</div><div class="al">Нийт орлого</div><div class="ac">↑ 12% энэ сар</div></div>
+        <div class="astat"><div class="av">38</div><div class="al">Нийт захиалга</div><div class="ac">↑ 5 шинэ</div></div>
+        <div class="astat"><div class="av">7</div><div class="al">Хүлээгдэж буй</div><div class="ac" style="color:#a16207;">⏳ Хариу хүлээж</div></div>
+        <div class="astat"><div class="av">124</div><div class="al">Хэрэглэгч</div><div class="ac">↑ 18 шинэ</div></div>
+      </div>
+      <div class="atabs">
+        <button class="atab on" onclick="aTab('orders',this)">Захиалгууд</button>
+        <button class="atab" onclick="aTab('payments',this)">Төлбөрүүд</button>
+        <button class="atab" onclick="aTab('messages',this)">Мессежүүд</button>
+        <button class="atab" onclick="aTab('settings',this)">Тохиргоо</button>
+      </div>
+      <div class="apane on" id="ap-orders">
+        <table class="atable">
+          <tr><th>#</th><th>Хэрэглэгч</th><th>Үйлчилгээ</th><th>Дүн</th><th>Огноо</th><th>Төлөв</th></tr>
+          <tr><td>#038</td><td>Б. Батбаяр</td><td>Бизнес вэбсайт</td><td>₮2,490,000</td><td>2026-05-13</td><td><span class="bdg g">Төлсөн</span></td></tr>
+          <tr><td>#037</td><td>Д. Оюунцэцэг</td><td>Мобайл апп</td><td>₮5,900,000</td><td>2026-05-12</td><td><span class="bdg y">Хүлээгдэж</span></td></tr>
+          <tr><td>#036</td><td>М. Ганболд</td><td>Онлайн дэлгүүр</td><td>₮2,490,000</td><td>2026-05-11</td><td><span class="bdg g">Төлсөн</span></td></tr>
+          <tr><td>#035</td><td>Э. Мөнхбаяр</td><td>Эхлэх вэбсайт</td><td>₮890,000</td><td>2026-05-10</td><td><span class="bdg g">Төлсөн</span></td></tr>
+          <tr><td>#034</td><td>Г. Соронзонболд</td><td>IT Дэмжлэг</td><td>₮500,000</td><td>2026-05-09</td><td><span class="bdg b">Шинэ</span></td></tr>
+        </table>
+      </div>
+      <div class="apane" id="ap-payments">
+        <table class="atable">
+          <tr><th>Гүйлгээ</th><th>Хэрэглэгч</th><th>Дүн</th><th>Арга</th><th>Огноо</th><th>Төлөв</th></tr>
+          <tr><td>TXN-4521</td><td>Б. Батбаяр</td><td>₮2,490,000</td><td>QPay</td><td>2026-05-13</td><td><span class="bdg g">Амжилттай</span></td></tr>
+          <tr><td>TXN-4520</td><td>М. Ганболд</td><td>₮2,490,000</td><td>QPay</td><td>2026-05-11</td><td><span class="bdg g">Амжилттай</span></td></tr>
+          <tr><td>TXN-4519</td><td>Э. Мөнхбаяр</td><td>₮890,000</td><td>QPay</td><td>2026-05-10</td><td><span class="bdg g">Амжилттай</span></td></tr>
+          <tr><td>TXN-4518</td><td>Д. Оюунцэцэг</td><td>₮5,900,000</td><td>QPay</td><td>2026-05-12</td><td><span class="bdg y">Хүлээгдэж</span></td></tr>
+        </table>
+      </div>
+      <div class="apane" id="ap-messages">
+        <table class="atable">
+          <tr><th>Нэр</th><th>Имэйл</th><th>Үйлчилгээ</th><th>Огноо</th><th>Төлөв</th></tr>
+          <tr><td>Б. Нарантуяа</td><td>naran@mail.mn</td><td>Вэб хөгжүүлэлт</td><td>2026-05-13</td><td><span class="bdg b">Шинэ</span></td></tr>
+          <tr><td>Т. Энхжаргал</td><td>enkh@biz.mn</td><td>Мобайл апп</td><td>2026-05-12</td><td><span class="bdg g">Хариусан</span></td></tr>
+          <tr><td>Д. Баттулга</td><td>bat@corp.mn</td><td>Корпорат багц</td><td>2026-05-11</td><td><span class="bdg y">Хүлээгдэж</span></td></tr>
+        </table>
+      </div>
+      <div class="apane" id="ap-settings">
+        <div class="aform">
+          <h3>Ерөнхий тохиргоо</h3>
+          <div class="fg-row">
+            <div class="fg"><label>Компанийн нэр</label><input type="text" value="Gerelt Solutions"></div>
+            <div class="fg"><label>Утас</label><input type="text" value="+976 9900 0000"></div>
+          </div>
+          <div class="fg"><label>Имэйл</label><input type="email" value="info@gerelt-solutuions.com"></div>
+          <div class="fg"><label>QPay Merchant ID</label><input type="text" placeholder="Таны QPay merchant ID"></div>
+          <button class="btn dark" style="max-width:140px;" onclick="alert('Тохиргоо хадгалагдлаа!')">Хадгалах</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    // Demo subscribe
-    
-    </script>
-
-<!-- EmailJS -->
- <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-emailjs.init("N0oTmM7e5iHNXzmiT");
+let _curName='',_curAmt='';
+function openMethod(n,a){
+  _curName=n; _curAmt=a;
+  document.getElementById('mDesc0').textContent=n;
+  document.getElementById('mAmt0').textContent='₮'+a;
+  document.getElementById('methodModal').classList.add('open');
+}
+function closeMethod(){document.getElementById('methodModal').classList.remove('open');}
+function pickQPay(){
+  closeMethod();
+  document.getElementById('mDesc').textContent=_curName;
+  document.getElementById('mAmt').textContent='₮'+_curAmt;
+  document.getElementById('payModal').classList.add('open');
+  drawQR();
+}
+function pickCard(){
+  closeMethod();
+  document.getElementById('cDesc').textContent=_curName;
+  document.getElementById('cAmt').textContent='₮'+_curAmt;
+  document.getElementById('cardModal').classList.add('open');
+  document.getElementById('cNum').value='';
+  document.getElementById('cExp').value='';
+  document.getElementById('cCvv').value='';
+  document.getElementById('cHolder').value='';
+  document.getElementById('cNumDisplay').textContent='•••• •••• •••• ••••';
+  document.getElementById('cHolderDisplay').textContent='ТАНЫ НЭР';
+  document.getElementById('cExpDisplay').textContent='MM/YY';
+  document.getElementById('cBrandIcon').textContent='';
+  document.getElementById('cBrandBadge').textContent='';
+  document.getElementById('cardBtnTxt').textContent='Төлбөр хийх →';
+  document.getElementById('payCardBtn').disabled=false;
+  document.getElementById('payCardBtn').style.background='#111';
+}
+function closePay(){document.getElementById('payModal').classList.remove('open');}
+function closeCard(){document.getElementById('cardModal').classList.remove('open');}
+function confirmPay(){closePay();setTimeout(()=>alert('🎉 QPay төлбөр амжилттай!\n\n24 цагийн дотор холбоо барина.'),200);}
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbyXCMyGvSLDA7GJYP_SGvibWKb7v1oFWO6NaJy9YVLeJ5gZxkzmcR2yNoOkZJr-Ngk/exec";
+function formatCard(el){
+  let v=el.value.replace(/\D/g,'').substring(0,16);
+  el.value=v.replace(/(.{4})/g,'$1 ').trim();
+  const disp=v.padEnd(16,'•').replace(/(.{4})/g,'$1 ').trim();
+  document.getElementById('cNumDisplay').textContent=disp;
+  // detect brand
+  const b=v[0]==='4'?'VISA':v.substring(0,2)>='51'&&v.substring(0,2)<='55'?'MASTERCARD':v[0]==='3'&&(v[1]==='4'||v[1]==='7')?'AMEX':v.substring(0,4)==='6011'?'DISCOVER':'';
+  document.getElementById('cBrandIcon').textContent=b;
+  document.getElementById('cBrandBadge').textContent=b;
+}
+function formatExp(el){
+  let v=el.value.replace(/\D/g,'');
+  if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2,4);
+  el.value=v;
+  const raw=el.value.replace(/\D/g,'');
+  document.getElementById('cExpDisplay').textContent=raw.length>=2?raw.substring(0,2)+'/'+(raw.substring(2,4)||'YY'):'MM/YY';
+}
+function submitCard(){
+  const num=document.getElementById('cNum').value.replace(/\s/g,'');
+  const exp=document.getElementById('cExp').value.replace(/\s/g,'').replace('/','');
+  const cvv=document.getElementById('cCvv').value;
+  const holder=document.getElementById('cHolder').value.trim();
+  if(num.length<15){alert('Картын дугаарыг зөв оруулна уу.');return;}
+  if(exp.length<4){alert('Дуусах огноог оруулна уу.');return;}
+  if(cvv.length<3){alert('CVV кодыг оруулна уу.');return;}
+  if(!holder){alert('Карт эзэмшигчийн нэрийг оруулна уу.');return;}
+  const btn=document.getElementById('payCardBtn');
+  document.getElementById('cardBtnTxt').textContent='Боловсруулж байна...';
+  btn.disabled=true; btn.style.background='#555';
+  setTimeout(()=>{
+    closeCard();
+    setTimeout(()=>alert('🎉 Картын төлбөр амжилттай баталгаажлаа!\n\nГүйлгээний баримт таны имэйл рүү илгээгдлээ.\n\n24 цагийн дотор холбоо барина.'),200);
+  },2000);
+}
 
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const form = this;
-  const btn = form.querySelector("button");
-
-  btn.disabled = true;
-  btn.innerText = "Илгээж байна...";
-
-  const data = {
-    name: form.name.value,
-    phone: form.phone.value,
-    email: form.email.value,
-    message: form.message.value
-  };
-
-  emailjs.sendForm("service_lr9yh0n", "template_doy8lih", form)
-    .then(() => {
-      return fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data)
-      });
-    })
-    .then(() => {
-      alert("Амжилттай илгээгдлээ!");
-      form.reset();
-    })
-    .catch((err) => {
-      alert("Алдаа гарлаа!");
-      console.error(err);
-    })
-    .finally(() => {
-      btn.disabled = false;
-      btn.innerText = "Илгээх";
-    });
-});
+function drawQR(){
+  const c=document.getElementById('qrC'),x=c.getContext('2d');
+  x.fillStyle='#fff';x.fillRect(0,0,180,180);
+  const p=[[1,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1],[1,0,0,0,0,0,1,0,0,1,0,1,1,0,0,0,0,0,1],[1,0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1],[1,0,1,1,1,0,1,0,0,1,1,0,1,0,1,1,1,0,1],[1,0,1,1,1,0,1,0,1,0,0,1,1,0,1,1,1,0,1],[1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1],[1,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1],[0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0],[1,0,1,1,0,1,1,1,0,0,1,1,1,0,1,0,1,1,0],[0,1,0,0,1,0,0,1,1,0,1,0,0,1,0,1,0,0,1],[1,0,1,0,1,1,1,0,0,1,1,0,1,1,0,1,1,0,1],[0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0],[1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,0,1,1,1],[1,0,0,0,0,0,1,0,0,0,1,0,0,1,0,1,0,0,0],[1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,1,0,1,1],[1,0,1,1,1,0,1,0,0,1,0,0,0,1,0,0,1,0,0],[1,0,1,1,1,0,1,0,1,1,1,0,1,1,0,1,1,0,1],[1,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0],[1,1,1,1,1,1,1,0,1,0,1,1,0,1,1,0,1,0,1]];
+  x.fillStyle='#111';
+  p.forEach((row,r)=>row.forEach((col,c2)=>{if(col)x.fillRect(1+c2*9,1+r*9,8,8);}));
+}
+function openAdmin(){document.getElementById('adminBg').classList.add('open');}
+function closeAdmin(){document.getElementById('adminBg').classList.remove('open');}
+function doLogin(){
+  if(document.getElementById('aU').value==='admin'&&document.getElementById('aP').value==='admin123'){
+    document.getElementById('aLogin').style.display='none';
+    document.getElementById('aDash').style.display='block';
+  }else alert('Нэвтрэх нэр эсвэл нууц үг буруу!');
+}
+function aTab(id,el){
+  document.querySelectorAll('.apane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.atab').forEach(b=>b.classList.remove('on'));
+  document.getElementById('ap-'+id).classList.add('on');
+  el.classList.add('on');
+}
 </script>
 </body>
 </html>
