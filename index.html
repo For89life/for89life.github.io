@@ -163,6 +163,13 @@ a{text-decoration:none;color:inherit;}
   opacity:1!important;filter:blur(0)!important;
   text-shadow:0 0 22px rgba(31,166,194,.5),0 0 48px rgba(255,176,66,.28);
 }
+/* Өргөн дэлгэцийн байрлал — анимацын төв хэсгээс зайдуу */
+.w1{left:26%;top:12%}
+.w2{left:9%;top:26%}
+.w3{left:48%;top:12%}
+.w4{left:8%;top:50%}
+.w5{left:22%;top:74%}
+.w6{left:74%;top:72%}
 .hero-grid{
   position:absolute;inset:0;z-index:3;
   padding:var(--pad);
@@ -436,8 +443,13 @@ a{text-decoration:none;color:inherit;}
   .pcol{border-bottom:1px solid var(--line-soft);}
   .cwrap,.quote{grid-template-columns:1fr;}
   .showcase{grid-template-columns:1fr;max-width:none;}
-  /* Нуугдмал үгсийн тоглоом зөвхөн өргөн дэлгэцэд */
-  .words{display:none;}
+  /* Нарийн дэлгэцэд үгсийг тэмдгийн эцсийн байрлалаас зайдуу тавина */
+  .w1{left:30%;top:10%}
+  .w2{left:20%;top:30%}
+  .w3{left:62%;top:16%}
+  .w4{left:22%;top:47%}
+  .w5{left:58%;top:56%}
+  .w6{left:45%;top:67%}
 }
 @media(max-width:640px){
   :root{--navh:4.2rem;}
@@ -493,12 +505,12 @@ a{text-decoration:none;color:inherit;}
 
   <!-- Харанхуйд нуугдсан үгс — курсор ойртоход тодорно -->
   <div class="words" id="heroWords">
-    <span class="word" style="left:26%;top:12%">Итгэмжтэй</span>
-    <span class="word" style="left:9%;top:26%">Онцгой</span>
-    <span class="word" style="left:48%;top:12%">Үнэ цэнтэй</span>
-    <span class="word" style="left:8%;top:50%">Шинэлэг</span>
-    <span class="word" style="left:22%;top:74%">Хялбар</span>
-    <span class="word" style="left:74%;top:72%">Зөвхөн танд</span>
+    <span class="word w1">Итгэмжтэй</span>
+    <span class="word w2">Онцгой</span>
+    <span class="word w3">Үнэ цэнтэй</span>
+    <span class="word w4">Шинэлэг</span>
+    <span class="word w5">Хялбар</span>
+    <span class="word w6">Зөвхөн танд</span>
   </div>
 
   <div class="hero-grid">
@@ -1682,8 +1694,6 @@ function aTab(id,el){
   if(!hero||!wrap) return;
   var words=[].slice.call(wrap.querySelectorAll('.word'));
   if(!words.length) return;
-  // Нарийн дэлгэцэд үгсийг харуулдаггүй тул тоглоомыг эхлүүлэхгүй — эс бөгөөс
-  // бүгд «олдсон» гэж тооцогдож тэмдэг шууд буланд шилжинэ.
   if(getComputedStyle(wrap).display==='none') return;
 
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -1703,8 +1713,24 @@ function aTab(id,el){
     el.classList.add('found');
     if(++found===words.length) complete();
   }
-  // Хулганагүй буюу хөдөлгөөн багасгасан үед бүгдийг шууд харуулна
-  if(reduce||!canHover){ for(var i=0;i<words.length;i++) reveal(words[i]); return; }
+  // Хөдөлгөөн багасгасан горимд бүгдийг шууд харуулна
+  if(reduce){ for(var i=0;i<words.length;i++) reveal(words[i]); return; }
+
+  // Хулгана байхгүй төхөөрөмж (гар утас, таблет) дээр курсороор хайх
+  // боломжгүй тул нээгдснээс хойш 1 секундын дараа үгс ээлжлэн өөрөө
+  // тодорч, бүгд гарсны дараа ширээний компьютертэй ижил байдлаар
+  // тэмдэг буугаад дэвсгэр цагаан болно.
+  if(!canHover){
+    setTimeout(function(){
+      var k=0;
+      (function step(){
+        if(k>=words.length) return;
+        reveal(words[k++]);
+        setTimeout(step,190);
+      })();
+    },1000);
+    return;
+  }
 
   // Үгсийн төвийг нэг удаа хадгална — кадр тутам layout уншихгүй.
   // Үгс translate(-50%,-50%)-тэй тул хэмжилтийг getBoundingClientRect-ээр
