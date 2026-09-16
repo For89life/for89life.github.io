@@ -49,26 +49,6 @@ a{text-decoration:none;color:inherit;}
 .mbox h3{font-size:1.2rem;font-weight:900;letter-spacing:-.02em;margin-bottom:.3rem;}
 .mbox .msub{font-size:.83rem;color:#888;margin-bottom:1.2rem;}
 .mclose{position:absolute;top:.9rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#111;line-height:1;}
-.amtbox{background:#D6E8F7;border:1.5px solid #111;padding:1rem;text-align:center;margin-bottom:1rem;}
-.amtbox .av{font-size:1.9rem;font-weight:900;letter-spacing:-.03em;}
-.amtbox small{font-size:.72rem;color:#888;}
-.qrbox{border:1.5px solid #111;padding:.7rem;text-align:center;margin-bottom:1rem;background:#fff;}
-.qrbox p{font-size:.72rem;color:#aaa;margin-top:.3rem;}
-.msteps{list-style:none;margin-bottom:1.3rem;}
-.msteps li{display:flex;gap:.6rem;padding:.42rem 0;font-size:.8rem;color:#666;border-bottom:1px solid #eee;align-items:flex-start;}
-.msteps li:last-child{border:none;}
-.msn{background:#111;color:#fff;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;flex-shrink:0;margin-top:1px;}
-.mbtn{width:100%;background:#16a34a;color:#fff;border:none;padding:.85rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s;}
-.mbtn:hover{background:#15803d;}
-
-/* METHOD BUTTON */
-.method-btn{width:100%;display:flex;align-items:center;gap:1rem;border:1.5px solid #111;padding:.9rem 1rem;background:#fff;cursor:pointer;transition:.15s;font-family:'Inter',sans-serif;text-align:left;}
-.method-btn:hover{background:#f5f5f5;}
-.method-icon{width:38px;height:38px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:1rem;flex-shrink:0;}
-.method-info{flex:1;display:flex;flex-direction:column;gap:.15rem;}
-.method-info strong{font-size:.88rem;font-weight:700;color:#111;}
-.method-info span{font-size:.75rem;color:#888;}
-.method-arrow{font-size:1rem;color:#aaa;}
 
 /* ADMIN */
 .abg{display:none;position:fixed;inset:0;background:#fff;z-index:500;overflow-y:auto;}
@@ -79,7 +59,7 @@ a{text-decoration:none;color:inherit;}
 .alogin{max-width:360px;margin:8vh auto;}
 .alogin h2{font-size:2.5rem;font-weight:900;letter-spacing:-.04em;margin-bottom:.4rem;}
 .alogin p{color:#888;font-size:.85rem;margin-bottom:2rem;}
-.astats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid #111;margin-bottom:1.5rem;}
+.astats{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid #111;margin-bottom:1.5rem;}
 .astat{padding:1.4rem;border-right:1.5px solid #111;text-align:center;}
 .astat:last-child{border-right:none;}
 .astat .av{font-size:2rem;font-weight:900;letter-spacing:-.03em;}
@@ -424,19 +404,6 @@ a{text-decoration:none;color:inherit;}
 .mbox h3{font-weight:500!important;letter-spacing:-.02em;}
 .mbox .msub{color:var(--dim)!important;}
 .mclose{color:var(--dim)!important;}
-.amtbox{background:rgba(233,234,228,.045)!important;border:1px solid var(--line)!important;}
-.amtbox .av{font-weight:500!important;}
-.amtbox small{color:var(--dim)!important;}
-.qrbox{background:#fff!important;border:1px solid var(--line)!important;}
-.qrbox p{color:#666!important;}
-.msteps li{color:var(--dim)!important;border-bottom:1px solid var(--line-soft)!important;}
-.msn{background:var(--fg)!important;color:#000!important;}
-.mbtn{font-family:inherit!important;font-weight:500!important;letter-spacing:.06em;}
-.method-btn{background:none!important;border:1px solid var(--line)!important;font-family:inherit!important;}
-.method-btn:hover{background:rgba(233,234,228,.05)!important;}
-.method-info strong{color:var(--fg)!important;font-weight:500!important;}
-.method-info span{color:var(--dim)!important;}
-.method-arrow{color:var(--dim)!important;}
 
 /* ── RESPONSIVE ───────────────────────────────── */
 @media(max-width:900px){
@@ -850,53 +817,6 @@ a{text-decoration:none;color:inherit;}
   </div>
 </div>
 
-<!-- PAYMENT METHOD SELECTOR -->
-<div class="mbg" id="methodModal">
-  <div class="mbox">
-    <button class="mclose" onclick="closeMethod()">×</button>
-    <h3>Төлбөрийн арга</h3>
-    <p class="msub" id="mDesc0">Бизнес багц</p>
-    <div class="amtbox">
-      <div class="av" id="mAmt0">₮0</div>
-      <small>Доорх аргаас сонгоно уу</small>
-    </div>
-    <div style="display:grid;gap:.8rem;margin-bottom:1rem;">
-      <button class="method-btn" onclick="pickQPay()">
-        <div class="method-icon" style="background:#1a56db;">Q</div>
-        <div class="method-info">
-          <strong>QPay</strong>
-          <span>Монголын банкны QR төлбөр</span>
-        </div>
-        <div class="method-arrow">→</div>
-      </button>
-    </div>
-    <p style="font-size:.72rem;color:#bbb;text-align:center;margin-top:.5rem;">🔒 SSL шифрлэлтээр хамгаалагдсан</p>
-  </div>
-</div>
-
-<!-- QPAY MODAL -->
-<div class="mbg" id="payModal">
-  <div class="mbox">
-    <button class="mclose" onclick="closePay()">←</button>
-    <h3>QPay Төлбөр</h3>
-    <p class="msub" id="mDesc">Бизнес багц</p>
-    <div class="amtbox">
-      <div class="av" id="mAmt">₮0</div>
-      <small>QPay — Монгол банкны төлбөрийн систем</small>
-    </div>
-    <div class="qrbox">
-      <canvas id="qrC" width="180" height="180"></canvas>
-      <p>Банкны аппаараа QR уншуулна уу</p>
-    </div>
-    <ol class="msteps">
-      <li><span class="msn">1</span>Банкны аппаа нээж QPay хэсгийг нээнэ</li>
-      <li><span class="msn">2</span>Дээрх QR кодыг камераараа уншуулна</li>
-      <li><span class="msn">3</span>Дүнг шалгаад төлбөрийг баталгаажуулна</li>
-    </ol>
-    <button class="mbtn" onclick="confirmPay()">✓ Төлбөр хийлээ — баталгаажуулах</button>
-  </div>
-</div>
-
 <!-- ADMIN OVERLAY -->
 <div class="abg" id="adminBg">
   <!-- LOGIN -->
@@ -923,57 +843,28 @@ a{text-decoration:none;color:inherit;}
       <!-- STATS -->
       <div class="astats">
         <div class="astat">
-          <div class="av" id="sOrders">0</div>
-          <div class="al">Нийт захиалга</div>
-          <div class="ac" id="sOrdersSub"></div>
-        </div>
-        <div class="astat">
-          <div class="av" id="sPaid">0</div>
-          <div class="al">Төлсөн захиалга</div>
-          <div class="ac" style="color:#16a34a;" id="sPaidSub"></div>
-        </div>
-        <div class="astat">
-          <div class="av" id="sPending">0</div>
-          <div class="al">Хүлээгдэж буй</div>
-          <div class="ac" style="color:#a16207;" id="sPendingSub"></div>
-        </div>
-        <div class="astat">
           <div class="av" id="sMessages">0</div>
-          <div class="al">Нийт мессеж</div>
+          <div class="al">Нийт хүсэлт</div>
           <div class="ac" id="sMessagesSub"></div>
+        </div>
+        <div class="astat">
+          <div class="av" id="sNew">0</div>
+          <div class="al">Шинэ</div>
+          <div class="ac" style="color:#a16207;" id="sNewSub"></div>
+        </div>
+        <div class="astat">
+          <div class="av" id="sDone">0</div>
+          <div class="al">Хариусан</div>
+          <div class="ac" style="color:#16a34a;" id="sDoneSub"></div>
         </div>
       </div>
       <!-- TABS -->
       <div class="atabs">
-        <button class="atab on" onclick="aTab('orders',this)">Захиалгууд</button>
-        <button class="atab" onclick="aTab('payments',this)">Төлөгдсөн</button>
-        <button class="atab" onclick="aTab('messages',this)">Мессежүүд</button>
+        <button class="atab on" onclick="aTab('messages',this)">Хүсэлтүүд</button>
         <button class="atab" onclick="aTab('settings',this)">Тохиргоо</button>
       </div>
-      <!-- ORDERS -->
-      <div class="apane on" id="ap-orders">
-        <table class="atable">
-          <thead>
-            <tr>
-              <th>#</th><th>Үйлчилгээ</th><th>Дүн</th><th>Арга</th><th>Огноо</th><th>Төлөв</th><th></th>
-            </tr>
-          </thead>
-          <tbody id="ordersBody"></tbody>
-        </table>
-      </div>
-      <!-- PAYMENTS -->
-      <div class="apane" id="ap-payments">
-        <table class="atable">
-          <thead>
-            <tr>
-              <th>#</th><th>Үйлчилгээ</th><th>Дүн</th><th>Арга</th><th>Огноо</th>
-            </tr>
-          </thead>
-          <tbody id="paymentsBody"></tbody>
-        </table>
-      </div>
       <!-- MESSAGES -->
-      <div class="apane" id="ap-messages">
+      <div class="apane on" id="ap-messages">
         <table class="atable">
           <thead>
             <tr>
@@ -992,7 +883,6 @@ a{text-decoration:none;color:inherit;}
             <div class="fg"><label>Утас</label><input type="text" value="+976 7210-0262"></div>
           </div>
           <div class="fg"><label>Имэйл</label><input type="email" value="gereltsolutions01@gmail.com"></div>
-          <div class="fg"><label>QPay Merchant ID</label><input type="text" placeholder="Таны QPay merchant ID оруулна уу"></div>
           <button class="btn dark" style="max-width:160px;" onclick="alert('Тохиргоо хадгалагдлаа!')">Хадгалах</button>
           <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #eee;">
             <button class="del-btn" style="font-size:.75rem;padding:.4rem .9rem;" onclick="clearAllData()">⚠ Бүх өгөгдлийг устгах</button>
@@ -1004,24 +894,38 @@ a{text-decoration:none;color:inherit;}
 </div>
 
 <script>
-// ── ГАДААД ХҮЛЭЭН АВАГЧ (Gmail + Google Sheet) ───────────────
-// Google Apps Script вэб апп-ын хаягийг доор буулгана. Тохируулах
-// заавар: apps-script/ТОХИРУУЛГА.md
-// Хоосон үлдээвэл мэдээлэл зөвхөн хөтөч дотор (админ панелд) хадгалагдана.
-var FORM_ENDPOINT='';
+// ── GOOGLE FORM ХҮЛЭЭН АВАГЧ ─────────────────────────────────
+// Сайтын гурван форм (захиалга, үнийн санал, багцын хүсэлт) нь нэг
+// Google Form руу илгээгдэнэ. Тэндээс хариултууд Google Sheet-д
+// автоматаар бүртгэгдэж, Gmail руу мэдэгдэл ирнэ.
+// Тохируулах заавар: google-form/ТОХИРУУЛГА.md
+// Хоосон үлдээвэл мэдээлэл зөвхөн хөтөч дотор (админ панелд) үлдэнэ.
+var GFORM={
+  url:'',            // .../formResponse гэж төгсөх хаяг
+  fields:{
+    type:'',         // entry.1234567890 — Төрөл
+    name:'',         // Нэр
+    contact:'',      // Холбоо барих
+    service:'',      // Үйлчилгээ
+    budget:'',       // Төсөв
+    message:''       // Мессеж
+  }
+};
 
-// Хүсэлтийг чимээгүйгээр илгээнэ. Apps Script CORS толгой буцаадаггүй
-// тул no-cors горимд хариуг уншихгүй — форм нь хариунаас үл хамааран
-// ажиллана, алдаа гарсан ч хэрэглэгчийн урсгал тасрахгүй.
-function sendToEndpoint(payload){
-  if(!FORM_ENDPOINT) return;
+// Чимээгүй илгээнэ. Google Form CORS толгой буцаадаггүй тул no-cors
+// горимд хариуг уншихгүй — илгээлт амжилтгүй болсон ч хэрэглэгчийн
+// урсгал тасрахгүй, мэдээлэл админ панелд хэвээр үлдэнэ.
+function sendToForm(p){
+  if(!GFORM.url) return;
   try{
-    fetch(FORM_ENDPOINT,{
-      method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body:JSON.stringify(payload)
-    }).catch(function(){});
+    var f=GFORM.fields, fd=new FormData();
+    if(f.type)    fd.append(f.type,    p.type||'');
+    if(f.name)    fd.append(f.name,    p.name||'');
+    if(f.contact) fd.append(f.contact, p.contact||'');
+    if(f.service) fd.append(f.service, p.service||'');
+    if(f.budget)  fd.append(f.budget,  p.budget||'');
+    if(f.message) fd.append(f.message, p.message||'');
+    fetch(GFORM.url,{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
   }catch(e){}
 }
 
@@ -1030,51 +934,6 @@ function getData(k){return JSON.parse(localStorage.getItem(k)||'[]');}
 function saveData(k,d){localStorage.setItem(k,JSON.stringify(d));}
 function genId(){return '#GS'+String(Date.now()).slice(-5);}
 function today(){return new Date().toISOString().split('T')[0];}
-
-// ── STATE ───────────────────────────────────────────────────
-let _curName='',_curAmt='';
-
-// ── METHOD MODAL ────────────────────────────────────────────
-function openMethod(n,a){
-  _curName=n; _curAmt=a;
-  document.getElementById('mDesc0').textContent=n;
-  document.getElementById('mAmt0').textContent='₮'+a;
-  document.getElementById('methodModal').classList.add('open');
-}
-function closeMethod(){document.getElementById('methodModal').classList.remove('open');}
-
-// ── QPAY ────────────────────────────────────────────────────
-function pickQPay(){
-  closeMethod();
-  document.getElementById('mDesc').textContent=_curName;
-  document.getElementById('mAmt').textContent='₮'+_curAmt;
-  document.getElementById('payModal').classList.add('open');
-  drawQR();
-}
-function closePay(){document.getElementById('payModal').classList.remove('open');}
-
-function confirmPay(){
-  const orders=getData('gs_orders');
-  orders.unshift({
-    id:genId(),
-    service:_curName,
-    amount:_curAmt,
-    payMethod:'QPay',
-    date:today(),
-    status:'Хүлээгдэж'
-  });
-  saveData('gs_orders',orders);
-  closePay();
-  setTimeout(()=>alert('🎉 QPay төлбөрийн хүсэлт илгээгдлээ!\n\nТөлбөрийг шалгаад 24 цагийн дотор холбоо барина.'),200);
-}
-
-function drawQR(){
-  const c=document.getElementById('qrC'),x=c.getContext('2d');
-  x.fillStyle='#fff';x.fillRect(0,0,180,180);
-  const p=[[1,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1],[1,0,0,0,0,0,1,0,0,1,0,1,1,0,0,0,0,0,1],[1,0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1],[1,0,1,1,1,0,1,0,0,1,1,0,1,0,1,1,1,0,1],[1,0,1,1,1,0,1,0,1,0,0,1,1,0,1,1,1,0,1],[1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1],[1,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1],[0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0],[1,0,1,1,0,1,1,1,0,0,1,1,1,0,1,0,1,1,0],[0,1,0,0,1,0,0,1,1,0,1,0,0,1,0,1,0,0,1],[1,0,1,0,1,1,1,0,0,1,1,0,1,1,0,1,1,0,1],[0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0],[1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,0,1,1,1],[1,0,0,0,0,0,1,0,0,0,1,0,0,1,0,1,0,0,0],[1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,1,0,1,1],[1,0,1,1,1,0,1,0,0,1,0,0,0,1,0,0,1,0,0],[1,0,1,1,1,0,1,0,1,1,1,0,1,1,0,1,1,0,1],[1,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0],[1,1,1,1,1,1,1,0,1,0,1,1,0,1,1,0,1,0,1]];
-  x.fillStyle='#111';
-  p.forEach((row,r)=>row.forEach((col,c2)=>{if(col)x.fillRect(1+c2*9,1+r*9,8,8);}));
-}
 
 // ── CONTACT FORM ─────────────────────────────────────────────
 function submitForm(){
@@ -1091,7 +950,7 @@ function submitForm(){
   const msgs=getData('gs_messages');
   msgs.unshift({id:genId(),name,phone,email,service,message,date:today(),status:'Шинэ'});
   saveData('gs_messages',msgs);
-  sendToEndpoint({type:'Захиалга',name,phone,email,service,budget:'',message});
+  sendToForm({type:'Захиалга',name,contact:phone+(email?' · '+email:''),service,budget:'',message});
 
   document.getElementById('fName').value='';
   document.getElementById('fPhone').value='';
@@ -1141,13 +1000,7 @@ function submitRequest(){
     status:'Шинэ'
   });
   saveData('gs_messages',msgs);
-  sendToEndpoint({
-    type:'Багцын хүсэлт — '+_reqPkg,
-    name,
-    phone:isMail?'':contact,
-    email:isMail?contact:'',
-    service,budget,message:brief
-  });
+  sendToForm({type:'Багцын хүсэлт — '+_reqPkg,name,contact,service,budget,message:brief});
 
   document.getElementById('rName').value='';
   document.getElementById('rContact').value='';
@@ -1183,13 +1036,7 @@ function submitQuote(){
     status:'Шинэ'
   });
   saveData('gs_messages',msgs);
-  sendToEndpoint({
-    type:'Үнийн санал',
-    name,
-    phone:isMail?'':contact,
-    email:isMail?contact:'',
-    service,budget,message:brief
-  });
+  sendToForm({type:'Үнийн санал',name,contact,service,budget,message:brief});
 
   document.getElementById('qName').value='';
   document.getElementById('qContact').value='';
@@ -1221,88 +1068,23 @@ function doLogin(){
 
 function renderDash(){
   renderStats();
-  renderOrders();
-  renderPayments();
   renderMessages();
 }
 
 function renderStats(){
-  const orders=getData('gs_orders');
   const msgs=getData('gs_messages');
-  const paid=orders.filter(o=>o.status==='Төлсөн').length;
-  const pending=orders.filter(o=>o.status==='Хүлээгдэж').length;
   const newMsgs=msgs.filter(m=>m.status==='Шинэ').length;
+  const done=msgs.filter(m=>m.status==='Хариусан').length;
 
-  document.getElementById('sOrders').textContent=orders.length;
-  document.getElementById('sOrdersSub').textContent=orders.length?'Нийт бүртгэгдсэн':'Одоогоор байхгүй';
-  document.getElementById('sPaid').textContent=paid;
-  document.getElementById('sPaidSub').textContent=paid?'Баталгаажсан':'Байхгүй';
-  document.getElementById('sPending').textContent=pending;
-  document.getElementById('sPendingSub').textContent=pending?'⏳ Шалгах шаардлагатай':'';
   document.getElementById('sMessages').textContent=msgs.length;
-  document.getElementById('sMessagesSub').textContent=newMsgs?newMsgs+' шинэ':'Шинэ байхгүй';
+  document.getElementById('sMessagesSub').textContent=msgs.length?'Нийт бүртгэгдсэн':'Одоогоор байхгүй';
+  document.getElementById('sNew').textContent=newMsgs;
+  document.getElementById('sNewSub').textContent=newMsgs?'⏳ Хариу хүлээж буй':'';
+  document.getElementById('sDone').textContent=done;
+  document.getElementById('sDoneSub').textContent=done?'Хариу өгсөн':'';
 }
 
 const BADGE={'Төлсөн':'g','Хүлээгдэж':'y','Шинэ':'b','Хариусан':'g','Цуцалсан':'r'};
-
-function renderOrders(){
-  const orders=getData('gs_orders');
-  const tbody=document.getElementById('ordersBody');
-  if(!orders.length){
-    tbody.innerHTML='<tr class="empty-row"><td colspan="7">Одоогоор захиалга байхгүй байна</td></tr>';
-    return;
-  }
-  tbody.innerHTML=orders.map((o,i)=>`
-    <tr>
-      <td style="font-size:.72rem;color:#aaa;">${o.id}</td>
-      <td>${o.service}</td>
-      <td>₮${o.amount}</td>
-      <td>${o.payMethod||'QPay'}</td>
-      <td>${o.date}</td>
-      <td>
-        <select class="status-sel" onchange="updateOrderStatus(${i},this.value)">
-          ${['Хүлээгдэж','Төлсөн','Цуцалсан'].map(s=>`<option${o.status===s?' selected':''}>${s}</option>`).join('')}
-        </select>
-      </td>
-      <td><button class="del-btn" onclick="deleteOrder(${i})">Устгах</button></td>
-    </tr>
-  `).join('');
-}
-
-function updateOrderStatus(i,v){
-  const orders=getData('gs_orders');
-  orders[i].status=v;
-  saveData('gs_orders',orders);
-  renderStats();
-  renderPayments();
-}
-
-function deleteOrder(i){
-  if(!confirm('Захиалгыг устгах уу?'))return;
-  const orders=getData('gs_orders');
-  orders.splice(i,1);
-  saveData('gs_orders',orders);
-  renderDash();
-}
-
-function renderPayments(){
-  const paid=getData('gs_orders').filter(o=>o.status==='Төлсөн');
-  const tbody=document.getElementById('paymentsBody');
-  if(!paid.length){
-    tbody.innerHTML='<tr class="empty-row"><td colspan="5">Баталгаажсан төлбөр байхгүй байна</td></tr>';
-    return;
-  }
-  tbody.innerHTML=paid.map(o=>`
-    <tr>
-      <td style="font-size:.72rem;color:#aaa;">${o.id}</td>
-      <td>${o.service}</td>
-      <td style="font-weight:700;">₮${o.amount}</td>
-      <td>${o.payMethod||'QPay'}</td>
-      <td>${o.date}</td>
-    </tr>
-  `).join('');
-}
-
 function renderMessages(){
   const msgs=getData('gs_messages');
   const tbody=document.getElementById('messagesBody');
@@ -1343,8 +1125,8 @@ function deleteMsg(i){
 }
 
 function clearAllData(){
-  if(!confirm('⚠ Бүх захиалга, мессежийг устгах уу?\n\nЭнэ үйлдлийг буцаах боломжгүй!'))return;
-  localStorage.removeItem('gs_orders');
+  if(!confirm('⚠ Бүх хүсэлтийг устгах уу?\n\nЭнэ үйлдлийг буцаах боломжгүй!'))return;
+
   localStorage.removeItem('gs_messages');
   renderDash();
   alert('Бүх өгөгдөл устгагдлаа.');
@@ -1355,8 +1137,6 @@ function aTab(id,el){
   document.querySelectorAll('.atab').forEach(b=>b.classList.remove('on'));
   document.getElementById('ap-'+id).classList.add('on');
   el.classList.add('on');
-  if(id==='orders')renderOrders();
-  if(id==='payments')renderPayments();
   if(id==='messages')renderMessages();
 }
 </script>
