@@ -2,41 +2,422 @@
 <html lang="mn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gerelt Solutions</title>
-<meta name="description" content="Gerelt Solutions — вэб, мобайл болон IT шийдэл. Улаанбаатар, Дорнод.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerelt Solutions Studio — Вэб, мобайл, дижитал шийдэл</title>
+<meta name="description" content="Улаанбаатар, Дорнодод төвтэй дижитал студи. Вэб хөгжүүлэлт, мобайл аппликейшн, онлайн дэлгүүр, төлбөрийн холболт.">
+<link rel="icon" href="images/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Unbounded ба Onest — хоёулаа кирилл үсэг бүрэн дэмжинэ -->
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+/* Илчлэх анимацыг зөвхөн JS ажиллаж байгаа үед асаана. Энэ мөр
+   CSS-ээс өмнө ажиллах тул агуулга анивчиж харагдахгүй.
+   3 секундын дараа ямар ч тохиолдолд бүгдийг харуулна — ажиглагч
+   эвдэрсэн ч хоосон хар хуудас үзэгдэхгүй. */
+document.documentElement.classList.add('js');
+setTimeout(function(){
+  var n=document.querySelectorAll('.rv');
+  for(var i=0;i<n.length;i++) n[i].classList.add('in');
+},3000);
+</script>
 <style>
+/* ═══ ТОКЕН ═══════════════════════════════════════════════════
+   Контрастыг хэмжиж баталсан (суурь #0A0A0B дээр):
+   --fg 18.9:1 · --mut 7.1:1 · --mut2 4.97:1 · --acc 12.4:1       */
 :root{
-  --bg:#121212;
-  --fg:#E9EAE4;
-  --dim:#8E9098;
-  --dimmer:#7B7D85;
-  --line:rgba(233,234,228,.11);
-  --line-soft:rgba(233,234,228,.07);
-  /* Логоны өнгө: шар-улбар → час улбар → час ягаан → бүдэг ягаан */
-  --c1:#FEC43A; --c2:#FB7437;
-  --c3:#C0356E; --c4:#92235A;
-  /* Нэмэлт: ягаан-нил ба логоны эсрэг талын номин өнгө */
-  --c5:#6E3FA8; --c6:#1FA6C2;
-  --ember:#8A4212;
+  --bg:#0A0A0B;          /* үндсэн дэвсгэр */
+  --bg-2:#101013;        /* ээлжлэх зурвас */
+  --surf:#17171B;        /* карт, талбар */
+  --surf-2:#1F1F25;      /* товгор гадарга */
+  --fg:#F5F5F3;
+  --mut:#9A9BA1;         /* энгийн тусламж бичвэр */
+  --mut2:#83848C;        /* хамгийн бүдэг — 4.97:1 */
+  --line:rgba(245,245,243,.10);
+  --line-2:rgba(245,245,243,.18);
+  --acc:#FEC43A;         /* логоны шар — гол өргөлт */
+  --acc-2:#FB7437;       /* логоны улбар */
+  --acc-3:#C0356E;       /* логоны час ягаан */
+  --ink:#0A0A0B;         /* өргөлт дээрх бичвэр */
+
+  --ff-d:'Unbounded',system-ui,sans-serif;   /* гарчиг */
+  --ff-b:'Onest',system-ui,-apple-system,sans-serif;  /* бичвэр */
+
+  /* 4 цэгийн сүлжээнд суурилсан зайн шат */
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem;
+  --s5:3rem; --s6:4rem; --s7:6rem; --s8:8rem;
+
+  --pad:clamp(1.25rem,5vw,5rem);
+  --navh:4.5rem;
   --micro:11px;
-  --pad:clamp(1.1rem,3.2vw,2.6rem);
-  --navh:4.6rem;
+  --r:14px;              /* булангийн радиус */
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--navh) + 4rem);}
+html{
+  scroll-behavior:smooth;-webkit-text-size-adjust:100%;
+  scroll-padding-top:calc(var(--navh) + 2rem);
+}
 body{
-  font-family:'Inter Tight','Inter',system-ui,-apple-system,sans-serif;
-  background:var(--bg);color:var(--fg);
-  font-size:13px;line-height:1.6;font-weight:400;
+  font-family:var(--ff-b);background:var(--bg);color:var(--fg);
+  font-size:15px;line-height:1.65;font-weight:400;
   overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 a{text-decoration:none;color:inherit;}
-::selection{background:var(--fg);color:#111;}
+img{display:block;max-width:100%;}
+::selection{background:var(--acc);color:var(--ink);}
 
+/* ═══ ТУСЛАХ ══════════════════════════════════════════════════ */
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+.skip{
+  position:absolute;left:var(--pad);top:-120px;z-index:400;
+  background:var(--acc);color:var(--ink);font-weight:600;
+  font-size:13px;padding:.85rem 1.3rem;border-radius:0 0 10px 10px;
+  transition:top .18s ease;
+}
+.skip:focus{top:0;}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:3px;}
+
+/* Хэсгийн шошго: 01 / НЭР */
+.slab{
+  display:flex;align-items:center;gap:.9rem;
+  font-size:var(--micro);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--mut2);font-weight:500;margin-bottom:var(--s3);
+}
+.slab b{color:var(--acc);font-weight:500;font-family:var(--ff-d);}
+.slab::after{content:'';flex:1;height:1px;background:var(--line);}
+
+h1,h2,h3{font-family:var(--ff-d);font-weight:400;letter-spacing:-.02em;line-height:1.08;}
+.h-xl{font-size:clamp(2.35rem,5.4vw,4.6rem);}
+.h-lg{font-size:clamp(1.8rem,3.6vw,2.9rem);}
+.h-md{font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.2;}
+.lead{font-size:clamp(16px,1.5vw,19px);color:var(--mut);max-width:58ch;}
+
+/* Товч */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  min-height:52px;padding:0 1.8rem;border-radius:999px;
+  font-family:var(--ff-b);font-size:14px;font-weight:600;letter-spacing:.01em;
+  cursor:pointer;border:1px solid transparent;
+  transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease;
+}
+.btn-p{background:var(--acc);color:var(--ink);}
+.btn-p:hover{background:#FFD468;transform:translateY(-2px);}
+.btn-s{background:transparent;color:var(--fg);border-color:var(--line-2);}
+.btn-s:hover{border-color:var(--fg);transform:translateY(-2px);}
+.btn-row{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4);}
+
+/* ═══ ДЭЭД МӨР ════════════════════════════════════════════════ */
+.bar{
+  position:fixed;top:0;left:0;right:0;z-index:200;height:var(--navh);
+  display:flex;align-items:center;gap:var(--s3);padding:0 var(--pad);
+  background:rgba(10,10,11,.72);backdrop-filter:blur(20px) saturate(140%);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease,background .3s ease;
+}
+.bar.stuck{border-bottom-color:var(--line);background:rgba(10,10,11,.92);}
+.brand{display:flex;align-items:center;gap:.65rem;min-height:44px;white-space:nowrap;}
+.brand img{height:26px;width:auto;}
+.brand span{font-family:var(--ff-d);font-size:14px;letter-spacing:-.01em;}
+.brand span i{font-style:normal;color:var(--mut);}
+.nav{display:flex;gap:calc(var(--s3) - .5rem);margin-left:var(--s4);}
+.nav a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;min-width:28px;padding:0 .25rem;
+  font-size:13.5px;font-weight:500;color:var(--mut);
+  position:relative;transition:color .2s;
+}
+.nav a::after{
+  content:'';position:absolute;left:.25rem;right:100%;bottom:12px;
+  height:1px;background:var(--acc);transition:right .28s ease;
+}
+.nav a:hover::after{right:.25rem;}
+.nav a:hover{color:var(--fg);}
+.nav a:hover::after{right:0;}
+.bar-r{margin-left:auto;display:flex;align-items:center;gap:var(--s2);}
+.bar .btn{min-height:44px;padding:0 1.25rem;font-size:13px;}
+.mbtn{
+  display:none;align-items:center;gap:.55rem;min-height:44px;padding:0 .5rem;
+  background:none;border:none;color:var(--fg);cursor:pointer;
+  font-family:var(--ff-b);font-size:13px;font-weight:500;
+}
+.mico{position:relative;width:18px;height:10px;}
+.mico i{position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .3s cubic-bezier(.4,0,.2,1);}
+.mico i:first-child{top:0;}
+.mico i:last-child{bottom:0;}
+.mbtn[aria-expanded="true"] .mico i:first-child{transform:translateY(4px) rotate(45deg);}
+.mbtn[aria-expanded="true"] .mico i:last-child{transform:translateY(-4px) rotate(-45deg);}
+
+.menu-panel{
+  position:fixed;top:var(--navh);left:0;right:0;z-index:199;
+  background:var(--bg-2);border-bottom:1px solid var(--line);
+  display:grid;gap:0;padding:var(--s2) var(--pad) var(--s4);
+  opacity:0;visibility:hidden;transform:translateY(-10px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s;
+}
+.menu-panel.on{opacity:1;visibility:visible;transform:none;}
+.menu-panel a{
+  font-family:var(--ff-d);font-size:clamp(1.4rem,5vw,2rem);
+  padding:.7rem 0;border-bottom:1px solid var(--line);color:var(--mut);
+  transition:color .2s,padding-left .2s;
+}
+.menu-panel a:hover{color:var(--fg);padding-left:.5rem;}
+
+/* ═══ HERO ════════════════════════════════════════════════════ */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;
+  padding:calc(var(--navh) + var(--s6)) 0 var(--s6);overflow:hidden;
+}
+#markC{
+  position:absolute;top:50%;right:-6%;transform:translateY(-50%);
+  width:min(62vw,780px);height:min(62vw,780px);
+  opacity:.9;z-index:0;pointer-events:none;
+  /* Анимац кадр бүрийг хараар цэвэрлэдэг. lighten нь тэр харыг
+     дэвсгэрт уусгаж, зөвхөн гэрэлтэх цацрагийг үлдээнэ. */
+  mix-blend-mode:lighten;
+}
+.hero .wrap{position:relative;z-index:2;width:100%;}
+.hero-in{max-width:62ch;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:var(--micro);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mut);margin-bottom:var(--s3);
+}
+.eyebrow .pip{width:6px;height:6px;border-radius:50%;background:var(--acc);flex-shrink:0;}
+.hero h1 em{font-style:normal;color:var(--acc);}
+.hero .lead{margin-top:var(--s3);}
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:var(--s5);margin-top:var(--s6);
+  padding-top:var(--s4);border-top:1px solid var(--line);
+}
+.hero-stats div b{
+  display:block;font-family:var(--ff-d);font-size:clamp(1.6rem,3vw,2.3rem);
+  color:var(--fg);font-weight:400;line-height:1;
+}
+.hero-stats div span{font-size:12.5px;color:var(--mut);letter-spacing:.04em;}
+
+/* ═══ ТУУЗ (чадварын гүйлгээ) ═════════════════════════════════ */
+.strip{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--bg-2);overflow:hidden;padding:var(--s3) 0;
+}
+.strip-in{display:flex;gap:var(--s5);width:max-content;animation:slide 42s linear infinite;}
+.strip span{
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mut2);display:inline-flex;align-items:center;gap:var(--s5);
+  white-space:nowrap;
+}
+.strip span::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--acc-2);}
+@keyframes slide{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.strip:hover .strip-in{animation-play-state:paused;}
+
+/* ═══ ХЭСГИЙН ЕРӨНХИЙ ═════════════════════════════════════════ */
+.sec{padding:var(--s8) 0;}
+.sec-alt{background:var(--bg-2);}
+.sec-head{margin-bottom:var(--s6);}
+.sec-head .lead{margin-top:var(--s2);}
+
+/* ═══ АЖЛУУД ══════════════════════════════════════════════════ */
+.work{display:grid;gap:var(--s6);}
+.work-item{
+  display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center;
+}
+.work-item:nth-child(even) .work-txt{order:-1;}
+.card-view{
+  position:relative;overflow:hidden;border-radius:var(--r);
+  aspect-ratio:16/10;background:var(--surf);border:1px solid var(--line);
+  transition:border-color .3s ease,transform .4s ease;
+}
+.work-item a.card-view:hover{border-color:var(--line-2);transform:translateY(-4px);}
+.card-view img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  opacity:0;transition:opacity .9s ease;
+}
+.card-view img.on{opacity:1;}
+.dots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:7px;z-index:3;}
+.dots i{
+  width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);
+  box-shadow:0 0 4px rgba(0,0,0,.5);transition:background .35s ease,width .35s ease;
+}
+.dots i.on{background:#fff;width:18px;border-radius:3px;}
+.work-txt h3{margin-bottom:var(--s2);}
+.work-meta{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin:var(--s3) 0;}
+.tag{
+  font-size:12px;letter-spacing:.06em;color:var(--mut);
+  border:1px solid var(--line);border-radius:999px;padding:.3rem .85rem;
+}
+.wlink{
+  display:inline-flex;align-items:center;gap:.5rem;min-height:44px;
+  font-size:14px;font-weight:600;color:var(--acc);
+}
+.wlink svg{transition:transform .25s ease;}
+.wlink:hover svg{transform:translate(3px,-3px);}
+
+/* ═══ ҮЙЛЧИЛГЭЭ ═══════════════════════════════════════════════ */
+.srv{border-top:1px solid var(--line);}
+.srv-row{
+  display:grid;grid-template-columns:auto 1.1fr 1.4fr auto auto;
+  gap:var(--s4);align-items:center;
+  padding:var(--s4) 0;border-bottom:1px solid var(--line);
+  transition:background .3s ease,padding-left .3s ease;
+}
+.srv-row:hover{background:rgba(254,196,58,.035);padding-left:var(--s2);}
+.srv-no{font-family:var(--ff-d);font-size:13px;color:var(--mut2);width:2.2rem;}
+.srv-row h3{font-size:clamp(1.15rem,2vw,1.6rem);}
+.srv-row p{color:var(--mut);font-size:14.5px;}
+.srv-price{text-align:right;}
+.srv-price b{display:block;font-family:var(--ff-d);font-size:15px;font-weight:400;}
+.srv-price span{font-size:12px;color:var(--mut2);}
+.srv-act{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:48px;height:48px;border-radius:50%;flex-shrink:0;
+  border:1px solid var(--line-2);background:none;color:var(--fg);cursor:pointer;
+  transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.srv-act:hover{background:var(--acc);color:var(--ink);border-color:var(--acc);}
+
+/* ═══ ЯВЦ ═════════════════════════════════════════════════════ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);}
+.step{position:relative;padding-top:var(--s4);border-top:2px solid var(--line);}
+.step.lit{border-top-color:var(--acc);}
+.step b{
+  display:block;font-family:var(--ff-d);font-size:12px;
+  color:var(--acc);margin-bottom:var(--s1);letter-spacing:.08em;
+}
+.step h3{font-size:1.1rem;margin-bottom:.5rem;}
+.step p{font-size:14px;color:var(--mut);}
+
+/* ═══ ҮНЭ ═════════════════════════════════════════════════════ */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2);}
+.tier{
+  display:flex;flex-direction:column;
+  background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:var(--s4) var(--s3);transition:border-color .3s ease,transform .3s ease;
+}
+.tier:hover{border-color:var(--line-2);transform:translateY(-4px);}
+.tier.feat{border-color:var(--acc);background:linear-gradient(180deg,rgba(254,196,58,.07),var(--surf) 55%);}
+.tier-badge{
+  align-self:flex-start;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--acc);color:var(--ink);font-weight:600;
+  padding:.25rem .6rem;border-radius:999px;margin-bottom:var(--s2);
+}
+.tier h3{font-size:1.15rem;margin-bottom:.4rem;}
+.tier .amt{font-family:var(--ff-d);font-size:1.5rem;line-height:1.2;margin:var(--s2) 0 .3rem;}
+.tier .per{font-size:12.5px;color:var(--mut2);}
+.tier ul{list-style:none;margin:var(--s3) 0;display:grid;gap:.6rem;}
+.tier li{font-size:13.5px;color:var(--mut);display:flex;gap:.6rem;align-items:flex-start;}
+.tier li svg{flex-shrink:0;margin-top:3px;color:var(--acc);}
+.tier .btn{width:100%;margin-top:auto;}
+
+/* ═══ БЭЛЭН ЗАГВАР ════════════════════════════════════════════ */
+.tpl{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);}
+.tpl-card{
+  display:flex;flex-direction:column;background:none;border:none;
+  padding:0;text-align:left;cursor:pointer;font-family:inherit;color:inherit;
+}
+.tpl-view{
+  position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;
+  display:flex;flex-direction:column;justify-content:space-between;padding:var(--s3);
+  transition:transform .35s ease;
+}
+.tpl-card:hover .tpl-view{transform:translateY(-5px);}
+.tv1{background:linear-gradient(145deg,#2A1608,#8A4212 55%,#FEC43A);}
+.tv2{background:linear-gradient(145deg,#2B0F1E,#8E2250 55%,#FB7437);}
+.tv3{background:linear-gradient(145deg,#10242B,#1F6E80 58%,#49C4D2);}
+.tv4{background:linear-gradient(145deg,#1C1232,#4A2F86 55%,#9B79E0);}
+.tpl-view .tt{font-family:var(--ff-d);font-size:clamp(1rem,1.7vw,1.35rem);color:#fff;line-height:1.15;}
+.tpl-view .tb{font-size:var(--micro);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);}
+.tpl-row{display:flex;align-items:baseline;gap:.7rem;padding-top:var(--s2);}
+.tpl-row h3{flex:1;font-size:15px;font-family:var(--ff-b);font-weight:600;letter-spacing:0;}
+.tpl-row .amt{font-size:14px;font-weight:600;white-space:nowrap;}
+.tpl-sub{font-size:12.5px;color:var(--mut);padding-top:.2rem;}
+
+/* ═══ ТӨГСГӨЛИЙН УРИА ═════════════════════════════════════════ */
+.cta{
+  position:relative;overflow:hidden;text-align:center;
+  padding:var(--s8) 0;border-top:1px solid var(--line);
+  background:radial-gradient(120% 140% at 50% 0%,rgba(254,196,58,.10),transparent 58%);
+}
+.cta h2{margin-bottom:var(--s3);}
+.cta .lead{margin:0 auto;}
+.cta .btn-row{justify-content:center;}
+
+/* ═══ ХӨЛ ═════════════════════════════════════════════════════ */
+.foot{
+  border-top:1px solid var(--line);padding:var(--s6) 0 var(--s4);
+  display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);
+}
+.foot .fh{
+  font-family:var(--ff-b);
+  font-size:var(--micro);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mut2);font-weight:500;margin-bottom:var(--s2);line-height:1.5;
+}
+.foot p{font-size:14px;color:var(--mut);max-width:38ch;}
+.flist{display:flex;flex-direction:column;}
+.flist a,.flist span{font-size:14px;color:var(--mut);display:block;padding:.4rem 0;}
+.flist a{transition:color .2s;}
+.flist a:hover{color:var(--acc);}
+.foot-bar{
+  border-top:1px solid var(--line);padding:var(--s3) 0;
+  display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;
+  font-size:12.5px;color:var(--mut2);
+}
+.foot-bar a{display:inline-block;padding:.4rem 0;color:var(--mut);transition:color .2s;}
+.foot-bar a:hover{color:var(--acc);}
+
+/* ═══ ИЛЧЛЭХ АНИМАЦ ═══════════════════════════════════════════
+   Нуух үйлдлийг зөвхөн JS ажиллаж байгаа үед хийнэ (html.js).
+   Ингэснээр скрипт ачаалагдаагүй, алдаа гарсан, эсвэл хөтөч
+   IntersectionObserver дэмжихгүй үед ч агуулга бүтнээрээ
+   харагдана — хоосон хар хуудас гарахгүй.                      */
+.rv{transition:opacity .6s ease,transform .6s ease;}
+html.js .rv{opacity:0;transform:translateY(22px);}
+html.js .rv.in{opacity:1;transform:none;}
+
+/* ═══ RESPONSIVE ══════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .tiers,.tpl,.steps{grid-template-columns:repeat(2,1fr);}
+  .srv-row{grid-template-columns:auto 1fr auto auto;}
+  .srv-row p{display:none;}
+}
+@media(max-width:900px){
+  .nav{display:none;}
+  .mbtn{display:inline-flex;}
+  .work-item{grid-template-columns:1fr;gap:var(--s3);}
+  .work-item:nth-child(even) .work-txt{order:0;}
+  #markC{right:-24%;opacity:.4;width:min(110vw,620px);height:min(110vw,620px);}
+  /* Нарийн дэлгэцэнд бичвэр анимацын дээр тусдаг тул ард нь зөөлөн
+     далд дэвсгэр тавьж уншигдацыг баталгаажуулна. */
+  .hero-in{position:relative;}
+  .hero-in::before{
+    content:'';position:absolute;inset:-2rem -1.2rem;z-index:-1;pointer-events:none;
+    background:radial-gradient(96% 72% at 32% 46%,rgba(10,10,11,.94),rgba(10,10,11,.82) 52%,rgba(10,10,11,0) 82%);
+  }
+  .foot{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:620px){
+  :root{--s7:4rem;--s8:5rem;}
+  .tiers,.tpl,.steps{grid-template-columns:1fr;}
+  .bar .btn-p{display:none;}
+  .hero-stats{gap:var(--s3) var(--s4);}
+  .foot{grid-template-columns:1fr;}
+  .srv-row{grid-template-columns:auto 1fr;gap:var(--s2) var(--s3);}
+  .srv-price{grid-column:2;text-align:left;}
+  .srv-act{grid-column:2;justify-self:start;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+  .strip-in{animation:none;}
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important;}
+}
+
+/* ═══ ФОРМ, ЦОНХ, АДМИН (өмнөх хувилбараас) ═══════════════════ */
 /* ── ФОРМЫН ЭЛЕМЕНТҮҮД ────────────────────────── */
 .fg{margin-bottom:1.3rem;display:flex;flex-direction:column;}
 .fg label{font-size:var(--micro);letter-spacing:.11em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem;}
@@ -118,266 +499,8 @@ a{text-decoration:none;color:inherit;}
 .abg .fg label{color:#666;font-size:.68rem;letter-spacing:.07em;}
 .abg .fg input,.abg .fg textarea,.abg .fg select{color:#111;background:#fff;border:1.5px solid #111;padding:.65rem .85rem;font-size:.88rem;}
 
-/* ── ЦЭСНИЙ ТОВЧ БА ДЭЛГЭГДЭХ ХАВТАС ──────────── */
-.menu-btn{
-  display:inline-flex;align-items:center;gap:.6rem;
-  font-family:inherit;font-size:var(--micro);letter-spacing:.11em;text-transform:uppercase;font-weight:500;
-  color:var(--dim);background:none;border:none;cursor:pointer;
-  min-height:44px;padding:0 .45rem;margin-right:-.45rem;
-  transition:color .25s;
-}
-.menu-btn:hover,.menu-btn[aria-expanded="true"]{color:var(--fg);}
-.menu-ico{position:relative;display:inline-block;width:17px;height:9px;flex-shrink:0;}
-.menu-ico i{
-  position:absolute;left:0;right:0;height:1px;background:currentColor;
-  transition:transform .32s cubic-bezier(.4,0,.2,1);
-}
-.menu-ico i:first-child{top:0;}
-.menu-ico i:last-child{bottom:0;}
-.menu-btn[aria-expanded="true"] .menu-ico i:first-child{transform:translateY(4px) rotate(45deg);}
-.menu-btn[aria-expanded="true"] .menu-ico i:last-child{transform:translateY(-4px) rotate(-45deg);}
 
-.menu-panel{
-  position:fixed;top:var(--navh);right:var(--pad);z-index:150;
-  min-width:15rem;display:flex;flex-direction:column;
-  background:rgba(0,0,0,.94);backdrop-filter:blur(18px);
-  border:1px solid var(--line);
-  opacity:0;visibility:hidden;transform:translateY(-10px);
-  transition:opacity .25s,transform .32s cubic-bezier(.4,0,.2,1),visibility .25s;
-}
-.menu-panel.on{opacity:1;visibility:visible;transform:translateY(0);}
-.menu-panel a,.menu-panel button{
-  font-family:inherit;font-size:var(--micro);letter-spacing:.11em;text-transform:uppercase;font-weight:500;
-  color:var(--dim);background:none;border:none;border-bottom:1px solid var(--line-soft);
-  padding:1rem 1.5rem;text-align:left;cursor:pointer;
-  transition:color .2s,background .2s,padding-left .2s;
-}
-.menu-panel a:last-child,.menu-panel button:last-child{border-bottom:none;}
-.menu-panel a:hover,.menu-panel button:hover{color:var(--fg);background:rgba(233,234,228,.05);padding-left:1.8rem;}
-
-
-/* ── МИКРО БИЧВЭР ─────────────────────────────── */
-.mi{font-size:var(--micro);letter-spacing:.11em;text-transform:uppercase;font-weight:500;line-height:1.5;}
-.dim{color:var(--dim);}
-.dimmer{color:var(--dimmer);}
-
-/* ── ДЭЭД МӨР ─────────────────────────────────── */
-.bar{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;gap:clamp(1rem,3vw,2.6rem);
-  height:var(--navh);padding:0 var(--pad);
-  background:rgba(18,18,18,.86);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line);
-}
-.bar .h-brand{display:flex;align-items:center;gap:.6rem;white-space:nowrap;min-height:44px;}
-.bar .h-brand img{height:24px;width:auto;display:block;}
-.bar-nav{display:flex;gap:clamp(.9rem,2.2vw,1.9rem);margin-left:1.4rem;}
-.bar-nav a{
-  display:inline-flex;align-items:center;min-height:44px;
-  font-size:var(--micro);letter-spacing:.09em;text-transform:uppercase;font-weight:500;
-  color:var(--dim);transition:color .2s;
-}
-.bar-nav a:hover{color:var(--fg);}
-.bar-right{margin-left:auto;display:flex;align-items:center;gap:1rem;}
-.bar-cta{
-  font-family:inherit;font-size:var(--micro);letter-spacing:.09em;text-transform:uppercase;font-weight:500;
-  background:var(--fg);color:#111;border:1px solid var(--fg);
-  padding:.58rem 1.1rem;border-radius:999px;cursor:pointer;
-  min-height:44px;transition:background .2s,color .2s;white-space:nowrap;
-}
-.bar-cta:hover{background:transparent;color:var(--fg);}
-
-/* ── HERO ─────────────────────────────────────── */
-.hero{
-  position:relative;overflow:hidden;background:#000;
-  min-height:clamp(420px,58vh,620px);
-  padding:calc(var(--navh) + clamp(2.4rem,6vw,4.6rem)) var(--pad) clamp(2.4rem,6vw,4.2rem);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-}
-#markC{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;opacity:.72;}
-/* Гарчиг анимацын дээр уншигдахын тулд төв хэсэгт зөөлөн хөшиг */
-.hero::after{
-  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(58% 54% at 50% 50%, rgba(8,8,9,.88), rgba(8,8,9,.52) 58%, transparent 82%);
-}
-.hero-in{position:relative;z-index:2;max-width:46rem;}
-.hero h1{
-  font-size:clamp(2.1rem,5.2vw,3.9rem);font-weight:500;letter-spacing:-.03em;line-height:1.06;
-}
-.hero p{margin-top:1rem;font-size:clamp(13px,1.3vw,15px);color:var(--dim);}
-.hero p b{color:var(--fg);font-weight:500;}
-.wordstrip{
-  margin-top:1.8rem;display:flex;flex-wrap:wrap;justify-content:center;
-  gap:.5rem .9rem;
-}
-.wordstrip span{
-  font-size:var(--micro);letter-spacing:.14em;text-transform:uppercase;
-  color:var(--dimmer);
-}
-.wordstrip span::after{content:'·';margin-left:.9rem;color:var(--dimmer);}
-.wordstrip span:last-child::after{content:'';}
-
-/* ── ШҮҮЛТҮҮРИЙН МӨР ──────────────────────────── */
-.filters{
-  position:sticky;top:var(--navh);z-index:150;
-  background:rgba(18,18,18,.92);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line);
-}
-.filters-in{
-  display:flex;align-items:center;gap:.6rem;
-  padding:.9rem var(--pad);
-  overflow-x:auto;scrollbar-width:none;
-}
-.filters-in::-webkit-scrollbar{display:none;}
-.chip{
-  flex:0 0 auto;font-family:inherit;font-size:13px;font-weight:500;
-  color:var(--dim);background:none;
-  border:2px solid #2C2C2C;border-radius:999px;
-  padding:0 1rem;height:44px;cursor:pointer;white-space:nowrap;
-  transition:color .2s,border-color .2s,background .2s;
-}
-.chip:hover{color:var(--fg);border-color:#3f3f3f;}
-.chip.on{color:#111;background:var(--fg);border-color:var(--fg);}
-.chip .n{opacity:.55;margin-left:.45rem;font-size:11px;}
-.chip.on .n{opacity:.6;}
-
-/* ── КАРТНЫ СҮЛЖЭЭ ────────────────────────────── */
-.grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:clamp(1rem,2vw,1.6rem);
-  padding:clamp(1.6rem,4vw,2.6rem) var(--pad) clamp(3rem,7vw,5rem);
-}
-.card{display:flex;flex-direction:column;color:inherit;}
-.card[hidden]{display:none;}
-.card-view{
-  position:relative;overflow:hidden;border-radius:16px;
-  aspect-ratio:4/3;background:#1b1b1d;
-  border:1px solid var(--line);
-  transition:border-color .3s ease,transform .3s ease;
-}
-.card:hover .card-view{border-color:rgba(233,234,228,.34);transform:translateY(-3px);}
-.card-view img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:top center;
-  opacity:0;transition:opacity .9s ease;
-}
-.card-view img.on{opacity:1;}
-/* Зураггүй картуудын товч, өнгөт нүүр */
-.cover{
-  position:absolute;inset:0;display:flex;flex-direction:column;
-  justify-content:space-between;padding:1.3rem;
-}
-.cover .ct{
-  font-size:clamp(17px,2.2vw,26px);font-weight:500;letter-spacing:-.02em;
-  line-height:1.1;color:#fff;max-width:90%;
-}
-.cover .cb{font-size:var(--micro);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72);}
-.cv1{background:linear-gradient(140deg,#7A3A12,#C2531A 55%,#FEC43A);}
-.cv2{background:linear-gradient(140deg,#5A1838,#A3245C 55%,#FB7437);}
-.cv3{background:linear-gradient(140deg,#17333F,#1F7E95 60%,#3FD0DE);}
-.cv4{background:linear-gradient(140deg,#2B1A4A,#5A3A9E 55%,#9F7BE8);}
-.cv5{background:linear-gradient(140deg,#18181A,#2E2E33 60%,#4A4A52);}
-.dots{position:absolute;left:0;right:0;bottom:.7rem;display:flex;justify-content:center;gap:.4rem;}
-.dots i{
-  width:5px;height:5px;border-radius:50%;
-  background:rgba(255,255,255,.42);box-shadow:0 0 3px rgba(0,0,0,.35);
-  transition:background .35s ease;
-}
-.dots i.on{background:#fff;}
-
-.card-row{display:flex;align-items:baseline;gap:.8rem;padding-top:.9rem;}
-.card-row h3{flex:1;font-size:14.5px;font-weight:500;letter-spacing:-.01em;}
-.card-price{font-size:13px;font-weight:500;color:var(--fg);white-space:nowrap;}
-.card-meta{display:flex;align-items:center;gap:.5rem;padding-top:.45rem;}
-.card-meta .dot{
-  width:16px;height:16px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(135deg,var(--c1),var(--c3) 55%,var(--c6));
-}
-.card-meta span{font-size:11.5px;color:var(--dim);}
-.card-meta .sep{color:var(--dimmer);}
-.card-act{
-  margin-top:.75rem;align-self:flex-start;font-family:inherit;
-  font-size:var(--micro);letter-spacing:.1em;text-transform:uppercase;font-weight:500;
-  color:var(--dim);background:none;border:none;padding:0;cursor:pointer;
-  border-bottom:1px solid var(--dimmer);transition:color .2s,border-color .2s;
-  position:relative;
-}
-/* Хүрэлтийн талбайг 44px болгоно — бичвэрийн байрлал хөдөлгөхгүй */
-.card-act::before{
-  content:'';position:absolute;left:0;right:0;top:50%;
-  height:44px;transform:translateY(-50%);
-}
-.card-act:hover{color:var(--fg);border-color:var(--fg);}
-/* ── ФОКУС БА ДЭЛГЭЦ УНШИГЧ ───────────────────── */
-/* Гарын фокус хаана байгааг үргэлж харуулна (SC 2.4.7) */
-:focus-visible{
-  outline:2px solid var(--c1);outline-offset:2px;border-radius:2px;
-}
-.fg input:focus-visible,.fg textarea:focus-visible,.fg select:focus-visible,
-.status-sel:focus-visible{
-  outline:2px solid var(--c1);outline-offset:2px;
-}
-/* Зөвхөн дэлгэц уншигчид зориулсан бичвэр */
-.sr-only{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-}
-/* Агуулга руу шууд үсрэх холбоос — фокуслахад л харагдана */
-.skip{
-  position:absolute;left:var(--pad);top:-100px;z-index:300;
-  background:var(--fg);color:#111;
-  font-size:var(--micro);letter-spacing:.09em;text-transform:uppercase;font-weight:500;
-  padding:.8rem 1.2rem;border-radius:0 0 8px 8px;
-  transition:top .18s ease;
-}
-.skip:focus{top:0;}
-
-.empty-note{
-  grid-column:1/-1;padding:3rem 0;text-align:center;
-  font-size:13px;color:var(--dim);
-}
-
-/* ── ХӨЛ ──────────────────────────────────────── */
-.foot{
-  border-top:1px solid var(--line);
-  padding:clamp(2.4rem,5vw,3.6rem) var(--pad);
-  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;
-}
-.foot h4{font-size:var(--micro);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:500;margin-bottom:.9rem;}
-.foot p{font-size:13px;color:var(--dim);max-width:34ch;}
-.foot .flist{display:flex;flex-direction:column;gap:.5rem;}
-.foot .flist a,.foot .flist span{font-size:13px;color:var(--dim);transition:color .2s;}
-/* Хүрэлтийн талбайг томсгоно — зайн хэмнэл хэвээр */
-.foot .flist a{display:block;padding:.35rem 0;margin:-.35rem 0;}
-.foot .flist a:hover{color:var(--fg);}
-.foot-bar{
-  border-top:1px solid var(--line);padding:1rem var(--pad);
-  display:flex;justify-content:space-between;gap:1rem;
-}
-
-/* ── RESPONSIVE ───────────────────────────────── */
-@media(max-width:1100px){
-  .grid{grid-template-columns:repeat(3,1fr);}
-}
-@media(max-width:820px){
-  .grid{grid-template-columns:repeat(2,1fr);}
-  .bar-nav{display:none;}
-  .foot{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:560px){
-  :root{--navh:4.2rem;}
-  .grid{grid-template-columns:1fr;}
-  .bar .h-brand .opt{display:none;}
-  .bar-cta{display:none;}
-  .menu-panel{left:var(--pad);}
-  .fg-row{grid-template-columns:1fr;}
-  .foot{grid-template-columns:1fr;}
-  .foot-bar{flex-direction:column;gap:.5rem;}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  .card:hover .card-view{transform:none;}
-}
+/* ═══ ЦОНХНЫ ХАР ЗАГВАР ═══════════════════════════════════════ */
 /* ── DARK MODAL OVERRIDES ─────────────────────── */
 .mbox{background:#0A0A0A!important;border:1px solid var(--line)!important;color:var(--fg);}
 /* Багцын хүсэлтийн цонх — талбар олонтой тул урт дэлгэцэд багтаана */
@@ -387,232 +510,389 @@ a{text-decoration:none;color:inherit;}
 .rbox .sbtn{margin-top:.4rem;}
 .mbox h3{font-weight:500!important;letter-spacing:-.02em;}
 .mbox .msub{color:var(--dim)!important;}
-.mclose{color:var(--dim)!important;}
 
+/* ═══ ХУУЧИН НЭРИЙН НИЙЦ ══════════════════════════════════════
+   Цонх, админы хэсэг --dim / --dimmer нэрийг ашигладаг тул
+   шинэ токенд холбож өгнө.                                     */
+:root{--dim:#9A9BA1;--dimmer:#83848C;}
+.sbtn{
+  font-family:var(--ff-b);font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;
+  background:var(--acc);color:var(--ink);border:1px solid var(--acc);
+  padding:0 1.6rem;min-height:48px;border-radius:999px;cursor:pointer;
+  transition:background .22s,color .22s;
+}
+.sbtn:hover{background:#FFD468;border-color:#FFD468;color:var(--ink);}
+.mbox{border-radius:var(--r);}
+.fg input:focus-visible,.fg textarea:focus-visible,.fg select:focus-visible{
+  outline:2px solid var(--acc);outline-offset:3px;
+}
 </style>
 </head>
 <body>
 
 <a href="#main" class="skip">Шууд агуулга руу</a>
 
-<!-- ══ ДЭЭД МӨР ══ -->
-<header class="bar" id="topBar">
-  <a href="#top" class="h-brand mi">
+<!-- ═══ ДЭЭД МӨР ═══ -->
+<header class="bar" id="bar">
+  <a href="#top" class="brand">
     <img src="images/logo.webp" alt="">
-    <span>Gerelt<span class="opt"> Solutions</span> Studio</span>
+    <span>Gerelt<i> Solutions</i> Studio</span>
   </a>
-  <nav class="bar-nav">
-    <a href="#works" data-jump="works">Ажлууд</a>
-    <a href="#services" data-jump="services">Үйлчилгээ</a>
-    <a href="#pricing" data-jump="pricing">Үнэ</a>
-    <a href="#foot">Холбоо</a>
+  <nav class="nav" aria-label="Үндсэн цэс">
+    <a href="#work">Ажлууд</a>
+    <a href="#services">Үйлчилгээ</a>
+    <a href="#process">Явц</a>
+    <a href="#pricing">Үнэ</a>
+    <a href="#contact">Холбоо барих</a>
   </nav>
-  <div class="bar-right">
-    <button class="bar-cta" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
-    <button class="menu-btn" aria-expanded="false" aria-controls="menuPanel" aria-label="Цэс">
-      Цэс<span class="menu-ico"><i></i><i></i></span>
+  <div class="bar-r">
+    <button class="btn btn-p" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
+    <button class="mbtn" aria-expanded="false" aria-controls="menuPanel" aria-label="Цэс нээх">
+      Цэс<span class="mico" aria-hidden="true"><i></i><i></i></span>
     </button>
   </div>
 </header>
 
-<!-- ══ ДЭЛГЭГДЭХ ЦЭС ══ -->
-<nav class="menu-panel" id="menuPanel">
-  <a href="#works" data-jump="works">Хийсэн ажлууд</a>
-  <a href="#services" data-jump="services">Үйлчилгээ</a>
-  <a href="#pricing" data-jump="pricing">Үнийн багц</a>
-  <a href="#templates" data-jump="templates">Бэлэн загвар</a>
-  <a href="#foot">Холбоо барих</a>
-  <button onclick="openAdmin()">Админ</button>
+<nav class="menu-panel" id="menuPanel" aria-label="Гар утасны цэс">
+  <a href="#work">Ажлууд</a>
+  <a href="#services">Үйлчилгээ</a>
+  <a href="#process">Явц</a>
+  <a href="#pricing">Үнийн мэдээлэл</a>
+  <a href="#templates">Бэлэн загвар</a>
+  <a href="#contact">Холбоо барих</a>
 </nav>
 
 <main id="main">
 
-<!-- ══ HERO ══ -->
-<div class="hero" id="top">
-  <canvas id="markC"></canvas>
-  <div class="hero-in">
-    <h1>Вэб, мобайл, дижитал шийдэл</h1>
-    <p><b id="heroCount">13</b> шийдэл, үйлчилгээ, багц — нэг дороос. Таны санааг бодит бүтээгдэхүүн болгоно.</p>
-    <div class="wordstrip">
-      <span>Онцгой</span><span>Хялбар</span><span>Зөвхөн танд</span>
-      <span>Шинэлэг</span><span>Үнэ цэнтэй</span><span>Итгэмжтэй</span>
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top">
+  <canvas id="markC" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-in">
+      <p class="eyebrow"><span class="pip" aria-hidden="true"></span>Улаанбаатар · Дорнод</p>
+      <h1 class="h-xl">Санааг ажилладаг<br><em>бүтээгдэхүүн</em> болгоно</h1>
+      <p class="lead">Вэб, мобайл аппликейшн, онлайн дэлгүүр, төлбөрийн холболт — зураглалаас эхлээд ажиллаж эхлэх хүртэл нэг багаас.</p>
+      <div class="btn-row">
+        <button class="btn btn-p" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
+        <a class="btn btn-s" href="#work">Хийсэн ажлууд үзэх</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>2025</b><span>Студи байгуулагдсан</span></div>
+        <div><b>7 хоног</b><span>Бэлэн загвар ашиглавал</span></div>
+        <div><b>4</b><span>Үндсэн чиглэл</span></div>
+        <div><b>12 сар</b><span>Хамгийн урт дэмжлэг</span></div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══ ЧАДВАРЫН ТУУЗ ═══ -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-in">
+    <span>Вэб хөгжүүлэлт</span><span>Мобайл апп</span><span>Онлайн дэлгүүр</span><span>QPay холболт</span>
+    <span>UI/UX дизайн</span><span>Админ панел</span><span>График дизайн</span><span>Хэвлэл</span>
+    <span>Вэб хөгжүүлэлт</span><span>Мобайл апп</span><span>Онлайн дэлгүүр</span><span>QPay холболт</span>
+    <span>UI/UX дизайн</span><span>Админ панел</span><span>График дизайн</span><span>Хэвлэл</span>
   </div>
 </div>
 
-<!-- ══ ШҮҮЛТҮҮР ══ -->
-<h2 class="sr-only">Шийдэл, үйлчилгээ, багцууд</h2>
-<div class="filters">
-  <div class="filters-in" id="chips" role="group" aria-label="Ангиллаар шүүх">
-    <button class="chip on" data-cat="all">Бүгд<span class="n">13</span></button>
-    <button class="chip" data-cat="works">Хийсэн ажлууд<span class="n">2</span></button>
-    <button class="chip" data-cat="services">Үйлчилгээ<span class="n">3</span></button>
-    <button class="chip" data-cat="pricing">Үнийн багц<span class="n">4</span></button>
-    <button class="chip" data-cat="templates">Бэлэн загвар<span class="n">4</span></button>
+<!-- ═══ АЖЛУУД ═══ -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="slab"><b>01</b>Сүүлд хийгдсэн ажлуудаас</p>
+      <h2 class="h-lg">Ажиллаж байгаа сайтууд</h2>
+    </div>
+    <div class="work">
+
+      <article class="work-item rv">
+        <a class="card-view" href="https://norwuujai.com/" target="_blank" rel="noopener">
+          <img src="images/nj1.webp" alt="norwuujai.com сайтын нүүр хуудас" class="on" loading="lazy">
+          <img src="images/nj2.webp" alt="norwuujai.com сайтын бүтээгдэхүүний хэсэг" loading="lazy">
+          <img src="images/nj3.webp" alt="norwuujai.com сайтын холбоо барих хэсэг" loading="lazy">
+          <span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></span>
+        </a>
+        <div class="work-txt">
+          <h3 class="h-md">norwuujai.com</h3>
+          <p class="lead">Байгууллагын танилцуулга сайт — бүтээгдэхүүний каталог, холбоо барих урсгал, админ талаас агуулгаа өөрөө шинэчлэх боломжтой.</p>
+          <div class="work-meta">
+            <span class="tag">Танилцуулга</span>
+            <span class="tag">Каталог</span>
+            <span class="tag">Мобайл нийцтэй</span>
+            <span class="tag">2025</span>
+          </div>
+          <a class="wlink" href="https://norwuujai.com/" target="_blank" rel="noopener">
+            Сайт нээх
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="work-item rv">
+        <a class="card-view" href="https://mss.mn/" target="_blank" rel="noopener">
+          <img src="images/mss1.webp" alt="mss.mn сайтын нүүр хуудас" class="on" loading="lazy">
+          <img src="images/mss2.webp" alt="mss.mn сайтын үйлчилгээний хэсэг" loading="lazy">
+          <img src="images/mss3.webp" alt="mss.mn сайтын чадавхын хэсэг" loading="lazy">
+          <img src="images/mss4.webp" alt="mss.mn сайтын холбоо барих хэсэг" loading="lazy">
+          <span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
+        </a>
+        <div class="work-txt">
+          <h3 class="h-md">mss.mn</h3>
+          <p class="lead">Хамгаалалтын байгууллагын хоёр хэлтэй сайт — үйлчилгээний бүтэц, чадавхын танилцуулга, хүний нөөцийн урилга.</p>
+          <div class="work-meta">
+            <span class="tag">Хоёр хэл</span>
+            <span class="tag">Корпорат</span>
+            <span class="tag">Хүний нөөц</span>
+            <span class="tag">2025</span>
+          </div>
+          <a class="wlink" href="https://mss.mn/" target="_blank" rel="noopener">
+            Сайт нээх
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
   </div>
-</div>
+</section>
 
-<!-- ══ СҮЛЖЭЭ ══ -->
-<div class="grid" id="grid">
-
-  <!-- Хийсэн ажлууд -->
-  <a class="card" data-cat="works" id="works" href="https://norwuujai.com/" target="_blank" rel="noopener noreferrer">
-    <div class="card-view">
-      <img src="images/nj1.webp" alt="norwuujai.com сайтын дэлгэцийн зураг" class="on">
-      <img src="images/nj2.webp" alt="" loading="lazy">
-      <img src="images/nj3.webp" alt="" loading="lazy">
-      <span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></span>
+<!-- ═══ ҮЙЛЧИЛГЭЭ ═══ -->
+<section class="sec sec-alt" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="slab"><b>02</b>Үйлчилгээ</p>
+      <h2 class="h-lg">Юу хийж өгөх вэ</h2>
     </div>
-    <div class="card-row"><h3>norwuujai.com</h3><span class="card-price">2025</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Gerelt Studio</span><span class="sep">·</span><span>Хийсэн ажил</span></div>
-  </a>
+    <div class="srv rv">
 
-  <a class="card" data-cat="works" href="https://mss.mn/" target="_blank" rel="noopener noreferrer">
-    <div class="card-view">
-      <img src="images/mss1.webp" alt="mss.mn сайтын дэлгэцийн зураг" class="on">
-      <img src="images/mss2.webp" alt="" loading="lazy">
-      <img src="images/mss3.webp" alt="" loading="lazy">
-      <img src="images/mss4.webp" alt="" loading="lazy">
-      <span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
-    </div>
-    <div class="card-row"><h3>mss.mn</h3><span class="card-price">2025</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Gerelt Studio</span><span class="sep">·</span><span>Хийсэн ажил</span></div>
-  </a>
+      <div class="srv-row">
+        <span class="srv-no">01</span>
+        <h3>Вэб хөгжүүлэлт</h3>
+        <p>Танилцуулга, каталог, блог. Админ талаас агуулгаа өөрөө удирдана.</p>
+        <span class="srv-price"><b>₮500,000-аас</b><span>Мобайл нийцтэй</span></span>
+        <button class="srv-act" onclick="openRequest('Вэб хөгжүүлэлт','Хараахан тодорхойгүй')" aria-label="Вэб хөгжүүлэлтийн хүсэлт илгээх">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
 
-  <!-- Үйлчилгээ -->
-  <div class="card" data-cat="services" id="services">
-    <div class="card-view">
-      <div class="cover cv1"><div class="ct">Вэб<br>хөгжүүлэлт</div><div class="cb">React · Next.js · Node</div></div>
+      <div class="srv-row">
+        <span class="srv-no">02</span>
+        <h3>Мобайл аппликейшн</h3>
+        <p>iOS болон Android — нэг кодоос хоёр платформ руу.</p>
+        <span class="srv-price"><b>₮2,500,000-аас</b><span>Хоёр платформ</span></span>
+        <button class="srv-act" onclick="openRequest('Мобайл аппликейшн','₮2,500,000–3,500,000')" aria-label="Мобайл аппликейшны хүсэлт илгээх">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="srv-row">
+        <span class="srv-no">03</span>
+        <h3>Онлайн дэлгүүр &amp; QPay</h3>
+        <p>Бараа, сагс, захиалга. QPay болон SocialPay холболттой.</p>
+        <span class="srv-price"><b>₮2,500,000-аас</b><span>Төлбөр холболттой</span></span>
+        <button class="srv-act" onclick="openRequest('Онлайн дэлгүүр &amp; QPay','₮2,500,000–3,500,000')" aria-label="Онлайн дэлгүүрийн хүсэлт илгээх">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
     </div>
-    <div class="card-row"><h3>Вэб хөгжүүлэлт</h3><span class="card-price">₮500,000-аас</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Үйлчилгээ</span><span class="sep">·</span><span>Мобайл нийцтэй</span></div>
-    <button class="card-act" onclick="openRequest('Вэб хөгжүүлэлт','Хараахан тодорхойгүй')">Хүсэлт илгээх →</button>
   </div>
+</section>
 
-  <div class="card" data-cat="services">
-    <div class="card-view">
-      <div class="cover cv2"><div class="ct">Мобайл<br>аппликейшн</div><div class="cb">iOS · Android · Flutter</div></div>
+<!-- ═══ ЯВЦ ═══ -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="slab"><b>03</b>Хэрхэн ажилладаг</p>
+      <h2 class="h-lg">Дөрвөн алхам</h2>
     </div>
-    <div class="card-row"><h3>Мобайл аппликейшн</h3><span class="card-price">₮2,500,000-аас</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Үйлчилгээ</span><span class="sep">·</span><span>Хоёр платформ</span></div>
-    <button class="card-act" onclick="openRequest('Мобайл аппликейшн','₮2,500,000–3,500,000')">Хүсэлт илгээх →</button>
-  </div>
-
-  <div class="card" data-cat="services">
-    <div class="card-view">
-      <div class="cover cv3"><div class="ct">Онлайн дэлгүүр<br>&amp; QPay</div><div class="cb">E-Commerce · QPay · SocialPay</div></div>
+    <div class="steps rv">
+      <div class="step lit">
+        <b>АЛХАМ 01</b>
+        <h3>Ярилцлага</h3>
+        <p>Юу хэрэгтэйг тодруулж, хүрээ, хугацаа, төсвийг тохирно.</p>
+      </div>
+      <div class="step">
+        <b>АЛХАМ 02</b>
+        <h3>Зураглал</h3>
+        <p>Бүтэц, дизайныг урьдчилан харуулж, танаас санал авна.</p>
+      </div>
+      <div class="step">
+        <b>АЛХАМ 03</b>
+        <h3>Хөгжүүлэлт</h3>
+        <p>Код бичиж, агуулга оруулж, бүх төхөөрөмж дээр шалгана.</p>
+      </div>
+      <div class="step">
+        <b>АЛХАМ 04</b>
+        <h3>Нэвтрүүлэлт</h3>
+        <p>Домэйнд холбож амьдруулна. Дараа нь тохирсон хугацаанд дэмжинэ.</p>
+      </div>
     </div>
-    <div class="card-row"><h3>Онлайн дэлгүүр &amp; QPay</h3><span class="card-price">₮2,500,000-аас</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Үйлчилгээ</span><span class="sep">·</span><span>Төлбөр холболттой</span></div>
-    <button class="card-act" onclick="openRequest('Онлайн дэлгүүр &amp; QPay','₮2,500,000–3,500,000')">Хүсэлт илгээх →</button>
   </div>
+</section>
 
-  <!-- Үнийн багц -->
-  <div class="card" data-cat="pricing" id="pricing">
-    <div class="card-view">
-      <div class="cover cv5"><div class="ct">Бэлэн<br>загвар</div><div class="cb">Хурдан хүргэлт</div></div>
+<!-- ═══ ҮНЭ ═══ -->
+<section class="sec sec-alt" id="pricing">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="slab"><b>04</b>Үнийн мэдээлэл</p>
+      <h2 class="h-lg">Багцууд</h2>
+      <p class="lead">Эцсийн үнэ хүрээ, хуудасны тоо, холболтоос хамаарна. Ярилцсаны дараа тодорхой тоо гаргаж өгнө.</p>
     </div>
-    <div class="card-row"><h3>Бэлэн загвар багц</h3><span class="card-price">₮300,000–500,000</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Үнийн багц</span><span class="sep">·</span><span>Мобайл нийцтэй</span></div>
-    <button class="card-act" onclick="openRequest('Бэлэн загвар','₮300,000–500,000')">Хүсэлт илгээх →</button>
-  </div>
+    <div class="tiers rv">
 
-  <div class="card" data-cat="pricing">
-    <div class="card-view">
-      <div class="cover cv1"><div class="ct">Basic<br>багц</div><div class="cb">Жижиг бизнест</div></div>
+      <div class="tier">
+        <h3>Бэлэн загвар</h3>
+        <p class="per">Хурдан эхлэхэд</p>
+        <p class="amt">₮300,000–500,000</p>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Бэлэн загвар дээр суурилна</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Таны агуулга, өнгө</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Мобайл нийцтэй</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5–7 хоногт бэлэн</li>
+        </ul>
+        <button class="btn btn-s" onclick="openRequest('Бэлэн загвар','₮300,000–500,000')">Хүсэлт илгээх</button>
+      </div>
+
+      <div class="tier">
+        <h3>Basic</h3>
+        <p class="per">Жижиг бизнест</p>
+        <p class="amt">₮500,000–1,500,000</p>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Зөвхөн танд зориулж хийнэ</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5–8 хуудас</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Холбоо барих форм</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 сар дэмжлэг</li>
+        </ul>
+        <button class="btn btn-s" onclick="openRequest('Basic багц','₮500,000–1,500,000')">Хүсэлт илгээх</button>
+      </div>
+
+      <div class="tier feat">
+        <span class="tier-badge">Хамгийн их сонгогддог</span>
+        <h3>Pro</h3>
+        <p class="per">Худалдаа эрхлэгчдэд</p>
+        <p class="amt">₮2,500,000–3,500,000</p>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Онлайн дэлгүүр бүрэн</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>QPay, SocialPay холболт</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Админ панел</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 сар дэмжлэг</li>
+        </ul>
+        <button class="btn btn-p" onclick="openRequest('Pro багц','₮2,500,000–3,500,000')">Хүсэлт илгээх</button>
+      </div>
+
+      <div class="tier">
+        <h3>Enterprise</h3>
+        <p class="per">Байгууллагад</p>
+        <p class="amt">₮4,000,000+</p>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Мобайл апп хамт</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Системийн холболт</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Тусгай шийдэл</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>12 сар дэмжлэг</li>
+        </ul>
+        <button class="btn btn-s" onclick="openRequest('Enterprise багц','₮4,000,000+')">Хүсэлт илгээх</button>
+      </div>
+
     </div>
-    <div class="card-row"><h3>Basic багц</h3><span class="card-price">₮500,000–1,500,000</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Үнийн багц</span><span class="sep">·</span><span>1 сар дэмжлэг</span></div>
-    <button class="card-act" onclick="openRequest('Basic багц','₮500,000–1,500,000')">Хүсэлт илгээх →</button>
   </div>
+</section>
 
-  <div class="card" data-cat="pricing">
-    <div class="card-view">
-      <div class="cover cv2"><div class="ct">Pro<br>багц</div><div class="cb">★ Хамгийн их сонгосон</div></div>
+<!-- ═══ БЭЛЭН ЗАГВАР ═══ -->
+<section class="sec" id="templates">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="slab"><b>05</b>Бэлэн загвар</p>
+      <h2 class="h-lg">Долоо хоногт амьдарна</h2>
+      <p class="lead">Загвар сонгоод агуулгаа өгвөл болно. Өнгө, лого, бичвэрийг тань руу тааруулна.</p>
     </div>
-    <div class="card-row"><h3>Pro багц</h3><span class="card-price">₮2,500,000–3,500,000</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Үнийн багц</span><span class="sep">·</span><span>QPay + админ панел</span></div>
-    <button class="card-act" onclick="openRequest('Pro багц','₮2,500,000–3,500,000')">Хүсэлт илгээх →</button>
-  </div>
+    <div class="tpl rv">
 
-  <div class="card" data-cat="pricing">
-    <div class="card-view">
-      <div class="cover cv4"><div class="ct">Enterprise<br>багц</div><div class="cb">Томоохон байгууллагад</div></div>
+      <button class="tpl-card" onclick="openRequest('Бэлэн загвар — Байгууллагын танилцуулга','₮300,000–500,000')">
+        <span class="tpl-view tv1">
+          <span class="tt">Байгууллагын<br>танилцуулга</span>
+          <span class="tb">Тухай · Үйлчилгээ · Холбоо</span>
+        </span>
+        <span class="tpl-row"><h3>Байгууллагын танилцуулга</h3><span class="amt">₮300,000</span></span>
+        <span class="tpl-sub">7 хоногт бэлэн</span>
+      </button>
+
+      <button class="tpl-card" onclick="openRequest('Бэлэн загвар — Онлайн дэлгүүр','₮300,000–500,000')">
+        <span class="tpl-view tv2">
+          <span class="tt">Онлайн<br>дэлгүүр</span>
+          <span class="tb">Бараа · Сагс · QPay</span>
+        </span>
+        <span class="tpl-row"><h3>Онлайн дэлгүүр загвар</h3><span class="amt">₮500,000</span></span>
+        <span class="tpl-sub">Төлбөр холболттой</span>
+      </button>
+
+      <button class="tpl-card" onclick="openRequest('Бэлэн загвар — Ресторан &amp; кафе','₮300,000–500,000')">
+        <span class="tpl-view tv3">
+          <span class="tt">Ресторан<br>&amp; кафе</span>
+          <span class="tb">Цэс · Захиалга · Байршил</span>
+        </span>
+        <span class="tpl-row"><h3>Ресторан &amp; кафе</h3><span class="amt">₮350,000</span></span>
+        <span class="tpl-sub">Цэсний удирдлага</span>
+      </button>
+
+      <button class="tpl-card" onclick="openRequest('Бэлэн загвар — Хувийн портфолио','₮300,000–500,000')">
+        <span class="tpl-view tv4">
+          <span class="tt">Хувийн<br>портфолио</span>
+          <span class="tb">Ажлын сан · Блог</span>
+        </span>
+        <span class="tpl-row"><h3>Хувийн портфолио</h3><span class="amt">₮300,000</span></span>
+        <span class="tpl-sub">5 хоногт бэлэн</span>
+      </button>
+
     </div>
-    <div class="card-row"><h3>Enterprise багц</h3><span class="card-price">₮4,000,000+</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Үнийн багц</span><span class="sep">·</span><span>12 сар дэмжлэг</span></div>
-    <button class="card-act" onclick="openRequest('Enterprise багц','₮4,000,000+')">Хүсэлт илгээх →</button>
   </div>
+</section>
 
-  <!-- Бэлэн загвар -->
-  <div class="card" data-cat="templates" id="templates">
-    <div class="card-view">
-      <div class="cover cv3"><div class="ct">Байгууллагын<br>танилцуулга</div><div class="cb">5 хуудас · CMS</div></div>
+<!-- ═══ ТӨГСГӨЛИЙН УРИА ═══ -->
+<section class="cta" id="contact">
+  <div class="wrap rv">
+    <p class="slab" style="justify-content:center"><b>06</b>Холбоо барих</p>
+    <h2 class="h-lg">Юу хийх гэж байгаагаа<br>хэлээд өгөөрэй</h2>
+    <p class="lead">Товч бичсэн ч болно. Хоёр ажлын өдөрт багтаан эргэж холбогдож, хүрээ, хугацаа, үнийг тодруулна.</p>
+    <div class="btn-row">
+      <button class="btn btn-p" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
+      <a class="btn btn-s" href="mailto:gereltsolutions01@gmail.com">Имэйл бичих</a>
     </div>
-    <div class="card-row"><h3>Байгууллагын танилцуулга</h3><span class="card-price">₮300,000</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Бэлэн загвар</span><span class="sep">·</span><span>7 хоногт бэлэн</span></div>
-    <button class="card-act" onclick="openRequest('Бэлэн загвар — Байгууллагын танилцуулга','₮300,000–500,000')">Хүсэлт илгээх →</button>
   </div>
-
-  <div class="card" data-cat="templates">
-    <div class="card-view">
-      <div class="cover cv1"><div class="ct">Онлайн<br>дэлгүүр</div><div class="cb">Бараа · Сагс · QPay</div></div>
-    </div>
-    <div class="card-row"><h3>Онлайн дэлгүүр загвар</h3><span class="card-price">₮500,000</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Бэлэн загвар</span><span class="sep">·</span><span>Төлбөр холболттой</span></div>
-    <button class="card-act" onclick="openRequest('Бэлэн загвар — Онлайн дэлгүүр','₮300,000–500,000')">Хүсэлт илгээх →</button>
-  </div>
-
-  <div class="card" data-cat="templates">
-    <div class="card-view">
-      <div class="cover cv4"><div class="ct">Ресторан<br>&amp; кафе</div><div class="cb">Цэс · Захиалга · Байршил</div></div>
-    </div>
-    <div class="card-row"><h3>Ресторан &amp; кафе</h3><span class="card-price">₮350,000</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Бэлэн загвар</span><span class="sep">·</span><span>Цэсний удирдлага</span></div>
-    <button class="card-act" onclick="openRequest('Бэлэн загвар — Ресторан &amp; кафе','₮300,000–500,000')">Хүсэлт илгээх →</button>
-  </div>
-
-  <div class="card" data-cat="templates">
-    <div class="card-view">
-      <div class="cover cv2"><div class="ct">Хувийн<br>портфолио</div><div class="cb">Ажлын сан · Блог</div></div>
-    </div>
-    <div class="card-row"><h3>Хувийн портфолио</h3><span class="card-price">₮300,000</span></div>
-    <div class="card-meta"><span class="dot"></span><span>Бэлэн загвар</span><span class="sep">·</span><span>5 хоногт бэлэн</span></div>
-    <button class="card-act" onclick="openRequest('Бэлэн загвар — Хувийн портфолио','₮300,000–500,000')">Хүсэлт илгээх →</button>
-  </div>
-
-</div>
+</section>
 
 </main>
 
-<!-- ══ ХӨЛ ══ -->
-<footer class="foot" id="foot">
-  <div>
-    <h4>Gerelt Solutions Studio</h4>
-    <p>Бид танд орчин үеийн, зөвхөн танд зориулсан вэб, мобайл болон IT шийдлийг хүргэнэ. Технологийн шийдлээс гадна график дизайн, хэвлэлийн бүх төрлийн үйлчилгээ үзүүлдэг.</p>
-  </div>
-  <div>
-    <h4>Холбоо барих</h4>
-    <div class="flist">
-      <a href="mailto:gereltsolutions01@gmail.com">gereltsolutions01@gmail.com</a>
-      <a href="tel:+97672100262">+976 7210-0262</a>
-      <a href="tel:+97672237326">+976 7223-7326</a>
-      <span>Даваа – Баасан, 08:00 – 18:00</span>
+<!-- ═══ ХӨЛ ═══ -->
+<footer class="wrap">
+  <div class="foot">
+    <div>
+      <h3 class="fh">Gerelt Solutions Studio</h3>
+      <p>Орчин үеийн, зөвхөн танд зориулсан вэб, мобайл болон IT шийдэл. Технологийн шийдлээс гадна график дизайн, хэвлэлийн бүх төрлийн үйлчилгээ үзүүлнэ.</p>
+    </div>
+    <div>
+      <h3 class="fh">Холбоо барих</h3>
+      <div class="flist">
+        <a href="mailto:gereltsolutions01@gmail.com">gereltsolutions01@gmail.com</a>
+        <a href="tel:+97672100262">+976 7210-0262</a>
+        <a href="tel:+97672237326">+976 7223-7326</a>
+        <span>Даваа – Баасан, 08:00 – 18:00</span>
+      </div>
+    </div>
+    <div>
+      <h3 class="fh">Хаяг</h3>
+      <div class="flist">
+        <span>Улаанбаатар — БЗД, 7-р хороо 38А-М8</span>
+        <span>Дорнод — Хэрлэн, 11-р баг 219/1-B2</span>
+        <a href="#" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй');return false;">Үнийн санал авах →</a>
+      </div>
     </div>
   </div>
-  <div>
-    <h4>Хаяг</h4>
-    <div class="flist">
-      <span>Улаанбаатар — БЗД, 7-р хороо 38А-М8</span>
-      <span>Дорнод — Хэрлэн, 11-р баг 219/1-B2</span>
-      <a href="#" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй');return false;">Үнийн санал авах →</a>
-    </div>
+  <div class="foot-bar">
+    <span>© 2026 Gerelt Solutions Studio</span>
+    <span><a href="#" onclick="openAdmin();return false;">Админ</a> · Улаанбаатар, Монгол</span>
   </div>
 </footer>
-<div class="foot-bar mi dim">
-  <span>© 2026 Gerelt Solutions Studio</span>
-  <span>Улаанбаатар, Монгол</span>
-</div>
 
 <!-- ══ БАГЦЫН ХҮСЭЛТ ══ -->
 <div class="mbg" id="reqModal">
@@ -724,6 +1004,7 @@ a{text-decoration:none;color:inherit;}
     </div>
   </div>
 </div>
+
 
 <script>
 // ── GOOGLE FORM ХҮЛЭЭН АВАГЧ ─────────────────────────────────
@@ -1186,7 +1467,7 @@ function aTab(id,el){
 // Нүүрэн дэх болон дээд мөрөн дэх хоёр товч нэг хавтсыг удирдана.
 (function(){
   var panel=document.getElementById('menuPanel');
-  var btns=[].slice.call(document.querySelectorAll('.menu-btn'));
+  var btns=[].slice.call(document.querySelectorAll('.mbtn'));
   if(!panel||!btns.length) return;
 
   function set(open){
@@ -1254,56 +1535,100 @@ function aTab(id,el){
   });
 })();
 
-// ── СҮЛЖЭЭНИЙ ШҮҮЛТҮҮР ────────────────────────────────────────
-// Chip дарахад карт шүүгдэнэ. Дээд мөрний холбоосууд (data-jump) мөн
-// харгалзах шүүлтүүрийг асааж, сүлжээ рүү аваачна.
+// ── ДЭЭД МӨРНИЙ ЗУРААС ────────────────────────────────────────
+// Гүйлгэж эхэлмэгц доод зураас гарч, мөр дэвсгэрээс тусгаарлагдана.
 (function(){
-  var wrap=document.getElementById('chips');
-  var grid=document.getElementById('grid');
-  if(!wrap||!grid) return;
-  var chips=[].slice.call(wrap.querySelectorAll('.chip'));
-  var cards=[].slice.call(grid.querySelectorAll('.card'));
-
-  // Хоосон үр дүнгийн мэдэгдэл
-  var note=document.createElement('div');
-  note.className='empty-note';
-  note.textContent='Энэ ангилалд одоогоор зүйл алга.';
-  note.hidden=true;
-  grid.appendChild(note);
-
-  function apply(cat){
-    var shown=0;
-    cards.forEach(function(card){
-      var ok=(cat==='all'||card.getAttribute('data-cat')===cat);
-      card.hidden=!ok;
-      if(ok) shown++;
-    });
-    note.hidden=shown>0;
-    chips.forEach(function(ch){
-      ch.classList.toggle('on',ch.getAttribute('data-cat')===cat);
-    });
+  var bar=document.getElementById('bar');
+  if(!bar) return;
+  var ticking=false;
+  function upd(){
+    bar.classList.toggle('stuck',window.scrollY>12);
+    ticking=false;
   }
+  window.addEventListener('scroll',function(){
+    if(!ticking){ ticking=true; requestAnimationFrame(upd); }
+  },{passive:true});
+  upd();
+})();
 
-  chips.forEach(function(ch){
-    ch.addEventListener('click',function(){ apply(ch.getAttribute('data-cat')); });
-  });
-
-  // Цэс болон дээд мөрний холбоосууд
-  [].slice.call(document.querySelectorAll('[data-jump]')).forEach(function(a){
-    a.addEventListener('click',function(){
-      apply(a.getAttribute('data-jump'));
+// ── ИЛЧЛЭХ АНИМАЦ ─────────────────────────────────────────────
+// Хэсэг харагдах орчимд ирэхэд зөөлөн гарч ирнэ. Хөдөлгөөн багасгах
+// тохиргоотой үед огт ажиллахгүй — бүх зүйл шууд эцсийн байрандаа.
+(function(){
+  var items=[].slice.call(document.querySelectorAll('.rv'));
+  if(!items.length) return;
+  function showAll(){ items.forEach(function(el){ el.classList.add('in'); }); }
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){ showAll(); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
     });
+  },{rootMargin:'0px 0px -12% 0px',threshold:.08});
+  items.forEach(function(el){ io.observe(el); });
+})();
+
+// ── ЯВЦЫН АЛХМУУД ─────────────────────────────────────────────
+// Алхмын эгнээ харагдахад дээд зураасууд ээлжлэн асна.
+(function(){
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  if(!steps.length) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){
+    steps.forEach(function(s){ s.classList.add('lit'); });
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      steps.forEach(function(s,i){
+        setTimeout(function(){ s.classList.add('lit'); }, i*140);
+      });
+      io.disconnect();
+    });
+  },{threshold:.3});
+  io.observe(steps[0]);
+})();
+
+// ── ЦОНХНЫ ГАРЫН УДИРДЛАГА ────────────────────────────────────
+// Esc дарахад хаагдана; нээлттэй үед фокус цонхноос гарахгүй.
+(function(){
+  var modal=document.getElementById('reqModal');
+  if(!modal) return;
+  var last=null;
+  var SEL='a[href],button:not([disabled]),input,select,textarea';
+
+  document.addEventListener('keydown',function(e){
+    if(!modal.classList.contains('open')) return;
+    if(e.key==='Escape'){ closeRequest(); return; }
+    if(e.key!=='Tab') return;
+    var f=[].slice.call(modal.querySelectorAll(SEL)).filter(function(el){
+      return el.offsetParent!==null;
+    });
+    if(!f.length) return;
+    var first=f[0], lastEl=f[f.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); lastEl.focus(); }
+    else if(!e.shiftKey && document.activeElement===lastEl){ e.preventDefault(); first.focus(); }
   });
 
-  // Картын тоог chip дээр бодитоор харуулна
-  chips.forEach(function(ch){
-    var cat=ch.getAttribute('data-cat');
-    var n=cat==='all'?cards.length:cards.filter(function(c){return c.getAttribute('data-cat')===cat;}).length;
-    var el=ch.querySelector('.n');
-    if(el) el.textContent=n;
+  // Нээгдэх, хаагдахад фокусыг зөв газар нь авч очно
+  var mo=new MutationObserver(function(){
+    if(modal.classList.contains('open')){
+      last=document.activeElement;
+      var f=modal.querySelector(SEL);
+      if(f) setTimeout(function(){ f.focus(); },40);
+    }else if(last){
+      last.focus(); last=null;
+    }
   });
-  var hc=document.getElementById('heroCount');
-  if(hc) hc.textContent=cards.length;
+  mo.observe(modal,{attributes:true,attributeFilter:['class']});
+
+  // Дэвсгэр дээр дархад хаагдана
+  modal.addEventListener('click',function(e){
+    if(e.target===modal) closeRequest();
+  });
 })();
 </script>
 </body>
