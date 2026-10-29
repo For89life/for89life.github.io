@@ -8,8 +8,10 @@
 <link rel="icon" href="images/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Unbounded ба Onest — хоёулаа кирилл үсэг бүрэн дэмжинэ -->
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Golos Text — Paratype кирилл үсгийг үндсэн бичиг болгон зохиосон.
+     ү, ө, э, й зэрэг нь латинаас хөрвүүлсэн биш, төрөлх хэлбэртэй.
+     Гарчиг, бичвэр хоёуланд нэг гэр бүл — жигд харагдана. -->
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
 /* Илчлэх анимацыг зөвхөн JS ажиллаж байгаа үед асаана. Энэ мөр
    CSS-ээс өмнө ажиллах тул агуулга анивчиж харагдахгүй.
@@ -40,8 +42,8 @@ setTimeout(function(){
   --acc-3:#C0356E;       /* логоны час ягаан */
   --ink:#0A0A0B;         /* өргөлт дээрх бичвэр */
 
-  --ff-d:'Unbounded',system-ui,sans-serif;   /* гарчиг */
-  --ff-b:'Onest',system-ui,-apple-system,sans-serif;  /* бичвэр */
+  --ff-d:'Golos Text',system-ui,-apple-system,sans-serif;  /* гарчиг */
+  --ff-b:'Golos Text',system-ui,-apple-system,sans-serif;  /* бичвэр */
 
   /* 4 цэгийн сүлжээнд суурилсан зайн шат */
   --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem;
@@ -91,10 +93,12 @@ img{display:block;max-width:100%;}
 .slab b{color:var(--acc);font-weight:500;font-family:var(--ff-d);}
 .slab::after{content:'';flex:1;height:1px;background:var(--line);}
 
-h1,h2,h3{font-family:var(--ff-d);font-weight:400;letter-spacing:-.02em;line-height:1.08;}
-.h-xl{font-size:clamp(2.35rem,5.4vw,4.6rem);}
-.h-lg{font-size:clamp(1.8rem,3.6vw,2.9rem);}
-.h-md{font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.2;}
+/* Golos Text нарийн зурагтай тул гарчгийн хэмжээг томсгож,
+   жинг 600 болгож жинхэнэ гарчгийн хүндтэй болгов. */
+h1,h2,h3{font-family:var(--ff-d);font-weight:600;letter-spacing:-.025em;line-height:1.06;}
+.h-xl{font-size:clamp(2.6rem,6vw,5.1rem);letter-spacing:-.035em;}
+.h-lg{font-size:clamp(1.95rem,4vw,3.25rem);letter-spacing:-.03em;}
+.h-md{font-size:clamp(1.4rem,2.4vw,2.05rem);line-height:1.18;}
 .lead{font-size:clamp(16px,1.5vw,19px);color:var(--mut);max-width:58ch;}
 
 /* Товч */
@@ -439,11 +443,12 @@ html.js .rv.in{opacity:1;transform:none;}
 }
 .sbtn:hover{background:none;color:var(--fg);}
 
-/* BUTTONS */
-.btn{display:inline-block;border:1.5px solid #111;padding:.85rem 2rem;font-size:.88rem;font-weight:700;letter-spacing:.02em;cursor:pointer;transition:.18s;background:#fff;color:#111;font-family:'Inter',sans-serif;}
-.btn:hover,.btn.dark{background:#111;color:#fff;}
-.btn.dark:hover{background:#333;}
-.btn.full{width:100%;text-align:center;}
+/* BUTTONS — зөвхөн админы цагаан панел дотор. Хязгаарлахгүй бол
+   сайтын үндсэн .btn товчийг дарж, цагаан дөрвөлжин болгоно. */
+.abg .btn{display:inline-block;border:1.5px solid #111;padding:.85rem 2rem;font-size:.88rem;font-weight:700;letter-spacing:.02em;cursor:pointer;transition:.18s;background:#fff;color:#111;font-family:var(--ff-b);border-radius:0;min-height:0;}
+.abg .btn:hover,.abg .btn.dark{background:#111;color:#fff;}
+.abg .btn.dark:hover{background:#333;}
+.abg .btn.full{width:100%;text-align:center;}
 
 /* PAYMENT METHOD MODAL */
 .mbg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;align-items:center;justify-content:center;}
@@ -469,7 +474,7 @@ html.js .rv.in{opacity:1;transform:none;}
 .astat .al{font-size:.72rem;color:#aaa;margin-top:.2rem;}
 .astat .ac{font-size:.72rem;margin-top:.25rem;color:#16a34a;}
 .atabs{display:flex;border:1.5px solid #111;margin-bottom:1.5rem;overflow:hidden;}
-.atab{padding:.65rem 1.4rem;font-size:.78rem;font-weight:700;cursor:pointer;background:#fff;border:none;border-right:1.5px solid #111;font-family:'Inter',sans-serif;transition:.12s;letter-spacing:.02em;}
+.atab{padding:.65rem 1.4rem;font-size:.78rem;font-weight:700;cursor:pointer;background:#fff;border:none;border-right:1.5px solid #111;font-family:var(--ff-b);transition:.12s;letter-spacing:.02em;}
 .atab:last-child{border-right:none;}
 .atab.on{background:#111;color:#fff;}
 .apane{display:none;}
@@ -486,8 +491,8 @@ html.js .rv.in{opacity:1;transform:none;}
 .bdg.r{background:#fee2e2;color:#dc2626;}
 .aform{border:1.5px solid #111;padding:1.8rem;}
 .aform h3{font-weight:800;margin-bottom:1.3rem;font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;}
-.status-sel{font-size:.75rem;border:1px solid #ddd;padding:.2rem .4rem;background:#fff;font-family:'Inter',sans-serif;cursor:pointer;outline:none;}
-.del-btn{font-size:.7rem;background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;padding:.2rem .5rem;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;}
+.status-sel{font-size:.75rem;border:1px solid #ddd;padding:.2rem .4rem;background:#fff;font-family:var(--ff-b);cursor:pointer;outline:none;}
+.del-btn{font-size:.7rem;background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;padding:.2rem .5rem;cursor:pointer;font-family:var(--ff-b);font-weight:700;}
 .del-btn:hover{background:#fca5a5;}
 
 
