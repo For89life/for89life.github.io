@@ -1,3 +1,6 @@
 .claude/
 img/
 images/_png-original/
+.mcp.json
+.agents/
+skills-lock.json

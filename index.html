@@ -13,7 +13,7 @@
   --bg:#121212;
   --fg:#E9EAE4;
   --dim:#8E9098;
-  --dimmer:#5A5C63;
+  --dimmer:#7B7D85;
   --line:rgba(233,234,228,.11);
   --line-soft:rgba(233,234,228,.07);
   /* Логоны өнгө: шар-улбар → час улбар → час ягаан → бүдэг ягаан */
@@ -122,7 +122,8 @@ a{text-decoration:none;color:inherit;}
 .menu-btn{
   display:inline-flex;align-items:center;gap:.6rem;
   font-family:inherit;font-size:var(--micro);letter-spacing:.11em;text-transform:uppercase;font-weight:500;
-  color:var(--dim);background:none;border:none;cursor:pointer;padding:0;
+  color:var(--dim);background:none;border:none;cursor:pointer;
+  min-height:44px;padding:0 .45rem;margin-right:-.45rem;
   transition:color .25s;
 }
 .menu-btn:hover,.menu-btn[aria-expanded="true"]{color:var(--fg);}
@@ -168,10 +169,11 @@ a{text-decoration:none;color:inherit;}
   background:rgba(18,18,18,.86);backdrop-filter:blur(16px);
   border-bottom:1px solid var(--line);
 }
-.bar .h-brand{display:flex;align-items:center;gap:.6rem;white-space:nowrap;}
+.bar .h-brand{display:flex;align-items:center;gap:.6rem;white-space:nowrap;min-height:44px;}
 .bar .h-brand img{height:24px;width:auto;display:block;}
 .bar-nav{display:flex;gap:clamp(.9rem,2.2vw,1.9rem);margin-left:1.4rem;}
 .bar-nav a{
+  display:inline-flex;align-items:center;min-height:44px;
   font-size:var(--micro);letter-spacing:.09em;text-transform:uppercase;font-weight:500;
   color:var(--dim);transition:color .2s;
 }
@@ -181,7 +183,7 @@ a{text-decoration:none;color:inherit;}
   font-family:inherit;font-size:var(--micro);letter-spacing:.09em;text-transform:uppercase;font-weight:500;
   background:var(--fg);color:#111;border:1px solid var(--fg);
   padding:.58rem 1.1rem;border-radius:999px;cursor:pointer;
-  transition:background .2s,color .2s;white-space:nowrap;
+  min-height:44px;transition:background .2s,color .2s;white-space:nowrap;
 }
 .bar-cta:hover{background:transparent;color:var(--fg);}
 
@@ -231,7 +233,7 @@ a{text-decoration:none;color:inherit;}
   flex:0 0 auto;font-family:inherit;font-size:13px;font-weight:500;
   color:var(--dim);background:none;
   border:2px solid #2C2C2C;border-radius:999px;
-  padding:0 1rem;height:40px;cursor:pointer;white-space:nowrap;
+  padding:0 1rem;height:44px;cursor:pointer;white-space:nowrap;
   transition:color .2s,border-color .2s,background .2s;
 }
 .chip:hover{color:var(--fg);border-color:#3f3f3f;}
@@ -298,8 +300,38 @@ a{text-decoration:none;color:inherit;}
   font-size:var(--micro);letter-spacing:.1em;text-transform:uppercase;font-weight:500;
   color:var(--dim);background:none;border:none;padding:0;cursor:pointer;
   border-bottom:1px solid var(--dimmer);transition:color .2s,border-color .2s;
+  position:relative;
+}
+/* Хүрэлтийн талбайг 44px болгоно — бичвэрийн байрлал хөдөлгөхгүй */
+.card-act::before{
+  content:'';position:absolute;left:0;right:0;top:50%;
+  height:44px;transform:translateY(-50%);
 }
 .card-act:hover{color:var(--fg);border-color:var(--fg);}
+/* ── ФОКУС БА ДЭЛГЭЦ УНШИГЧ ───────────────────── */
+/* Гарын фокус хаана байгааг үргэлж харуулна (SC 2.4.7) */
+:focus-visible{
+  outline:2px solid var(--c1);outline-offset:2px;border-radius:2px;
+}
+.fg input:focus-visible,.fg textarea:focus-visible,.fg select:focus-visible,
+.status-sel:focus-visible{
+  outline:2px solid var(--c1);outline-offset:2px;
+}
+/* Зөвхөн дэлгэц уншигчид зориулсан бичвэр */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+/* Агуулга руу шууд үсрэх холбоос — фокуслахад л харагдана */
+.skip{
+  position:absolute;left:var(--pad);top:-100px;z-index:300;
+  background:var(--fg);color:#111;
+  font-size:var(--micro);letter-spacing:.09em;text-transform:uppercase;font-weight:500;
+  padding:.8rem 1.2rem;border-radius:0 0 8px 8px;
+  transition:top .18s ease;
+}
+.skip:focus{top:0;}
+
 .empty-note{
   grid-column:1/-1;padding:3rem 0;text-align:center;
   font-size:13px;color:var(--dim);
@@ -315,6 +347,8 @@ a{text-decoration:none;color:inherit;}
 .foot p{font-size:13px;color:var(--dim);max-width:34ch;}
 .foot .flist{display:flex;flex-direction:column;gap:.5rem;}
 .foot .flist a,.foot .flist span{font-size:13px;color:var(--dim);transition:color .2s;}
+/* Хүрэлтийн талбайг томсгоно — зайн хэмнэл хэвээр */
+.foot .flist a{display:block;padding:.35rem 0;margin:-.35rem 0;}
 .foot .flist a:hover{color:var(--fg);}
 .foot-bar{
   border-top:1px solid var(--line);padding:1rem var(--pad);
@@ -359,8 +393,10 @@ a{text-decoration:none;color:inherit;}
 </head>
 <body>
 
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
 <!-- ══ ДЭЭД МӨР ══ -->
-<div class="bar" id="topBar">
+<header class="bar" id="topBar">
   <a href="#top" class="h-brand mi">
     <img src="images/logo.webp" alt="">
     <span>Gerelt<span class="opt"> Solutions</span> Studio</span>
@@ -377,7 +413,7 @@ a{text-decoration:none;color:inherit;}
       Цэс<span class="menu-ico"><i></i><i></i></span>
     </button>
   </div>
-</div>
+</header>
 
 <!-- ══ ДЭЛГЭГДЭХ ЦЭС ══ -->
 <nav class="menu-panel" id="menuPanel">
@@ -388,6 +424,8 @@ a{text-decoration:none;color:inherit;}
   <a href="#foot">Холбоо барих</a>
   <button onclick="openAdmin()">Админ</button>
 </nav>
+
+<main id="main">
 
 <!-- ══ HERO ══ -->
 <div class="hero" id="top">
@@ -403,8 +441,9 @@ a{text-decoration:none;color:inherit;}
 </div>
 
 <!-- ══ ШҮҮЛТҮҮР ══ -->
+<h2 class="sr-only">Шийдэл, үйлчилгээ, багцууд</h2>
 <div class="filters">
-  <div class="filters-in" id="chips">
+  <div class="filters-in" id="chips" role="group" aria-label="Ангиллаар шүүх">
     <button class="chip on" data-cat="all">Бүгд<span class="n">13</span></button>
     <button class="chip" data-cat="works">Хийсэн ажлууд<span class="n">2</span></button>
     <button class="chip" data-cat="services">Үйлчилгээ<span class="n">3</span></button>
@@ -544,8 +583,10 @@ a{text-decoration:none;color:inherit;}
 
 </div>
 
+</main>
+
 <!-- ══ ХӨЛ ══ -->
-<div class="foot" id="foot">
+<footer class="foot" id="foot">
   <div>
     <h4>Gerelt Solutions Studio</h4>
     <p>Бид танд орчин үеийн, зөвхөн танд зориулсан вэб, мобайл болон IT шийдлийг хүргэнэ. Технологийн шийдлээс гадна график дизайн, хэвлэлийн бүх төрлийн үйлчилгээ үзүүлдэг.</p>
@@ -567,7 +608,7 @@ a{text-decoration:none;color:inherit;}
       <a href="#" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй');return false;">Үнийн санал авах →</a>
     </div>
   </div>
-</div>
+</footer>
 <div class="foot-bar mi dim">
   <span>© 2026 Gerelt Solutions Studio</span>
   <span>Улаанбаатар, Монгол</span>
