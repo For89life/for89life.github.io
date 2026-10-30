@@ -326,6 +326,13 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;letter-spacing:-.025em;line-hei
   display:flex;flex-direction:column;justify-content:space-between;padding:var(--s3);
   transition:transform .35s ease;
 }
+/* Градиентын цайвар үзүүрт цагаан бичвэр 1.5:1 хүртэл унадаг тул
+   бичвэр байрлах дээд, доод зурвасыг далдална. */
+.tpl-view::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(rgba(0,0,0,.56),rgba(0,0,0,.24) 46%,rgba(0,0,0,.28) 56%,rgba(0,0,0,.62));
+}
+.tpl-view .tt,.tpl-view .tb{position:relative;z-index:2;}
 .tpl-card:hover .tpl-view{transform:translateY(-5px);}
 /* Нүүр дээр хулгана ороход «үзэх» сануулга гарна */
 .tpl-peek{
@@ -823,53 +830,53 @@ html.js .rv.in{opacity:1;transform:none;}
   <div class="wrap">
     <div class="sec-head rv">
       <p class="slab"><b>05</b>Бэлэн загвар</p>
-      <h2 class="h-lg">Долоо хоногт амьдарна</h2>
-      <p class="lead">Загвар сонгоод агуулгаа өгвөл болно. Өнгө, лого, бичвэрийг тань руу тааруулна.</p>
+      <h2 class="h-lg">Дөрвөн категор, 16 загвар</h2>
+      <p class="lead">Категор бүрт дөрвөн өөр дизайны шийдэл. Загвараа сонгоод агуулгаа өгвөл болно — өнгө, лого, бичвэрийг тань руу тааруулна.</p>
     </div>
     <div class="tpl rv">
 
       <article class="tpl-card">
-        <a class="tpl-view tv1" href="templates/corporate.html" target="_blank" rel="noopener">
+        <a class="tpl-view tv1" href="templates/corporate/index.html">
           <span class="tt">Байгууллагын<br>танилцуулга</span>
           <span class="tb">Тухай · Үйлчилгээ · Холбоо</span>
-          <span class="tpl-peek">Загвар үзэх →</span>
+          <span class="tpl-peek">4 загвар үзэх →</span>
         </a>
-        <div class="tpl-row"><h3>Байгууллагын танилцуулга</h3><span class="amt">₮300,000</span></div>
-        <p class="tpl-sub">7 хоногт бэлэн</p>
-        <button class="tpl-act" onclick="openRequest('Бэлэн загвар — Байгууллагын танилцуулга','₮300,000–500,000')">Хүсэлт илгээх →</button>
+        <div class="tpl-row"><h3>Байгууллагын танилцуулга</h3><span class="amt">4 загвар</span></div>
+        <p class="tpl-sub">Тулга · Хүрд · Цамхаг · Эгнээ</p>
+        <a class="tpl-act" href="templates/corporate/index.html">Загварууд үзэх →</a>
       </article>
 
       <article class="tpl-card">
-        <a class="tpl-view tv2" href="templates/shop.html" target="_blank" rel="noopener">
+        <a class="tpl-view tv2" href="templates/shop/index.html">
           <span class="tt">Онлайн<br>дэлгүүр</span>
           <span class="tb">Бараа · Сагс · QPay</span>
-          <span class="tpl-peek">Загвар үзэх →</span>
+          <span class="tpl-peek">4 загвар үзэх →</span>
         </a>
-        <div class="tpl-row"><h3>Онлайн дэлгүүр загвар</h3><span class="amt">₮500,000</span></div>
-        <p class="tpl-sub">Төлбөр холболттой</p>
-        <button class="tpl-act" onclick="openRequest('Бэлэн загвар — Онлайн дэлгүүр','₮300,000–500,000')">Хүсэлт илгээх →</button>
+        <div class="tpl-row"><h3>Онлайн дэлгүүр</h3><span class="amt">4 загвар</span></div>
+        <p class="tpl-sub">Зах · Сав · Түлхүүр · Хоршоо</p>
+        <a class="tpl-act" href="templates/shop/index.html">Загварууд үзэх →</a>
       </article>
 
       <article class="tpl-card">
-        <a class="tpl-view tv3" href="templates/restaurant.html" target="_blank" rel="noopener">
+        <a class="tpl-view tv3" href="templates/restaurant/index.html">
           <span class="tt">Ресторан<br>&amp; кафе</span>
           <span class="tb">Цэс · Захиалга · Байршил</span>
-          <span class="tpl-peek">Загвар үзэх →</span>
+          <span class="tpl-peek">4 загвар үзэх →</span>
         </a>
-        <div class="tpl-row"><h3>Ресторан &amp; кафе</h3><span class="amt">₮350,000</span></div>
-        <p class="tpl-sub">Цэсний удирдлага</p>
-        <button class="tpl-act" onclick="openRequest('Бэлэн загвар — Ресторан &amp; кафе','₮300,000–500,000')">Хүсэлт илгээх →</button>
+        <div class="tpl-row"><h3>Ресторан &amp; кафе</h3><span class="amt">4 загвар</span></div>
+        <p class="tpl-sub">Гуурс · Утаа · Навч · Тогоо</p>
+        <a class="tpl-act" href="templates/restaurant/index.html">Загварууд үзэх →</a>
       </article>
 
       <article class="tpl-card">
-        <a class="tpl-view tv4" href="templates/portfolio.html" target="_blank" rel="noopener">
+        <a class="tpl-view tv4" href="templates/portfolio/index.html">
           <span class="tt">Хувийн<br>портфолио</span>
           <span class="tb">Ажлын сан · Блог</span>
-          <span class="tpl-peek">Загвар үзэх →</span>
+          <span class="tpl-peek">4 загвар үзэх →</span>
         </a>
-        <div class="tpl-row"><h3>Хувийн портфолио</h3><span class="amt">₮300,000</span></div>
-        <p class="tpl-sub">5 хоногт бэлэн</p>
-        <button class="tpl-act" onclick="openRequest('Бэлэн загвар — Хувийн портфолио','₮300,000–500,000')">Хүсэлт илгээх →</button>
+        <div class="tpl-row"><h3>Хувийн портфолио</h3><span class="amt">4 загвар</span></div>
+        <p class="tpl-sub">Ор · Хуудас · Зураг · Сүлжээ</p>
+        <a class="tpl-act" href="templates/portfolio/index.html">Загварууд үзэх →</a>
       </article>
 
     </div>

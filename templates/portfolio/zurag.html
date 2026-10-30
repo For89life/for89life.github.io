@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Зураг — хувийн портфолио загвар | Gerelt Solutions</title>
+<meta name="description" content="Гэрэл зурагчдад зориулсан портфолио загвар. Бүтэн дэлгэцийн ажил.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Manrope — кирилл үсэг бүрэн. Зураг нь гол, бичвэр нь нам гүм. -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090B; --surf:#141417; --ink:#FAFAFA;
+  --mut:#A8A8B0; --mut2:#92929B;
+  --acc:#FAFAFA; --line:rgba(250,250,250,.12); --line2:rgba(250,250,250,.26);
+  --ff:'Manrope',system-ui,-apple-system,sans-serif;
+  --pad:clamp(1.1rem,3.5vw,2.8rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5rem;}
+body{font-family:var(--ff);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-weight:500;letter-spacing:-.02em;line-height:1.1;}
+.wrap{max-width:100%;margin:0;padding:0 var(--pad);}
+.narrow{max-width:760px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--ink);color:var(--bg);padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+
+.gs{background:#000;color:#F5F5F3;font-size:13px;border-bottom:1px solid var(--line);}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);}
+.gs b{font-weight:600;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(9,9,11,.8);backdrop-filter:blur(16px);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.2rem;}
+.logo{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .3rem;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--ink);}
+
+/* Бүтэн дэлгэцийн нүүр */
+.cover{position:relative;height:calc(100svh - 4.2rem);min-height:460px;display:flex;align-items:flex-end;
+  background:linear-gradient(rgba(9,9,11,.25),rgba(9,9,11,.82)),linear-gradient(160deg,#1A1A1F,#3F3F46 55%,#71717A);}
+.cover-in{position:relative;z-index:2;padding:0 var(--pad) var(--s5);width:100%;}
+.cover h1{font-size:clamp(2.2rem,6vw,4.4rem);max-width:16ch;}
+.cover p{margin-top:var(--s3);font-size:17px;color:var(--mut);max-width:44ch;}
+.scroll{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;margin-top:var(--s4);
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);transition:color .2s;}
+.scroll:hover{color:var(--ink);}
+
+/* Ажлын урсгал */
+.series{padding:var(--s6) 0;}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s3);}
+.sh h2{font-size:clamp(1.3rem,2.6vw,1.9rem);}
+.sh .inf{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);}
+.frames{display:grid;gap:4px;}
+.g2{grid-template-columns:1fr 1fr;}
+.g3{grid-template-columns:2fr 1fr;}
+.fr{position:relative;overflow:hidden;display:grid;place-items:center;transition:opacity .3s;}
+.fr:hover{opacity:.88;}
+.fr span{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  position:absolute;left:var(--s3);bottom:var(--s3);z-index:2;}
+/* Тайлбар доод буланд сууна. Градиентын цайвар хэсэгт 3.8:1 хүртэл
+   унадаг тул доод зурвасыг далдална. */
+.fr::after{content:'';position:absolute;inset:auto 0 0 0;height:46%;pointer-events:none;
+  background:linear-gradient(transparent,rgba(0,0,0,.72));}
+.tall{aspect-ratio:3/4;} .wide{aspect-ratio:16/10;} .sq{aspect-ratio:1/1;}
+.p1{background:linear-gradient(150deg,#14161B,#3A4049 60%,#6E7681);}
+.p2{background:linear-gradient(150deg,#1B1512,#473129 60%,#8A6450);}
+.p3{background:linear-gradient(150deg,#101A1B,#26454A 60%,#4E7F86);}
+.p4{background:linear-gradient(150deg,#1A1420,#3D2E4F 60%,#705A8C);}
+.p5{background:linear-gradient(150deg,#1A1A14,#44442C 60%,#7D7D52);}
+
+.about{background:var(--surf);padding:var(--s6) 0;border-block:1px solid var(--line);}
+.about h2{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:var(--s3);}
+.about p{color:var(--mut);margin-bottom:var(--s3);font-size:16px;}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3);margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid var(--line);}
+.ft b{display:block;font-size:14.5px;font-weight:600;}
+.ft span{font-size:13.5px;color:var(--mut2);}
+
+.cta{padding:var(--s6) 0;text-align:center;}
+.cta h2{font-size:clamp(1.6rem,3.4vw,2.6rem);margin-bottom:var(--s3);}
+.cta p{color:var(--mut);max-width:44ch;margin:0 auto var(--s4);}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 1.8rem;
+  font-family:inherit;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  cursor:pointer;border:1px solid var(--line2);background:transparent;color:var(--ink);transition:background .2s,color .2s,border-color .2s;}
+.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+.btn-f{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+.btn-f:hover{background:transparent;color:var(--ink);border-color:var(--line2);}
+.row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s4) 0;font-size:13px;color:var(--mut2);}
+.foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s3);}
+.foot a{color:var(--mut);display:inline-block;padding:.3rem 0;}
+.foot a:hover{color:var(--ink);}
+.fsoc{display:flex;gap:var(--s3);}
+
+@media(max-width:760px){.g2,.g3{grid-template-columns:1fr;}.facts{grid-template-columns:1fr;}.nlinks{gap:var(--s2);}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Зураг</b></span>
+  <a href="../portfolio/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo">Н.Тэмүүлэн</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#work">Ажлууд</a><a href="#about">Тухай</a><a href="#contact">Холбоо</a>
+  </nav>
+</div></header>
+
+<main id="main">
+<section class="cover" id="top">
+  <div class="cover-in">
+    <h1>Хөдөөгийн гэрэл, хотын сүүдэр</h1>
+    <p>Баримтат болон хөрөг зураг. Монголын нутгаар арван жил.</p>
+    <a class="scroll" href="#work">
+      Ажлууд үзэх
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="series" id="work">
+  <div class="wrap">
+    <div class="sh"><h2>Цагаан сар, Архангай</h2><span class="inf">2026 · 24 кадр</span></div>
+    <div class="frames g3">
+      <span class="fr wide p1"><span>Өглөөний морь</span></span>
+      <span class="fr tall p2"><span>Гэрийн дотор</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="series">
+  <div class="wrap">
+    <div class="sh"><h2>Хотын зах</h2><span class="inf">2025 · 18 кадр</span></div>
+    <div class="frames g2">
+      <span class="fr sq p3"><span>Нарантуул, өглөө</span></span>
+      <span class="fr sq p4"><span>Худалдагчийн гар</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="series">
+  <div class="wrap">
+    <div class="sh"><h2>Хөрөг цуврал</h2><span class="inf">2024 · 31 кадр</span></div>
+    <div class="frames g2">
+      <span class="fr wide p5"><span>Уурхайчин, Багануур</span></span>
+      <span class="fr wide p1"><span>Багш, Хөвсгөл</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="narrow">
+    <h2>Ажиллах арга</h2>
+    <p>Би цуврал бүрт дор хаяж арван хоног зарцуулдаг. Эхний гурван өдөр зураг авдаггүй — зөвхөн хүмүүстэй танилцаж, тухайн газраа ойлгоно.</p>
+    <p>Бүх ажил кино хальсаар эхэлж, дижиталаар дуусдаг. Засварыг хамгийн бага байлгахыг хичээдэг.</p>
+    <div class="facts">
+      <div class="ft"><b>Баримтат, хөрөг</b><span>Чиглэл</span></div>
+      <div class="ft"><b>2016 оноос</b><span>Мэргэжлийн ажил</span></div>
+      <div class="ft"><b>4 ном, 12 үзэсгэлэн</b><span>Хэвлэгдсэн</span></div>
+      <div class="ft"><b>Улсын хэмжээнд</b><span>Аялна</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="narrow">
+    <h2>Захиалга, хамтын ажиллагаа</h2>
+    <p>Редакцийн даалгавар, хөрөг авалт, арга хэмжээний зураг. Хуваарь ихэвчлэн хоёр сараар дүүрсэн байдаг.</p>
+    <div class="row">
+      <a class="btn btn-f" href="mailto:sain@temuulen.mn">sain@temuulen.mn</a>
+      <a class="btn" href="tel:+97693000000">+976 9300-0000</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap foot-in">
+  <span>© 2026 Н.Тэмүүлэн — жишээ агуулга</span>
+  <span class="fsoc"><a href="#contact">Instagram</a><a href="#contact">Behance</a></span>
+  <span>Gerelt Solutions Studio загвар</span>
+</div></footer>
+</body>
+</html>

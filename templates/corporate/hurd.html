@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Хүрд — байгууллагын танилцуулга загвар | Gerelt Solutions</title>
+<meta name="description" content="Хар дэвсгэр, сериф гарчигтай байгууллагын танилцуулга загвар.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- PT Serif / Golos Text — хоёулаа кирилл үсэг бүрэн (Paratype). -->
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121014; --bg2:#191619; --surf:#211D22;
+  --fg:#F2EFE9; --mut:#A9A29B; --mut2:#8E8880;
+  --acc:#C9A227; --acc-d:#A8861C; --ink:#121014;
+  --line:rgba(242,239,233,.11); --line2:rgba(242,239,233,.2);
+  --ff-h:'PT Serif',Georgia,serif; --ff-b:'Golos Text',system-ui,sans-serif;
+  --pad:clamp(1.2rem,5vw,4.5rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:6.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:6rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--fg);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:400;letter-spacing:-.01em;line-height:1.18;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:var(--ink);padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;}
+
+.gs{background:#000;color:#F5F5F3;font-size:13px;border-bottom:1px solid var(--line);}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1140px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(18,16,20,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.6rem;}
+.logo{display:flex;align-items:baseline;gap:.5rem;min-height:44px;font-family:var(--ff-h);font-size:22px;}
+.logo i{font-style:normal;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);font-family:var(--ff-b);}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .3rem;font-size:14.5px;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.6rem;font-family:var(--ff-b);font-size:14.5px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:var(--ink);}
+.btn-p:hover{background:var(--acc-d);}
+.btn-s{background:transparent;color:var(--fg);border-color:var(--line2);}
+.btn-s:hover{border-color:var(--acc);color:var(--acc);}
+.nav .btn{min-height:44px;padding:0 1.2rem;font-size:13.5px;margin-left:var(--s3);}
+
+.hero{padding:var(--s7) 0 var(--s6);border-bottom:1px solid var(--line);}
+.est{display:inline-flex;align-items:center;gap:.7rem;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--s4);}
+.est::before,.est::after{content:'';width:28px;height:1px;background:var(--acc);}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4.2rem);max-width:19ch;}
+.hero h1 em{font-style:italic;color:var(--acc);}
+.hero .sub{display:grid;grid-template-columns:1.2fr auto;gap:var(--s5);align-items:end;margin-top:var(--s4);}
+.hero p{font-size:17.5px;color:var(--mut);max-width:50ch;}
+
+.marks{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);}
+.mk{padding:var(--s4) var(--s3) var(--s4) 0;border-right:1px solid var(--line);}
+.mk:last-child{border-right:none;}
+.mk b{display:block;font-family:var(--ff-h);font-size:clamp(1.7rem,3vw,2.5rem);line-height:1;}
+.mk span{font-size:13.5px;color:var(--mut2);}
+
+.sec{padding:var(--s6) 0;}
+.sec-alt{background:var(--bg2);}
+.slab{display:flex;align-items:center;gap:var(--s3);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s4);font-weight:500;}
+.slab b{color:var(--acc);font-weight:600;}
+.slab::after{content:'';flex:1;height:1px;background:var(--line);}
+.sec h2{font-size:clamp(1.7rem,3.4vw,2.6rem);max-width:22ch;margin-bottom:var(--s4);}
+
+.srv{border-top:1px solid var(--line);}
+.sr{display:grid;grid-template-columns:auto 1fr 1.2fr auto;gap:var(--s4);align-items:center;padding:var(--s4) 0;border-bottom:1px solid var(--line);transition:background .25s,padding-left .25s;}
+.sr:hover{background:var(--surf);padding-left:var(--s2);}
+.sr .no{font-family:var(--ff-h);font-size:14px;color:var(--mut2);width:2.2rem;}
+.sr h3{font-size:clamp(1.15rem,2.2vw,1.65rem);}
+.sr:hover h3{color:var(--acc);}
+.sr p{font-size:14.5px;color:var(--mut);}
+.sr .ar{display:inline-grid;place-items:center;width:46px;height:46px;border:1px solid var(--line2);border-radius:50%;flex-shrink:0;transition:background .22s,color .22s,border-color .22s;}
+.sr:hover .ar{background:var(--acc);color:var(--ink);border-color:var(--acc);}
+
+.quote{display:grid;grid-template-columns:auto 1fr;gap:var(--s4);align-items:start;}
+.quote .q{font-family:var(--ff-h);font-size:clamp(3rem,7vw,5rem);line-height:.8;color:var(--acc);}
+.quote blockquote{font-family:var(--ff-h);font-size:clamp(1.25rem,2.6vw,1.9rem);line-height:1.4;max-width:34ch;}
+.quote cite{display:block;margin-top:var(--s3);font-family:var(--ff-b);font-style:normal;font-size:14px;color:var(--mut);}
+.quote cite b{display:block;color:var(--fg);font-weight:600;}
+
+.cta{padding:var(--s7) 0;border-top:1px solid var(--line);text-align:center;}
+.cta h2{font-size:clamp(1.9rem,4.2vw,3.2rem);margin:0 auto var(--s3);max-width:20ch;}
+.cta p{color:var(--mut);max-width:48ch;margin:0 auto var(--s4);}
+.cta .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s2);}
+.foot p{font-size:14.5px;color:var(--mut);max-width:34ch;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:var(--mut);padding:.35rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:900px){
+  .hero .sub,.quote{grid-template-columns:1fr;}
+  .marks{grid-template-columns:repeat(2,1fr);}
+  .mk:nth-child(2){border-right:none;}
+  .sr{grid-template-columns:auto 1fr auto;} .sr p{display:none;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fg{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){.marks{grid-template-columns:1fr;}.mk{border-right:none;border-bottom:1px solid var(--line);}.fg{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Хүрд</b></span>
+  <a href="../corporate/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo">Хүрд<i>Групп</i></a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#services">Үйл ажиллагаа</a>
+    <a href="#word">Үг</a>
+    <a href="#contact">Холбоо барих</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Хамтран ажиллах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="est">Үүсгэн байгуулагдсан 1997</p>
+    <h1>Гуч дөхөж буй <em>нэр хүнд</em>, өөрчлөгдөөгүй зарчим</h1>
+    <div class="sub">
+      <p>Уул уурхай, эрчим хүч, дэд бүтцийн салбарт үйл ажиллагаа явуулдаг холдинг компани. Бидний хувьд гэрээ бол амлалт.</p>
+      <a class="btn btn-s" href="#services">Үйл ажиллагаа үзэх</a>
+    </div>
+    <div class="marks">
+      <div class="mk"><b>29</b><span>жилийн түүх</span></div>
+      <div class="mk"><b>7</b><span>охин компани</span></div>
+      <div class="mk"><b>1,840</b><span>ажлын байр</span></div>
+      <div class="mk"><b>4</b><span>салбарт</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <h2 class="slab"><b>01</b>Үйл ажиллагааны чиглэл</h2>
+    <div class="srv">
+      <div class="sr">
+        <span class="no">I</span>
+        <h3>Уул уурхай</h3>
+        <p>Нүүрс, төмрийн хүдрийн олборлолт, боловсруулалт, экспорт.</p>
+        <span class="ar" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="sr">
+        <span class="no">II</span>
+        <h3>Эрчим хүч</h3>
+        <p>Дулааны станц, сэргээгдэх эрчим хүчний төслүүд.</p>
+        <span class="ar" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="sr">
+        <span class="no">III</span>
+        <h3>Дэд бүтэц</h3>
+        <p>Зам, гүүр, инженерийн шугам сүлжээний барилга угсралт.</p>
+        <span class="ar" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="sr">
+        <span class="no">IV</span>
+        <h3>Хөрөнгө оруулалт</h3>
+        <p>Дотоодын үйлдвэрлэл, технологийн компаниудад хөрөнгө оруулна.</p>
+        <span class="ar" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="word">
+  <div class="wrap">
+    <h2 class="slab"><b>02</b>Удирдлагын үг</h2>
+    <div class="quote">
+      <span class="q" aria-hidden="true">«</span>
+      <div>
+        <blockquote>Бид богино хугацааны ашгийг урт хугацааны нэр хүндээр солихгүй. Гуч жил тийм зарчмаар явсан.</blockquote>
+        <cite><b>Д.Батболд</b>Гүйцэтгэх захирал</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Хамтын ажиллагааны санал хүлээн авч байна</h2>
+    <p>Нийлүүлэгч, түнш, хөрөнгө оруулагчийн саналыг хөрөнгө оруулалтын хэлтэс хүлээн авна.</p>
+    <div class="row">
+      <a class="btn btn-p" href="mailto:info@hurd.mn">info@hurd.mn</a>
+      <a class="btn btn-s" href="tel:+97611500000">+976 1150-0000</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fg">
+    <div><h3>Хүрд Групп</h3><p>Уул уурхай, эрчим хүч, дэд бүтэц, хөрөнгө оруулалтын чиглэлээр үйл ажиллагаа явуулдаг холдинг компани.</p></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="mailto:info@hurd.mn">info@hurd.mn</a><a href="tel:+97611500000">+976 1150-0000</a><span>Да–Ба, 09:00–18:00</span></div></div>
+    <div><h3>Хаяг</h3><div class="fl"><span>Улаанбаатар, СБД</span><span>8-р хороо, Их сургуулийн гудамж 4</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Хүрд Групп — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

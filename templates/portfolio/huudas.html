@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Хуудас — хувийн портфолио загвар | Gerelt Solutions</title>
+<meta name="description" content="Редакторын маягийн портфолио загвар. Сериф бичвэр, уншихад тухтай.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Literata / Manrope — хоёулаа кирилл үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F4EE; --surf:#EFEBE2; --card:#FFFFFF;
+  --ink:#241F18; --mut:#5A5147; --mut2:#6B6054;
+  --acc:#7A3B14; --acc-d:#5F2D0F;
+  --line:#E2DCD0; --line2:#C6BCA9;
+  --ff-h:'Literata',Georgia,serif; --ff-b:'Manrope',system-ui,sans-serif;
+  --pad:clamp(1.2rem,5vw,4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:6.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-h);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-height:1.2;}
+.wrap{max-width:780px;margin:0 auto;padding:0 var(--pad);}
+.wide{max-width:1060px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:#fff;padding:.8rem 1.2rem;font-family:var(--ff-b);font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-family:var(--ff-b);font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1060px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.4rem;}
+.logo{display:inline-flex;align-items:center;min-height:44px;font-size:20px;font-weight:600;letter-spacing:-.01em;}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;font-family:var(--ff-b);}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .3rem;font-size:14.5px;font-weight:500;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc);}
+
+.hero{padding:var(--s7) 0 var(--s5);}
+.ey{font-family:var(--ff-b);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);max-width:16ch;}
+.hero .lede{margin-top:var(--s3);font-size:20px;color:var(--mut);font-style:italic;}
+.hero .meta{font-family:var(--ff-b);margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:var(--s4);font-size:14px;color:var(--mut2);}
+.hero .meta b{display:block;color:var(--ink);font-weight:600;}
+
+.sec{padding:var(--s6) 0;}
+.sec-s{background:var(--surf);border-block:1px solid var(--line);}
+.slab{font-family:var(--ff-b);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s3);}
+.sec h2{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:var(--s4);}
+.sec p{margin-bottom:var(--s3);color:var(--mut);}
+.sec p strong{color:var(--ink);font-weight:600;}
+
+.works{display:grid;gap:var(--s4);}
+.w{display:grid;grid-template-columns:auto 1fr;gap:var(--s4);padding-bottom:var(--s4);border-bottom:1px solid var(--line);align-items:start;}
+.w .yr{font-family:var(--ff-b);font-size:13px;color:var(--mut2);padding-top:.4rem;letter-spacing:.06em;}
+.w h3{font-size:21px;margin-bottom:.2rem;}
+.w h3 a{border-bottom:1px solid var(--line2);transition:border-color .2s,color .2s;}
+.w h3 a:hover{color:var(--acc);border-color:var(--acc);}
+.w p{font-size:16px;color:var(--mut);margin:0;}
+.w .pub{font-family:var(--ff-b);font-size:13px;color:var(--mut2);margin-top:.35rem;font-style:normal;}
+
+.quote{border-left:3px solid var(--acc);padding-left:var(--s4);margin:var(--s5) 0;}
+.quote p{font-size:20px;font-style:italic;color:var(--ink);margin-bottom:var(--s2);}
+.quote cite{font-family:var(--ff-b);font-style:normal;font-size:14px;color:var(--mut2);}
+
+.cta{text-align:center;padding:var(--s7) 0;}
+.cta h2{font-size:clamp(1.7rem,3.6vw,2.6rem);max-width:18ch;margin:0 auto var(--s3);}
+.cta p{color:var(--mut);max-width:44ch;margin:0 auto var(--s4);}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 1.8rem;font-family:var(--ff-b);font-size:15px;font-weight:600;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:background .2s,color .2s;}
+.btn:hover{background:transparent;color:var(--ink);}
+.btn-s{background:transparent;color:var(--ink);}
+.btn-s:hover{background:var(--ink);color:var(--bg);}
+.row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s4) 0;font-family:var(--ff-b);font-size:14px;color:var(--mut2);}
+.foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s3);}
+.foot a{color:var(--mut);display:inline-flex;align-items:center;justify-content:center;min-width:28px;min-height:28px;padding:.3rem .25rem;}
+.foot a:hover{color:var(--acc);}
+.fsoc{display:flex;gap:var(--s3);}
+
+@media(max-width:700px){.w{grid-template-columns:1fr;gap:.4rem;}.w .yr{padding-top:0;}.nlinks{gap:var(--s2);}}
+/* 390px-д лого ба гурван холбоос багтахгүй халиж байв */
+@media(max-width:560px){
+  .logo{font-size:17px;}
+  .nlinks{gap:.55rem;}
+  .nlinks a{font-size:13px;}
+  .foot-in{flex-direction:column;gap:.4rem;}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Хуудас</b></span>
+  <a href="../portfolio/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wide nav-in">
+  <a href="#top" class="logo">С.Энхжаргал</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#work">Бичвэрүүд</a><a href="#about">Тухай</a><a href="#contact">Холбоо</a>
+  </nav>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="ey">Нийтлэлч · Редактор</p>
+    <h1>Уншихад амар, үнэн зөв бичвэр</h1>
+    <p class="lede">Арван жил сэтгүүл, хэвлэл, брэндэд бичиж, засварлаж ирлээ.</p>
+    <div class="meta">
+      <span><b>Улаанбаатар</b>Байршил</span>
+      <span><b>2016 оноос</b>Чөлөөт ажил</span>
+      <span><b>180+</b>Нийтлэгдсэн бичвэр</span>
+      <span><b>Монгол · Англи</b>Хэл</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-s" id="work">
+  <div class="wrap">
+    <p class="slab">Сонгосон бичвэрүүд</p>
+    <h2>Хэвлэгдсэн ажлууд</h2>
+    <div class="works">
+      <article class="w">
+        <span class="yr">2026</span>
+        <div>
+          <h3><a href="#work">Хотын ус: хэн хариуцах вэ</a></h3>
+          <p>Улаанбаатарын усан хангамжийн гинжин хэлхээг зургаан сар судалсан урт нийтлэл.</p>
+          <p class="pub">Нийтлэл · 8,400 үг</p>
+        </div>
+      </article>
+      <article class="w">
+        <span class="yr">2025</span>
+        <div>
+          <h3><a href="#work">Малчдын дижитал шилжилт</a></h3>
+          <p>Хөдөөгийн айлууд интернэтэд хэрхэн холбогдож, юу өөрчлөгдсөн тухай.</p>
+          <p class="pub">Репортаж · 5,100 үг</p>
+        </div>
+      </article>
+      <article class="w">
+        <span class="yr">2025</span>
+        <div>
+          <h3><a href="#work">Гэрэл — брэндийн ном</a></h3>
+          <p>Технологийн компанийн дуу хоолойг тодорхойлсон 40 хуудас гарын авлага.</p>
+          <p class="pub">Брэнд бичвэр · Захиалгат</p>
+        </div>
+      </article>
+      <article class="w">
+        <span class="yr">2024</span>
+        <div>
+          <h3><a href="#work">Арван жилийн дараах Багануур</a></h3>
+          <p>Нүүрсний уурхайгаас хамаарсан хотын ирээдүйн тухай эссэ.</p>
+          <p class="pub">Эссэ · 3,600 үг</p>
+        </div>
+      </article>
+      <article class="w">
+        <span class="yr">2023</span>
+        <div>
+          <h3><a href="#work">Орчуулгын тухай тэмдэглэл</a></h3>
+          <p>Англиас монгол руу уран зохиол хөрвүүлэх явцын ажиглалтууд.</p>
+          <p class="pub">Цуврал · 12 хэсэг</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <p class="slab">Тухай</p>
+    <h2>Хэрхэн ажилладаг вэ</h2>
+    <p>Би сэдвийг ойлгох хүртэл бичиж эхэлдэггүй. Тийм учраас анхны төсөл ихэвчлэн <strong>хоёр долоо хоног</strong> үргэлжилдэг — нэг долоо хоног уншиж, ярилцаж, нөгөө долоо хоногт нь бичнэ.</p>
+    <p>Редакторын ажилд өөр хандлага барина. Таны дуу хоолойг өөрчлөхгүй, зөвхөн тодорхой болгоно. Засварласан хувилбар бүрт <strong>юуг яагаад өөрчилснийг</strong> тайлбарлаж өгдөг.</p>
+    <div class="quote">
+      <p>Сайн бичвэр гэдэг нь ухаалаг сонсогдох биш, ойлгомжтой байх явдал.</p>
+      <cite>Ажлын зарчим</cite>
+    </div>
+    <p>Одоогоор урт нийтлэл, брэндийн бичвэр, редакторын ажил гурвыг хүлээн авч байна. Нэг удаад хоёроос илүү төсөл авдаггүй.</p>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Төслийн тухай ярилцах уу?</h2>
+    <p>Сэдэв, хэмжээ, хугацаагаа товч бичээд илгээгээрэй. Ажлын хоёр өдөрт хариу өгнө.</p>
+    <div class="row">
+      <a class="btn" href="mailto:sain@enkhjargal.mn">sain@enkhjargal.mn</a>
+      <a class="btn btn-s" href="tel:+97691000000">+976 9100-0000</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wide foot-in">
+  <span>© 2026 С.Энхжаргал — жишээ агуулга</span>
+  <span class="fsoc"><a href="#contact">Substack</a><a href="#contact">LinkedIn</a><a href="#contact">X</a></span>
+  <span>Gerelt Solutions Studio загвар</span>
+</div></footer>
+</body>
+</html>

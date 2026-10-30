@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Цамхаг — байгууллагын танилцуулга загвар | Gerelt Solutions</title>
+<meta name="description" content="Хуваасан дэлгэц, зоригтой үсэгтэй байгууллагын танилцуулга загвар.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Oswald / Manrope — хоёулаа кирилл үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --dark:#06201C; --surf:#F0F7F5;
+  --ink:#06201C; --mut:#456059; --mut2:#4A6B63;
+  --acc:#0F766E; --acc-d:#0B5A54; --lite:#5EEAD4;
+  --line:#D6E6E2; --line2:#AFCFC8;
+  --ff-h:'Oswald',system-ui,sans-serif; --ff-b:'Manrope',system-ui,sans-serif;
+  --pad:clamp(1.2rem,4vw,3.5rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:6rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;text-transform:uppercase;letter-spacing:-.01em;line-height:1.04;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:#fff;padding:.8rem 1.2rem;font-weight:700;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1280px;margin:0 auto;}
+.gs b{font-weight:700;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:2px solid var(--ink);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.5rem;}
+.logo{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;font-family:var(--ff-h);font-size:22px;text-transform:uppercase;letter-spacing:.02em;}
+.logo i{width:12px;height:12px;background:var(--acc);display:inline-block;}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .3rem;font-family:var(--ff-h);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;padding:0 1.7rem;font-family:var(--ff-h);font-size:14.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:500;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#fff;}
+.btn-p:hover{background:var(--acc-d);}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--ink);}
+.btn-s:hover{background:var(--ink);color:#fff;}
+.btn-l{background:var(--lite);color:var(--dark);}
+.btn-l:hover{background:#8FF3E2;}
+.nav .btn{min-height:44px;padding:0 1.2rem;font-size:13px;margin-left:var(--s3);}
+
+/* Хуваасан дэлгэц */
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100svh - 4.5rem);}
+.sl{padding:var(--s6) var(--pad);display:flex;flex-direction:column;justify-content:center;}
+.sr{background:var(--dark);color:#EAF6F3;padding:var(--s6) var(--pad);display:flex;flex-direction:column;justify-content:center;}
+.kicker{font-family:var(--ff-h);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--s3);}
+.sl h1{font-size:clamp(2.6rem,6vw,5rem);}
+.sl h1 em{font-style:normal;color:var(--acc);}
+.sl p{margin-top:var(--s3);font-size:17px;color:var(--mut);max-width:42ch;}
+.sl .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.sr .kicker{color:var(--lite);}
+.sr h2{font-size:clamp(1.4rem,2.6vw,2rem);margin-bottom:var(--s4);}
+.nums{display:grid;gap:var(--s3);}
+.nm{display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:baseline;padding-bottom:var(--s3);border-bottom:1px solid rgba(234,246,243,.16);}
+.nm b{font-family:var(--ff-h);font-size:clamp(1.6rem,3vw,2.4rem);color:var(--lite);line-height:1;}
+.nm span{font-size:14.5px;color:#B6D5CF;}
+
+.sec{padding:var(--s6) 0;}
+.sec-d{background:var(--surf);}
+.slab{font-family:var(--ff-h);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s3);}
+.sec h2{font-size:clamp(1.8rem,3.8vw,3rem);max-width:20ch;margin-bottom:var(--s5);}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink);}
+.col{padding:var(--s4) var(--s3) var(--s4) 0;border-right:1px solid var(--line2);}
+.col:last-child{border-right:none;}
+.col .n{font-family:var(--ff-h);font-size:13px;color:var(--acc);letter-spacing:.1em;}
+.col h3{font-size:clamp(1.1rem,2vw,1.5rem);margin:.5rem 0 .6rem;}
+.col p{font-size:14.5px;color:var(--mut);}
+
+.band{background:var(--dark);color:#EAF6F3;padding:var(--s6) 0;}
+.band-g{display:grid;grid-template-columns:1fr auto;gap:var(--s4);align-items:center;}
+.band h2{font-size:clamp(1.6rem,3.4vw,2.6rem);max-width:22ch;}
+.band p{margin-top:var(--s2);color:#B6D5CF;max-width:46ch;}
+
+.foot{padding:var(--s5) 0 var(--s3);border-top:2px solid var(--ink);}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot h3{font-family:var(--ff-b);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s2);}
+.foot p{font-size:14.5px;color:var(--mut);max-width:34ch;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:var(--mut);padding:.35rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:920px){
+  .split{grid-template-columns:1fr;min-height:0;}
+  .cols{grid-template-columns:1fr;}
+  .col{border-right:none;border-bottom:1px solid var(--line2);}
+  .col:last-child{border-bottom:none;}
+  .band-g{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fg{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){.fg{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Цамхаг</b></span>
+  <a href="../corporate/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true"></i>Цамхаг</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#what">Юу хийдэг</a>
+    <a href="#how">Хэрхэн</a>
+    <a href="#contact">Холбоо</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Уулзалт товлох</a>
+</div></header>
+
+<main id="main">
+<section class="split" id="top">
+  <div class="sl">
+    <p class="kicker">Зөвлөх үйлчилгээ</p>
+    <h1>Өсөлтийн <em>замыг</em> хамт зурна</h1>
+    <p>Стратеги, үйл ажиллагаа, санхүүгийн зөвлөх үйлчилгээ. Бид зөвлөгөө өгөөд орхидоггүй — хэрэгжтэл нь хамт байна.</p>
+    <div class="row">
+      <a class="btn btn-p" href="#contact">Уулзалт товлох</a>
+      <a class="btn btn-s" href="#what">Үйлчилгээ үзэх</a>
+    </div>
+  </div>
+  <div class="sr">
+    <p class="kicker">Товч тоо</p>
+    <h2>Сүүлийн таван жилд</h2>
+    <div class="nums">
+      <div class="nm"><b>210</b><span>зөвлөх төсөл хэрэгжүүлсэн</span></div>
+      <div class="nm"><b>38%</b><span>үйлчлүүлэгчийн дундаж өсөлт</span></div>
+      <div class="nm"><b>12</b><span>салбарт туршлагатай</span></div>
+      <div class="nm"><b>4.8</b><span>үйлчлүүлэгчийн үнэлгээ (5-аас)</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="what">
+  <div class="wrap">
+    <p class="slab">01 — Үйлчилгээ</p>
+    <h2>Гурван чиглэл, нэг зорилго</h2>
+    <div class="cols">
+      <div class="col">
+        <span class="n">01</span>
+        <h3>Стратеги</h3>
+        <p>Зах зээлийн шинжилгээ, өрсөлдөх давуу тал, гурван жилийн төлөвлөгөө.</p>
+      </div>
+      <div class="col">
+        <span class="n">02</span>
+        <h3>Үйл ажиллагаа</h3>
+        <p>Процессын оношилгоо, зардлын бүтэц, бүтээмжийн сайжруулалт.</p>
+      </div>
+      <div class="col">
+        <span class="n">03</span>
+        <h3>Санхүү</h3>
+        <p>Загварчлал, хөрөнгө босгох бэлтгэл, хөрөнгө оруулагчтай хэлэлцээр.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-d" id="how">
+  <div class="wrap">
+    <p class="slab">02 — Ажиллах арга</p>
+    <h2>Богино мөчлөг, тодорхой үр дүн</h2>
+    <div class="cols" style="border-top-color:var(--line2)">
+      <div class="col">
+        <span class="n">1–2 долоо хоног</span>
+        <h3>Оношилгоо</h3>
+        <p>Одоогийн байдлыг тоогоор хэмжиж, хамгийн их нөлөөтэй цэгийг олно.</p>
+      </div>
+      <div class="col">
+        <span class="n">4–8 долоо хоног</span>
+        <h3>Хэрэгжүүлэлт</h3>
+        <p>Таны багтай хамт ажиллаж, өөрчлөлтийг бодитоор нэвтрүүлнэ.</p>
+      </div>
+      <div class="col">
+        <span class="n">3 сар</span>
+        <h3>Хяналт</h3>
+        <p>Үр дүнг хэмжиж, шаардлагатай бол тохируулга хийнэ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap band-g">
+    <div>
+      <h2>Эхний уулзалт үнэ төлбөргүй</h2>
+      <p>Нэг цагийн уулзалтаар асуудлаа танилцуулаад, бид хийж чадах эсэхээ шулуухан хэлнэ.</p>
+    </div>
+    <a class="btn btn-l" href="mailto:sain@tsamhag.mn">Уулзалт товлох</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fg">
+    <div><h3>Цамхаг зөвлөх</h3><p>Стратеги, үйл ажиллагаа, санхүүгийн зөвлөх үйлчилгээ. Улаанбаатар хотод төвтэй.</p></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="mailto:sain@tsamhag.mn">sain@tsamhag.mn</a><a href="tel:+97699110000">+976 9911-0000</a><span>Да–Ба, 09:00–18:00</span></div></div>
+    <div><h3>Хаяг</h3><div class="fl"><span>Улаанбаатар, ХУД</span><span>3-р хороо, Чингисийн өргөн чөлөө 9</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Цамхаг зөвлөх — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

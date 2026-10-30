@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Навч — ресторан & кафе загвар | Gerelt Solutions</title>
+<meta name="description" content="Гэрэлтэй кафе, талх нарийн боовны загвар.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Golos Text — кирилл үсэг бүрэн, нэг гэр бүл, зөөлөн цэгц. -->
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFCF8; --surf:#EEF5EA; --surf2:#E0EBDA; --card:#FFFFFF;
+  --ink:#1D2A1F; --mut:#4D5C4F; --mut2:#5B6B5D;
+  --acc:#2F6B3E; --acc-d:#255632; --warm:#C2541A;
+  --line:#DCE7D7; --line2:#BCCDB5;
+  --ff:'Golos Text',system-ui,-apple-system,sans-serif;
+  --pad:clamp(1.2rem,4vw,3.5rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+  --r:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:6rem;}
+body{font-family:var(--ff);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.12;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 14px 14px;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:8px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1160px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,252,248,.94);backdrop-filter:blur(14px);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.7rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-weight:700;font-size:21px;letter-spacing:-.03em;}
+.logo i{width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-style:normal;}
+.nlinks{display:flex;gap:.2rem;margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .9rem;border-radius:999px;font-size:15px;font-weight:500;color:var(--mut);transition:background .2s,color .2s;}
+.nlinks a:hover{background:var(--surf);color:var(--acc);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;padding:0 1.7rem;border-radius:999px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#fff;}
+.btn-p:hover{background:var(--acc-d);}
+.btn-s{background:var(--card);color:var(--ink);border-color:var(--line2);}
+.btn-s:hover{border-color:var(--acc);color:var(--acc);}
+.nav .btn{min-height:44px;padding:0 1.25rem;font-size:14px;margin-left:var(--s3);}
+
+.hero{padding:var(--s5) 0 var(--s6);}
+.hero-g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center;}
+.tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--surf);color:var(--acc);border-radius:999px;padding:.4rem 1rem;font-size:13.5px;font-weight:600;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.1rem,4.8vw,3.6rem);max-width:14ch;}
+.hero p{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:42ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.photo{border-radius:28px;aspect-ratio:5/4;background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3)),linear-gradient(150deg,#22361F,#4F8A5F 58%,#A8D4A0);display:grid;place-items:center;}
+.photo span{font-size:clamp(1.4rem,3.2vw,2.2rem);font-weight:600;color:#fff;text-align:center;padding:2rem;line-height:1.25;}
+
+.hours{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);padding-bottom:var(--s6);}
+.hr{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3);text-align:center;}
+.hr b{display:block;font-size:17px;font-weight:700;}
+.hr span{font-size:13.5px;color:var(--mut2);}
+
+.sec{padding:var(--s6) 0;}
+.sec-s{background:var(--surf);}
+.hd{text-align:center;max-width:52ch;margin:0 auto var(--s5);}
+.hd h2{font-size:clamp(1.8rem,3.6vw,2.7rem);}
+.hd p{margin-top:.6rem;color:var(--mut);}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.c{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .25s,box-shadow .25s;}
+.c:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(29,42,31,.09);}
+.c-im{aspect-ratio:4/3;display:grid;place-items:center;}
+.c-im span{font-size:clamp(1.05rem,2vw,1.4rem);font-weight:600;color:#fff;text-align:center;padding:1rem;}
+.b1{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),linear-gradient(145deg,#3B2A14,#8A6417);}
+.b2{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),linear-gradient(145deg,#22361F,#4F8A5F);}
+.b3{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),linear-gradient(145deg,#3A2018,#9E4A28);}
+.c-b{padding:var(--s3);}
+.c-b h3{font-size:17.5px;margin-bottom:.3rem;}
+.c-b p{font-size:14.5px;color:var(--mut);}
+.c-b .pr{display:block;margin-top:.6rem;font-weight:700;font-size:16px;color:var(--acc);}
+
+.list{max-width:720px;margin:0 auto;}
+.li{display:grid;grid-template-columns:1fr auto;gap:.5rem;align-items:baseline;padding:var(--s3) 0;border-bottom:1px dashed var(--line2);}
+.li h3{font-size:17px;}
+.li p{grid-column:1;font-size:14.5px;color:var(--mut);line-height:1.5;}
+.li .pr{font-weight:700;color:var(--acc);white-space:nowrap;}
+.li .nb{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--warm);border-radius:999px;padding:.1rem .55rem;margin-left:.45rem;vertical-align:middle;}
+
+.cta{padding:var(--s6) 0;}
+.cta-box{background:var(--acc);color:#fff;border-radius:28px;padding:var(--s6) var(--s4);text-align:center;}
+.cta-box h2{font-size:clamp(1.7rem,3.6vw,2.6rem);max-width:20ch;margin:0 auto var(--s3);}
+.cta-box p{color:#D7EBDA;max-width:44ch;margin:0 auto var(--s4);}
+.cta-box .btn-p{background:#fff;color:var(--acc);}
+.cta-box .btn-p:hover{background:var(--surf);}
+
+.foot{padding:var(--s5) 0 var(--s3);border-top:1px solid var(--line);}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:var(--s4);}
+.foot h3{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s2);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.35rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:900px){.hero-g,.cards{grid-template-columns:1fr;}.hours{grid-template-columns:repeat(2,1fr);}.nlinks{display:none;}.nav .btn{margin-left:auto;}.fg{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.hours{grid-template-columns:1fr;}.fg{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Навч</b></span>
+  <a href="../restaurant/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/></svg></i>Навч</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#bakery">Талх</a><a href="#menu">Цэс</a><a href="#visit">Ирэх</a>
+  </nav>
+  <a class="btn btn-p" href="#visit">Захиалга</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-g">
+    <div>
+      <p class="tag">Өглөө 07:30-аас</p>
+      <h1>Өглөөний талх, удаан кофе</h1>
+      <p>Исгэсэн зуурмагаар шөнөжин боловсруулсан талх. Кофе нь долоо хоног бүр шинээр шарагдана.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#menu">Цэс үзэх</a>
+        <a class="btn btn-s" href="#visit">Хаана байдаг вэ</a>
+      </div>
+    </div>
+    <div class="photo" aria-hidden="true"><span>Өглөө бүр<br>шинэ талх</span></div>
+  </div>
+  <div class="wrap">
+    <div class="hours">
+      <div class="hr"><b>07:30 – 19:00</b><span>Даваа – Баасан</span></div>
+      <div class="hr"><b>08:30 – 18:00</b><span>Бямба – Ням</span></div>
+      <div class="hr"><b>09:00</b><span>Талх гарах цаг</span></div>
+      <div class="hr"><b>42 суудал</b><span>Гадна 12 суудал</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-s" id="bakery">
+  <div class="wrap">
+    <div class="hd"><h2>Талх, нарийн боов</h2><p>Өдөрт хоёр удаа — 09:00 ба 15:00 цагт шинээр гарна.</p></div>
+    <div class="cards">
+      <article class="c">
+        <span class="c-im b1"><span>Исгэсэн талх</span></span>
+        <div class="c-b"><h3>Исгэсэн зуурмагийн талх</h3><p>24 цаг боловсруулсан, зузаан царцдастай.</p><span class="pr">₮9,500</span></div>
+      </article>
+      <article class="c">
+        <span class="c-im b2"><span>Ногоон круассан</span></span>
+        <div class="c-b"><h3>Цөцгийн тосны круассан</h3><p>Франц цөцгийн тосоор, 72 цагийн давхаргалалт.</p><span class="pr">₮6,800</span></div>
+      </article>
+      <article class="c">
+        <span class="c-im b3"><span>Чацарганы боов</span></span>
+        <div class="c-b"><h3>Чацарганы бялуу</h3><p>Увсын чацаргана, бага чихэртэй.</p><span class="pr">₮11,000</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="menu">
+  <div class="wrap">
+    <div class="hd"><h2>Кофе ба цай</h2></div>
+    <div class="list">
+      <article class="li"><h3>Эспрессо</h3><span class="pr">₮5,500</span><p>Нэг буюу хос. Долоо хоног бүр өөр үр.</p></article>
+      <article class="li"><h3>Флэт уайт<span class="nb">Онцлох</span></h3><span class="pr">₮8,500</span><p>Богино сүүтэй, нягт хөөстэй.</p></article>
+      <article class="li"><h3>Фильтр кофе</h3><span class="pr">₮7,000</span><p>Гараар шүүсэн, өдрийн сонголт.</p></article>
+      <article class="li"><h3>Матча латте</h3><span class="pr">₮9,500</span><p>Япон матча, сүү эсвэл овъёосны сүү.</p></article>
+      <article class="li"><h3>Монгол сүүтэй цай</h3><span class="pr">₮4,500</span><p>Уламжлалт жороор, давстай.</p></article>
+      <article class="li"><h3>Ургамлын цай</h3><span class="pr">₮5,000</span><p>Монголын уулын ургамлаар, улирлын.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="visit">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Ширээ захиалдаггүй, ирсэн хүн суудаг</h2>
+      <p>Том багц талх, арга хэмжээний захиалгыг хоёр хоногийн өмнө хүлээн авна.</p>
+      <a class="btn btn-p" href="tel:+97687000000">+976 8700-0000</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fg">
+    <div><h3>Навч кафе</h3><p>Исгэсэн зуурмагийн талх, шинэ шарсан кофе. 2022 оноос хойш.</p></div>
+    <div><h3>Байршил</h3><div class="fl"><span>Улаанбаатар, ЧД</span><span>6-р хороо, Бага тойруу 15</span><span>Гудамжны талаас орно</span></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97687000000">+976 8700-0000</a><a href="mailto:sain@navch.mn">sain@navch.mn</a><span>Да–Ба 07:30–19:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Навч кафе — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>
