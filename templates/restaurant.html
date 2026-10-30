@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Гуурс — ресторан & кафе загвар | Gerelt Solutions</title>
+<meta name="description" content="Ресторан, кафены бэлэн загвар. Цэс, захиалга, байршил.">
+<link rel="icon" href="../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Playfair Display / Jost — хоёулаа кирилл үсэг бүрэн.
+     Сан нь Karla санал болгосон ч кирилл дэмжихгүй тул Jost авав. -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FDFBF7; --surf:#F5EDE3; --surf2:#EADDCC;
+  --ink:#2A1A10; --mut:#6B5443; --mut2:#7D6552;
+  --acc:#A33B0F; --acc-d:#86300C; --on-acc:#FFFFFF;
+  --gold:#8A5D15;
+  --line:#E4D7C6; --line2:#CDB99F;
+  --ff-h:'Playfair Display',Georgia,serif;
+  --ff-b:'Jost',system-ui,-apple-system,sans-serif;
+  --pad:clamp(1.2rem,5vw,4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:6.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:6rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-height:1.16;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 8px 8px;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:3px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1140px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,251,247,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.8rem;}
+.logo{display:flex;flex-direction:column;min-height:44px;justify-content:center;}
+.logo b{font-family:var(--ff-h);font-weight:700;font-size:23px;letter-spacing:.01em;line-height:1;}
+.logo span{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut2);}
+.nlinks{display:flex;gap:var(--s2);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .4rem;font-size:15px;font-weight:500;color:var(--mut);position:relative;transition:color .2s;}
+.nlinks a::after{content:'';position:absolute;left:.4rem;right:100%;bottom:14px;height:1px;background:var(--acc);transition:right .28s;}
+.nlinks a:hover{color:var(--acc);}
+.nlinks a:hover::after{right:.4rem;}
+.nav .btn{margin-left:var(--s3);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.7rem;border-radius:999px;font-family:var(--ff-b);font-size:14.5px;font-weight:600;letter-spacing:.04em;cursor:pointer;border:1.5px solid transparent;transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--acc);color:var(--on-acc);}
+.btn-p:hover{background:var(--acc-d);}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line2);}
+.btn-s:hover{border-color:var(--ink);}
+.nav .btn{min-height:44px;padding:0 1.2rem;font-size:13.5px;}
+
+/* Hero */
+.hero{padding:var(--s7) 0 var(--s6);text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 0%,rgba(176,122,40,.13),transparent 70%);pointer-events:none;}
+.hero-in{position:relative;z-index:2;max-width:48rem;margin:0 auto;}
+.orn{display:inline-flex;align-items:center;gap:.8rem;font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s3);}
+.orn::before,.orn::after{content:'';width:34px;height:1px;background:var(--gold);}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);}
+.hero h1 em{font-style:italic;color:var(--acc);}
+.hero p{margin-top:var(--s3);font-size:18px;color:var(--mut);max-width:46ch;margin-left:auto;margin-right:auto;}
+/* .hero p нь .orn-ийг давж бичдэг тул онцолж сэргээнэ */
+.hero .orn{color:var(--gold);font-size:11.5px;margin-top:0;}
+.hero .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:var(--s4);}
+.hours{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--s4);margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line);font-size:14.5px;}
+.hours div b{display:block;font-family:var(--ff-h);font-size:19px;}
+.hours div span{color:var(--mut);}
+
+/* Тухай */
+.sec{padding:var(--s6) 0;}
+.sec-alt{background:var(--surf);}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center;}
+.about h2{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:var(--s3);}
+.about p{color:var(--mut);margin-bottom:var(--s2);}
+/* Градиентын хамгийн цайвар булан дээр цагаан бичвэр 2.65:1 болж
+   унадаг тул дээр нь далд давхарга тавьж 5.6:1 болгов. */
+.plate{aspect-ratio:4/3;border-radius:6px;display:grid;place-items:center;
+  background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+             linear-gradient(145deg,#4A2C18,#A33B0F 60%,#D98E4A);}
+.plate span{font-family:var(--ff-h);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);color:rgba(255,255,255,.95);text-align:center;padding:2rem;}
+
+/* Цэс */
+.mhead{text-align:center;margin-bottom:var(--s5);}
+.mhead h2{font-size:clamp(1.9rem,3.6vw,2.9rem);}
+.mhead p{color:var(--mut);margin-top:.5rem;}
+.mtabs{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s5);}
+.mtab{display:inline-flex;align-items:center;min-height:44px;padding:0 1.3rem;border-radius:999px;border:1.5px solid var(--line2);background:transparent;font-family:inherit;font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--mut);cursor:pointer;transition:all .2s;}
+.mtab:hover{border-color:var(--ink);color:var(--ink);}
+.mtab.on{background:var(--ink);border-color:var(--ink);color:var(--bg);}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s6);}
+.mi{display:grid;grid-template-columns:1fr auto;gap:.6rem;align-items:baseline;padding:var(--s3) 0;border-bottom:1px dashed var(--line2);}
+.mi h3{font-size:18px;font-weight:600;}
+.mi p{font-size:14.5px;color:var(--mut);line-height:1.5;grid-column:1;}
+.mi .pr{font-family:var(--ff-h);font-size:18px;font-weight:600;color:var(--acc);white-space:nowrap;}
+.mi .tag{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:.08rem .5rem;margin-left:.5rem;vertical-align:middle;}
+
+/* Захиалга */
+.book{background:var(--ink);color:var(--bg);padding:var(--s7) 0;text-align:center;}
+.book h2{font-size:clamp(1.9rem,3.6vw,2.8rem);color:var(--bg);}
+.book p{color:#C9B7A6;margin:var(--s2) auto var(--s4);max-width:46ch;}
+.book .btn-p{background:var(--bg);color:var(--ink);}
+.book .btn-p:hover{background:var(--surf);}
+.book .btn-s{color:var(--bg);border-color:rgba(253,251,247,.4);}
+.book .btn-s:hover{border-color:var(--bg);}
+.book .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+
+/* Хөл */
+.foot{padding:var(--s5) 0 var(--s3);border-top:1px solid var(--line);}
+.foot-g{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:var(--s4);}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s2);}
+.foot p{font-size:15px;color:var(--mut);max-width:34ch;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.35rem 0;}
+.fl a:hover{color:var(--acc);}
+.foot-b{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:14px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:900px){
+  .about,.menu{grid-template-columns:1fr;}
+  .about{gap:var(--s4);}
+  .nlinks{display:none;}
+  .nav .btn{margin-left:auto;}
+  .foot-g{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){.foot-g{grid-template-columns:1fr;}.hours{gap:var(--s3);}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs">
+  <div class="gs-in">
+    <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Гуурс</b></span>
+    <a href="https://gerelt-solutuions.com/#templates">Энэ загварыг захиалах →</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo"><b>Гуурс</b><span>Ресторан</span></a>
+    <nav class="nlinks" aria-label="Үндсэн цэс">
+      <a href="#about">Бидний тухай</a>
+      <a href="#menu">Цэс</a>
+      <a href="#book">Захиалга</a>
+      <a href="#contact">Байршил</a>
+    </nav>
+    <a class="btn btn-p" href="#book">Ширээ захиалах</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <p class="orn">2014 оноос хойш</p>
+    <h1>Гал голомтын <em>амт</em>, орчин үеийн хэлбэрээр</h1>
+    <p>Монгол уламжлалт жороор, өдөр бүр шинээр. Малын мах нь Хэнтий аймгийн гэрээт фермээс ирдэг.</p>
+    <div class="row">
+      <a class="btn btn-p" href="#book">Ширээ захиалах</a>
+      <a class="btn btn-s" href="#menu">Цэс үзэх</a>
+    </div>
+    <div class="hours">
+      <div><b>11:00 – 23:00</b><span>Даваа – Баасан</span></div>
+      <div><b>10:00 – 24:00</b><span>Бямба – Ням</span></div>
+      <div><b>86 суудал</b><span>Хоёр танхим</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div class="plate" aria-hidden="true"><span>Өдөр бүр<br>шинэхэн</span></div>
+    <div>
+      <h2>Энгийн орц, тэвчээртэй гал</h2>
+      <p>Бид гурван зүйлд л анхаардаг: орц нь хаанаас ирснийг мэдэх, галаа яарахгүй байх, зочиндоо чин сэтгэлээсээ үйлчлэх.</p>
+      <p>Талх, зайрмаг, чанамал — бүгдийг энд өөрсдөө хийнэ. Хоногийн цэс өглөө бүр захын нөхцөлөөс хамаарч тодорхойлогддог.</p>
+      <p>Хүүхэдтэй зочдод тусгай цэс, нялх хүүхдийн сандал үнэ төлбөргүй.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="menu">
+  <div class="wrap">
+    <div class="mhead">
+      <h2>Цэс</h2>
+      <p>Үнэ нь ₮-өөр, НӨАТ багтсан.</p>
+    </div>
+    <div class="mtabs" role="group" aria-label="Цэсний ангилал">
+      <button class="mtab on">Үндсэн хоол</button>
+      <button class="mtab">Шөл</button>
+      <button class="mtab">Амттан</button>
+      <button class="mtab">Ундаа</button>
+    </div>
+    <div class="menu">
+      <article class="mi">
+        <h3>Хонины хавирга, шарсан<span class="tag">Онцлох</span></h3>
+        <span class="pr">₮38,000</span>
+        <p>Удаан шарсан хавирга, хужир ногоотой, гар хийцийн соустай.</p>
+      </article>
+      <article class="mi">
+        <h3>Үхрийн мах, улаан лоолийн соустай</h3>
+        <span class="pr">₮32,000</span>
+        <p>Зөөлөн чанасан мах, гар хийцийн гоймон дээр.</p>
+      </article>
+      <article class="mi">
+        <h3>Цуйван, гэрийн маягаар</h3>
+        <span class="pr">₮24,000</span>
+        <p>Гар татсан гурил, хонины мах, улаан лооль, байцаа.</p>
+      </article>
+      <article class="mi">
+        <h3>Хуушуур, 4 ширхэг</h3>
+        <span class="pr">₮18,000</span>
+        <p>Шинэ хонины махтай, өдөр бүр гараар хийнэ.</p>
+      </article>
+      <article class="mi">
+        <h3>Ногооны шарсан хоол<span class="tag">Цагаан хоол</span></h3>
+        <span class="pr">₮21,000</span>
+        <p>Улирлын ногоо, самар, гүнжидийн соустай.</p>
+      </article>
+      <article class="mi">
+        <h3>Загасны стейк</h3>
+        <span class="pr">₮45,000</span>
+        <p>Хөвсгөлийн загас, цөцгийн тос, нимбэгтэй.</p>
+      </article>
+      <article class="mi">
+        <h3>Банштай цай</h3>
+        <span class="pr">₮16,000</span>
+        <p>Уламжлалт сүүтэй цай, гар хийцийн банштай.</p>
+      </article>
+      <article class="mi">
+        <h3>Бууз, 6 ширхэг</h3>
+        <span class="pr">₮20,000</span>
+        <p>Хонь, үхрийн холимог мах, гараар боосон.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <h2>Ширээгээ урьдчилан захиалаарай</h2>
+    <p>Амралтын өдрүүдэд ширээ хурдан дүүрдэг. Утсаар эсвэл онлайнаар захиалж болно.</p>
+    <div class="row">
+      <a class="btn btn-p" href="tel:+97688000000">+976 8800-0000</a>
+      <a class="btn btn-s" href="mailto:zahialga@guurs.mn">Имэйлээр захиалах</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-g">
+      <div>
+        <h3>Гуурс ресторан</h3>
+        <p>Монгол уламжлалт хоолыг орчин үеийн хэлбэрээр. 2014 оноос хойш нэг л газартаа.</p>
+      </div>
+      <div><h3>Байршил</h3><div class="fl"><span>Улаанбаатар, ЧД</span><span>4-р хороо, Их тойруу 28</span><span>Үндэсний галерейн баруун талд</span></div></div>
+      <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97688000000">+976 8800-0000</a><a href="mailto:zahialga@guurs.mn">zahialga@guurs.mn</a><span>Да–Ба 11:00–23:00</span></div></div>
+    </div>
+    <div class="foot-b">
+      <span>© 2026 Гуурс ресторан — жишээ агуулга</span>
+      <span>Gerelt Solutions Studio загвар</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

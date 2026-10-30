@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Зах — онлайн дэлгүүр загвар | Gerelt Solutions</title>
+<meta name="description" content="Онлайн дэлгүүрийн бэлэн загвар. Бараа, сагс, төлбөрийн холболт.">
+<link rel="icon" href="../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Rubik / Nunito Sans — сангийн санал, хоёулаа кирилл үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --surf:#F8F7F5; --surf2:#EFEDE9;
+  --ink:#18181B; --mut:#52525B; --mut2:#6B6B73;
+  --acc:#C2410C; --acc-d:#9A330A; --on-acc:#FFFFFF;
+  --sale:#B91C1C; --ok:#15803D;
+  --line:#E4E4E7; --line2:#D4D4D8;
+  --ff-h:'Rubik',system-ui,sans-serif;
+  --ff-b:'Nunito Sans',system-ui,-apple-system,sans-serif;
+  --pad:clamp(1.1rem,4vw,3.5rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4rem;
+  --r:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:6rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:700;letter-spacing:-.02em;line-height:1.12;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 8px 8px;font-weight:700;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;border-radius:4px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;font-family:var(--ff-b);}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1240px;margin:0 auto;}
+.gs b{font-weight:700;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.promo{background:var(--ink);color:#fff;text-align:center;font-size:14px;padding:.6rem var(--pad);font-weight:600;}
+.promo b{color:#FDBA74;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.6rem;}
+.logo{display:flex;align-items:center;gap:.5rem;min-height:44px;font-family:var(--ff-h);font-weight:700;font-size:21px;letter-spacing:-.02em;}
+.logo i{width:32px;height:32px;border-radius:9px;background:var(--acc);color:#fff;display:grid;place-items:center;font-style:normal;font-size:16px;}
+.nlinks{display:flex;gap:.2rem;margin-left:var(--s3);}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .75rem;border-radius:8px;font-size:15px;font-weight:600;color:var(--mut);transition:background .18s,color .18s;}
+.nlinks a:hover{background:var(--surf);color:var(--ink);}
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:.5rem;}
+.icb{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;min-width:44px;padding:0 .75rem;border-radius:8px;border:1px solid var(--line2);background:#fff;color:var(--ink);cursor:pointer;font-family:inherit;font-size:14px;font-weight:700;transition:border-color .18s,background .18s;}
+.icb:hover{border-color:var(--ink);background:var(--surf);}
+.icb .n{background:var(--acc);color:#fff;border-radius:999px;min-width:20px;height:20px;display:grid;place-items:center;font-size:12px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.6rem;border-radius:9px;font-family:var(--ff-b);font-size:15px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:var(--on-acc);}
+.btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--ink);border-color:var(--line2);}
+.btn-s:hover{border-color:var(--ink);}
+
+/* Hero банер */
+.hero{padding:var(--s5) 0;}
+.hero-g{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--s4);}
+/* Бичвэр зүүн талд байрлана. Градиентын баруун булан цайвар тул
+   тэнд цагаан бичвэр 2.5:1 болж унадаг — зүүн талыг нь гүнзгийрүүлж
+   10:1 болгов. Баруун булангийн тод өнгө хэвээр үлдэнэ. */
+.hero-main{background:linear-gradient(100deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.42) 50%,rgba(0,0,0,.14) 95%),linear-gradient(135deg,#7C2D12,#C2410C 55%,#EA8C4E);border-radius:18px;padding:clamp(1.6rem,4vw,3rem);color:#fff;display:flex;flex-direction:column;justify-content:center;min-height:360px;}
+.badge{align-self:flex-start;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:.3rem .85rem;font-size:13px;font-weight:700;margin-bottom:var(--s3);}
+.hero-main h1{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:.7rem;max-width:17ch;}
+.hero-main p{font-size:17px;color:rgba(255,255,255,.92);max-width:40ch;margin-bottom:var(--s4);}
+.hero-main .btn-p{background:#fff;color:#7C2D12;align-self:flex-start;}
+.hero-main .btn-p:hover{background:#FFEDD5;}
+.hero-side{display:grid;grid-template-rows:1fr 1fr;gap:var(--s4);}
+.tile{border-radius:18px;padding:var(--s4);display:flex;flex-direction:column;justify-content:space-between;min-height:166px;}
+.t1{background:#1C1917;color:#fff;}
+.t2{background:var(--surf);border:1px solid var(--line);}
+.tile h2{font-size:21px;margin-bottom:.3rem;}
+.tile p{font-size:14.5px;opacity:.85;}
+.tile a{font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;min-height:44px;}
+.t1 a{color:#FDBA74;} .t2 a{color:var(--acc);}
+
+/* Ангилал */
+.cats{display:flex;gap:.6rem;overflow-x:auto;padding:var(--s4) 0;scrollbar-width:none;}
+.cats::-webkit-scrollbar{display:none;}
+.cat{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 1.15rem;border-radius:999px;border:2px solid var(--line2);background:#fff;font-family:inherit;font-size:14.5px;font-weight:700;color:var(--mut);cursor:pointer;white-space:nowrap;transition:all .18s;}
+.cat:hover{border-color:var(--ink);color:var(--ink);}
+.cat.on{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+/* Барааны сүлжээ */
+.sec{padding:var(--s5) 0;}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s4);flex-wrap:wrap;}
+.head h2{font-size:clamp(1.5rem,2.8vw,2.1rem);}
+.head a{font-weight:700;color:var(--acc);display:inline-flex;align-items:center;min-height:44px;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);}
+.p{display:flex;flex-direction:column;}
+.p-img{position:relative;border-radius:var(--r);aspect-ratio:1/1;overflow:hidden;display:grid;place-items:center;transition:transform .25s;}
+.p:hover .p-img{transform:translateY(-4px);}
+.p-img span{font-family:var(--ff-h);font-weight:700;font-size:clamp(1.1rem,2vw,1.5rem);color:rgba(255,255,255,.95);text-align:center;padding:1rem;line-height:1.2;}
+.g1{background:linear-gradient(140deg,#78350F,#B45309);}
+.g2{background:linear-gradient(140deg,#134E4A,#0F766E);}
+.g3{background:linear-gradient(140deg,#3B0764,#7E22CE);}
+.g4{background:linear-gradient(140deg,#7F1D1D,#B91C1C);}
+.g5{background:linear-gradient(140deg,#1E3A5F,#1D4ED8);}
+.g6{background:linear-gradient(140deg,#365314,#4D7C0F);}
+.tagp{position:absolute;top:10px;left:10px;background:var(--sale);color:#fff;font-size:12px;font-weight:700;padding:.25rem .6rem;border-radius:6px;}
+.p h3{font-family:var(--ff-b);font-size:15.5px;font-weight:700;margin-top:.8rem;letter-spacing:0;}
+.p .br{font-size:13.5px;color:var(--mut);}
+.p .pr{display:flex;align-items:baseline;gap:.55rem;margin-top:.35rem;}
+.p .pr b{font-family:var(--ff-h);font-size:17px;}
+.p .pr s{font-size:14px;color:var(--mut2);}
+.add{margin-top:.7rem;min-height:44px;border-radius:8px;border:2px solid var(--line2);background:#fff;font-family:inherit;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;transition:all .18s;}
+.add:hover{background:var(--acc);border-color:var(--acc);color:#fff;}
+
+/* Давуу тал */
+.perks{background:var(--surf);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--s5) 0;}
+.perks-g{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);}
+.perk{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start;}
+.perk .pi{width:42px;height:42px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--acc);}
+.perk h3{font-family:var(--ff-b);font-size:15.5px;font-weight:700;letter-spacing:0;}
+.perk p{font-size:14px;color:var(--mut);}
+
+/* Захиалга */
+.news{padding:var(--s6) 0;text-align:center;}
+.news h2{font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:.6rem;}
+.news p{color:var(--mut);max-width:50ch;margin:0 auto var(--s4);}
+.nf{display:flex;gap:.6rem;max-width:480px;margin:0 auto;flex-wrap:wrap;}
+.nf input{flex:1;min-width:200px;min-height:48px;padding:0 1rem;border-radius:9px;border:2px solid var(--line2);font-family:inherit;font-size:15px;color:var(--ink);}
+.nf input:focus{outline:none;border-color:var(--acc);}
+.nf input:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);background:var(--surf);}
+.foot-g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot h3{font-family:var(--ff-b);font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s2);}
+.foot p{font-size:15px;color:var(--mut);max-width:34ch;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.35rem 0;}
+.fl a:hover{color:var(--acc);}
+.foot-b{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line2);font-size:14px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:1040px){.grid{grid-template-columns:repeat(3,1fr);}.perks-g{grid-template-columns:repeat(2,1fr);}.foot-g{grid-template-columns:1fr 1fr;}}
+@media(max-width:860px){.hero-g{grid-template-columns:1fr;}.nlinks{display:none;}}
+@media(max-width:680px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:460px){.grid,.perks-g,.foot-g{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs">
+  <div class="gs-in">
+    <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Зах</b></span>
+    <a href="https://gerelt-solutuions.com/#templates">Энэ загварыг захиалах →</a>
+  </div>
+</div>
+
+<p class="promo">₮150,000-аас дээш захиалгад <b>хүргэлт үнэгүй</b> · Улаанбаатар хотод 24 цагт</p>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo"><i>З</i>Зах</a>
+    <nav class="nlinks" aria-label="Үндсэн цэс">
+      <a href="#new">Шинэ</a>
+      <a href="#new">Хямдрал</a>
+      <a href="#perks">Хүргэлт</a>
+      <a href="#contact">Холбоо барих</a>
+    </nav>
+    <div class="nav-r">
+      <button class="icb" aria-label="Хайх">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="icb" aria-label="Сагс — 3 бараа">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="n">3</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-g">
+    <div class="hero-main">
+      <span class="badge">Намрын цуглуулга</span>
+      <h1>Өдөр тутмын хэрэгцээт зүйлс нэг дороос</h1>
+      <p>Гэр ахуй, хувцас, тоглоом, цахилгаан бараа — 4,200 гаруй нэр төрөл.</p>
+      <a class="btn btn-p" href="#new">Дэлгүүр үзэх</a>
+    </div>
+    <div class="hero-side">
+      <div class="tile t1">
+        <div><h2>Хямдралын булан</h2><p>50% хүртэл хямдралтай бараанууд</p></div>
+        <a href="#new">Үзэх →</a>
+      </div>
+      <div class="tile t2">
+        <div><h2>Шинэ ирэлт</h2><p>Энэ долоо хоногт нэмэгдсэн 86 бараа</p></div>
+        <a href="#new">Үзэх →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cats" role="group" aria-label="Ангилал">
+    <button class="cat on">Бүгд</button>
+    <button class="cat">Гэр ахуй</button>
+    <button class="cat">Хувцас</button>
+    <button class="cat">Цахилгаан бараа</button>
+    <button class="cat">Тоглоом</button>
+    <button class="cat">Гоо сайхан</button>
+    <button class="cat">Спорт</button>
+  </div>
+</div>
+
+<section class="sec" id="new">
+  <div class="wrap">
+    <div class="head">
+      <h2>Эрэлттэй бараа</h2>
+      <a href="#new">Бүгдийг үзэх →</a>
+    </div>
+    <div class="grid">
+      <article class="p">
+        <span class="p-img g1"><span>Модон аяга таваг</span><span class="tagp">-30%</span></span>
+        <h3>Модон аяганы иж бүрдэл</h3>
+        <p class="br">Гэр ахуй</p>
+        <p class="pr"><b>₮89,000</b><s>₮127,000</s></p>
+        <button class="add">Сагсанд хийх</button>
+      </article>
+      <article class="p">
+        <span class="p-img g2"><span>Хүүхдийн хөнжил</span></span>
+        <h3>Хөвөн хөнжил, 140×200</h3>
+        <p class="br">Гэр ахуй</p>
+        <p class="pr"><b>₮145,000</b></p>
+        <button class="add">Сагсанд хийх</button>
+      </article>
+      <article class="p">
+        <span class="p-img g3"><span>Чихэвч</span><span class="tagp">-15%</span></span>
+        <h3>Утасгүй чихэвч, 32 цаг</h3>
+        <p class="br">Цахилгаан бараа</p>
+        <p class="pr"><b>₮212,000</b><s>₮249,000</s></p>
+        <button class="add">Сагсанд хийх</button>
+      </article>
+      <article class="p">
+        <span class="p-img g4"><span>Гал тогооны хутга</span></span>
+        <h3>Хутганы 6 ширхэг багц</h3>
+        <p class="br">Гэр ахуй</p>
+        <p class="pr"><b>₮178,000</b></p>
+        <button class="add">Сагсанд хийх</button>
+      </article>
+      <article class="p">
+        <span class="p-img g5"><span>Өвлийн цув</span><span class="tagp">Шинэ</span></span>
+        <h3>Эрэгтэй өвлийн цув</h3>
+        <p class="br">Хувцас</p>
+        <p class="pr"><b>₮395,000</b></p>
+        <button class="add">Сагсанд хийх</button>
+      </article>
+      <article class="p">
+        <span class="p-img g6"><span>Иж бүрдэл тоглоом</span></span>
+        <h3>Модон бүтээх тоглоом</h3>
+        <p class="br">Тоглоом</p>
+        <p class="pr"><b>₮67,000</b></p>
+        <button class="add">Сагсанд хийх</button>
+      </article>
+      <article class="p">
+        <span class="p-img g2"><span>Термос</span></span>
+        <h3>Ган термос, 1 литр</h3>
+        <p class="br">Спорт</p>
+        <p class="pr"><b>₮54,000</b></p>
+        <button class="add">Сагсанд хийх</button>
+      </article>
+      <article class="p">
+        <span class="p-img g1"><span>Арьс арчилгаа</span><span class="tagp">-20%</span></span>
+        <h3>Нүүрний тосны багц</h3>
+        <p class="br">Гоо сайхан</p>
+        <p class="pr"><b>₮98,000</b><s>₮122,000</s></p>
+        <button class="add">Сагсанд хийх</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="perks" id="perks">
+  <div class="wrap perks-g">
+    <div class="perk">
+      <span class="pi" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="19" r="2"/><circle cx="18.5" cy="19" r="2"/></svg></span>
+      <div><h3>24 цагт хүргэнэ</h3><p>Улаанбаатар хотод ажлын өдөр</p></div>
+    </div>
+    <div class="perk">
+      <span class="pi" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 3.8 9.3 9 10 5.2-.7 9-5 9-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <div><h3>Баталгаат бараа</h3><p>Албан ёсны ханган нийлүүлэгчээс</p></div>
+    </div>
+    <div class="perk">
+      <span class="pi" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M3 5h18v14H3zM7 14h4"/></svg></span>
+      <div><h3>QPay, картаар</h3><p>Бүх банкны карт хүлээн авна</p></div>
+    </div>
+    <div class="perk">
+      <span class="pi" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/></svg></span>
+      <div><h3>14 хоног буцаалт</h3><p>Таалагдаагүй бол буцаана</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="news" id="contact">
+  <div class="wrap">
+    <h2>Хямдралаас хоцрохгүй байя</h2>
+    <p>Шинэ ирэлт, урамшууллын мэдээг долоо хоногт нэг удаа имэйлээр илгээнэ.</p>
+    <form class="nf" onsubmit="event.preventDefault();this.reset();alert('Жишээ загвар — бүртгэл хийгдсэнгүй.');">
+      <label class="sr-only" for="em">Имэйл хаяг</label>
+      <input id="em" type="email" placeholder="tanii@mail.mn" required>
+      <button class="btn btn-p" type="submit">Бүртгүүлэх</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-g">
+      <div>
+        <h3>Зах</h3>
+        <p>Өдөр тутмын хэрэгцээт барааны онлайн дэлгүүр. 4,200 гаруй нэр төрөл, улсын хэмжээнд хүргэлттэй.</p>
+      </div>
+      <div><h3>Дэлгүүр</h3><div class="fl"><a href="#new">Шинэ ирэлт</a><a href="#new">Хямдрал</a><a href="#new">Эрэлттэй</a></div></div>
+      <div><h3>Тусламж</h3><div class="fl"><a href="#perks">Хүргэлт</a><a href="#perks">Буцаалт</a><a href="#perks">Төлбөр</a></div></div>
+      <div><h3>Холбоо барих</h3><div class="fl"><a href="mailto:tuslamj@zah.mn">tuslamj@zah.mn</a><a href="tel:+97677000000">+976 7700-0000</a><span>Өдөр бүр 09:00–21:00</span></div></div>
+    </div>
+    <div class="foot-b">
+      <span>© 2026 Зах — жишээ агуулга</span>
+      <span>Gerelt Solutions Studio загвар</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

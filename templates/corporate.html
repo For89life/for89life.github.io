@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Тулга — байгууллагын танилцуулга загвар | Gerelt Solutions</title>
+<meta name="description" content="Байгууллагын танилцуулга сайтын бэлэн загвар. Итгэл төрүүлэх, цэгцтэй, мэргэжлийн.">
+<link rel="icon" href="../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Manrope — кирилл үсэг бүрэн. Швейцарь маягийн цэгц, нэг гэр бүл. -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --surf:#F1F5F9; --surf2:#E2E8F0;
+  --ink:#0F172A; --mut:#475569; --mut2:#64748B;
+  --acc:#1D4ED8; --acc-d:#1E40AF; --on-acc:#FFFFFF;
+  --line:#E2E8F0; --line2:#CBD5E1;
+  --ff:'Manrope',system-ui,-apple-system,sans-serif;
+  --pad:clamp(1.2rem,5vw,4.5rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4rem; --s7:6rem;
+  --r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+h1,h2,h3{font-weight:800;letter-spacing:-.025em;line-height:1.1;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 8px 8px;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;border-radius:3px;}
+
+/* Gerelt-ийн загварын тууз */
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1180px;margin:0 auto;}
+.gs b{font-weight:700;}
+.gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+/* Толгой */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.5rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-weight:800;font-size:18px;letter-spacing:-.02em;}
+.logo i{width:30px;height:30px;border-radius:7px;background:var(--acc);display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px;}
+.nlinks{display:flex;gap:.3rem;margin-left:var(--s4);}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .7rem;border-radius:7px;font-size:15px;font-weight:500;color:var(--mut);transition:background .18s,color .18s;}
+.nlinks a:hover{background:var(--surf);color:var(--ink);}
+.nav .cta{margin-left:auto;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.5rem;border-radius:8px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:var(--on-acc);}
+.btn-p:hover{background:var(--acc-d);}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line2);}
+.btn-s:hover{border-color:var(--ink);}
+.nav .btn{min-height:44px;padding:0 1.1rem;font-size:14px;}
+
+/* Hero */
+.hero{padding:var(--s7) 0 var(--s6);border-bottom:1px solid var(--line);}
+.hero-g{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--s6);align-items:center;}
+.tagline{display:inline-flex;align-items:center;gap:.5rem;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--s3);}
+.tagline::before{content:'';width:22px;height:2px;background:var(--acc);}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);}
+.hero p{margin-top:var(--s3);font-size:18px;color:var(--mut);max-width:52ch;}
+.hero .row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:var(--s4);}
+.hero-card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4);}
+.hero-card h2{font-size:15px;font-weight:700;margin-bottom:var(--s3);}
+.kv{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--surf2);font-size:15px;}
+.kv:last-child{border-bottom:none;}
+.kv span{color:var(--mut);}
+.kv b{font-weight:700;}
+
+/* Тоонууд */
+.stats{background:var(--surf);border-bottom:1px solid var(--line);padding:var(--s5) 0;}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);}
+.stat b{display:block;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1;}
+.stat span{font-size:14px;color:var(--mut);}
+
+/* Хэсэг */
+.sec{padding:var(--s7) 0;}
+.sec-alt{background:var(--surf);}
+.head{max-width:60ch;margin-bottom:var(--s5);}
+.head h2{font-size:clamp(1.7rem,3.2vw,2.5rem);}
+.head p{margin-top:var(--s2);font-size:17px;color:var(--mut);}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4);transition:border-color .22s,transform .22s,box-shadow .22s;}
+.card:hover{border-color:var(--line2);transform:translateY(-3px);box-shadow:0 10px 28px rgba(15,23,42,.07);}
+.ico{width:46px;height:46px;border-radius:9px;background:#DBEAFE;color:var(--acc-d);display:grid;place-items:center;margin-bottom:var(--s3);}
+.card h3{font-size:19px;margin-bottom:.5rem;}
+.card p{font-size:15px;color:var(--mut);}
+
+.why{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start;}
+.wlist{display:grid;gap:var(--s3);}
+.wrow{display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:start;}
+.wnum{width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;flex-shrink:0;}
+.wrow h3{font-size:17px;margin-bottom:.25rem;}
+.wrow p{font-size:15px;color:var(--mut);}
+
+/* Уриа */
+.cta-sec{background:var(--ink);color:#fff;padding:var(--s7) 0;}
+.cta-g{display:grid;grid-template-columns:1.3fr auto;gap:var(--s5);align-items:center;}
+.cta-sec h2{font-size:clamp(1.7rem,3.2vw,2.4rem);}
+.cta-sec p{margin-top:var(--s2);color:#CBD5E1;font-size:17px;max-width:52ch;}
+.cta-sec .btn-p{background:#fff;color:var(--ink);}
+.cta-sec .btn-p:hover{background:#E2E8F0;}
+
+/* Хөл */
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.foot-g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot h3{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mut2);margin-bottom:var(--s2);}
+.foot p{font-size:15px;color:var(--mut);max-width:34ch;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.35rem 0;}
+.fl a:hover{color:var(--acc);}
+.foot-b{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:14px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .hero-g,.why,.cta-g{grid-template-columns:1fr;}
+  .cards{grid-template-columns:repeat(2,1fr);}
+  .stats-g{grid-template-columns:repeat(2,1fr);}
+  .foot-g{grid-template-columns:1fr 1fr;}
+  .nlinks{display:none;}
+}
+@media(max-width:620px){
+  .cards,.stats-g,.foot-g{grid-template-columns:1fr;}
+  .nav .cta{margin-left:auto;}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs">
+  <div class="gs-in">
+    <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Тулга</b></span>
+    <a href="https://gerelt-solutuions.com/#templates">Энэ загварыг захиалах →</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo"><i>Т</i>Тулга ХХК</a>
+    <nav class="nlinks" aria-label="Үндсэн цэс">
+      <a href="#services">Үйлчилгээ</a>
+      <a href="#why">Яагаад бид</a>
+      <a href="#contact">Холбоо барих</a>
+    </nav>
+    <div class="cta"><a class="btn btn-p" href="#contact">Санал авах</a></div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-g">
+    <div>
+      <p class="tagline">2008 оноос хойш</p>
+      <h1>Найдвартай түнш, тогтвортой үр дүн</h1>
+      <p>Барилга, ложистик, зөвлөх үйлчилгээний чиглэлээр 18 жил ажиллаж буй байгууллага. Бид амлалтаа хугацаанд нь биелүүлдгээрээ үнэлэгддэг.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#contact">Үнийн санал авах</a>
+        <a class="btn btn-s" href="#services">Үйлчилгээ үзэх</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h2>Товч танилцуулга</h2>
+      <div class="kv"><span>Байгуулагдсан</span><b>2008 он</b></div>
+      <div class="kv"><span>Ажилтан</span><b>124</b></div>
+      <div class="kv"><span>Салбар</span><b>6 аймагт</b></div>
+      <div class="kv"><span>Гэрчилгээ</span><b>ISO 9001</b></div>
+      <div class="kv"><span>Дууссан төсөл</span><b>340+</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-g">
+    <div class="stat"><b>18</b><span>жилийн туршлага</span></div>
+    <div class="stat"><b>340+</b><span>дууссан төсөл</span></div>
+    <div class="stat"><b>96%</b><span>дахин хамтрах хувь</span></div>
+    <div class="stat"><b>6</b><span>аймагт салбартай</span></div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="head">
+      <h2>Үйлчилгээний чиглэл</h2>
+      <p>Гурван үндсэн чиглэлээр цогц шийдэл хүргэнэ. Төсөл бүрт тусгай баг хуваарилагдана.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span>
+        <h3>Барилга угсралт</h3>
+        <p>Иргэний болон үйлдвэрийн барилгын зураг төслөөс ашиглалтад оруулах хүртэл.</p>
+      </article>
+      <article class="card">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7zM5.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span>
+        <h3>Ложистик</h3>
+        <p>Улсын хэмжээнд ачаа тээвэр, агуулахын үйлчилгээ, гаалийн бүрдүүлэлт.</p>
+      </article>
+      <article class="card">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <h3>Санхүүгийн зөвлөх</h3>
+        <p>Татварын төлөвлөлт, аудитын бэлтгэл, хөрөнгө оруулалтын шинжилгээ.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="why">
+  <div class="wrap why">
+    <div class="head" style="margin-bottom:0">
+      <h2>Яагаад бидэнтэй ажилладаг вэ</h2>
+      <p>Үйлчлүүлэгчдийн 96% нь дахин хамтран ажилладаг. Шалтгаан нь энгийн.</p>
+    </div>
+    <div class="wlist">
+      <div class="wrow">
+        <span class="wnum" aria-hidden="true">1</span>
+        <div><h3>Хугацаа чанд</h3><p>Гэрээнд заасан хугацаанаас хожимдсон тохиолдол сүүлийн 5 жилд гараагүй.</p></div>
+      </div>
+      <div class="wrow">
+        <span class="wnum" aria-hidden="true">2</span>
+        <div><h3>Ил тод өртөг</h3><p>Нэмэлт зардал гарвал урьдчилан мэдэгдэж, таны зөвшөөрлийг авна.</p></div>
+      </div>
+      <div class="wrow">
+        <span class="wnum" aria-hidden="true">3</span>
+        <div><h3>Нэг хариуцагч</h3><p>Төсөл бүрт нэг төслийн менежер — олон хүнтэй ярилцах шаардлагагүй.</p></div>
+      </div>
+      <div class="wrow">
+        <span class="wnum" aria-hidden="true">4</span>
+        <div><h3>Баталгаат хугацаа</h3><p>Хийсэн ажилд 24 сарын баталгаа. Гэмтэл гарвал үнэ төлбөргүй засна.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec" id="contact">
+  <div class="wrap cta-g">
+    <div>
+      <h2>Төслөө ярилцахад бэлэн үү?</h2>
+      <p>Товч мэдээлэл илгээвэл ажлын хоёр өдөрт багтаан урьдчилсан санал боловсруулж өгнө.</p>
+    </div>
+    <div><a class="btn btn-p" href="mailto:info@tulga.mn">Санал хүсэх</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-g">
+      <div>
+        <h3>Тулга ХХК</h3>
+        <p>Барилга, ложистик, санхүүгийн зөвлөх үйлчилгээ. Улаанбаатар хотод төвтэй, зургаан аймагт салбартай.</p>
+      </div>
+      <div><h3>Үйлчилгээ</h3><div class="fl"><a href="#services">Барилга угсралт</a><a href="#services">Ложистик</a><a href="#services">Санхүүгийн зөвлөх</a></div></div>
+      <div><h3>Холбоо барих</h3><div class="fl"><a href="mailto:info@tulga.mn">info@tulga.mn</a><a href="tel:+97611000000">+976 1100-0000</a><span>Да–Ба, 09:00–18:00</span></div></div>
+      <div><h3>Хаяг</h3><div class="fl"><span>Улаанбаатар, СБД</span><span>1-р хороо, Энх тайвны өргөн чөлөө 12</span></div></div>
+    </div>
+    <div class="foot-b">
+      <span>© 2026 Тулга ХХК — жишээ агуулга</span>
+      <span>Gerelt Solutions Studio загвар</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

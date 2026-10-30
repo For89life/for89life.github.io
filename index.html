@@ -320,16 +320,31 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;letter-spacing:-.025em;line-hei
 
 /* ═══ БЭЛЭН ЗАГВАР ════════════════════════════════════════════ */
 .tpl{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);}
-.tpl-card{
-  display:flex;flex-direction:column;background:none;border:none;
-  padding:0;text-align:left;cursor:pointer;font-family:inherit;color:inherit;
-}
+.tpl-card{display:flex;flex-direction:column;text-align:left;}
 .tpl-view{
   position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;
   display:flex;flex-direction:column;justify-content:space-between;padding:var(--s3);
   transition:transform .35s ease;
 }
 .tpl-card:hover .tpl-view{transform:translateY(-5px);}
+/* Нүүр дээр хулгана ороход «үзэх» сануулга гарна */
+.tpl-peek{
+  position:absolute;left:0;right:0;bottom:0;padding:.8rem var(--s3);
+  background:linear-gradient(transparent,rgba(0,0,0,.72));
+  font-size:var(--micro);letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;color:#fff;
+  opacity:0;transform:translateY(8px);transition:opacity .28s ease,transform .28s ease;
+}
+.tpl-view:hover .tpl-peek,.tpl-view:focus-visible .tpl-peek{opacity:1;transform:none;}
+.tpl-act{
+  position:relative;align-self:flex-start;margin-top:.7rem;font-family:inherit;
+  font-size:var(--micro);letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  color:var(--mut);background:none;border:none;padding:0;cursor:pointer;
+  border-bottom:1px solid var(--mut2);transition:color .2s,border-color .2s;
+}
+/* Хүрэлтийн талбайг 44px болгоно — бичвэрийн байрлал хөдөлгөхгүй */
+.tpl-act::before{content:'';position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%);}
+.tpl-act:hover{color:var(--fg);border-color:var(--fg);}
 .tv1{background:linear-gradient(145deg,#2A1608,#8A4212 55%,#FEC43A);}
 .tv2{background:linear-gradient(145deg,#2B0F1E,#8E2250 55%,#FB7437);}
 .tv3{background:linear-gradient(145deg,#10242B,#1F6E80 58%,#49C4D2);}
@@ -813,41 +828,49 @@ html.js .rv.in{opacity:1;transform:none;}
     </div>
     <div class="tpl rv">
 
-      <button class="tpl-card" onclick="openRequest('Бэлэн загвар — Байгууллагын танилцуулга','₮300,000–500,000')">
-        <span class="tpl-view tv1">
+      <article class="tpl-card">
+        <a class="tpl-view tv1" href="templates/corporate.html" target="_blank" rel="noopener">
           <span class="tt">Байгууллагын<br>танилцуулга</span>
           <span class="tb">Тухай · Үйлчилгээ · Холбоо</span>
-        </span>
-        <span class="tpl-row"><h3>Байгууллагын танилцуулга</h3><span class="amt">₮300,000</span></span>
-        <span class="tpl-sub">7 хоногт бэлэн</span>
-      </button>
+          <span class="tpl-peek">Загвар үзэх →</span>
+        </a>
+        <div class="tpl-row"><h3>Байгууллагын танилцуулга</h3><span class="amt">₮300,000</span></div>
+        <p class="tpl-sub">7 хоногт бэлэн</p>
+        <button class="tpl-act" onclick="openRequest('Бэлэн загвар — Байгууллагын танилцуулга','₮300,000–500,000')">Хүсэлт илгээх →</button>
+      </article>
 
-      <button class="tpl-card" onclick="openRequest('Бэлэн загвар — Онлайн дэлгүүр','₮300,000–500,000')">
-        <span class="tpl-view tv2">
+      <article class="tpl-card">
+        <a class="tpl-view tv2" href="templates/shop.html" target="_blank" rel="noopener">
           <span class="tt">Онлайн<br>дэлгүүр</span>
           <span class="tb">Бараа · Сагс · QPay</span>
-        </span>
-        <span class="tpl-row"><h3>Онлайн дэлгүүр загвар</h3><span class="amt">₮500,000</span></span>
-        <span class="tpl-sub">Төлбөр холболттой</span>
-      </button>
+          <span class="tpl-peek">Загвар үзэх →</span>
+        </a>
+        <div class="tpl-row"><h3>Онлайн дэлгүүр загвар</h3><span class="amt">₮500,000</span></div>
+        <p class="tpl-sub">Төлбөр холболттой</p>
+        <button class="tpl-act" onclick="openRequest('Бэлэн загвар — Онлайн дэлгүүр','₮300,000–500,000')">Хүсэлт илгээх →</button>
+      </article>
 
-      <button class="tpl-card" onclick="openRequest('Бэлэн загвар — Ресторан &amp; кафе','₮300,000–500,000')">
-        <span class="tpl-view tv3">
+      <article class="tpl-card">
+        <a class="tpl-view tv3" href="templates/restaurant.html" target="_blank" rel="noopener">
           <span class="tt">Ресторан<br>&amp; кафе</span>
           <span class="tb">Цэс · Захиалга · Байршил</span>
-        </span>
-        <span class="tpl-row"><h3>Ресторан &amp; кафе</h3><span class="amt">₮350,000</span></span>
-        <span class="tpl-sub">Цэсний удирдлага</span>
-      </button>
+          <span class="tpl-peek">Загвар үзэх →</span>
+        </a>
+        <div class="tpl-row"><h3>Ресторан &amp; кафе</h3><span class="amt">₮350,000</span></div>
+        <p class="tpl-sub">Цэсний удирдлага</p>
+        <button class="tpl-act" onclick="openRequest('Бэлэн загвар — Ресторан &amp; кафе','₮300,000–500,000')">Хүсэлт илгээх →</button>
+      </article>
 
-      <button class="tpl-card" onclick="openRequest('Бэлэн загвар — Хувийн портфолио','₮300,000–500,000')">
-        <span class="tpl-view tv4">
+      <article class="tpl-card">
+        <a class="tpl-view tv4" href="templates/portfolio.html" target="_blank" rel="noopener">
           <span class="tt">Хувийн<br>портфолио</span>
           <span class="tb">Ажлын сан · Блог</span>
-        </span>
-        <span class="tpl-row"><h3>Хувийн портфолио</h3><span class="amt">₮300,000</span></span>
-        <span class="tpl-sub">5 хоногт бэлэн</span>
-      </button>
+          <span class="tpl-peek">Загвар үзэх →</span>
+        </a>
+        <div class="tpl-row"><h3>Хувийн портфолио</h3><span class="amt">₮300,000</span></div>
+        <p class="tpl-sub">5 хоногт бэлэн</p>
+        <button class="tpl-act" onclick="openRequest('Бэлэн загвар — Хувийн портфолио','₮300,000–500,000')">Хүсэлт илгээх →</button>
+      </article>
 
     </div>
   </div>
