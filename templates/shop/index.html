@@ -11,9 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Элементийн хүрээ. --line нь зураасанд, энэ нь
-     товч, input, chip-д — WCAG 1.4.11 ёсоор 3.05:1. */
-  --line-strong:#656565;
   --bg:#0A0A0B; --bg2:#101013; --surf:#17171B;
   --fg:#F5F5F3; --mut:#9A9BA1; --mut2:#83848C;
   --line:rgba(245,245,243,.10); --line2:rgba(245,245,243,.18);
@@ -40,7 +37,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
 .brand img{height:26px;width:auto;}
 .brand span{font-size:14px;font-weight:600;letter-spacing:-.01em;}
 .brand span i{font-style:normal;color:var(--mut);}
-.back{margin-left:auto;display:inline-flex;align-items:center;gap:.45rem;min-height:44px;padding:0 1rem;border-radius:999px;border:1px solid var(--line-strong);font-size:13px;font-weight:600;transition:border-color .2s,color .2s;}
+.back{margin-left:auto;display:inline-flex;align-items:center;gap:.45rem;min-height:44px;padding:0 1rem;border-radius:999px;border:1px solid var(--line2);font-size:13px;font-weight:600;transition:border-color .2s,color .2s;}
 .back:hover{border-color:var(--fg);}
 
 .crumb{display:flex;align-items:center;gap:.55rem;padding-top:var(--s5);font-size:12.5px;color:var(--mut2);}
@@ -61,7 +58,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
 /* Градиентын цайвар үзүүрт цагаан бичвэр 1.2:1 хүртэл унадаг тул
    бичвэр байрлах дээд, доод зурвасыг далдална. Дунд нь өнгөө хадгална. */
 .cover::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.26) 46%,rgba(0,0,0,.3) 56%,rgba(0,0,0,.62));}
+  background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.2) 38%,rgba(0,0,0,.26) 60%,rgba(0,0,0,.84));}
 .cover .nm,.cover .tg{position:relative;z-index:2;}
 .card:hover .cover{transform:translateY(-5px);border-color:var(--line2);}
 .cover .nm{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:600;letter-spacing:-.03em;color:#fff;}
@@ -85,7 +82,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
 .other{border-top:1px solid var(--line);padding:var(--s5) 0;}
 .other h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);font-weight:600;margin-bottom:var(--s3);}
 .olist{display:flex;flex-wrap:wrap;gap:.6rem;}
-.olist a{display:inline-flex;align-items:center;min-height:44px;padding:0 1.1rem;border-radius:999px;border:1px solid var(--line-strong);font-size:14px;font-weight:500;color:var(--mut);transition:border-color .2s,color .2s;}
+.olist a{display:inline-flex;align-items:center;min-height:44px;padding:0 1.1rem;border-radius:999px;border:1px solid var(--line2);font-size:14px;font-weight:500;color:var(--mut);transition:border-color .2s,color .2s;}
 .olist a:hover{border-color:var(--acc);color:var(--acc);}
 
 .foot{border-top:1px solid var(--line);padding:var(--s4) 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s2);font-size:13px;color:var(--mut2);}
@@ -130,7 +127,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
 <div class="wrap">
   <div class="grid">
     <article class="card">
-      <a class="cover" href="zah.html" style="background:linear-gradient(140deg,#5A1F0B,#C2410C 58%,#EA8C4E)">
+      <a class="cover" href="zah.html" style="background-image:url('../images/pv-zah.webp');background-size:cover;background-position:top center">
         <span class="nm">Зах</span>
         <span class="tg">Блок · Улбар · Олон бараа</span>
         <span class="peek">Загвар нээх →</span>
@@ -141,7 +138,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
     </article>
 
     <article class="card">
-      <a class="cover" href="sav.html" style="background:linear-gradient(140deg,#242420,#6E6A60 58%,#E8E4DB)">
+      <a class="cover" href="sav.html" style="background-image:url('../images/pv-sav.webp');background-size:cover;background-position:top center">
         <span class="nm">Сав</span>
         <span class="tg">Бутик · Цагаан · Задгай</span>
         <span class="peek">Загвар нээх →</span>
@@ -152,7 +149,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
     </article>
 
     <article class="card">
-      <a class="cover" href="tulhuur.html" style="background:linear-gradient(140deg,#070B14,#13304F 58%,#22D3EE)">
+      <a class="cover" href="tulhuur.html" style="background-image:url('../images/pv-tulhuur.webp');background-size:cover;background-position:top center">
         <span class="nm">Түлхүүр</span>
         <span class="tg">Харанхуй · Техник · Неон</span>
         <span class="peek">Загвар нээх →</span>
@@ -163,7 +160,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
     </article>
 
     <article class="card">
-      <a class="cover" href="horshoo.html" style="background:linear-gradient(140deg,#1B2A14,#4D7C0F 58%,#BBF7A0)">
+      <a class="cover" href="horshoo.html" style="background-image:url('../images/pv-horshoo.webp');background-size:cover;background-position:top center">
         <span class="nm">Хоршоо</span>
         <span class="tg">Органик · Ногоон · Дулаан</span>
         <span class="peek">Загвар нээх →</span>

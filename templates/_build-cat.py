@@ -115,7 +115,7 @@ h1,h2,h3{{font-weight:600;letter-spacing:-.025em;line-height:1.08;}}
 /* Градиентын цайвар үзүүрт цагаан бичвэр 1.2:1 хүртэл унадаг тул
    бичвэр байрлах дээд, доод зурвасыг далдална. Дунд нь өнгөө хадгална. */
 .cover::before{{content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.26) 46%,rgba(0,0,0,.3) 56%,rgba(0,0,0,.62));}}
+  background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.2) 38%,rgba(0,0,0,.26) 60%,rgba(0,0,0,.84));}}
 .cover .nm,.cover .tg{{position:relative;z-index:2;}}
 .card:hover .cover{{transform:translateY(-5px);border-color:var(--line2);}}
 .cover .nm{{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:600;letter-spacing:-.03em;color:#fff;}}
@@ -215,7 +215,7 @@ function ask(name){{
 '''
 
 CARD = u'''    <article class="card">
-      <a class="cover" href="{f}.html" style="background:{g}">
+      <a class="cover" href="{f}.html" style="background-image:url('../images/pv-{f}.webp');background-size:cover;background-position:top center">
         <span class="nm">{n}</span>
         <span class="tg">{tags}</span>
         <span class="peek">Загвар нээх →</span>
