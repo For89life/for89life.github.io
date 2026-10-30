@@ -1,0 +1,79 @@
+[
+ {
+  "name": "zurag-cover",
+  "url": "https://images.pexels.com/photos/4326742/pexels-photo-4326742.jpeg",
+  "shape": "wide",
+  "maxw": 1280,
+  "band": "bottom",
+  "scrim": 0.6,
+  "need": 4.5,
+  "note": "Танигдахгүй морьтон, уудам тал. Бүтэн дэлгэцийн нүүр.",
+  "q": 66
+ },
+ {
+  "name": "zurag-f1",
+  "url": "https://images.pexels.com/photos/20412856/pexels-photo-20412856/free-photo-of-road-in-village-in-evergreen-forest.jpeg",
+  "shape": "landscape",
+  "maxw": 700,
+  "band": "bottom",
+  "scrim": 0.5,
+  "need": 4.5,
+  "note": "Цастай тосгоны зам",
+  "q": 48
+ },
+ {
+  "name": "zurag-f2",
+  "url": "https://images.pexels.com/photos/10564447/pexels-photo-10564447.jpeg",
+  "shape": "portrait",
+  "maxw": 620,
+  "band": "bottom",
+  "scrim": 0.5,
+  "need": 4.5,
+  "note": "Цасан дундах модон байшин",
+  "q": 72
+ },
+ {
+  "name": "zurag-f3",
+  "url": "https://images.pexels.com/photos/13833968/pexels-photo-13833968.jpeg",
+  "shape": "square",
+  "maxw": 640,
+  "band": "bottom",
+  "scrim": 0.5,
+  "need": 4.5,
+  "note": "Захад ногоо савлаж буй гар",
+  "q": 74
+ },
+ {
+  "name": "zurag-f4",
+  "url": "https://images.pexels.com/photos/35193701/pexels-photo-35193701/free-photo-of-hands-holding-coins-by-a-street-vendor.jpeg",
+  "shape": "square",
+  "maxw": 640,
+  "band": "bottom",
+  "scrim": 0.5,
+  "need": 4.5,
+  "note": "Зоос барьсан гар, гудамжны худалдаа",
+  "q": 74
+ },
+ {
+  "name": "zurag-f5",
+  "url": "https://images.pexels.com/photos/9733194/pexels-photo-9733194.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "band": "bottom",
+  "scrim": 0.5,
+  "need": 4.5,
+  "note": "Ахмад дархан",
+  "q": 74
+ },
+ {
+  "name": "zurag-f6",
+  "url": "https://images.pexels.com/photos/32423071/pexels-photo-32423071/free-photo-of-elderly-potter-crafting-clay-in-rustic-workshop.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "band": "bottom",
+  "scrim": 0.5,
+  "need": 4.5,
+  "note": "Ахмад ваарчин",
+  "q": 70
+ }
+]

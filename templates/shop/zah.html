@@ -71,7 +71,7 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:700;letter-spacing:-.02em;line-heig
 /* Бичвэр зүүн талд байрлана. Градиентын баруун булан цайвар тул
    тэнд цагаан бичвэр 2.5:1 болж унадаг — зүүн талыг нь гүнзгийрүүлж
    10:1 болгов. Баруун булангийн тод өнгө хэвээр үлдэнэ. */
-.hero-main{background:linear-gradient(100deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.42) 50%,rgba(0,0,0,.14) 95%),linear-gradient(135deg,#7C2D12,#C2410C 55%,#EA8C4E);border-radius:18px;padding:clamp(1.6rem,4vw,3rem);color:#fff;display:flex;flex-direction:column;justify-content:center;min-height:360px;}
+.hero-main{background:linear-gradient(100deg,rgba(0,0,0,.56) 0%,rgba(0,0,0,.48) 50%,rgba(0,0,0,.24) 95%),url('../images/zah-hero.webp') center/cover,#7C2D12;border-radius:18px;padding:clamp(1.6rem,4vw,3rem);color:#fff;display:flex;flex-direction:column;justify-content:center;min-height:360px;}
 .badge{align-self:flex-start;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:.3rem .85rem;font-size:13px;font-weight:700;margin-bottom:var(--s3);}
 .hero-main h1{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:.7rem;max-width:17ch;}
 .hero-main p{font-size:17px;color:rgba(255,255,255,.92);max-width:40ch;margin-bottom:var(--s4);}
@@ -149,6 +149,16 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:700;letter-spacing:-.02em;line-heig
 @media(max-width:680px){.grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:460px){.grid,.perks-g,.foot-g{grid-template-columns:1fr;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Татсан зураг — _data/fetch-images.py үүсгэсэн */
+.im-zah-p1{background:url('../images/zah-p1.webp') center/cover;}
+.im-zah-p2{background:url('../images/zah-p2.webp') center/cover;}
+.im-zah-p3{background:url('../images/zah-p3.webp') center/cover;}
+.im-zah-p4{background:url('../images/zah-p4.webp') center/cover;}
+.im-zah-p5{background:url('../images/zah-p5.webp') center/cover;}
+.im-zah-p6{background:url('../images/zah-p6.webp') center/cover;}
+.im-zah-p7{background:url('../images/zah-p7.webp') center/cover;}
+.im-zah-p8{background:url('../images/zah-p8.webp') center/cover;}
 </style>
 </head>
 <body>
@@ -226,56 +236,56 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:700;letter-spacing:-.02em;line-heig
     </div>
     <div class="grid">
       <article class="p">
-        <span class="p-img g1"><span>Модон аяга таваг</span><span class="tagp">-30%</span></span>
+        <span class="p-img im-zah-p1"><span class="tagp">-30%</span></span>
         <h3>Модон аяганы иж бүрдэл</h3>
         <p class="br">Гэр ахуй</p>
         <p class="pr"><b>₮89,000</b><s>₮127,000</s></p>
         <button class="add">Сагсанд хийх</button>
       </article>
       <article class="p">
-        <span class="p-img g2"><span>Хүүхдийн хөнжил</span></span>
+        <span class="p-img im-zah-p2"></span>
         <h3>Хөвөн хөнжил, 140×200</h3>
         <p class="br">Гэр ахуй</p>
         <p class="pr"><b>₮145,000</b></p>
         <button class="add">Сагсанд хийх</button>
       </article>
       <article class="p">
-        <span class="p-img g3"><span>Чихэвч</span><span class="tagp">-15%</span></span>
+        <span class="p-img im-zah-p3"><span class="tagp">-15%</span></span>
         <h3>Утасгүй чихэвч, 32 цаг</h3>
         <p class="br">Цахилгаан бараа</p>
         <p class="pr"><b>₮212,000</b><s>₮249,000</s></p>
         <button class="add">Сагсанд хийх</button>
       </article>
       <article class="p">
-        <span class="p-img g4"><span>Гал тогооны хутга</span></span>
+        <span class="p-img im-zah-p4"></span>
         <h3>Хутганы 6 ширхэг багц</h3>
         <p class="br">Гэр ахуй</p>
         <p class="pr"><b>₮178,000</b></p>
         <button class="add">Сагсанд хийх</button>
       </article>
       <article class="p">
-        <span class="p-img g5"><span>Өвлийн цув</span><span class="tagp">Шинэ</span></span>
+        <span class="p-img im-zah-p5"><span class="tagp">Шинэ</span></span>
         <h3>Эрэгтэй өвлийн цув</h3>
         <p class="br">Хувцас</p>
         <p class="pr"><b>₮395,000</b></p>
         <button class="add">Сагсанд хийх</button>
       </article>
       <article class="p">
-        <span class="p-img g6"><span>Иж бүрдэл тоглоом</span></span>
+        <span class="p-img im-zah-p6"></span>
         <h3>Модон бүтээх тоглоом</h3>
         <p class="br">Тоглоом</p>
         <p class="pr"><b>₮67,000</b></p>
         <button class="add">Сагсанд хийх</button>
       </article>
       <article class="p">
-        <span class="p-img g2"><span>Термос</span></span>
+        <span class="p-img im-zah-p7"></span>
         <h3>Ган термос, 1 литр</h3>
         <p class="br">Спорт</p>
         <p class="pr"><b>₮54,000</b></p>
         <button class="add">Сагсанд хийх</button>
       </article>
       <article class="p">
-        <span class="p-img g1"><span>Арьс арчилгаа</span><span class="tagp">-20%</span></span>
+        <span class="p-img im-zah-p8"><span class="tagp">-20%</span></span>
         <h3>Нүүрний тосны багц</h3>
         <p class="br">Гоо сайхан</p>
         <p class="pr"><b>₮98,000</b><s>₮122,000</s></p>

@@ -60,7 +60,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.12;}
 .hero h1{font-size:clamp(2.1rem,4.8vw,3.6rem);max-width:14ch;}
 .hero p{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:42ch;}
 .hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
-.photo{border-radius:28px;aspect-ratio:5/4;background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3)),linear-gradient(150deg,#22361F,#4F8A5F 58%,#A8D4A0);display:grid;place-items:center;}
+.photo{border-radius:28px;aspect-ratio:5/4;display:grid;place-items:center;
+  background:linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.34)),url('../images/navch-hero.webp') center/cover,#22361F;}
 .photo span{font-size:clamp(1.4rem,3.2vw,2.2rem);font-weight:600;color:#fff;text-align:center;padding:2rem;line-height:1.25;}
 
 .hours{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);padding-bottom:var(--s6);}
@@ -113,6 +114,11 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.12;}
 @media(max-width:900px){.hero-g,.cards{grid-template-columns:1fr;}.hours{grid-template-columns:repeat(2,1fr);}.nlinks{display:none;}.nav .btn{margin-left:auto;}.fg{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.hours{grid-template-columns:1fr;}.fg{grid-template-columns:1fr;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Татсан зураг — _data/fetch-images.py үүсгэсэн */
+.im-navch-b1{background:url('../images/navch-b1.webp') center/cover;}
+.im-navch-b2{background:url('../images/navch-b2.webp') center/cover;}
+.im-navch-b3{background:url('../images/navch-b3.webp') center/cover;}
 </style>
 </head>
 <body>
@@ -160,15 +166,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.12;}
     <div class="hd"><h2>Талх, нарийн боов</h2><p>Өдөрт хоёр удаа — 09:00 ба 15:00 цагт шинээр гарна.</p></div>
     <div class="cards">
       <article class="c">
-        <span class="c-im b1"><span>Исгэсэн талх</span></span>
+        <span class="c-im im-navch-b1"></span>
         <div class="c-b"><h3>Исгэсэн зуурмагийн талх</h3><p>24 цаг боловсруулсан, зузаан царцдастай.</p><span class="pr">₮9,500</span></div>
       </article>
       <article class="c">
-        <span class="c-im b2"><span>Ногоон круассан</span></span>
+        <span class="c-im im-navch-b2"></span>
         <div class="c-b"><h3>Цөцгийн тосны круассан</h3><p>Франц цөцгийн тосоор, 72 цагийн давхаргалалт.</p><span class="pr">₮6,800</span></div>
       </article>
       <article class="c">
-        <span class="c-im b3"><span>Чацарганы боов</span></span>
+        <span class="c-im im-navch-b3"></span>
         <div class="c-b"><h3>Чацарганы бялуу</h3><p>Увсын чацаргана, бага чихэртэй.</p><span class="pr">₮11,000</span></div>
       </article>
     </div>

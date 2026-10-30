@@ -1,0 +1,27 @@
+[
+ {"name":"zah-hero","url":"https://images.pexels.com/photos/7319110/pexels-photo-7319110.jpeg",
+  "shape":"landscape","maxw":1300,"band":"top","scrim":0.5,"need":4.5,
+  "note":"Цаасан худалдааны уут, студи. Царай байхгүй."},
+
+ {"name":"zah-p1","url":"https://images.pexels.com/photos/35482197/pexels-photo-35482197/free-photo-of-close-up-of-stacked-wooden-bowls-display.jpeg","shape":"square","maxw":620,"q":74,"note":"Модон аяга"},
+ {"name":"zah-p2","url":"https://images.pexels.com/photos/821649/pexels-photo-821649.jpeg","shape":"square","maxw":620,"q":74,"note":"Эвхсэн ноосон хөнжил"},
+ {"name":"zah-p3","url":"https://images.pexels.com/photos/7772548/pexels-photo-7772548.jpeg","shape":"square","maxw":620,"q":74,"note":"Утасгүй чихэвч"},
+ {"name":"zah-p4","url":"https://images.pexels.com/photos/16400263/pexels-photo-16400263/free-photo-of-sharp-knives-and-tray.jpeg","shape":"square","maxw":620,"q":74,"note":"Модон бариултай хутга"},
+ {"name":"zah-p5","url":"https://images.pexels.com/photos/21624612/pexels-photo-21624612/free-photo-of-jackets-hanging-on-hooks.jpeg","shape":"square","maxw":620,"q":74,"note":"Өлгүүр дээрх өвлийн цув"},
+ {"name":"zah-p6","url":"https://images.pexels.com/photos/31061855/pexels-photo-31061855/free-photo-of-scattered-wooden-building-blocks-on-floor.jpeg","shape":"square","maxw":620,"q":74,"note":"Модон тоглоом"},
+ {"name":"zah-p7","url":"https://images.pexels.com/photos/30469934/pexels-photo-30469934/free-photo-of-stainless-steel-thermos-flask-with-lid-against-black-background.jpeg","shape":"square","maxw":620,"q":74,"note":"Ган термос"},
+ {"name":"zah-p8","url":"https://images.pexels.com/photos/7670694/pexels-photo-7670694.jpeg","shape":"square","maxw":620,"q":74,"note":"Гоо сайхны сав"},
+
+ {"name":"tul-p1","url":"https://images.pexels.com/photos/6689289/pexels-photo-6689289.jpeg","shape":"landscape","maxw":640,"q":74,"note":"Ухаалаг цоож"},
+ {"name":"tul-p2","url":"https://images.pexels.com/photos/33104381/pexels-photo-33104381/free-photo-of-white-indoor-security-camera-on-wooden-surface.jpeg","shape":"landscape","maxw":640,"q":74,"note":"Дотоод камер"},
+ {"name":"tul-p3","url":"https://images.pexels.com/photos/27662879/pexels-photo-27662879/free-photo-of-smart-home-devices-system-security-camera-automation.jpeg","shape":"landscape","maxw":640,"q":74,"note":"Мэдрэгчийн багц"},
+ {"name":"tul-p4","url":"https://images.pexels.com/photos/20943579/pexels-photo-20943579/free-photo-of-smart-lightbulb.jpeg","shape":"landscape","maxw":640,"q":74,"note":"Ухаалаг чийдэн"},
+
+ {"name":"hor-hero","url":"https://images.pexels.com/photos/5425798/pexels-photo-5425798.jpeg",
+  "shape":"square","maxw":820,"band":"center","scrim":0.3,"need":3.0,
+  "note":"Сагсан дахь органик ногоо"},
+ {"name":"hor-p1","url":"https://images.pexels.com/photos/7966386/pexels-photo-7966386.jpeg","shape":"square","maxw":600,"q":74,"note":"Модон тавган дээрх цагаан тос"},
+ {"name":"hor-p2","url":"https://images.pexels.com/photos/175415/pexels-photo-175415.jpeg","shape":"square","maxw":600,"q":74,"note":"Сагсан дахь лууван, сонгино"},
+ {"name":"hor-p3","url":"https://images.pexels.com/photos/5662241/pexels-photo-5662241.jpeg","shape":"square","maxw":600,"q":74,"note":"Чацарганы шүүс"},
+ {"name":"hor-p4","url":"https://images.pexels.com/photos/9105966/pexels-photo-9105966.jpeg","shape":"square","maxw":600,"q":74,"note":"Зөгийн балны сав"}
+]

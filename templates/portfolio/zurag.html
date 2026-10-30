@@ -48,7 +48,7 @@ h1,h2,h3{font-weight:500;letter-spacing:-.02em;line-height:1.1;}
 
 /* Бүтэн дэлгэцийн нүүр */
 .cover{position:relative;height:calc(100svh - 4.2rem);min-height:460px;display:flex;align-items:flex-end;
-  background:linear-gradient(rgba(9,9,11,.25),rgba(9,9,11,.82)),linear-gradient(160deg,#1A1A1F,#3F3F46 55%,#71717A);}
+  background:linear-gradient(rgba(9,9,11,.3),rgba(9,9,11,.86)),url('../images/zurag-cover.webp') center/cover,#1A1A1F;}
 .cover-in{position:relative;z-index:2;padding:0 var(--pad) var(--s5);width:100%;}
 .cover h1{font-size:clamp(2.2rem,6vw,4.4rem);max-width:16ch;}
 .cover p{margin-top:var(--s3);font-size:17px;color:var(--mut);max-width:44ch;}
@@ -70,14 +70,15 @@ h1,h2,h3{font-weight:500;letter-spacing:-.02em;line-height:1.1;}
   position:absolute;left:var(--s3);bottom:var(--s3);z-index:2;}
 /* Тайлбар доод буланд сууна. Градиентын цайвар хэсэгт 3.8:1 хүртэл
    унадаг тул доод зурвасыг далдална. */
-.fr::after{content:'';position:absolute;inset:auto 0 0 0;height:46%;pointer-events:none;
-  background:linear-gradient(transparent,rgba(0,0,0,.72));}
+.fr::after{content:'';position:absolute;inset:auto 0 0 0;height:58%;pointer-events:none;
+  background:linear-gradient(transparent,rgba(0,0,0,.55) 45%,rgba(0,0,0,.88));}
 .tall{aspect-ratio:3/4;} .wide{aspect-ratio:16/10;} .sq{aspect-ratio:1/1;}
-.p1{background:linear-gradient(150deg,#14161B,#3A4049 60%,#6E7681);}
-.p2{background:linear-gradient(150deg,#1B1512,#473129 60%,#8A6450);}
-.p3{background:linear-gradient(150deg,#101A1B,#26454A 60%,#4E7F86);}
-.p4{background:linear-gradient(150deg,#1A1420,#3D2E4F 60%,#705A8C);}
-.p5{background:linear-gradient(150deg,#1A1A14,#44442C 60%,#7D7D52);}
+.p1{background:url('../images/zurag-f1.webp') center/cover,#14161B;}
+.p2{background:url('../images/zurag-f2.webp') center/cover,#14161B;}
+.p3{background:url('../images/zurag-f3.webp') center/cover,#14161B;}
+.p4{background:url('../images/zurag-f4.webp') center/cover,#14161B;}
+.p5{background:url('../images/zurag-f5.webp') center/cover,#14161B;}
+.p6{background:url('../images/zurag-f6.webp') center/cover,#14161B;}
 
 .about{background:var(--surf);padding:var(--s6) 0;border-block:1px solid var(--line);}
 .about h2{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:var(--s3);}
@@ -159,7 +160,7 @@ h1,h2,h3{font-weight:500;letter-spacing:-.02em;line-height:1.1;}
     <div class="sh"><h2>Хөрөг цуврал</h2><span class="inf">2024 · 31 кадр</span></div>
     <div class="frames g2">
       <span class="fr wide p5"><span>Уурхайчин, Багануур</span></span>
-      <span class="fr wide p1"><span>Багш, Хөвсгөл</span></span>
+      <span class="fr wide p6"><span>Багш, Хөвсгөл</span></span>
     </div>
   </div>
 </section>

@@ -56,7 +56,7 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:500;letter-spacing:-.01em;line-heig
 
 .hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;overflow:hidden;
   background:linear-gradient(rgba(14,12,10,.55),rgba(14,12,10,.92)),
-             linear-gradient(145deg,#1A1510,#4A3A24 55%,#8A6A33);}
+             url('../images/utaa-hero.webp') center/cover,#1A1510;}
 .hero-in{position:relative;z-index:2;padding:var(--s7) 0 var(--s6);}
 .ey{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--s3);}
 .hero h1{font-size:clamp(2.6rem,7vw,5.2rem);max-width:14ch;}
@@ -86,7 +86,8 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:500;letter-spacing:-.01em;line-heig
 
 .bar-sec{background:var(--bg2);border-block:1px solid var(--line);}
 .bar-g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center;}
-.glass{aspect-ratio:4/5;border-radius:4px;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.42)),linear-gradient(150deg,#241B10,#6B4D22 60%,#B8903F);display:grid;place-items:center;}
+.glass{aspect-ratio:4/5;border-radius:4px;display:grid;place-items:center;
+  background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.42)),url('../images/utaa-glass.webp') center/cover,#241B10;}
 .glass span{font-family:var(--ff-h);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);color:#fff;text-align:center;padding:2rem;}
 .bar-sec h2{font-size:clamp(1.8rem,3.6vw,2.7rem);margin-bottom:var(--s3);}
 .bar-sec p{color:var(--mut);margin-bottom:var(--s2);}

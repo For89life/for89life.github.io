@@ -62,6 +62,8 @@ h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.14;}
 .hero .row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:var(--s4);}
 
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);padding-bottom:var(--s6);}
+.band{border-radius:var(--r);overflow:hidden;margin-bottom:var(--s6);border:1px solid var(--line);}
+.band img{display:block;width:100%;aspect-ratio:21/8;object-fit:cover;}
 .card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4);
   transition:transform .25s,box-shadow .25s,border-color .25s;}
 .card:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(36,27,51,.09);border-color:var(--line2);}
@@ -139,6 +141,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.14;}
 </section>
 
 <div class="wrap">
+  <div class="band"><img src="../images/egnee-hero.webp" alt="Тооцоолуур, санхүүгийн баримт бичиг ширээн дээр" loading="lazy"></div>
   <h2 class="sr-only" id="what-h">Үйлчилгээ</h2>
   <div class="cards" id="what">
     <article class="card">

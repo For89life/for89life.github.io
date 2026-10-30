@@ -1,0 +1,43 @@
+[
+ {"name":"guurs-plate","url":"https://images.pexels.com/photos/5531100/pexels-photo-5531100.jpeg",
+  "shape":"landscape","maxw":900,"band":"center","scrim":0.34,"need":3.0,
+  "note":"Ширээн дээрх хоолны зураг, дээрээс"},
+
+ {"name":"utaa-hero","url":"https://images.pexels.com/photos/37179548/pexels-photo-37179548/free-photo-of-close-up-of-barbecue-grill-with-glowing-coals.jpeg",
+  "shape":"wide","maxw":1500,"band":"bottom","scrim":0.6,"need":4.5,
+  "note":"Нүүрсэн гал дээрх мах"},
+ {"name":"utaa-glass","url":"https://images.pexels.com/photos/36189454/pexels-photo-36189454/free-photo-of-elegant-cocktail-in-dimly-lit-bar-setting.jpeg",
+  "shape":"tall","maxw":760,"band":"center","scrim":0.42,"need":3.0,
+  "note":"Харанхуй бар дахь коктейль"},
+
+ {"name":"navch-hero","url":"https://images.pexels.com/photos/8633662/pexels-photo-8633662.jpeg",
+  "shape":"landscape","maxw":1100,"band":"center","scrim":0.3,"need":3.0,
+  "note":"Шинэ талх, боов"},
+ {"name":"navch-b1","url":"https://images.pexels.com/photos/36202913/pexels-photo-36202913/free-photo-of-freshly-baked-sourdough-bread-on-cutting-board.jpeg","shape":"landscape","maxw":640,"q":74,"note":"Исгэсэн зуурмагийн талх"},
+ {"name":"navch-b2","url":"https://images.pexels.com/photos/13425794/pexels-photo-13425794.jpeg","shape":"landscape","maxw":640,"q":74,"note":"Нарны гэрэлд круассан"},
+ {"name":"navch-b3","url":"https://images.pexels.com/photos/27418961/pexels-photo-27418961/free-photo-of-a-loaf-of-bread-on-a-cloth-on-a-table.jpeg","shape":"landscape","maxw":640,"q":74,"note":"Даавуун дээрх талх"},
+
+ {"name":"togoo-hero","url":"https://images.pexels.com/photos/1907231/pexels-photo-1907231.jpeg",
+  "shape":"square","maxw":820,"band":"center","scrim":0.42,"need":3.0,
+  "note":"Уурласан гоймонтой аяга"},
+ {"name":"togoo-m1","url":"https://images.pexels.com/photos/10161951/pexels-photo-10161951.png","shape":"landscape","maxw":600,"q":74,"note":"Гоймон, харанхуй дэвсгэр"},
+ {"name":"togoo-m2","url":"https://images.pexels.com/photos/9738982/pexels-photo-9738982.jpeg","shape":"landscape","maxw":600,"q":74,"note":"Банш, соустай"},
+ {"name":"togoo-m3","url":"https://images.pexels.com/photos/6646069/pexels-photo-6646069.jpeg","shape":"landscape","maxw":600,"q":74,"note":"Гоймон, савх"},
+ {"name":"togoo-m4","url":"https://images.pexels.com/photos/8601669/pexels-photo-8601669.jpeg","shape":"landscape","maxw":600,"q":74,"note":"Шинэ бууз, тавган дээр"},
+ {"name":"togoo-m5","url":"https://images.pexels.com/photos/1310777/pexels-photo-1310777.jpeg","shape":"landscape","maxw":600,"q":74,"note":"Олон төрлийн хоолны дэлгэц"},
+ {"name":"togoo-m6","url":"https://images.pexels.com/photos/8601687/pexels-photo-8601687.jpeg","shape":"landscape","maxw":600,"q":74,"note":"Шөлтэй банш"},
+
+ {"name":"tulga-hero","url":"https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg",
+  "shape":"landscape","maxw":900,"q":78,"note":"Шилэн ханатай хурлын өрөө"},
+ {"name":"hurd-hero","url":"https://images.pexels.com/photos/15288012/pexels-photo-15288012/free-photo-of-interior-of-a-factory.jpeg",
+  "shape":"wide","maxw":1500,"band":"bottom","scrim":0.55,"need":4.5,
+  "note":"Бүдэг гэрэлтэй үйлдвэрийн дотор"},
+ {"name":"hurd-quote","url":"https://images.pexels.com/photos/6485438/pexels-photo-6485438.jpeg",
+  "shape":"landscape","maxw":1100,"band":"center","scrim":0.62,"need":3.0,
+  "note":"Элэгдсэн металл гадаргуу"},
+ {"name":"tsamhag-split","url":"https://images.pexels.com/photos/8519084/pexels-photo-8519084.jpeg",
+  "shape":"portrait","maxw":820,"band":"center","scrim":0.5,"need":4.5,
+  "note":"Самбар дээр бичиж буй гар. Царай байхгүй."},
+ {"name":"egnee-hero","url":"https://images.pexels.com/photos/7111497/pexels-photo-7111497.jpeg",
+  "shape":"landscape","maxw":1000,"q":78,"note":"Тооцоолуур, тэмдэглэл, дээрээс"}
+]

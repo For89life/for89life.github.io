@@ -65,7 +65,8 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-heig
 .hero h1{font-size:clamp(2.1rem,4.6vw,3.6rem);max-width:15ch;}
 .hero p{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:44ch;}
 .hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
-.basket{border-radius:26px;aspect-ratio:1/1;background:linear-gradient(rgba(0,0,0,.22),rgba(0,0,0,.3)),linear-gradient(150deg,#243214,#4D7C0F 58%,#9BC96B);display:grid;place-items:center;}
+.basket{border-radius:26px;aspect-ratio:1/1;display:grid;place-items:center;
+  background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('../images/hor-hero.webp') center/cover,#243214;}
 .basket span{font-family:var(--ff-h);font-size:clamp(1.5rem,3.4vw,2.4rem);color:#fff;text-align:center;padding:2rem;line-height:1.25;}
 
 .sec{padding:var(--s6) 0;}
@@ -109,6 +110,12 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-heig
 @media(max-width:860px){.hero-g{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr);}.vals{grid-template-columns:1fr;}.nlinks{display:none;}}
 @media(max-width:480px){.grid{grid-template-columns:1fr;}.fg{grid-template-columns:1fr;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Татсан зураг — _data/fetch-images.py үүсгэсэн */
+.im-hor-p1{background:url('../images/hor-p1.webp') center/cover;}
+.im-hor-p2{background:url('../images/hor-p2.webp') center/cover;}
+.im-hor-p3{background:url('../images/hor-p3.webp') center/cover;}
+.im-hor-p4{background:url('../images/hor-p4.webp') center/cover;}
 </style>
 </head>
 <body>
@@ -156,19 +163,19 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-heig
     <div class="hd"><h2>Энэ долоо хоногт</h2><p>Нөөц хязгаарлагдмал — ачаа ирэх бүрт шинэчлэгдэнэ.</p></div>
     <div class="grid">
       <article class="p">
-        <span class="p-im n1"><span>Цагаан тос</span><span class="tg">Шинэ</span></span>
+        <span class="p-im im-hor-p1"><span class="tg">Шинэ</span></span>
         <div class="p-b"><h3>Гар хийцийн цагаан тос</h3><p class="fr">Архангай · 500г</p><p class="pr">₮32,000</p><button class="add">Сагсанд хийх</button></div>
       </article>
       <article class="p">
-        <span class="p-im n2"><span>Нарийн ногоо</span></span>
+        <span class="p-im im-hor-p2"></span>
         <div class="p-b"><h3>Улирлын ногооны багц</h3><p class="fr">Төв аймаг · 3кг</p><p class="pr">₮24,000</p><button class="add">Сагсанд хийх</button></div>
       </article>
       <article class="p">
-        <span class="p-im n3"><span>Чацарганы жүүс</span><span class="tg">Цөөн</span></span>
+        <span class="p-im im-hor-p3"><span class="tg">Цөөн</span></span>
         <div class="p-b"><h3>Чацарганы шүүс</h3><p class="fr">Увс · 1л</p><p class="pr">₮18,000</p><button class="add">Сагсанд хийх</button></div>
       </article>
       <article class="p">
-        <span class="p-im n4"><span>Зөгийн бал</span></span>
+        <span class="p-im im-hor-p4"></span>
         <div class="p-b"><h3>Уулын зөгийн бал</h3><p class="fr">Сэлэнгэ · 700г</p><p class="pr">₮45,000</p><button class="add">Сагсанд хийх</button></div>
       </article>
     </div>
