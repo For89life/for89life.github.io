@@ -62,8 +62,8 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:500;letter-spacing:0;line-height:1.
 
 .showcase{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-block:1px solid var(--line);}
 .sc{position:relative;min-height:clamp(320px,42vw,520px);display:flex;flex-direction:column;justify-content:flex-end;padding:var(--s4);}
-.sc1{background:linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.62)),linear-gradient(150deg,#3A3A36,#8A8578 60%,#CFC9BB);}
-.sc2{background:linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.62)),linear-gradient(150deg,#2B2B33,#5E5E6B 60%,#A7A3B0);}
+.sc1{background:linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.62)),url('../images/sav-showcase-1.webp') center/cover,#3A3A36;}
+.sc2{background:linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.62)),url('../images/sav-showcase-2.webp') center/cover,#2B2B33;}
 .sc h2{font-size:clamp(1.6rem,3.4vw,2.6rem);color:#fff;}
 .sc p{color:rgba(255,255,255,.88);font-size:14.5px;margin:.3rem 0 var(--s3);}
 .sc a{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;color:#fff;border-bottom:1px solid rgba(255,255,255,.6);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;}
@@ -77,7 +77,7 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:500;letter-spacing:0;line-height:1.
 .p{display:flex;flex-direction:column;}
 .p-im{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--surf);display:grid;place-items:center;transition:opacity .3s;}
 .p:hover .p-im{opacity:.86;}
-.p-im span{font-family:var(--ff-h);font-size:clamp(1.1rem,2vw,1.6rem);color:var(--mut2);text-align:center;padding:1rem;}
+.p-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .p-im .mk{position:absolute;top:12px;left:12px;background:var(--ink);color:#fff;font-family:var(--ff-b);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .6rem;}
 .p h3{font-family:var(--ff-b);font-size:15px;font-weight:600;margin-top:.9rem;}
 .p .br{font-size:13px;color:var(--mut2);letter-spacing:.04em;}
@@ -89,8 +89,9 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:500;letter-spacing:0;line-height:1.
 .story-g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center;}
 .story h2{font-size:clamp(1.8rem,3.6vw,2.8rem);margin-bottom:var(--s3);}
 .story p{color:var(--mut);margin-bottom:var(--s2);}
-.sq{aspect-ratio:1/1;background:linear-gradient(140deg,#D8D4CA,#B8B2A4);display:grid;place-items:center;}
-.sq span{font-family:var(--ff-h);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);color:#39362E;padding:2rem;text-align:center;}
+.sq{aspect-ratio:1/1;display:grid;place-items:center;
+  background:linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,.38)),url('../images/sav-story.webp') center/cover,#5A5248;}
+.sq span{font-family:var(--ff-h);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);color:#fff;padding:2rem;text-align:center;}
 
 .foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
 .fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
@@ -158,22 +159,22 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:500;letter-spacing:0;line-height:1.
     <div class="hd"><h2>Сонгосон бүтээгдэхүүн</h2><p>Бүгд гар хийц. Нэг загвараас 20-иос илүүг хийдэггүй.</p></div>
     <div class="grid">
       <article class="p">
-        <span class="p-im"><span>Шаазан аяга</span><span class="mk">Шинэ</span></span>
+        <span class="p-im"><img src="../images/sav-p1.webp" alt="Гар хийцийн шаазан аяга, тавиур дээр" loading="lazy"><span class="mk">Шинэ</span></span>
         <h3>Уулын шаазан аяга</h3><p class="br">Шавар · 280мл</p><p class="pr">₮68,000</p>
         <button class="add">Сагсанд</button>
       </article>
       <article class="p">
-        <span class="p-im"><span>Гүн таваг</span></span>
+        <span class="p-im"><img src="../images/sav-p2.webp" alt="Цагаан дэвсгэр дээрх шаварван ваарнууд" loading="lazy"></span>
         <h3>Гүн таваг, 22см</h3><p class="br">Шавар · Паалантай</p><p class="pr">₮92,000</p>
         <button class="add">Сагсанд</button>
       </article>
       <article class="p">
-        <span class="p-im"><span>Цайны сав</span><span class="mk">Цөөн</span></span>
+        <span class="p-im"><img src="../images/sav-p3.webp" alt="Хээтэй гар хийцийн ваарнууд" loading="lazy"><span class="mk">Цөөн</span></span>
         <h3>Цайны сав, таглаатай</h3><p class="br">Шавар · 900мл</p><p class="pr">₮156,000</p>
         <button class="add">Сагсанд</button>
       </article>
       <article class="p">
-        <span class="p-im"><span>Ваар</span></span>
+        <span class="p-im"><img src="../images/sav-p4.webp" alt="Тавиур дээрх шаварван аяга, таваг" loading="lazy"></span>
         <h3>Нарийн хүзүүт ваар</h3><p class="br">Шавар · 26см</p><p class="pr">₮124,000</p>
         <button class="add">Сагсанд</button>
       </article>

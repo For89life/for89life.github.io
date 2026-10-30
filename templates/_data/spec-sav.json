@@ -1,0 +1,64 @@
+[
+ {
+  "name": "sav-showcase-1",
+  "url": "https://images.pexels.com/photos/29286722/pexels-photo-29286722/free-photo-of-rustic-pottery-cups-and-bowls-on-wooden-shelves.jpeg",
+  "shape": "landscape",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.45,
+  "need": 4.5,
+  "note": "Модон тавиур дээрх шавар аяга. Царай, хаяг байхгүй."
+ },
+ {
+  "name": "sav-showcase-2",
+  "url": "https://images.pexels.com/photos/15440777/pexels-photo-15440777/free-photo-of-ceramic-dishes-on-shelf.jpeg",
+  "shape": "landscape",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.45,
+  "need": 4.5,
+  "note": "Модон тавиур дээрх таваг."
+ },
+ {
+  "name": "sav-story",
+  "url": "https://images.pexels.com/photos/33878963/pexels-photo-33878963/free-photo-of-close-up-of-hands-crafting-pottery-on-wheel.jpeg",
+  "shape": "square",
+  "maxw": 900,
+  "band": "center",
+  "scrim": 0.0,
+  "need": 3.0,
+  "note": "Шаврын хүрдэн дээрх гар. Зөвхөн гар — царай байхгүй."
+ },
+ {
+  "name": "sav-p1",
+  "url": "https://images.pexels.com/photos/19341648/pexels-photo-19341648/free-photo-of-modern-art-vase.jpeg",
+  "shape": "portrait",
+  "maxw": 620,
+  "q": 72,
+  "note": "Орчин үеийн ваар, тавиур дээр."
+ },
+ {
+  "name": "sav-p2",
+  "url": "https://images.pexels.com/photos/17209708/pexels-photo-17209708/free-photo-of-pottery-collection-on-white-background.png",
+  "shape": "portrait",
+  "maxw": 620,
+  "q": 72,
+  "note": "Цагаан дэвсгэр дээрх ваарнууд."
+ },
+ {
+  "name": "sav-p3",
+  "url": "https://images.pexels.com/photos/28867382/pexels-photo-28867382/free-photo-of-handcrafted-ceramic-vases-with-floral-designs.jpeg",
+  "shape": "portrait",
+  "maxw": 620,
+  "q": 72,
+  "note": "Гар хийцийн ваарнууд."
+ },
+ {
+  "name": "sav-p4",
+  "url": "https://images.pexels.com/photos/6611418/pexels-photo-6611418.jpeg",
+  "shape": "portrait",
+  "maxw": 620,
+  "q": 72,
+  "note": "Тавиур дээрх аяга, таваг."
+ }
+]

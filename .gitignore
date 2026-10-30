@@ -4,3 +4,4 @@ images/_png-original/
 .mcp.json
 .agents/
 skills-lock.json
+templates/images/*.src
