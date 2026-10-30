@@ -11,6 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* Элементийн хүрээ. --line нь зураасанд, энэ нь
+     товч, input, chip-д — WCAG 1.4.11 ёсоор 3.05:1. */
+  --line-strong:#838172;
   --bg:#FBFAF4; --surf:#F2F0E4; --surf2:#E6E3D2; --card:#FFFFFF;
   --ink:#232A1B; --mut:#53604A; --mut2:#5F6D55;
   --acc:#3F6B1E; --acc-d:#335718; --warm:#B45309;
@@ -46,14 +49,14 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-heig
 .nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .85rem;border-radius:999px;font-size:15px;font-weight:500;color:var(--mut);transition:background .2s,color .2s;}
 .nlinks a:hover{background:var(--surf);color:var(--acc);}
 .nav-r{margin-left:auto;display:flex;gap:.4rem;}
-.ib{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;min-width:44px;padding:0 .8rem;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--ink);cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;transition:border-color .2s,background .2s;}
+.ib{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;min-width:44px;padding:0 .8rem;border-radius:999px;border:1px solid var(--line-strong);background:none;color:var(--ink);cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;transition:border-color .2s,background .2s;}
 .ib:hover{border-color:var(--acc);background:var(--surf);}
 .ib .n{background:var(--acc);color:#fff;border-radius:999px;min-width:19px;height:19px;display:grid;place-items:center;font-size:11.5px;}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;padding:0 1.7rem;border-radius:999px;font-family:var(--ff-b);font-size:15px;font-weight:600;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;}
 .btn-p{background:var(--acc);color:#fff;}
 .btn-p:hover{background:var(--acc-d);}
-.btn-s{background:transparent;color:var(--ink);border-color:var(--line2);}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line-strong);}
 .btn-s:hover{border-color:var(--acc);color:var(--acc);}
 
 .hero{padding:var(--s5) 0 var(--s6);}
@@ -84,7 +87,7 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-heig
 .p-b h3{font-family:var(--ff-b);font-size:15.5px;font-weight:600;margin-bottom:.2rem;}
 .p-b .fr{font-size:13px;color:var(--mut2);margin-bottom:.6rem;}
 .p-b .pr{font-family:var(--ff-h);font-size:19px;font-weight:600;margin-top:auto;}
-.p-b .add{margin-top:.8rem;min-height:44px;border-radius:999px;border:1px solid var(--line2);background:none;font-family:var(--ff-b);font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:all .2s;}
+.p-b .add{margin-top:.8rem;min-height:44px;border-radius:999px;border:1px solid var(--line-strong);background:none;font-family:var(--ff-b);font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:all .2s;}
 .p-b .add:hover{background:var(--acc);border-color:var(--acc);color:#fff;}
 
 .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);}

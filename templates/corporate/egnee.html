@@ -11,6 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* Элементийн хүрээ. --line нь зураасанд, энэ нь
+     товч, input, chip-д — WCAG 1.4.11 ёсоор 3.05:1. */
+  --line-strong:#8E859E;
   --bg:#FBFAFD; --surf:#FFFFFF; --surf2:#F2EEF9;
   --ink:#241B33; --mut:#5B5070; --mut2:#6E6285;
   --acc:#6D3FB0; --acc-d:#59318F; --soft:#EDE4FA;
@@ -47,7 +50,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.14;}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;padding:0 1.7rem;border-radius:999px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s,transform .2s;}
 .btn-p{background:var(--acc);color:#fff;}
 .btn-p:hover{background:var(--acc-d);transform:translateY(-2px);}
-.btn-s{background:var(--surf);color:var(--ink);border-color:var(--line2);}
+.btn-s{background:var(--surf);color:var(--ink);border-color:var(--line-strong);}
 .btn-s:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px);}
 .nav .btn{min-height:44px;padding:0 1.25rem;font-size:14px;margin-left:var(--s3);}
 

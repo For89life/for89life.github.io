@@ -11,6 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* Элементийн хүрээ. --line нь зураасанд, энэ нь
+     товч, input, chip-д — WCAG 1.4.11 ёсоор 3.05:1. */
+  --line-strong:#85837C;
   --bg:#FCFCFB; --surf:#F4F3F0; --surf2:#E8E6E1;
   --ink:#1E1E1C; --mut:#5A574F; --mut2:#6B675E;
   --acc:#1E1E1C; --line:#E2E0DA; --line2:#C6C2B8;
@@ -79,7 +82,7 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:500;letter-spacing:0;line-height:1.
 .p h3{font-family:var(--ff-b);font-size:15px;font-weight:600;margin-top:.9rem;}
 .p .br{font-size:13px;color:var(--mut2);letter-spacing:.04em;}
 .p .pr{font-family:var(--ff-h);font-size:19px;margin-top:.3rem;}
-.p .add{margin-top:.7rem;align-self:flex-start;min-height:44px;padding:0 1.2rem;background:none;border:1px solid var(--line2);font-family:var(--ff-b);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+.p .add{margin-top:.7rem;align-self:flex-start;min-height:44px;padding:0 1.2rem;background:none;border:1px solid var(--line-strong);font-family:var(--ff-b);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
 .p .add:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
 
 .story{background:var(--surf);padding:var(--s6) 0;}

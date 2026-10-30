@@ -11,6 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* Элементийн хүрээ. --line нь зураасанд, энэ нь
+     товч, input, chip-д — WCAG 1.4.11 ёсоор 3.05:1. */
+  --line-strong:#696764;
   --bg:#0E0C0A; --bg2:#15120E; --surf:#1E1A14;
   --fg:#F3EEE4; --mut:#AFA495; --mut2:#9A8F7F;
   --acc:#D4A845; --acc-d:#B38C2F; --ink:#0E0C0A;
@@ -47,7 +50,7 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:500;letter-spacing:-.01em;line-heig
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.7rem;font-family:var(--ff-b);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;border:1px solid transparent;transition:background .22s,color .22s,border-color .22s;}
 .btn-p{background:var(--acc);color:var(--ink);}
 .btn-p:hover{background:var(--acc-d);}
-.btn-s{background:transparent;color:var(--fg);border-color:var(--line2);}
+.btn-s{background:transparent;color:var(--fg);border-color:var(--line-strong);}
 .btn-s:hover{border-color:var(--acc);color:var(--acc);}
 .nav .btn{min-height:44px;padding:0 1.2rem;font-size:11.5px;margin-left:var(--s3);}
 

@@ -1,0 +1,149 @@
+{
+ "templates\\corporate\\egnee.html": {
+  "line_strong": "#8E859E",
+  "ratio": 3.05,
+  "bg": "#FBFAFD",
+  "worst_surface": "#F2EEF9",
+  "surfaces": 3
+ },
+ "templates\\corporate\\hurd.html": {
+  "line_strong": "#6B696B",
+  "ratio": 3.05,
+  "bg": "#121014",
+  "worst_surface": "#211D22",
+  "surfaces": 3
+ },
+ "templates\\corporate\\index.html": {
+  "line_strong": "#656565",
+  "ratio": 3.05,
+  "bg": "#0A0A0B",
+  "worst_surface": "#17171B",
+  "surfaces": 3
+ },
+ "templates\\corporate\\tsamhag.html": {
+  "line_strong": "#7B928D",
+  "ratio": 3.05,
+  "bg": "#FFFFFF",
+  "worst_surface": "#F0F7F5",
+  "surfaces": 2
+ },
+ "templates\\corporate\\tulga.html": {
+  "line_strong": "#7E848C",
+  "ratio": 3.05,
+  "bg": "#FFFFFF",
+  "worst_surface": "#E2E8F0",
+  "surfaces": 3
+ },
+ "templates\\portfolio\\huudas.html": {
+  "line_strong": "#8D8678",
+  "ratio": 3.05,
+  "bg": "#F7F4EE",
+  "worst_surface": "#EFEBE2",
+  "surfaces": 3
+ },
+ "templates\\portfolio\\index.html": {
+  "line_strong": "#656565",
+  "ratio": 3.05,
+  "bg": "#0A0A0B",
+  "worst_surface": "#17171B",
+  "surfaces": 3
+ },
+ "templates\\portfolio\\or.html": {
+  "line_strong": "#6A6A6E",
+  "ratio": 3.05,
+  "bg": "#0D0D0E",
+  "worst_surface": "#1F1F22",
+  "surfaces": 3
+ },
+ "templates\\portfolio\\suljee.html": {
+  "line_strong": "#636C68",
+  "ratio": 3.05,
+  "bg": "#06100C",
+  "worst_surface": "#0F221A",
+  "surfaces": 3
+ },
+ "templates\\portfolio\\zurag.html": {
+  "line_strong": "#636364",
+  "ratio": 3.05,
+  "bg": "#09090B",
+  "worst_surface": "#141417",
+  "surfaces": 2
+ },
+ "templates\\restaurant\\guurs.html": {
+  "line_strong": "#897C6A",
+  "ratio": 3.05,
+  "bg": "#FDFBF7",
+  "worst_surface": "#EADDCC",
+  "surfaces": 3
+ },
+ "templates\\restaurant\\index.html": {
+  "line_strong": "#656565",
+  "ratio": 3.05,
+  "bg": "#0A0A0B",
+  "worst_surface": "#17171B",
+  "surfaces": 3
+ },
+ "templates\\restaurant\\navch.html": {
+  "line_strong": "#7C8777",
+  "ratio": 3.05,
+  "bg": "#FAFCF8",
+  "worst_surface": "#E0EBDA",
+  "surfaces": 4
+ },
+ "templates\\restaurant\\togoo.html": {
+  "line_strong": "#9B8A6C",
+  "ratio": 3.05,
+  "bg": "#FFFBF2",
+  "worst_surface": "#FFF3DC",
+  "surfaces": 2
+ },
+ "templates\\restaurant\\utaa.html": {
+  "line_strong": "#696764",
+  "ratio": 3.05,
+  "bg": "#0E0C0A",
+  "worst_surface": "#1E1A14",
+  "surfaces": 3
+ },
+ "templates\\shop\\horshoo.html": {
+  "line_strong": "#838172",
+  "ratio": 3.05,
+  "bg": "#FBFAF4",
+  "worst_surface": "#E6E3D2",
+  "surfaces": 4
+ },
+ "templates\\shop\\index.html": {
+  "line_strong": "#656565",
+  "ratio": 3.05,
+  "bg": "#0A0A0B",
+  "worst_surface": "#17171B",
+  "surfaces": 3
+ },
+ "templates\\shop\\sav.html": {
+  "line_strong": "#85837C",
+  "ratio": 3.05,
+  "bg": "#FCFCFB",
+  "worst_surface": "#E8E6E1",
+  "surfaces": 3
+ },
+ "templates\\shop\\tulhuur.html": {
+  "line_strong": "#6B6E75",
+  "ratio": 3.05,
+  "bg": "#070B14",
+  "worst_surface": "#1A2437",
+  "surfaces": 4
+ },
+ "templates\\shop\\zah.html": {
+  "line_strong": "#87878A",
+  "ratio": 3.05,
+  "bg": "#FFFFFF",
+  "worst_surface": "#EFEDE9",
+  "surfaces": 3
+ },
+ "index.html": {
+  "line_strong": "#6A6A6B",
+  "ratio": 3.05,
+  "bg": "#0A0A0B",
+  "worst_surface": "#1F1F25",
+  "surfaces": 4
+ }
+}

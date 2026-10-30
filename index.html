@@ -28,6 +28,9 @@ setTimeout(function(){
    Контрастыг хэмжиж баталсан (суурь #0A0A0B дээр):
    --fg 18.9:1 · --mut 7.1:1 · --mut2 4.97:1 · --acc 12.4:1       */
 :root{
+  /* Элементийн хүрээ. --line нь зураасанд, энэ нь
+     товч, input, chip-д — WCAG 1.4.11 ёсоор 3.05:1. */
+  --line-strong:#6A6A6B;
   --bg:#0A0A0B;          /* үндсэн дэвсгэр */
   --bg-2:#101013;        /* ээлжлэх зурвас */
   --surf:#17171B;        /* карт, талбар */
@@ -111,7 +114,7 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;letter-spacing:-.025em;line-hei
 }
 .btn-p{background:var(--acc);color:var(--ink);}
 .btn-p:hover{background:#FFD468;transform:translateY(-2px);}
-.btn-s{background:transparent;color:var(--fg);border-color:var(--line-2);}
+.btn-s{background:transparent;color:var(--fg);border-color:var(--line-strong);}
 .btn-s:hover{border-color:var(--fg);transform:translateY(-2px);}
 .btn-row{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4);}
 
@@ -280,7 +283,7 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;letter-spacing:-.025em;line-hei
 .srv-act{
   display:inline-flex;align-items:center;justify-content:center;
   width:48px;height:48px;border-radius:50%;flex-shrink:0;
-  border:1px solid var(--line-2);background:none;color:var(--fg);cursor:pointer;
+  border:1px solid var(--line-strong);background:none;color:var(--fg);cursor:pointer;
   transition:background .25s ease,color .25s ease,border-color .25s ease;
 }
 .srv-act:hover{background:var(--acc);color:var(--ink);border-color:var(--acc);}
@@ -449,7 +452,7 @@ html.js .rv.in{opacity:1;transform:none;}
 .fg label{font-size:var(--micro);letter-spacing:.11em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem;}
 .fg input,.fg textarea,.fg select{
   font-family:inherit;font-size:13.5px;color:var(--fg);
-  background:none;border:none;border-bottom:1px solid var(--line);
+  background:none;border:none;border-bottom:1px solid var(--line-strong);
   padding:.5rem 0;outline:none;transition:border-color .25s;
 }
 .fg input::placeholder,.fg textarea::placeholder{color:var(--dimmer);}

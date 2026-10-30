@@ -13,6 +13,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* Элементийн хүрээ. --line нь зураасанд, энэ нь
+     товч, input, chip-д — WCAG 1.4.11 ёсоор 3.05:1. */
+  --line-strong:#897C6A;
   --bg:#FDFBF7; --surf:#F5EDE3; --surf2:#EADDCC;
   --ink:#2A1A10; --mut:#6B5443; --mut2:#7D6552;
   --acc:#A33B0F; --acc-d:#86300C; --on-acc:#FFFFFF;
@@ -56,7 +59,7 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-heig
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.7rem;border-radius:999px;font-family:var(--ff-b);font-size:14.5px;font-weight:600;letter-spacing:.04em;cursor:pointer;border:1.5px solid transparent;transition:background .22s,color .22s,border-color .22s;}
 .btn-p{background:var(--acc);color:var(--on-acc);}
 .btn-p:hover{background:var(--acc-d);}
-.btn-s{background:transparent;color:var(--ink);border-color:var(--line2);}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line-strong);}
 .btn-s:hover{border-color:var(--ink);}
 .nav .btn{min-height:44px;padding:0 1.2rem;font-size:13.5px;}
 
@@ -94,7 +97,7 @@ h1,h2,h3{font-family:var(--ff-h);font-weight:600;letter-spacing:-.01em;line-heig
 .mhead h2{font-size:clamp(1.9rem,3.6vw,2.9rem);}
 .mhead p{color:var(--mut);margin-top:.5rem;}
 .mtabs{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s5);}
-.mtab{display:inline-flex;align-items:center;min-height:44px;padding:0 1.3rem;border-radius:999px;border:1.5px solid var(--line2);background:transparent;font-family:inherit;font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--mut);cursor:pointer;transition:all .2s;}
+.mtab{display:inline-flex;align-items:center;min-height:44px;padding:0 1.3rem;border-radius:999px;border:1.5px solid var(--line-strong);background:transparent;font-family:inherit;font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--mut);cursor:pointer;transition:all .2s;}
 .mtab:hover{border-color:var(--ink);color:var(--ink);}
 .mtab.on{background:var(--ink);border-color:var(--ink);color:var(--bg);}
 .menu{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s6);}
