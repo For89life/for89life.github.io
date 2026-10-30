@@ -1,0 +1,57 @@
+{
+ "_tailbar": "Загвар бүрийн бичвэрийн талбарууд, тэдгээрийн уртын хязгаар. Агуулгыг зохиомжоос салгах нь гурван зүйлийг өгнө: (1) жишээ агуулга өөрчлөхөд HTML хөндөхгүй, (2) үйлчлүүлэгч яг энэ файлыг бөглөнө, (3) урт нь урьдчилан хязгаарлагдсан тул зохиомж эвдрэхгүй.",
+
+ "_yagaad_urt_chuhal": "Монгол кирилл үг англиас дунджаар 1.3–1.5 дахин урт. «Services» 8 тэмдэгт, «Үйлчилгээ» 10. «Get a quote» 11, «Үнийн санал авах» 17. Англиар зохиосон зохиомжид монгол бичвэр шууд багтахгүй. Тиймээс max нь зөвлөмж биш, хатуу хязгаар — check-content.py шалгана.",
+
+ "_horvuuleh_arga": "Талбар бүрийн max-ийг тухайн загварын бодит зохиомжоос хэмжиж гаргасан: элементийн өргөнд багтах тэмдэгтийн тоог хэмжээд 10% нөөц үлдээв. Шинэ загвар нэмэхэд мөн адил хэмжиж оруулна.",
+
+ "common": {
+  "brand": {"max": 18, "note": "Толгойн нэр. Урт бол логоны мөр хугарна."},
+  "brand_sub": {"max": 22, "note": "Нэрийн доорх тайлбар, зарим загварт л бий."},
+  "nav": {"items": 3, "max_each": 14, "note": "Цэсний холбоос. 4 дэх нь 900px-ээс доош багтахгүй."},
+  "cta_primary": {"max": 20, "note": "Үндсэн товчны бичвэр."},
+  "cta_secondary": {"max": 22},
+  "hero_eyebrow": {"max": 26, "note": "Гарчгийн дээрх жижиг мөр."},
+  "hero_h1": {"max": 48, "note": "Хамгийн чухал хязгаар. Хэтэрвэл hero өндөр болж, дэлгэцэнд багтахаа болино."},
+  "hero_lead": {"max": 140, "note": "Гарчгийн доорх тайлбар, 2–3 мөр."},
+  "footer_about": {"max": 170},
+  "footer_address": {"lines": 2, "max_each": 44},
+  "email": {"max": 32},
+  "phone": {"max": 18},
+  "hours": {"max": 30}
+ },
+
+ "corporate": {
+  "stats": {"items": 4, "value_max": 7, "label_max": 24,
+            "note": "value нь тоо («18», «340+», «96%»). label нь түүний тайлбар."},
+  "services": {"items": 3, "title_max": 24, "body_max": 95},
+  "reasons": {"items": 4, "title_max": 20, "body_max": 90},
+  "quote": {"text_max": 130, "author_max": 18, "role_max": 24}
+ },
+
+ "shop": {
+  "promo": {"max": 70, "note": "Дээд талын урамшууллын мөр."},
+  "categories": {"items": 7, "max_each": 18},
+  "products": {"items": 8, "title_max": 28, "meta_max": 22,
+               "price_max": 12, "badge_max": 8},
+  "perks": {"items": 4, "title_max": 20, "body_max": 36},
+  "tiles": {"items": 2, "title_max": 20, "body_max": 42}
+ },
+
+ "restaurant": {
+  "hours": {"items": 3, "value_max": 15, "label_max": 18},
+  "menu_sections": {"items": 4, "max_each": 16},
+  "menu_items": {"items": 8, "title_max": 36, "body_max": 72,
+                 "price_max": 10, "tag_max": 12},
+  "about": {"title_max": 30, "paras": 3, "para_max": 160},
+  "booking": {"title_max": 34, "body_max": 120}
+ },
+
+ "portfolio": {
+  "meta": {"items": 4, "value_max": 16, "label_max": 22},
+  "works": {"items": 5, "title_max": 24, "body_max": 80,
+            "year_max": 6, "kind_max": 26},
+  "about": {"title_max": 30, "paras": 3, "para_max": 190},
+  "skills": {"items": 5, "title_max": 24, "body_max": 26}
+ }
+}

@@ -1,0 +1,81 @@
+{
+ "_tailbar": "Загвар бүрийн зургийн үүр, хайх нөхцөл. Pexels API-д шууд дамжуулахаар бэлтгэсэн. query нь англиар — Pexels-ийн хайлт англи хэл дээр ажилладаг. color нь тухайн загварын өргөлт өнгө: Pexels hex өнгөөр хайхыг дэмждэг тул палитртай нийцсэн зураг эрэмбэлэгдэнэ.",
+
+ "_duremuud": {
+  "soyolyn_niitslel": "Pexels дээр Монголын хот, оффис, рестораны дотор тал, бүтээгдэхүүний зураг БАЙХГҮЙ — зөвхөн тал нутаг, гэр, адуу. Тиймээс газар зүйн шинжийг илтгэх зураг (гудамжны хаяг, царай, туг) сонгохоос зайлсхийнэ. Гар, эд зүйл, бүтэц, ерөнхий дотор орчин сонгоно. Монгол шинж нь бичвэрээс гарна, зурагнаас биш.",
+  "nuur_bolon_signage": "Царай тод харагдах, эсвэл латин үсгийн хаяг, таних тэмдэг бүхий зураг хэрэглэхгүй. Загварыг үйлчлүүлэгч өөрийн болгоход тэдгээр нь зөрчилдөнө.",
+  "kontrast": "Зураг дээр бичвэр тавих бол далд давхарга заавал. Градиентын нэгэн адил ХАМГИЙН ЦАЙВАР хэсгээр нь хэмжинэ — зураг дээр энэ нь хамгийн цайвар пиксэл.",
+  "hemjee": "Pexels-ийн src.large2x (1880px) хангалттай. Татаад WebP болгон хөрвүүлж, 1600px-ээс хэтрүүлэхгүй. Загвар бүр 300KB-аас хэтрэхгүй байх.",
+  "attribution": "API-аар авсан бол Pexels руу холбоос, зурагчны нэрийг заавал бичнэ. Сайтаас гараар татсан бол шаардлагагүй. Бид API ашиглах тул загвар бүрийн хөлд эсвэл IHNII-TAILBAR.md-д бичнэ."
+ },
+
+ "corporate": {
+  "tulga": [
+   {"slot":"hero-side","query":"modern office meeting room empty","orientation":"landscape","color":"#1D4ED8","role":"Hero-гийн баруун талын карт"},
+   {"slot":"trust","query":"architecture glass facade abstract","orientation":"landscape","color":"#1D4ED8","role":"Тоон үзүүлэлтийн ар"}
+  ],
+  "hurd": [
+   {"slot":"hero","query":"industrial machinery dark moody","orientation":"landscape","color":"#C9A227","role":"Hero дэвсгэр"},
+   {"slot":"quote","query":"steel texture dark close up","orientation":"square","color":"#C9A227","role":"Иш татлагын ар"}
+  ],
+  "tsamhag": [
+   {"slot":"split-right","query":"business strategy whiteboard hands","orientation":"portrait","color":"#0F766E","role":"Хуваасан дэлгэцийн баруун тал"}
+  ],
+  "egnee": [
+   {"slot":"hero","query":"desk calculator documents overhead","orientation":"landscape","color":"#6D3FB0","role":"Hero-гийн зураг"}
+  ]
+ },
+
+ "shop": {
+  "zah": [
+   {"slot":"hero","query":"shopping bags paper studio","orientation":"landscape","color":"#C2410C","role":"Банерын ар"},
+   {"slot":"product","query":"household goods flat lay","orientation":"square","color":"#C2410C","role":"Барааны карт ×8"}
+  ],
+  "sav": [
+   {"slot":"showcase","query":"ceramic pottery handmade bowl","orientation":"landscape","color":"#8A8578","role":"Хоёр том үзүүлэн"},
+   {"slot":"product","query":"ceramic cup minimal white background","orientation":"portrait","color":"#E8E4DB","role":"Барааны карт ×4"},
+   {"slot":"story","query":"potter hands clay wheel","orientation":"square","color":"#B8B2A4","role":"Түүхийн хэсэг"}
+  ],
+  "tulhuur": [
+   {"slot":"product","query":"smart home device dark background","orientation":"landscape","color":"#22D3EE","role":"Төхөөрөмжийн карт ×4"}
+  ],
+  "horshoo": [
+   {"slot":"hero","query":"vegetable basket harvest wooden","orientation":"square","color":"#4D7C0F","role":"Hero-гийн дугуй зураг"},
+   {"slot":"product","query":"honey jar rustic","orientation":"square","color":"#8A6417","role":"Барааны карт ×4"}
+  ]
+ },
+
+ "restaurant": {
+  "guurs": [
+   {"slot":"about","query":"restaurant table food overhead warm","orientation":"landscape","color":"#A33B0F","role":"Тухай хэсгийн зураг"}
+  ],
+  "utaa": [
+   {"slot":"hero","query":"grilled meat fire dark restaurant","orientation":"landscape","color":"#D4A845","role":"Hero бүтэн дэлгэц"},
+   {"slot":"bar","query":"cocktail bar dark moody glass","orientation":"portrait","color":"#B8903F","role":"Барны хэсэг"}
+  ],
+  "navch": [
+   {"slot":"hero","query":"bakery bread fresh light airy","orientation":"landscape","color":"#4F8A5F","role":"Hero-гийн зураг"},
+   {"slot":"bakery","query":"croissant pastry close up","orientation":"landscape","color":"#8A6417","role":"Талхны карт ×3"}
+  ],
+  "togoo": [
+   {"slot":"hero","query":"noodle bowl steam street food","orientation":"square","color":"#C21807","role":"Hero-гийн дугуй зураг"},
+   {"slot":"menu","query":"dumplings plate top view","orientation":"landscape","color":"#C21807","role":"Цэсний карт ×6"}
+  ]
+ },
+
+ "portfolio": {
+  "or": [
+   {"slot":"work","query":"brand identity mockup stationery","orientation":"landscape","color":"#D8FF47","role":"Ажлын жагсаалтын зураг"}
+  ],
+  "huudas": [
+   {"slot":"none","query":"","orientation":"","color":"","role":"Зураггүй. Энэ загвар бичвэрт тулгуурласан — зураг нэмэх нь концепцийг нь сулруулна."}
+  ],
+  "zurag": [
+   {"slot":"cover","query":"documentary photography landscape muted","orientation":"landscape","color":"#71717A","role":"Бүтэн дэлгэцийн нүүр"},
+   {"slot":"frames","query":"portrait documentary black and white","orientation":"portrait","color":"#8A6450","role":"Кадрын сүлжээ ×6"}
+  ],
+  "suljee": [
+   {"slot":"none","query":"","orientation":"","color":"","role":"Зураггүй. Терминал, кодын аяс нь зурагтай зөрчилдөнө."}
+  ]
+ }
+}

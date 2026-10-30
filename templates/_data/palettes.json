@@ -1,0 +1,1180 @@
+{
+ "corporate": [
+  {
+   "product_type": "Legal Services",
+   "tokens": {
+    "bg": "#F8FAFC",
+    "fg": "#0F172A",
+    "card": "#FFFFFF",
+    "card_fg": "#0F172A",
+    "primary": "#1E3A8A",
+    "on_primary": "#FFFFFF",
+    "accent": "#B45309",
+    "on_accent": "#FFFFFF",
+    "muted": "#E9EEF5",
+    "muted_fg": "#475569",
+    "border": "#CBD5E1",
+    "ring": "#1E3A8A"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#0F172A",
+     "bg": "#F8FAFC",
+     "ratio": 17.06,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#F8FAFC",
+     "ratio": 7.24,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#0F172A",
+     "bg": "#FFFFFF",
+     "ratio": 17.85,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#1E3A8A",
+     "ratio": 10.36,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#B45309",
+     "ratio": 5.02,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#CBD5E1",
+     "bg": "#F8FAFC",
+     "ratio": 1.42,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Authority navy + trust gold"
+  },
+  {
+   "product_type": "Banking/Traditional Finance",
+   "tokens": {
+    "bg": "#F8FAFC",
+    "fg": "#020617",
+    "card": "#FFFFFF",
+    "card_fg": "#020617",
+    "primary": "#0F172A",
+    "on_primary": "#FFFFFF",
+    "accent": "#A16207",
+    "on_accent": "#FFFFFF",
+    "muted": "#E8ECF1",
+    "muted_fg": "#475569",
+    "border": "#E2E8F0",
+    "ring": "#0F172A"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#020617",
+     "bg": "#F8FAFC",
+     "ratio": 19.28,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#F8FAFC",
+     "ratio": 7.24,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#020617",
+     "bg": "#FFFFFF",
+     "ratio": 20.17,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#0F172A",
+     "ratio": 17.85,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#A16207",
+     "ratio": 4.92,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#E2E8F0",
+     "bg": "#F8FAFC",
+     "ratio": 1.18,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Trust navy + premium gold [Accent adjusted from #CA8A04]"
+  },
+  {
+   "product_type": "Construction/Architecture",
+   "tokens": {
+    "bg": "#F8FAFC",
+    "fg": "#334155",
+    "card": "#FFFFFF",
+    "card_fg": "#334155",
+    "primary": "#64748B",
+    "on_primary": "#FFFFFF",
+    "accent": "#EA580C",
+    "on_accent": "#000000",
+    "muted": "#EBF0F5",
+    "muted_fg": "#475569",
+    "border": "#E2E8F0",
+    "ring": "#64748B"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#334155",
+     "bg": "#F8FAFC",
+     "ratio": 9.9,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#F8FAFC",
+     "ratio": 7.24,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#334155",
+     "bg": "#FFFFFF",
+     "ratio": 10.35,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#64748B",
+     "ratio": 4.76,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#000000",
+     "bg": "#EA580C",
+     "ratio": 5.9,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#E2E8F0",
+     "bg": "#F8FAFC",
+     "ratio": 1.18,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Industrial grey + safety orange [Accent adjusted from #F97316]"
+  },
+  {
+   "product_type": "Logistics/Delivery",
+   "tokens": {
+    "bg": "#EFF6FF",
+    "fg": "#1E40AF",
+    "card": "#FFFFFF",
+    "card_fg": "#1E40AF",
+    "primary": "#2563EB",
+    "on_primary": "#FFFFFF",
+    "accent": "#EA580C",
+    "on_accent": "#000000",
+    "muted": "#E9EFF8",
+    "muted_fg": "#475569",
+    "border": "#BFDBFE",
+    "ring": "#2563EB"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#1E40AF",
+     "bg": "#EFF6FF",
+     "ratio": 8.01,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#EFF6FF",
+     "ratio": 6.96,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#1E40AF",
+     "bg": "#FFFFFF",
+     "ratio": 8.72,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#2563EB",
+     "ratio": 5.17,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#000000",
+     "bg": "#EA580C",
+     "ratio": 5.9,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#BFDBFE",
+     "bg": "#EFF6FF",
+     "ratio": 1.31,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Tracking blue + delivery orange [Accent adjusted from #F97316]"
+  },
+  {
+   "product_type": "Real Estate/Property",
+   "tokens": {
+    "bg": "#F0FDFA",
+    "fg": "#134E4A",
+    "card": "#FFFFFF",
+    "card_fg": "#134E4A",
+    "primary": "#0F766E",
+    "on_primary": "#FFFFFF",
+    "accent": "#0369A1",
+    "on_accent": "#FFFFFF",
+    "muted": "#E8F0F3",
+    "muted_fg": "#475569",
+    "border": "#99F6E4",
+    "ring": "#0F766E"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#134E4A",
+     "bg": "#F0FDFA",
+     "ratio": 9.09,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#F0FDFA",
+     "ratio": 7.27,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#134E4A",
+     "bg": "#FFFFFF",
+     "ratio": 9.48,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#0F766E",
+     "ratio": 5.47,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#0369A1",
+     "ratio": 5.93,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#99F6E4",
+     "bg": "#F0FDFA",
+     "ratio": 1.21,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Trust teal + professional blue"
+  },
+  {
+   "product_type": "SaaS (General)",
+   "tokens": {
+    "bg": "#F8FAFC",
+    "fg": "#1E293B",
+    "card": "#FFFFFF",
+    "card_fg": "#1E293B",
+    "primary": "#2563EB",
+    "on_primary": "#FFFFFF",
+    "accent": "#EA580C",
+    "on_accent": "#000000",
+    "muted": "#E9EFF8",
+    "muted_fg": "#475569",
+    "border": "#E2E8F0",
+    "ring": "#2563EB"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#1E293B",
+     "bg": "#F8FAFC",
+     "ratio": 13.98,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#F8FAFC",
+     "ratio": 7.24,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#1E293B",
+     "bg": "#FFFFFF",
+     "ratio": 14.63,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#2563EB",
+     "ratio": 5.17,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#000000",
+     "bg": "#EA580C",
+     "ratio": 5.9,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#E2E8F0",
+     "bg": "#F8FAFC",
+     "ratio": 1.18,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Trust blue + orange CTA contrast [Accent adjusted from #F97316]"
+  }
+ ],
+ "shop": [
+  {
+   "product_type": "E-commerce",
+   "tokens": {
+    "bg": "#ECFDF5",
+    "fg": "#064E3B",
+    "card": "#FFFFFF",
+    "card_fg": "#064E3B",
+    "primary": "#059669",
+    "on_primary": "#000000",
+    "accent": "#EA580C",
+    "on_accent": "#000000",
+    "muted": "#E8F1F3",
+    "muted_fg": "#475569",
+    "border": "#A7F3D0",
+    "ring": "#059669"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#064E3B",
+     "bg": "#ECFDF5",
+     "ratio": 9.23,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#ECFDF5",
+     "ratio": 7.19,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#064E3B",
+     "bg": "#FFFFFF",
+     "ratio": 9.72,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#000000",
+     "bg": "#059669",
+     "ratio": 5.57,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#000000",
+     "bg": "#EA580C",
+     "ratio": 5.9,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#A7F3D0",
+     "bg": "#ECFDF5",
+     "ratio": 1.22,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Success green + urgency orange [Accent adjusted from #F97316]"
+  },
+  {
+   "product_type": "E-commerce Luxury",
+   "tokens": {
+    "bg": "#FAFAF9",
+    "fg": "#0C0A09",
+    "card": "#FFFFFF",
+    "card_fg": "#0C0A09",
+    "primary": "#1C1917",
+    "on_primary": "#FFFFFF",
+    "accent": "#A16207",
+    "on_accent": "#FFFFFF",
+    "muted": "#E8ECF0",
+    "muted_fg": "#475569",
+    "border": "#D6D3D1",
+    "ring": "#1C1917"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#0C0A09",
+     "bg": "#FAFAF9",
+     "ratio": 18.92,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#FAFAF9",
+     "ratio": 7.26,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#0C0A09",
+     "bg": "#FFFFFF",
+     "ratio": 19.76,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#1C1917",
+     "ratio": 17.49,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#A16207",
+     "ratio": 4.92,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#D6D3D1",
+     "bg": "#FAFAF9",
+     "ratio": 1.43,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Premium dark + gold accent [Accent adjusted from #CA8A04]"
+  },
+  {
+   "product_type": "Grocery & Shopping List",
+   "tokens": {
+    "bg": "#ECFDF5",
+    "fg": "#0F172A",
+    "card": "#FFFFFF",
+    "card_fg": "#0F172A",
+    "primary": "#059669",
+    "on_primary": "#000000",
+    "accent": "#D97706",
+    "on_accent": "#000000",
+    "muted": "#F0F8F6",
+    "muted_fg": "#475569",
+    "border": "#E1F2ED",
+    "ring": "#059669"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#0F172A",
+     "bg": "#ECFDF5",
+     "ratio": 16.95,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#ECFDF5",
+     "ratio": 7.19,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#0F172A",
+     "bg": "#FFFFFF",
+     "ratio": 17.85,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#000000",
+     "bg": "#059669",
+     "ratio": 5.57,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#000000",
+     "bg": "#D97706",
+     "ratio": 6.59,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#E1F2ED",
+     "bg": "#ECFDF5",
+     "ratio": 1.1,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Fresh green + food amber"
+  },
+  {
+   "product_type": "Food Delivery / On-Demand",
+   "tokens": {
+    "bg": "#FFF7ED",
+    "fg": "#0F172A",
+    "card": "#FFFFFF",
+    "card_fg": "#0F172A",
+    "primary": "#EA580C",
+    "on_primary": "#000000",
+    "accent": "#2563EB",
+    "on_accent": "#FFFFFF",
+    "muted": "#FDF4F0",
+    "muted_fg": "#475569",
+    "border": "#FCEAE1",
+    "ring": "#EA580C"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#0F172A",
+     "bg": "#FFF7ED",
+     "ratio": 16.81,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#FFF7ED",
+     "ratio": 7.14,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#0F172A",
+     "bg": "#FFFFFF",
+     "ratio": 17.85,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#000000",
+     "bg": "#EA580C",
+     "ratio": 5.9,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#2563EB",
+     "ratio": 5.17,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#FCEAE1",
+     "bg": "#FFF7ED",
+     "ratio": 1.1,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Appetizing orange + trust blue"
+  },
+  {
+   "product_type": "Luxury/Premium Brand",
+   "tokens": {
+    "bg": "#FAFAF9",
+    "fg": "#0C0A09",
+    "card": "#FFFFFF",
+    "card_fg": "#0C0A09",
+    "primary": "#1C1917",
+    "on_primary": "#FFFFFF",
+    "accent": "#A16207",
+    "on_accent": "#FFFFFF",
+    "muted": "#E8ECF0",
+    "muted_fg": "#475569",
+    "border": "#D6D3D1",
+    "ring": "#1C1917"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#0C0A09",
+     "bg": "#FAFAF9",
+     "ratio": 18.92,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#FAFAF9",
+     "ratio": 7.26,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#0C0A09",
+     "bg": "#FFFFFF",
+     "ratio": 19.76,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#1C1917",
+     "ratio": 17.49,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#A16207",
+     "ratio": 4.92,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#D6D3D1",
+     "bg": "#FAFAF9",
+     "ratio": 1.43,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Premium black + gold accent [Accent adjusted from #CA8A04]"
+  }
+ ],
+ "restaurant": [
+  {
+   "product_type": "Restaurant/Food Service",
+   "tokens": {
+    "bg": "#FEF2F2",
+    "fg": "#450A0A",
+    "card": "#FFFFFF",
+    "card_fg": "#450A0A",
+    "primary": "#DC2626",
+    "on_primary": "#FFFFFF",
+    "accent": "#A16207",
+    "on_accent": "#FFFFFF",
+    "muted": "#F0EDF1",
+    "muted_fg": "#475569",
+    "border": "#FECACA",
+    "ring": "#DC2626"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#450A0A",
+     "bg": "#FEF2F2",
+     "ratio": 14.76,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#FEF2F2",
+     "ratio": 6.93,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#450A0A",
+     "bg": "#FFFFFF",
+     "ratio": 16.14,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#DC2626",
+     "ratio": 4.83,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#A16207",
+     "ratio": 4.92,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#FECACA",
+     "bg": "#FEF2F2",
+     "ratio": 1.32,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Appetizing red + warm gold [Accent adjusted from #CA8A04]"
+  },
+  {
+   "product_type": "Bakery/Cafe",
+   "tokens": {
+    "bg": "#FEF3C7",
+    "fg": "#78350F",
+    "card": "#FFFFFF",
+    "card_fg": "#78350F",
+    "primary": "#92400E",
+    "on_primary": "#FFFFFF",
+    "accent": "#92400E",
+    "on_accent": "#FFFFFF",
+    "muted": "#EDEEF0",
+    "muted_fg": "#475569",
+    "border": "#FDE68A",
+    "ring": "#92400E"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#78350F",
+     "bg": "#FEF3C7",
+     "ratio": 8.15,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#FEF3C7",
+     "ratio": 6.81,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#78350F",
+     "bg": "#FFFFFF",
+     "ratio": 9.07,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#92400E",
+     "ratio": 7.09,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#92400E",
+     "ratio": 7.09,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#FDE68A",
+     "bg": "#FEF3C7",
+     "ratio": 1.12,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Warm brown + cream white [Accent adjusted from #F8FAFC]"
+  },
+  {
+   "product_type": "Food Delivery / On-Demand",
+   "tokens": {
+    "bg": "#FFF7ED",
+    "fg": "#0F172A",
+    "card": "#FFFFFF",
+    "card_fg": "#0F172A",
+    "primary": "#EA580C",
+    "on_primary": "#000000",
+    "accent": "#2563EB",
+    "on_accent": "#FFFFFF",
+    "muted": "#FDF4F0",
+    "muted_fg": "#475569",
+    "border": "#FCEAE1",
+    "ring": "#EA580C"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#0F172A",
+     "bg": "#FFF7ED",
+     "ratio": 16.81,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#FFF7ED",
+     "ratio": 7.14,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#0F172A",
+     "bg": "#FFFFFF",
+     "ratio": 17.85,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#000000",
+     "bg": "#EA580C",
+     "ratio": 5.9,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#2563EB",
+     "ratio": 5.17,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#FCEAE1",
+     "bg": "#FFF7ED",
+     "ratio": 1.1,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Appetizing orange + trust blue"
+  }
+ ],
+ "portfolio": [
+  {
+   "product_type": "Portfolio/Personal",
+   "tokens": {
+    "bg": "#FAFAFA",
+    "fg": "#09090B",
+    "card": "#FFFFFF",
+    "card_fg": "#09090B",
+    "primary": "#18181B",
+    "on_primary": "#FFFFFF",
+    "accent": "#2563EB",
+    "on_accent": "#FFFFFF",
+    "muted": "#E8ECF0",
+    "muted_fg": "#475569",
+    "border": "#E4E4E7",
+    "ring": "#18181B"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#09090B",
+     "bg": "#FAFAFA",
+     "ratio": 19.06,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#FAFAFA",
+     "ratio": 7.26,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#09090B",
+     "bg": "#FFFFFF",
+     "ratio": 19.9,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#18181B",
+     "ratio": 17.72,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#FFFFFF",
+     "bg": "#2563EB",
+     "ratio": 5.17,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#E4E4E7",
+     "bg": "#FAFAFA",
+     "ratio": 1.22,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Monochrome + blue accent"
+  },
+  {
+   "product_type": "Photography Studio",
+   "tokens": {
+    "bg": "#000000",
+    "fg": "#FAFAFA",
+    "card": "#0C0C0C",
+    "card_fg": "#FAFAFA",
+    "primary": "#18181B",
+    "on_primary": "#FFFFFF",
+    "accent": "#F8FAFC",
+    "on_accent": "#0F172A",
+    "muted": "#181818",
+    "muted_fg": "#94A3B8",
+    "border": "#3F3F46",
+    "ring": "#FFFFFF"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#FAFAFA",
+     "bg": "#000000",
+     "ratio": 20.12,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#94A3B8",
+     "bg": "#000000",
+     "ratio": 8.19,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#FAFAFA",
+     "bg": "#0C0C0C",
+     "ratio": 18.74,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#FFFFFF",
+     "bg": "#18181B",
+     "ratio": 17.72,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#0F172A",
+     "bg": "#F8FAFC",
+     "ratio": 17.06,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#3F3F46",
+     "bg": "#000000",
+     "ratio": 2.01,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Pure black + white contrast"
+  },
+  {
+   "product_type": "Creative Agency",
+   "tokens": {
+    "bg": "#FDF2F8",
+    "fg": "#831843",
+    "card": "#FFFFFF",
+    "card_fg": "#831843",
+    "primary": "#EC4899",
+    "on_primary": "#000000",
+    "accent": "#0891B2",
+    "on_accent": "#000000",
+    "muted": "#F1EEF5",
+    "muted_fg": "#475569",
+    "border": "#FBCFE8",
+    "ring": "#EC4899"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#831843",
+     "bg": "#FDF2F8",
+     "ratio": 8.84,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#FDF2F8",
+     "ratio": 6.94,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#831843",
+     "bg": "#FFFFFF",
+     "ratio": 9.65,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#000000",
+     "bg": "#EC4899",
+     "ratio": 5.95,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#000000",
+     "bg": "#0891B2",
+     "ratio": 5.7,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#FBCFE8",
+     "bg": "#FDF2F8",
+     "ratio": 1.27,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Bold pink + cyan accent [Accent adjusted from #06B6D4]"
+  },
+  {
+   "product_type": "Freelancer Platform",
+   "tokens": {
+    "bg": "#EEF2FF",
+    "fg": "#312E81",
+    "card": "#FFFFFF",
+    "card_fg": "#312E81",
+    "primary": "#6366F1",
+    "on_primary": "#000000",
+    "accent": "#16A34A",
+    "on_accent": "#000000",
+    "muted": "#EBEFF9",
+    "muted_fg": "#475569",
+    "border": "#C7D2FE",
+    "ring": "#6366F1"
+   },
+   "contrast": {
+    "body": {
+     "fg": "#312E81",
+     "bg": "#EEF2FF",
+     "ratio": 10.22,
+     "need": 4.5,
+     "ok": true
+    },
+    "muted": {
+     "fg": "#475569",
+     "bg": "#EEF2FF",
+     "ratio": 6.78,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_card": {
+     "fg": "#312E81",
+     "bg": "#FFFFFF",
+     "ratio": 11.42,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_primary": {
+     "fg": "#000000",
+     "bg": "#6366F1",
+     "ratio": 4.7,
+     "need": 4.5,
+     "ok": true
+    },
+    "on_accent": {
+     "fg": "#000000",
+     "bg": "#16A34A",
+     "ratio": 6.37,
+     "need": 4.5,
+     "ok": true
+    },
+    "border": {
+     "fg": "#C7D2FE",
+     "bg": "#EEF2FF",
+     "ratio": 1.33,
+     "need": 3.0,
+     "ok": false
+    }
+   },
+   "failing_pairs": [
+    "border"
+   ],
+   "notes": "Creative indigo + hire green [Accent adjusted from #22C55E]"
+  }
+ ]
+}
