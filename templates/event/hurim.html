@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Хурим — хуримын төлөвлөгчийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Хуримын төлөвлөлтийн үйлчилгээнд зориулсан дэгжин вэб загвар — багц, цагийн хуваарь, үнийн зарчим.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Cormorant / Commissioner — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Commissioner:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FDFBF9; --card:#FFFFFF; --soft:#F3EAE4; --soft2:#F8F2EE;
+  --ink:#2A221E; --mut:#514741; --mut2:#5B5049;
+  --acc:#8A5A4A; --acc-d:#6B4337; --acc-soft:#EFE0D9;
+  --gold:#7A5E1E; --gold-bg:#F6EDD6;
+  --line:#EDE3DC; --line-strong:#938780;
+  --ff-h:'Cormorant',Georgia,serif; --ff-b:'Commissioner',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;line-height:1.14;letter-spacing:-.005em;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1100px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(253,251,249,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.9rem;}
+.logo{display:flex;flex-direction:column;justify-content:center;min-height:44px;}
+.logo b{font-family:var(--ff-h);font-size:28px;font-weight:600;line-height:1;letter-spacing:.02em;}
+.logo span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);}
+.nlinks{display:flex;gap:var(--s4);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.9rem;
+  font-family:var(--ff-b);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  cursor:pointer;border:1px solid transparent;transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:transparent;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--acc-soft);}
+.nav .btn{min-height:44px;padding:0 1.3rem;font-size:12px;margin-left:var(--s3);}
+
+.hero{padding:var(--s6) 0;}
+.hero-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,5vw,4rem);align-items:center;}
+.orn{display:inline-flex;align-items:center;gap:.9rem;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s3);}
+.orn::before,.orn::after{content:'';width:26px;height:1px;background:var(--gold);}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4rem);}
+.hero h1 em{font-style:italic;color:var(--acc);}
+.hero .lead{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:40ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.hero-im{overflow:hidden;aspect-ratio:4/5;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:46ch;margin:0 auto var(--s5);text-align:center;}
+.flag{display:inline-block;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
+.hd h2{font-size:clamp(2rem,4vw,2.9rem);}
+.hd p{margin-top:.9rem;color:var(--mut);}
+
+/* Багц */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);}
+.pc{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;
+  transition:box-shadow .24s,transform .24s;}
+.pc:hover{box-shadow:0 20px 44px -24px rgba(42,34,30,.3);transform:translateY(-4px);}
+.pc.hi{border-color:var(--acc);}
+.pc .ph{aspect-ratio:1/1;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.pc-in{padding:var(--s4) var(--s3);display:flex;flex-direction:column;flex:1;}
+.pc h3{font-size:26px;}
+.pc .amt{display:block;font-family:var(--ff-h);font-size:22px;color:var(--acc-d);margin:.3rem 0 .8rem;}
+.pc p{font-size:15px;color:var(--mut);flex:1;}
+.pc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin:var(--s3) 0 var(--s4);}
+.pc li{display:flex;gap:.7rem;font-size:15px;color:var(--mut);}
+.pc li i{color:var(--acc);font-style:normal;flex-shrink:0;}
+
+/* Цагийн хуваарь */
+.tl{background:var(--soft2);padding:var(--s6) 0;}
+.tline{border-left:1px solid var(--line-strong);margin-left:.6rem;padding-left:var(--s4);}
+.te{position:relative;padding-bottom:var(--s4);}
+.te:last-child{padding-bottom:0;}
+.te::before{content:'';position:absolute;left:calc(-1 * var(--s4) - 5px);top:.65rem;
+  width:9px;height:9px;border-radius:50%;background:var(--acc);}
+.te .wh{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.te h3{font-size:22px;margin:.2rem 0 .3rem;}
+.te p{font-size:15.5px;color:var(--mut);max-width:56ch;}
+
+.quote{padding:var(--s6) 0;}
+.quote-in{max-width:42rem;margin:0 auto;text-align:center;}
+.quote blockquote{font-family:var(--ff-h);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.38;}
+.quote cite{display:block;margin-top:var(--s3);font-style:normal;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);}
+
+.cta{padding:0 0 var(--s6);text-align:center;}
+.cta h2{font-size:clamp(1.9rem,3.8vw,2.7rem);max-width:20ch;margin:0 auto var(--s3);}
+.cta p{color:var(--mut);max-width:46ch;margin:0 auto var(--s4);}
+.cta .row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:900px){
+  .hero-g{grid-template-columns:1fr;} .hero-im{aspect-ratio:16/11;}
+  .pg{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-hurim-hero{background-image:url('../images/hurim-hero.webp');}
+.im-hurim-f1{background-image:url('../images/hurim-f1.webp');}
+.im-hurim-f2{background-image:url('../images/hurim-f2.webp');}
+.im-hurim-f3{background-image:url('../images/hurim-f3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Хурим</b></span>
+  <a href="../event/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><b>Ижил</b><span>Хуримын төлөвлөлт</span></a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#packages">Багц</a><a href="#timeline">Хуваарь</a><a href="#contact">Холбоо барих</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Уулзалт товлох</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-g">
+    <div>
+      <p class="orn">2017 оноос · 180 хурим</p>
+      <h1>Та зөвхөн <em>баярлах</em> ёстой</h1>
+      <p class="lead">Танхим, цэцэг, хоол, гэрэл зураг, хөтлөгч — бүгдийг бид зохицуулна. Тэр өдөр таны хийх ганц ажил бол байх.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#packages">Багцууд үзэх</a>
+        <a class="btn btn-s" href="#timeline">Хэрхэн ажилладаг</a>
+      </div>
+    </div>
+    <div class="hero-im im-hurim-hero" role="img" aria-label="Хуримын ширээний засалт"></div>
+  </div>
+</section>
+
+<section class="sec" id="packages">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Багц</span>
+      <h2>Гурван түвшин</h2>
+      <p>Үнэ нь манай үйлчилгээнийх. Танхим, хоол, цэцгийн зардал тусдаа — бид түүнийг нуудаггүй.</p>
+    </div>
+    <div class="pg">
+      <article class="pc"><div class="ph im-hurim-f2"></div><div class="pc-in">
+        <h3>Зөвлөгөө</h3><span class="amt">800,000₮</span>
+        <p>Та өөрөө зохион байгуулна. Бид чиглүүлж, холбоо барих хүмүүсээ өгнө.</p>
+        <ul><li><i aria-hidden="true">—</i>3 удаагийн уулзалт</li><li><i aria-hidden="true">—</i>Төсвийн загвар</li><li><i aria-hidden="true">—</i>Ханган нийлүүлэгчдийн жагсаалт</li></ul>
+        <a class="btn btn-s" href="#contact">Сонирхож байна</a></div></article>
+      <article class="pc hi"><div class="ph im-hurim-f1"></div><div class="pc-in">
+        <h3>Бүрэн төлөвлөлт</h3><span class="amt">3,500,000₮</span>
+        <p>Хамгийн их сонгогддог. Бид бүх гүйцэтгэгчтэй хэлэлцэж, гэрээ байгуулж, өдөрт нь удирдана.</p>
+        <ul><li><i aria-hidden="true">—</i>Хязгааргүй уулзалт</li><li><i aria-hidden="true">—</i>Бүх гүйцэтгэгчийн сонголт</li><li><i aria-hidden="true">—</i>Төсвийн хяналт</li><li><i aria-hidden="true">—</i>Өдрийн зохицуулалт, 2 ажилтан</li></ul>
+        <a class="btn btn-p" href="#contact">Уулзалт товлох</a></div></article>
+      <article class="pc"><div class="ph im-hurim-f3"></div><div class="pc-in">
+        <h3>Зөвхөн өдөр</h3><span class="amt">1,400,000₮</span>
+        <p>Та бүгдийг бэлдсэн. Бид зөвхөн тэр өдрийг нь алдаагүй өнгөрүүлнэ.</p>
+        <ul><li><i aria-hidden="true">—</i>Сүүлийн сарын 2 уулзалт</li><li><i aria-hidden="true">—</i>Өдрийн цагийн хуваарь</li><li><i aria-hidden="true">—</i>Өдрийн зохицуулалт, 2 ажилтан</li></ul>
+        <a class="btn btn-s" href="#contact">Сонирхож байна</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="tl" id="timeline">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Хуваарь</span><h2>Нэг жилийн замнал</h2>
+      <p>Хурим ойртох тусам шийдвэр олширдог. Бид тэднийг тараан байрлуулдаг.</p></div>
+    <div class="tline">
+      <div class="te"><span class="wh">12–10 сарын өмнө</span>
+        <h3>Огноо, танхим, төсөв</h3>
+        <p>Эхний гурван шийдвэр. Бусад бүхэн эдгээрээс хамаарна. Сайн танхим жилийн өмнө захиалагддаг.</p></div>
+      <div class="te"><span class="wh">9–6 сарын өмнө</span>
+        <h3>Гүйцэтгэгчид</h3>
+        <p>Гэрэл зурагчин, хоол, хөгжим, чимэглэл. Бид 2–3 хувилбар санал болгоно, та сонгоно.</p></div>
+      <div class="te"><span class="wh">5–3 сарын өмнө</span>
+        <h3>Урилга, хувцас, амт</h3>
+        <p>Зочдын жагсаалт эцэслэх, урилга илгээх, хоолны амт үзэх, хувцас тохируулах.</p></div>
+      <div class="te"><span class="wh">2 сар – 1 долоо хоног</span>
+        <h3>Нарийвчлал</h3>
+        <p>Суудлын зураглал, цагийн хуваарь, аялалын зохицуулалт. Бүх гүйцэтгэгчтэй баталгаажуулах дуудлага.</p></div>
+      <div class="te"><span class="wh">Тэр өдөр</span>
+        <h3>Та зочин</h3>
+        <p>Бид 06:00-д ирнэ. Та сэрээд бэлдэнэ. Асуудал гарвал бидэнд ирнэ, танд хүрэхгүй.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap quote-in">
+    <blockquote>«Төгс хурим гэж байдаггүй. Санаа зоволтгүй хурим гэж байдаг.»</blockquote>
+    <cite>Ижил · Хуримын төлөвлөлт</cite>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Эхний уулзалт үнэ төлбөргүй</h2>
+    <p>Огноо, зочдын тоо, ойролцоо төсвөө хэлээрэй. Бид боломжтой эсэх, ямар багц тохирохыг шулуухан хэлнэ.</p>
+    <div class="row">
+      <a class="btn btn-p" href="tel:+97699660000">+976 9966-0000</a>
+      <a class="btn btn-s" href="mailto:sain@ijil.mn">sain@ijil.mn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><b>Ижил</b><span>Хуримын төлөвлөлт</span></span>
+      <p>Хуримын төлөвлөлт, зохион байгуулалт. Улаанбаатар, 2017 оноос.</p></div>
+    <div><h3>Үйлчилгээ</h3><div class="fl"><a href="#packages">Багцууд</a><a href="#timeline">Цагийн хуваарь</a><a href="#contact">Уулзалт</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97699660000">+976 9966-0000</a><a href="mailto:sain@ijil.mn">sain@ijil.mn</a><span>Да–Бя, 10:00–19:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Ижил — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

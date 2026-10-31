@@ -1,0 +1,142 @@
+[
+ {
+  "name": "hurim-hero",
+  "url": "https://images.pexels.com/photos/29040997/pexels-photo-29040997.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Хуримын ширээний зассалт"
+ },
+ {
+  "name": "hurim-f1",
+  "url": "https://images.pexels.com/photos/10838755/pexels-photo-10838755.jpeg",
+  "shape": "square",
+  "maxw": 440,
+  "q": 72,
+  "note": "Сарнайн баглаа"
+ },
+ {
+  "name": "hurim-f2",
+  "url": "https://images.pexels.com/photos/31046060/pexels-photo-31046060.jpeg",
+  "shape": "square",
+  "maxw": 440,
+  "q": 72,
+  "note": "Сүйт бүсгүй баглаатай"
+ },
+ {
+  "name": "hurim-f3",
+  "url": "https://images.pexels.com/photos/37827340/pexels-photo-37827340.jpeg",
+  "shape": "square",
+  "maxw": 440,
+  "q": 72,
+  "note": "Ширээний тавиур, хар цагаан"
+ },
+ {
+  "name": "arga-hero",
+  "url": "https://images.pexels.com/photos/4218027/pexels-photo-4218027.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.5,
+  "need": 4.5,
+  "focus": 0.5,
+  "q": 64,
+  "note": "Гэрэлтүүлэгтэй тайз"
+ },
+ {
+  "name": "arga-f1",
+  "url": "https://images.pexels.com/photos/26202153/pexels-photo-26202153.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Үзэгчид танхимд"
+ },
+ {
+  "name": "arga-f2",
+  "url": "https://images.pexels.com/photos/9275222/pexels-photo-9275222.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Хурлын үзэгчид"
+ },
+ {
+  "name": "arga-f3",
+  "url": "https://images.pexels.com/photos/7648472/pexels-photo-7648472.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Нэрийн хуудас, бүртгэл"
+ },
+ {
+  "name": "tanhim-hero",
+  "url": "https://images.pexels.com/photos/30215011/pexels-photo-30215011.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Том хурим, арга хэмжээний танхим"
+ },
+ {
+  "name": "tanhim-f1",
+  "url": "https://images.pexels.com/photos/16859956/pexels-photo-16859956.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Эгнэсэн суудал"
+ },
+ {
+  "name": "tanhim-f2",
+  "url": "https://images.pexels.com/photos/9300726/pexels-photo-9300726.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Хурлын өрөө"
+ },
+ {
+  "name": "tsetseg-hero",
+  "url": "https://images.pexels.com/photos/31497181/pexels-photo-31497181.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Цэцгийн дэлгүүр, өнгө"
+ },
+ {
+  "name": "tsetseg-f1",
+  "url": "https://images.pexels.com/photos/7858828/pexels-photo-7858828.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Цэцэг засалж байна"
+ },
+ {
+  "name": "tsetseg-f2",
+  "url": "https://images.pexels.com/photos/13306125/pexels-photo-13306125.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Улаан сарнай"
+ },
+ {
+  "name": "bayar-hero",
+  "url": "https://images.pexels.com/photos/15291907/pexels-photo-15291907.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Неон бичигтэй чимэглэл"
+ },
+ {
+  "name": "bayar-f1",
+  "url": "https://images.pexels.com/photos/15068740/pexels-photo-15068740.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Хөөсөн бөмбөлөг"
+ },
+ {
+  "name": "bayar-f2",
+  "url": "https://images.pexels.com/photos/10454182/pexels-photo-10454182.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Баяр ёслолын хувцас"
+ }
+]
