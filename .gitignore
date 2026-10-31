@@ -6,3 +6,6 @@ images/_png-original/
 skills-lock.json
 templates/images/*.src
 templates/_data/.sheet-cache/
+node_modules/
+package-lock.json
+.playwright-report/
