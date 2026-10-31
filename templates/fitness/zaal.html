@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Заал — фитнес төвийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Фитнес заал, спорт клубд зориулсан хүчтэй, харанхуй вэб загвар — хуваарь, гишүүнчлэл, дасгалжуулагчид.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Unbounded / Golos Text — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0B0D; --bg2:#101216; --surf:#171A1F; --surf2:#1E222A;
+  --fg:#F4F5F7; --mut:#A3A8B3; --mut2:#949AA6;
+  --acc:#C6F24E; --acc-d:#A8D32F; --acc-ink:#15200A;
+  --hot:#FF5A36;
+  --line:#242831; --line-strong:#5C6270;
+  --ff-h:'Unbounded',system-ui,sans-serif; --ff-b:'Golos Text',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--fg);font-size:16px;line-height:1.66;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:800;line-height:1.04;letter-spacing:-.03em;text-transform:uppercase;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:var(--acc-ink);padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;}
+
+.gs{background:#000;color:#F5F5F3;font-size:13px;border-bottom:1px solid var(--line);}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1200px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,11,13,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.6rem;}
+.logo{display:flex;align-items:center;min-height:44px;font-family:var(--ff-h);font-size:20px;font-weight:800;letter-spacing:-.04em;text-transform:uppercase;}
+.logo s{text-decoration:none;color:var(--acc);}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--fg);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 1.8rem;
+  font-family:var(--ff-b);font-size:13.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;border:1.5px solid transparent;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+  transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:var(--acc-ink);} .btn-p:hover{background:#D7FF6E;}
+.btn-s{background:transparent;color:var(--fg);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--fg);background:var(--surf);}
+.btn-w{background:#fff;color:#0A0B0D;} .btn-w:hover{background:#E4E6EA;}
+.nav .btn{min-height:44px;padding:0 1.2rem;font-size:12.5px;margin-left:var(--s2);}
+
+/* Hero */
+.hero{position:relative;display:grid;align-items:end;min-height:min(84vh,720px);background:var(--bg);overflow:hidden;}
+.hero .bgim{position:absolute;inset:0;background-color:var(--bg);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(5,6,8,.93) 0%,rgba(5,6,8,.58) 44%,rgba(5,6,8,.26) 78%);}
+.hero-in{position:relative;z-index:2;padding:var(--s6) 0 var(--s5);max-width:46rem;}
+.kick{display:inline-flex;align-items:center;gap:.5rem;background:var(--acc);color:var(--acc-ink);
+  padding:.35rem .9rem;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.4rem,6.4vw,5rem);color:#fff;}
+.hero h1 s{text-decoration:none;color:var(--acc);}
+.hero p{margin-top:var(--s3);font-size:17.5px;color:#D4D7DD;max-width:44ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+
+.tick{background:var(--acc);color:var(--acc-ink);overflow:hidden;padding:.75rem 0;}
+.tick-in{display:flex;gap:2.6rem;white-space:nowrap;font-family:var(--ff-h);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;animation:sl 24s linear infinite;}
+.tick-in span{flex-shrink:0;}
+@keyframes sl{to{transform:translateX(-50%);}}
+
+.sec{padding:var(--s6) 0;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4);}
+.flag{display:block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:.6rem;}
+.hd h2{font-size:clamp(1.8rem,4.4vw,3.1rem);}
+.hd p{color:var(--mut);font-size:15px;max-width:36ch;}
+
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.cc{position:relative;overflow:hidden;border:1px solid var(--line);
+  transition:border-color .24s,transform .24s;}
+.cc:hover{border-color:var(--acc);transform:translateY(-4px);}
+.cc .ph{aspect-ratio:16/10;background-color:var(--surf);background-position:center;background-size:cover;background-repeat:no-repeat;
+  filter:grayscale(.45) brightness(.86);transition:filter .3s;}
+.cc:hover .ph{filter:none;}
+.cc-in{padding:var(--s3);background:var(--surf);}
+.cc h3{font-size:19px;}
+.cc p{font-size:14.5px;color:var(--mut);margin:.45rem 0 var(--s3);}
+.cc .meta{display:flex;flex-wrap:wrap;gap:.4rem;}
+.cc .meta span{background:var(--surf2);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--mut);padding:.2rem .6rem;}
+
+/* Хуваарь */
+.sch{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--s6) 0;}
+.tbl{border:1px solid var(--line);background:var(--surf);}
+.row-h,.row-d{display:grid;grid-template-columns:7rem 1fr 9rem 7rem;gap:var(--s3);align-items:center;padding:.85rem var(--s3);}
+.row-h{background:var(--surf2);font-family:var(--ff-h);font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--mut2);border-bottom:1px solid var(--line);}
+.row-d{border-bottom:1px solid var(--line);transition:background .18s;}
+.row-d:last-child{border-bottom:none;}
+.row-d:hover{background:var(--surf2);}
+.row-d .tm{font-family:var(--ff-h);font-size:15px;font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums;}
+.row-d .nm{font-weight:600;font-size:16px;}
+.row-d .nm s{display:block;text-decoration:none;font-weight:400;font-size:13px;color:var(--mut2);}
+.row-d .tr{font-size:14px;color:var(--mut);}
+.row-d .sl{font-size:13px;font-weight:600;color:var(--acc);text-align:right;white-space:nowrap;}
+.row-d .sl.full{color:var(--hot);}
+
+/* Гишүүнчлэл */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.pp{border:1px solid var(--line);background:var(--surf);padding:var(--s4);display:flex;flex-direction:column;}
+.pp.hi{border-color:var(--acc);background:linear-gradient(180deg,rgba(198,242,78,.1),var(--surf) 40%);}
+.pp .nm{font-family:var(--ff-h);font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--mut);text-transform:uppercase;}
+.pp .px{font-family:var(--ff-h);font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:800;margin:.4rem 0 .1rem;letter-spacing:-.03em;}
+.pp .per{font-size:13.5px;color:var(--mut2);margin-bottom:var(--s3);}
+.pp ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;flex:1;margin-bottom:var(--s4);}
+.pp li{display:flex;gap:.6rem;font-size:14.5px;color:var(--mut);}
+.pp li i{color:var(--acc);font-style:normal;flex-shrink:0;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:14.5px;color:var(--mut);max-width:30ch;margin-top:.6rem;}
+.foot h3{font-family:var(--ff-b);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:1000px){
+  .cg,.pg{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+  .row-h{display:none;}
+  .row-d{grid-template-columns:5rem 1fr auto;gap:.5rem var(--s3);}
+  .row-d .tr{display:none;}
+}
+@media(max-width:600px){.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;animation:none!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. Hero тодрол 12.57:1 */
+.im-zaal-hero{background-image:url('../images/zaal-hero.webp');}
+.im-zaal-c1{background-image:url('../images/zaal-c1.webp');}
+.im-zaal-c2{background-image:url('../images/zaal-c2.webp');}
+.im-zaal-c3{background-image:url('../images/zaal-c3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Заал</b></span>
+  <a href="../fitness/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo">ХҮЧ<s>.</s></a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#classes">Хичээл</a><a href="#schedule">Хуваарь</a><a href="#price">Гишүүнчлэл</a>
+  </nav>
+  <a class="btn btn-p" href="#price">7 хоног үнэгүй</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="bgim im-zaal-hero" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <span class="kick">Эхний 7 хоног үнэгүй</span>
+    <h1>Маргааш гэж <s>байхгүй</s></h1>
+    <p>1,400 м². 24 цаг нээлттэй. 11 дасгалжуулагч. Эхний өдөр нь үргэлж хамгийн хэцүү — бид түүнийг тань дэргэд өнгөрүүлнэ.</p>
+    <div class="row">
+      <a class="btn btn-p" href="#price">Гишүүнчлэл сонгох</a>
+      <a class="btn btn-s" href="#schedule">Хуваарь үзэх</a>
+    </div>
+  </div>
+</section>
+
+<div class="tick"><div class="tick-in" aria-hidden="true">
+  <span>24 цаг нээлттэй ◆ 11 дасгалжуулагч ◆ 1,400 м² ◆ Үнэгүй зогсоол ◆ Шүршүүр, шкаф ◆ Эхний 7 хоног үнэгүй ◆</span>
+  <span>24 цаг нээлттэй ◆ 11 дасгалжуулагч ◆ 1,400 м² ◆ Үнэгүй зогсоол ◆ Шүршүүр, шкаф ◆ Эхний 7 хоног үнэгүй ◆</span>
+</div></div>
+
+<section class="sec" id="classes">
+  <div class="wrap">
+    <div class="hd">
+      <div><span class="flag">Хичээл</span><h2>Гурван чиглэл</h2></div>
+      <p>Бүх хичээл гишүүнчлэлд багтсан. Нэмэлт төлбөргүй.</p>
+    </div>
+    <div class="cg">
+      <article class="cc"><div class="ph im-zaal-c1"></div><div class="cc-in">
+        <h3>Хувийн дасгалжуулалт</h3>
+        <p>Таны зорилгод тохирсон хөтөлбөр. Долоо хоногт 2–3 удаа дасгалжуулагчтай.</p>
+        <div class="meta"><span>60 мин</span><span>1 : 1</span><span>Бүх түвшин</span></div></div></article>
+      <article class="cc"><div class="ph im-zaal-c2"></div><div class="cc-in">
+        <h3>Функциональ бэлтгэл</h3>
+        <p>Өөрийн жин, гирь, оосор. Өдөр тутмын хөдөлгөөнд хүч нэмнэ.</p>
+        <div class="meta"><span>45 мин</span><span>12 хүн</span><span>Дунд</span></div></div></article>
+      <article class="cc"><div class="ph im-zaal-c3"></div><div class="cc-in">
+        <h3>Хүч чадлын бүс</h3>
+        <p>Чөлөөт жин, рак, платформ. Техник заах дасгалжуулагч үргэлж талбай дээр.</p>
+        <div class="meta"><span>Чөлөөт</span><span>24 цаг</span><span>Бүх түвшин</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sch" id="schedule">
+  <div class="wrap">
+    <div class="hd"><div><span class="flag">Хуваарь</span><h2>Өнөөдрийн хичээлүүд</h2></div></div>
+    <div class="tbl">
+      <div class="row-h"><span>Цаг</span><span>Хичээл</span><span>Дасгалжуулагч</span><span style="text-align:right">Суудал</span></div>
+      <div class="row-d"><span class="tm">07:00</span><span class="nm">Өглөөний HIIT<s>Зал 2</s></span><span class="tr">Б.Тэмүүлэн</span><span class="sl">4 суудал</span></div>
+      <div class="row-d"><span class="tm">09:30</span><span class="nm">Функциональ бэлтгэл<s>Зал 1</s></span><span class="tr">Д.Намуун</span><span class="sl">7 суудал</span></div>
+      <div class="row-d"><span class="tm">12:00</span><span class="nm">Үдийн экспресс<s>Зал 2 · 30 минут</s></span><span class="tr">Б.Тэмүүлэн</span><span class="sl">2 суудал</span></div>
+      <div class="row-d"><span class="tm">18:00</span><span class="nm">Хүч чадал, техник<s>Платформ</s></span><span class="tr">С.Батзориг</span><span class="sl full">Дүүрсэн</span></div>
+      <div class="row-d"><span class="tm">19:30</span><span class="nm">Оройн HIIT<s>Зал 1</s></span><span class="tr">Д.Намуун</span><span class="sl">9 суудал</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="price">
+  <div class="wrap">
+    <div class="hd"><div><span class="flag">Гишүүнчлэл</span><h2>Нуусан төлбөргүй</h2></div>
+      <p>Бүртгэлийн хураамж байхгүй. Хүссэн үедээ зогсооно.</p></div>
+    <div class="pg">
+      <div class="pp"><span class="nm">Сарын</span><span class="px">180,000₮</span><span class="per">Сар бүр · хугацааны үүрэггүй</span>
+        <ul><li><i aria-hidden="true">✓</i>Заал 24 цаг</li><li><i aria-hidden="true">✓</i>Бүх бүлгийн хичээл</li><li><i aria-hidden="true">✓</i>Шүршүүр, шкаф</li></ul>
+        <a class="btn btn-s" href="#join">Сонгох</a></div>
+      <div class="pp hi"><span class="nm">Жилийн</span><span class="px">1,560,000₮</span><span class="per">Сард 130,000₮ · 28% хямд</span>
+        <ul><li><i aria-hidden="true">✓</i>Сарын багцын бүх эрх</li><li><i aria-hidden="true">✓</i>2 удаагийн хувийн хичээл</li><li><i aria-hidden="true">✓</i>Биеийн бүрэлдэхүүний хэмжилт</li><li><i aria-hidden="true">✓</i>Зогсоох боломжтой 1 сар</li></ul>
+        <a class="btn btn-p" href="#join">Сонгох</a></div>
+      <div class="pp"><span class="nm">Хувийн</span><span class="px">95,000₮</span><span class="per">Нэг хичээл · 60 минут</span>
+        <ul><li><i aria-hidden="true">✓</i>Ганцаарчилсан хөтөлбөр</li><li><i aria-hidden="true">✓</i>Хоол тэжээлийн зөвлөгөө</li><li><i aria-hidden="true">✓</i>10 хичээлээс 15% хямд</li></ul>
+        <a class="btn btn-s" href="#join">Сонгох</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo">ХҮЧ<s>.</s></span>
+      <p>Фитнес, хүч чадлын төв. Улаанбаатар, 24 цаг нээлттэй.</p></div>
+    <div><h3>Заал</h3><div class="fl"><a href="#classes">Хичээлүүд</a><a href="#schedule">Хуваарь</a><a href="#price">Гишүүнчлэл</a></div></div>
+    <div><h3>Нөхцөл</h3><div class="fl"><a href="#rules">Дотоод журам</a><a href="#safety">Аюулгүй байдал</a><a href="#terms">Гэрээний нөхцөл</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97688440000">+976 8844-0000</a><a href="mailto:sain@huch.mn">sain@huch.mn</a><span>УБ, ХУД, 11-р хороо</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Хүч — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

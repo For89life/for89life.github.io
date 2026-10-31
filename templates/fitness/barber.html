@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Үсчин — эрэгтэй үсчний газрын загвар | Gerelt Solutions</title>
+<meta name="description" content="Эрэгтэй үсчний газарт зориулсан хуваасан дэлгэцтэй вэб загвар — үнэ, мастерууд, цаг захиалга.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Bitter / Inter Tight — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700;800&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#13100D; --bg2:#1A1611; --surf:#221D17; --surf2:#2C251D;
+  --fg:#F2EEE8; --mut:#B0A696; --mut2:#A29786;
+  --acc:#D0954A; --acc-d:#AE7730; --acc-ink:#150E05;
+  --line:#2E2720; --line-strong:#6B6052;
+  --ff-h:'Bitter',Georgia,serif; --ff-b:'Inter Tight',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--fg);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:800;line-height:1.12;letter-spacing:-.02em;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:var(--acc-ink);padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;}
+
+.gs{background:#000;color:#F5F5F3;font-size:13px;border-bottom:1px solid var(--line);}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1180px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(19,16,13,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.6rem;}
+.logo{display:flex;align-items:center;gap:.6rem;min-height:44px;font-family:var(--ff-h);font-size:21px;font-weight:800;letter-spacing:-.02em;}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border:2px solid var(--acc);color:var(--acc);font-size:15px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.8rem;
+  font-family:var(--ff-b);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  cursor:pointer;border:2px solid transparent;transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--acc);color:var(--acc-ink);} .btn-p:hover{background:#E0A961;}
+.btn-s{background:transparent;color:var(--fg);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);color:var(--acc);}
+.nav .btn{min-height:44px;padding:0 1.2rem;font-size:12px;margin-left:var(--s2);}
+
+/* Hero — хуваасан дэлгэц */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:min(84vh,700px);}
+.hero-im{background-color:var(--surf);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hero-tx{display:flex;flex-direction:column;justify-content:center;padding:var(--s6) clamp(1.1rem,5vw,4rem);background:var(--bg2);}
+.est{display:inline-flex;align-items:center;gap:.7rem;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--s3);}
+.est::before{content:'';width:24px;height:2px;background:var(--acc);}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);}
+.hero p{margin-top:var(--s3);font-size:17px;color:var(--mut);max-width:38ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.hours{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line);}
+.hours div b{display:block;font-family:var(--ff-h);font-size:17px;}
+.hours div span{font-size:13.5px;color:var(--mut2);}
+
+.sec{padding:var(--s6) 0;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4);
+  padding-bottom:var(--s3);border-bottom:2px solid var(--acc);}
+.flag{display:block;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.8rem,4vw,2.8rem);}
+.hd p{color:var(--mut);font-size:15px;max-width:34ch;}
+
+/* Үнийн самбар */
+.pl{display:grid;grid-template-columns:repeat(2,1fr);gap:0 var(--s6);}
+.pr{display:flex;align-items:baseline;gap:.9rem;padding:.75rem 0;border-bottom:1px solid var(--line);}
+.pr .nm{flex-shrink:0;font-size:16.5px;font-weight:500;}
+.pr .nm s{display:block;text-decoration:none;font-size:13.5px;color:var(--mut2);font-weight:400;}
+.pr .dots{flex:1;border-bottom:1px dotted var(--line-strong);transform:translateY(-4px);}
+.pr .amt{font-family:var(--ff-h);font-size:18px;color:var(--acc);white-space:nowrap;}
+
+.gal{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--s6) 0;}
+.gg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);}
+.gi{position:relative;overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--surf);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.gi::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,4,.9),rgba(10,7,4,.08) 60%);}
+.gi span{position:absolute;left:var(--s3);bottom:var(--s3);z-index:2;
+  font-family:var(--ff-h);font-size:19px;font-weight:700;color:#fff;}
+
+.rules{padding:var(--s6) 0;}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.rc{border-left:3px solid var(--acc);padding-left:var(--s3);}
+.rc h3{font-size:17px;margin-bottom:.3rem;}
+.rc p{font-size:14.5px;color:var(--mut);}
+
+.cta{background:var(--acc);color:var(--acc-ink);padding:var(--s5) 0;}
+.cta-g{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;}
+.cta h2{font-size:clamp(1.5rem,3.2vw,2.2rem);color:var(--acc-ink);max-width:24ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+.cta .btn-d{background:var(--acc-ink);color:var(--acc);} .cta .btn-d:hover{background:#2A1D0C;}
+.cta .btn-l{background:transparent;color:var(--acc-ink);border-color:var(--acc-ink);} .cta .btn-l:hover{background:rgba(0,0,0,.12);}
+
+.foot{padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:14.5px;color:var(--mut);max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;} .hero-im{min-height:320px;order:-1;}
+  .pl{grid-template-columns:1fr;} .gg{grid-template-columns:1fr;}
+  .rg{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-barber-hero{background-image:url('../images/barber-hero.webp');}
+.im-barber-f1{background-image:url('../images/barber-f1.webp');}
+.im-barber-f2{background-image:url('../images/barber-f2.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Үсчин</b></span>
+  <a href="../fitness/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">✂</i>Хайч</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#price">Үнэ</a><a href="#work">Ажлууд</a><a href="#rules">Журам</a>
+  </nav>
+  <a class="btn btn-p" href="#book">Цаг авах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-im im-barber-hero" role="img" aria-label="Үс засаж буй мастер"></div>
+  <div class="hero-tx">
+    <p class="est">2015 оноос · Улаанбаатар</p>
+    <h1>Сайн засалт 20 минут биш, 45 минут авдаг</h1>
+    <p>Хайчаар л ажилладаг. Машин зөвхөн хажуу талд. Яараад хийсэн засалт хоёр долоо хоногийн дараа мэдэгддэг.</p>
+    <div class="row">
+      <a class="btn btn-p" href="#book">Цаг авах</a>
+      <a class="btn btn-s" href="#price">Үнэ үзэх</a>
+    </div>
+    <div class="hours">
+      <div><b>Да–Ба</b><span>10:00 – 21:00</span></div>
+      <div><b>Бя–Ням</b><span>10:00 – 19:00</span></div>
+      <div><b>5 мастер</b><span>Урьдчилсан захиалгаар</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="price">
+  <div class="wrap">
+    <div class="hd">
+      <div><span class="flag">Үнэ</span><h2>Бүгд нэг хуудсанд</h2></div>
+      <p>Нэмэлт төлбөр байхгүй. Угаалга, хэв тавилт үнэд орсон.</p>
+    </div>
+    <div class="pl">
+      <div>
+        <div class="pr"><span class="nm">Сонгодог засалт<s>Угаалга, хэв тавилт орсон</s></span><span class="dots" aria-hidden="true"></span><span class="amt">45,000₮</span></div>
+        <div class="pr"><span class="nm">Засалт + сахал<s>Бүрэн багц, 70 минут</s></span><span class="dots" aria-hidden="true"></span><span class="amt">70,000₮</span></div>
+        <div class="pr"><span class="nm">Сахлын засвар<s>Халуун алчуур, тос</s></span><span class="dots" aria-hidden="true"></span><span class="amt">35,000₮</span></div>
+        <div class="pr"><span class="nm">Тэг засалт<s>Машинаар, хурдан</s></span><span class="dots" aria-hidden="true"></span><span class="amt">25,000₮</span></div>
+      </div>
+      <div>
+        <div class="pr"><span class="nm">Хүүхдийн засалт<s>12 нас хүртэл</s></span><span class="dots" aria-hidden="true"></span><span class="amt">30,000₮</span></div>
+        <div class="pr"><span class="nm">Ахмадын засалт<s>60-аас дээш нас</s></span><span class="dots" aria-hidden="true"></span><span class="amt">30,000₮</span></div>
+        <div class="pr"><span class="nm">Хусалт<s>Сонгодог тонгорог</s></span><span class="dots" aria-hidden="true"></span><span class="amt">40,000₮</span></div>
+        <div class="pr"><span class="nm">Үс будах<s>Буурал далдлах</s></span><span class="dots" aria-hidden="true"></span><span class="amt">55,000₮</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gal" id="work">
+  <div class="wrap">
+    <div class="hd"><div><span class="flag">Ажлууд</span><h2>Бидний газар</h2></div></div>
+    <div class="gg">
+      <div class="gi im-barber-f1"><span>Хуучин зүйлсийг хадгалдаг</span></div>
+      <div class="gi im-barber-f2"><span>Хамгийн урт үйлчлүүлэгч — 11 жил</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="rules" id="rules">
+  <div class="wrap">
+    <div class="hd"><div><span class="flag">Журам</span><h2>Гурван дүрэм</h2></div></div>
+    <div class="rg">
+      <div class="rc"><h3>Зөвхөн урьдчилсан захиалгаар</h3><p>Ингэснээр хэн ч хүлээхгүй, мастер яарахгүй. Орж ирээд асуувал ойрын чөлөөт цагийг хэлнэ.</p></div>
+      <div class="rc"><h3>15 минутын дүрэм</h3><p>15 минутаас хоцорвол захиалга цуцлагдана. Мастер дараагийн хүнийг хүлээж байдаг.</p></div>
+      <div class="rc"><h3>Таалагдаагүй бол хэл</h3><p>Сандлаас босохоос өмнө хэлээрэй. Засна. Гарсны дараа бол дахин цаг авна.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="book">
+  <div class="wrap cta-g">
+    <h2>Утасдаад л боллоо. Бүртгэл шаардахгүй.</h2>
+    <div class="row">
+      <a class="btn btn-d" href="tel:+97689110000">+976 8911-0000</a>
+      <a class="btn btn-l" href="#instagram">Instagram</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><i aria-hidden="true">✂</i>Хайч</span>
+      <p>Эрэгтэй үсчний газар. Улаанбаатар, Сүхбаатар дүүрэг. 2015 оноос.</p></div>
+    <div><h3>Газар</h3><div class="fl"><a href="#price">Үнэ</a><a href="#work">Ажлууд</a><a href="#rules">Журам</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97689110000">+976 8911-0000</a><a href="mailto:sain@haich.mn">sain@haich.mn</a><span>Да–Ням, 10:00–21:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Хайч — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+[
+ {
+  "name": "zaal-hero",
+  "url": "https://images.pexels.com/photos/16996376/pexels-photo-16996376.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.55,
+  "need": 4.5,
+  "focus": 0.45,
+  "q": 66,
+  "note": "Харанхуй заалд дасгал хийж байна"
+ },
+ {
+  "name": "zaal-c1",
+  "url": "https://images.pexels.com/photos/7203532/pexels-photo-7203532.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Дасгалжуулагч үйлчлүүлэгчтэй"
+ },
+ {
+  "name": "zaal-c2",
+  "url": "https://images.pexels.com/photos/7676548/pexels-photo-7676548.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Хүч чадлын дасгал"
+ },
+ {
+  "name": "zaal-c3",
+  "url": "https://images.pexels.com/photos/9545914/pexels-photo-9545914.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Жингийн тавиур"
+ },
+ {
+  "name": "yog-hero",
+  "url": "https://images.pexels.com/photos/3822454/pexels-photo-3822454.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 72,
+  "note": "Бясалгалын байрлал"
+ },
+ {
+  "name": "yog-f1",
+  "url": "https://images.pexels.com/photos/6246682/pexels-photo-6246682.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Дэвсгэр дээрх дасгал"
+ },
+ {
+  "name": "yog-f2",
+  "url": "https://images.pexels.com/photos/13865894/pexels-photo-13865894.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Байгальд бясалгаж байна"
+ },
+ {
+  "name": "goo-hero",
+  "url": "https://images.pexels.com/photos/18367682/pexels-photo-18367682.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 72,
+  "note": "Үс засуулсан үйлчлүүлэгч"
+ },
+ {
+  "name": "goo-s1",
+  "url": "https://images.pexels.com/photos/22668317/pexels-photo-22668317.jpeg",
+  "shape": "square",
+  "maxw": 420,
+  "q": 72,
+  "note": "Гарын арчилгаа"
+ },
+ {
+  "name": "goo-s2",
+  "url": "https://images.pexels.com/photos/7290123/pexels-photo-7290123.jpeg",
+  "shape": "square",
+  "maxw": 420,
+  "q": 72,
+  "note": "Нүүр будалт"
+ },
+ {
+  "name": "goo-s3",
+  "url": "https://images.pexels.com/photos/5368632/pexels-photo-5368632.jpeg",
+  "shape": "square",
+  "maxw": 420,
+  "q": 72,
+  "note": "Үс засалт"
+ },
+ {
+  "name": "spa-hero",
+  "url": "https://images.pexels.com/photos/6629530/pexels-photo-6629530.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.62,
+  "need": 4.5,
+  "focus": 0.5,
+  "q": 64,
+  "note": "Халуун чулууны массаж"
+ },
+ {
+  "name": "spa-f1",
+  "url": "https://images.pexels.com/photos/11137699/pexels-photo-11137699.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Лаа, арчилгааны хэрэгсэл"
+ },
+ {
+  "name": "spa-f2",
+  "url": "https://images.pexels.com/photos/9335961/pexels-photo-9335961.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Нүүрний массаж"
+ },
+ {
+  "name": "barber-hero",
+  "url": "https://images.pexels.com/photos/32329615/pexels-photo-32329615.jpeg",
+  "shape": "portrait",
+  "maxw": 660,
+  "q": 70,
+  "note": "Үс засаж байна"
+ },
+ {
+  "name": "barber-f1",
+  "url": "https://images.pexels.com/photos/7922651/pexels-photo-7922651.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Үсчний эргэдэг тэмдэг"
+ },
+ {
+  "name": "barber-f2",
+  "url": "https://images.pexels.com/photos/40341992/pexels-photo-40341992.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Ахмад үйлчлүүлэгч"
+ }
+]

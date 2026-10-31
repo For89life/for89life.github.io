@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Гоо сайхан — салоны загвар | Gerelt Solutions</title>
+<meta name="description" content="Гоо сайхны салонд зориулсан дэгжин вэб загвар — үйлчилгээний үнэ, цаг захиалга, мастеруудын хэсэгтэй.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Prata / Manrope — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFBFA; --card:#FFFFFF; --soft:#F8EDEB; --soft2:#FBF4F2;
+  --ink:#2B1E1C; --mut:#53433F; --mut2:#5E4D48;
+  --acc:#9E4257; --acc-d:#7B3143; --acc-soft:#F6E2E7;
+  --gold:#7A5C16; --gold-bg:#F7EDD2;
+  --line:#EFE1DE; --line-strong:#978681;
+  --ff-h:'Prata',Georgia,serif; --ff-b:'Manrope',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --r:18px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:400;line-height:1.22;letter-spacing:-.005em;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 10px 10px;font-weight:700;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1140px;margin:0 auto;}
+.gs b{font-weight:700;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,251,250,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.8rem;}
+.logo{display:flex;flex-direction:column;justify-content:center;min-height:44px;}
+.logo b{font-family:var(--ff-h);font-size:24px;font-weight:400;line-height:1;letter-spacing:.03em;}
+.logo span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);}
+.nlinks{display:flex;gap:var(--s4);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;font-weight:500;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.8rem;border-radius:999px;
+  font-family:var(--ff-b);font-size:14px;font-weight:600;letter-spacing:.06em;cursor:pointer;border:1.5px solid transparent;
+  transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:transparent;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--acc-soft);}
+.btn-w{background:#fff;color:var(--acc-d);} .btn-w:hover{background:#F6E6EA;}
+.btn-o{background:transparent;color:#fff;border-color:#fff;} .btn-o:hover{background:rgba(255,255,255,.18);}
+.nav .btn{min-height:44px;padding:0 1.3rem;font-size:13.5px;margin-left:var(--s3);}
+
+.hero{padding:var(--s6) 0 var(--s5);}
+.hero-g{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(1.8rem,5vw,3.8rem);align-items:center;}
+.orn{display:inline-flex;align-items:center;gap:.8rem;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s3);}
+.orn::before{content:'';width:30px;height:1px;background:var(--gold);}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);}
+.hero .lead{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:40ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.hero-im{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;
+  box-shadow:0 24px 54px -24px rgba(43,30,28,.3);}
+.marks{display:flex;gap:var(--s5);flex-wrap:wrap;margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid var(--line);}
+.marks div b{display:block;font-family:var(--ff-h);font-size:clamp(1.5rem,2.8vw,2rem);color:var(--acc-d);line-height:1.1;}
+.marks div span{font-size:13px;color:var(--mut2);}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:48ch;margin:0 auto var(--s5);text-align:center;}
+.flag{display:inline-block;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;}
+.hd h2{font-size:clamp(1.9rem,3.8vw,2.7rem);}
+.hd p{margin-top:.7rem;color:var(--mut);}
+
+/* Үйлчилгээ — зурагтай карт */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  transition:box-shadow .24s,transform .24s;}
+.sc:hover{box-shadow:0 18px 40px -22px rgba(43,30,28,.32);transform:translateY(-4px);}
+.sc .ph{aspect-ratio:1/1;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.sc-in{padding:var(--s3);}
+.sc h3{font-size:21px;}
+.sc p{font-size:14.5px;color:var(--mut);margin:.4rem 0 .8rem;}
+.sc .pz{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;padding-top:var(--s3);border-top:1px solid var(--line);}
+.sc .pz b{font-family:var(--ff-h);font-size:18px;color:var(--acc-d);font-weight:400;}
+.sc .pz s{text-decoration:none;font-size:13px;color:var(--mut2);}
+
+/* Үнийн жагсаалт */
+.pl{background:var(--soft2);padding:var(--s6) 0;}
+.plg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);}
+.pcol h3{font-family:var(--ff-h);font-size:21px;margin-bottom:var(--s3);padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);}
+.pr{display:flex;align-items:baseline;gap:.8rem;padding:.55rem 0;font-size:15.5px;}
+.pr .nm{flex-shrink:0;}
+.pr .dots{flex:1;border-bottom:1px dotted var(--line-strong);transform:translateY(-4px);}
+.pr .amt{font-weight:600;color:var(--acc-d);white-space:nowrap;}
+
+.cta{padding:var(--s6) 0;}
+.cta-in{background:var(--acc-d);color:#fff;border-radius:var(--r);padding:clamp(1.8rem,5vw,3.4rem);
+  display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s4);align-items:center;}
+.cta h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:#fff;}
+.cta p{color:#EBD2D8;margin-top:.7rem;max-width:40ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .hero-g,.plg,.cta-in{grid-template-columns:1fr;}
+  .sg{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-goo-hero{background-image:url('../images/goo-hero.webp');}
+.im-goo-s1{background-image:url('../images/goo-s1.webp');}
+.im-goo-s2{background-image:url('../images/goo-s2.webp');}
+.im-goo-s3{background-image:url('../images/goo-s3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Гоо сайхан</b></span>
+  <a href="../fitness/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><b>Нарангэрэл</b><span>Гоо сайхны салон</span></a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#services">Үйлчилгээ</a><a href="#price">Үнэ</a><a href="#book">Захиалга</a>
+  </nav>
+  <a class="btn btn-p" href="#book">Цаг захиалах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-g">
+    <div>
+      <p class="orn">2012 оноос хойш</p>
+      <h1>Өөрийгөө таних мэдрэмж</h1>
+      <p class="lead">Үс, арьс, гар. Мастер бүр нэг л чиглэлээр гүн мэргэшсэн — бүх зүйлийг хийдэг хүн байхгүй.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#book">Цаг захиалах</a>
+        <a class="btn btn-s" href="#price">Үнийн жагсаалт</a>
+      </div>
+      <div class="marks">
+        <div><b>14</b><span>жилийн туршлага</span></div>
+        <div><b>9</b><span>мастер</span></div>
+        <div><b>4.9</b><span>дундаж үнэлгээ</span></div>
+      </div>
+    </div>
+    <div class="hero-im im-goo-hero" role="img" aria-label="Үс засуулсан үйлчлүүлэгч"></div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Үйлчилгээ</span>
+      <h2>Гурван үндсэн чиглэл</h2>
+      <p>Захиалга өгөхдөө мастераа сонгож болно. Үргэлж нэг мастерт үйлчлүүлэх нь хамгийн сайн үр дүн өгдөг.</p>
+    </div>
+    <div class="sg">
+      <article class="sc"><div class="ph im-goo-s3"></div><div class="sc-in">
+        <h3>Үс</h3>
+        <p>Засалт, будалт, тохируулга, сэргээх арчилгаа. Өнгө сонгохдоо хамт зөвлөлдөнө.</p>
+        <div class="pz"><b>45,000₮-с</b><s>60–180 минут</s></div></div></article>
+      <article class="sc"><div class="ph im-goo-s2"></div><div class="sc-in">
+        <h3>Нүүр будалт</h3>
+        <p>Өдрийн, оройн, хуримын. Таны арьсны өнгөнд тохирсон палитр.</p>
+        <div class="pz"><b>85,000₮-с</b><s>60–90 минут</s></div></div></article>
+      <article class="sc"><div class="ph im-goo-s1"></div><div class="sc-in">
+        <h3>Гар, хумсны арчилгаа</h3>
+        <p>Сонгодог маникюр, гель бүрээс, дизайн. Багаж бүрийг тусад нь ариутгана.</p>
+        <div class="pz"><b>38,000₮-с</b><s>45–120 минут</s></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="pl" id="price">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Үнэ</span><h2>Бүрэн үнийн жагсаалт</h2></div>
+    <div class="plg">
+      <div class="pcol">
+        <h3>Үс</h3>
+        <div class="pr"><span class="nm">Засалт, эмэгтэй</span><span class="dots" aria-hidden="true"></span><span class="amt">45,000₮</span></div>
+        <div class="pr"><span class="nm">Засалт, эрэгтэй</span><span class="dots" aria-hidden="true"></span><span class="amt">30,000₮</span></div>
+        <div class="pr"><span class="nm">Нэг өнгөөр будах</span><span class="dots" aria-hidden="true"></span><span class="amt">120,000₮-с</span></div>
+        <div class="pr"><span class="nm">Хайлуулалт, балаяж</span><span class="dots" aria-hidden="true"></span><span class="amt">280,000₮-с</span></div>
+        <div class="pr"><span class="nm">Кератин сэргээлт</span><span class="dots" aria-hidden="true"></span><span class="amt">350,000₮-с</span></div>
+        <div class="pr"><span class="nm">Угаалга, хатаалт</span><span class="dots" aria-hidden="true"></span><span class="amt">25,000₮</span></div>
+      </div>
+      <div class="pcol">
+        <h3>Нүүр, гар</h3>
+        <div class="pr"><span class="nm">Өдрийн будалт</span><span class="dots" aria-hidden="true"></span><span class="amt">85,000₮</span></div>
+        <div class="pr"><span class="nm">Оройн будалт</span><span class="dots" aria-hidden="true"></span><span class="amt">130,000₮</span></div>
+        <div class="pr"><span class="nm">Хуримын багц</span><span class="dots" aria-hidden="true"></span><span class="amt">450,000₮</span></div>
+        <div class="pr"><span class="nm">Сонгодог маникюр</span><span class="dots" aria-hidden="true"></span><span class="amt">38,000₮</span></div>
+        <div class="pr"><span class="nm">Гель бүрээс</span><span class="dots" aria-hidden="true"></span><span class="amt">65,000₮</span></div>
+        <div class="pr"><span class="nm">Хөлийн арчилгаа</span><span class="dots" aria-hidden="true"></span><span class="amt">72,000₮</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="book">
+  <div class="wrap"><div class="cta-in">
+    <div>
+      <h2>Цагаа урьдчилан авна уу</h2>
+      <p>Бид зөвхөн урьдчилсан захиалгаар ажилладаг — ингэснээр хэн ч хүлээхгүй, мастер яарахгүй.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="tel:+97699770000">+976 9977-0000</a>
+      <a class="btn btn-o" href="#instagram">Instagram-аар бичих</a>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><b>Нарангэрэл</b><span>Гоо сайхны салон</span></span>
+      <p>Үс, нүүр будалт, гарын арчилгаа. Улаанбаатар, 2012 оноос.</p></div>
+    <div><h3>Үйлчилгээ</h3><div class="fl"><a href="#services">Үс</a><a href="#services">Нүүр будалт</a><a href="#services">Хумс</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97699770000">+976 9977-0000</a><a href="mailto:sain@narangerel.mn">sain@narangerel.mn</a><span>Да–Ням, 10:00–20:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Нарангэрэл — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

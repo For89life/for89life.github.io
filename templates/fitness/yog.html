@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Йог — йог, пилатесийн студийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Йог, пилатесийн студид зориулсан амгалан, агаартай вэб загвар — хуваарь, багш нар, анхан шатны зөвлөмж.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- EB Garamond / Onest — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF8F4; --card:#FFFFFF; --soft:#EDEDE4; --soft2:#F4F3EC;
+  --ink:#262821; --mut:#4C5046; --mut2:#565A4F;
+  --acc:#4F6148; --acc-d:#3A4835; --acc-soft:#E2E8DD;
+  --clay:#8A5B3C; --clay-bg:#F2E4D9;
+  --line:#E4E2D6; --line-strong:#8B8A7B;
+  --ff-h:'EB Garamond',Georgia,serif; --ff-b:'Onest',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;line-height:1.2;letter-spacing:-.005em;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1080px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,248,244,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.8rem;}
+.logo{display:flex;flex-direction:column;justify-content:center;min-height:44px;}
+.logo b{font-family:var(--ff-h);font-size:25px;font-weight:600;line-height:1;letter-spacing:.02em;}
+.logo span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);}
+.nlinks{display:flex;gap:var(--s4);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.8rem;border-radius:999px;
+  font-family:var(--ff-b);font-size:15px;font-weight:500;cursor:pointer;border:1px solid transparent;
+  transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:transparent;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--acc-soft);}
+.nav .btn{min-height:44px;padding:0 1.3rem;font-size:14px;margin-left:var(--s3);}
+
+.hero{padding:var(--s6) 0;}
+.hero-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,5vw,4rem);align-items:center;}
+.quietly{display:inline-flex;align-items:center;gap:.5rem;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.3rem,5.2vw,3.8rem);}
+.hero h1 em{font-style:italic;color:var(--acc);}
+.hero .lead{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:40ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.hero-im{border-radius:999px 999px 0 0;overflow:hidden;aspect-ratio:3/4;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:46ch;margin:0 auto var(--s5);text-align:center;}
+.flag{display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);margin-bottom:.8rem;}
+.hd h2{font-size:clamp(1.9rem,3.8vw,2.7rem);}
+.hd p{margin-top:.8rem;color:var(--mut);}
+
+/* Хичээлийн хуваарь */
+.cls{border-top:1px solid var(--line);}
+.cl{display:grid;grid-template-columns:5.5rem 1fr auto auto;gap:var(--s3);align-items:center;
+  padding:var(--s3) 0;border-bottom:1px solid var(--line);transition:padding-left .25s;}
+.cl:hover{padding-left:.6rem;}
+.cl .tm{font-family:var(--ff-h);font-size:18px;color:var(--acc);font-variant-numeric:tabular-nums;}
+.cl h3{font-family:var(--ff-b);font-size:16.5px;font-weight:600;letter-spacing:0;}
+.cl p{font-size:14px;color:var(--mut2);margin-top:.1rem;}
+.cl .lvl{font-size:12.5px;color:var(--mut);border:1px solid var(--line-strong);border-radius:999px;padding:.15rem .7rem;white-space:nowrap;}
+.cl .dur{font-size:14px;color:var(--mut2);white-space:nowrap;font-variant-numeric:tabular-nums;}
+
+.split{background:var(--soft2);padding:var(--s6) 0;}
+.spg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,5vw,4rem);align-items:center;}
+.spim{border-radius:16px;overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.split h2{font-size:clamp(1.8rem,3.6vw,2.5rem);}
+.split p{color:var(--mut);margin-top:var(--s3);}
+.ul{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-top:var(--s4);}
+.ul li{display:flex;gap:.9rem;align-items:flex-start;font-size:15.5px;}
+.ul i{flex-shrink:0;font-family:var(--ff-h);font-size:17px;color:var(--acc);font-style:normal;line-height:1.5;}
+
+.quote{padding:var(--s6) 0;}
+.quote-in{max-width:44rem;margin:0 auto;text-align:center;}
+.quote blockquote{font-family:var(--ff-h);font-style:italic;font-size:clamp(1.35rem,2.8vw,2rem);line-height:1.42;}
+.quote cite{display:block;margin-top:var(--s3);font-style:normal;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);}
+
+.pz{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:var(--s4);display:flex;flex-direction:column;text-align:center;}
+.pc.hi{border-color:var(--acc);}
+.pc .nm{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);}
+.pc .px{font-family:var(--ff-h);font-size:clamp(1.9rem,3.4vw,2.5rem);margin:.4rem 0 .2rem;}
+.pc .per{font-size:14px;color:var(--mut2);margin-bottom:var(--s4);}
+.pc p{font-size:14.5px;color:var(--mut);flex:1;margin-bottom:var(--s4);}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc-d);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:900px){
+  .hero-g,.spg{grid-template-columns:1fr;}
+  .hero-im{border-radius:16px;aspect-ratio:16/11;}
+  .pz{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+  .cl{grid-template-columns:4.5rem 1fr auto;} .cl .dur{display:none;}
+}
+@media(max-width:600px){.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-yog-hero{background-image:url('../images/yog-hero.webp');}
+.im-yog-f1{background-image:url('../images/yog-f1.webp');}
+.im-yog-f2{background-image:url('../images/yog-f2.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Йог</b></span>
+  <a href="../fitness/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><b>Амьсгал</b><span>Йог студи</span></a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#schedule">Хуваарь</a><a href="#first">Анх удаа</a><a href="#price">Үнэ</a>
+  </nav>
+  <a class="btn btn-p" href="#price">Хичээлд бүртгүүлэх</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-g">
+    <div>
+      <p class="quietly">Өдөрт 50 минут</p>
+      <h1>Уян хатан байх нь <em>шаардлага</em> биш</h1>
+      <p class="lead">Хөлөө хүрч чаддаггүй хүмүүст зориулсан студи. Эхнээс нь эхэлнэ — бид хэнийг ч яаруулдаггүй.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#first">Анхны хичээл</a>
+        <a class="btn btn-s" href="#schedule">Хуваарь үзэх</a>
+      </div>
+    </div>
+    <div class="hero-im im-yog-hero" role="img" aria-label="Бясалгалын байрлалд сууж буй хүн"></div>
+  </div>
+</section>
+
+<section class="sec" id="schedule">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Хуваарь</span>
+      <h2>Долоо хоногийн хичээлүүд</h2>
+      <p>Бүх хичээлд дэвсгэр, тоосго, оосор бэлэн. Зөвхөн өөрөө ирээрэй.</p>
+    </div>
+    <div class="cls">
+      <div class="cl"><span class="tm">07:00</span>
+        <div><h3>Өглөөний сэрэх</h3><p>Зөөлөн урсгал, амьсгалын дасгал</p></div>
+        <span class="lvl">Анхан</span><span class="dur">50 мин</span></div>
+      <div class="cl"><span class="tm">10:00</span>
+        <div><h3>Хатха</h3><p>Байрлал удаан барих, тэнцвэр</p></div>
+        <span class="lvl">Бүх түвшин</span><span class="dur">75 мин</span></div>
+      <div class="cl"><span class="tm">12:30</span>
+        <div><h3>Нурууны йог</h3><p>Суугаа ажилтай хүмүүст</p></div>
+        <span class="lvl">Анхан</span><span class="dur">45 мин</span></div>
+      <div class="cl"><span class="tm">18:00</span>
+        <div><h3>Виньяса урсгал</h3><p>Хөдөлгөөнт, амьсгалтай уялдсан</p></div>
+        <span class="lvl">Дунд</span><span class="dur">75 мин</span></div>
+      <div class="cl"><span class="tm">20:00</span>
+        <div><h3>Тайвшрал</h3><p>Инь йог, удаан сунгалт, бясалгал</p></div>
+        <span class="lvl">Бүх түвшин</span><span class="dur">60 мин</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="split" id="first">
+  <div class="wrap spg">
+    <div class="spim im-yog-f1" role="img" aria-label="Дэвсгэр дээр дасгал хийж буй хүмүүс"></div>
+    <div>
+      <span class="flag">Анх удаа</span>
+      <h2>Эхний удаад юу мэдэх хэрэгтэй вэ</h2>
+      <p>Хамгийн их тохиолддог айдас бол «би хангалттай уян хатан биш». Энэ бол яг л «би бохир учраас усанд орохгүй» гэсэнтэй адил.</p>
+      <ul class="ul">
+        <li><i aria-hidden="true">—</i><span>10 минутын өмнө ирээрэй. Багш тантай товч танилцана.</span></li>
+        <li><i aria-hidden="true">—</i><span>Хоол идсэнээс хойш 2 цаг өнгөрсөн байх нь тохиромжтой.</span></li>
+        <li><i aria-hidden="true">—</i><span>Эвгүй санагдвал хүүхдийн байрлалд амарна. Энэ нь бүтэлгүйтэл биш.</span></li>
+        <li><i aria-hidden="true">—</i><span>Хөнгөн хувцас, оймсгүй. Бусад бүхнийг бид өгнө.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap quote-in">
+    <blockquote>«Йог бол хөлөө хүрэх тухай биш. Доош бөхийхдөө замдаа юу сурсан тухай.»</blockquote>
+    <cite>Жудит Хансон Ласатер</cite>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap spg">
+    <div>
+      <span class="flag">Багш нар</span>
+      <h2>Дөрвөн багш, нэг хандлага</h2>
+      <p>Бид байрлалыг «зөв» хийхээс илүү, таны бие юу хэлж байгааг сонсож сурахад анхаардаг. Багш бүр 300 цагийн сургалт дүүргэсэн.</p>
+      <ul class="ul">
+        <li><i aria-hidden="true">—</i><span>Нэг хичээлд 14 хүртэл хүн — багш бүгдэд хүрч амжина</span></li>
+        <li><i aria-hidden="true">—</i><span>Гэмтэл, жирэмслэлт байвал урьдчилан хэлээрэй</span></li>
+        <li><i aria-hidden="true">—</i><span>Хүрч засахыг хүсэхгүй бол картаа эргүүлнэ — багш ойлгоно</span></li>
+      </ul>
+    </div>
+    <div class="spim im-yog-f2" role="img" aria-label="Байгальд бясалгаж буй хүн"></div>
+  </div>
+</section>
+
+<section class="sec" id="price">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Үнэ</span><h2>Гурван сонголт</h2></div>
+    <div class="pz">
+      <div class="pc"><span class="nm">Анхны хичээл</span><span class="px">Үнэгүй</span><span class="per">Нэг удаа</span>
+        <p>Ямар ч хичээлд. Урьдчилан бүртгүүлээд ирээрэй.</p>
+        <a class="btn btn-s" href="#join">Бүртгүүлэх</a></div>
+      <div class="pc hi"><span class="nm">Сарын хязгааргүй</span><span class="px">220,000₮</span><span class="per">Сар бүр</span>
+        <p>Бүх хичээлд хязгааргүй. Хүссэн үедээ зогсооно.</p>
+        <a class="btn btn-p" href="#join">Сонгох</a></div>
+      <div class="pc"><span class="nm">10 хичээлийн карт</span><span class="px">320,000₮</span><span class="per">3 сарын хугацаатай</span>
+        <p>Тогтмол ирэх боломжгүй хүмүүст. Шилжүүлж болно.</p>
+        <a class="btn btn-s" href="#join">Сонгох</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><b>Амьсгал</b><span>Йог студи</span></span>
+      <p>Йог, пилатесийн студи. Улаанбаатар, Сүхбаатар дүүрэг. 2018 оноос.</p></div>
+    <div><h3>Студи</h3><div class="fl"><a href="#schedule">Хуваарь</a><a href="#first">Анх удаа</a><a href="#price">Үнэ</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97695110000">+976 9511-0000</a><a href="mailto:sain@amisgal.mn">sain@amisgal.mn</a><span>Да–Ням, 06:30–21:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Амьсгал — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>
