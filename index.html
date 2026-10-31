@@ -541,6 +541,144 @@ html.js .rv.in{opacity:1;transform:none;}
 .mbox h3{font-weight:500!important;letter-spacing:-.02em;}
 .mbox .msub{color:var(--dim)!important;}
 
+
+/* ═══ HERO — ХӨТЧИЙН ХҮРЭЭТЭЙ ═══════════════════════════════
+   Awwwards-ийн шинжилгээнээс: шагнал авсан 12 сайтын 4 нь
+   бүтээгдэхүүнээ хөтөч/төхөөрөмжийн хүрээнд харуулдаг. Манай
+   хамгийн хүчтэй хөрөнгө бол 16 бэлэн загвар тул тэднийг
+   нуухын оронд эхний дэлгэцэнд гаргана.                       */
+.hero{
+  position:relative;overflow:hidden;
+  min-height:auto;padding:calc(var(--navh) + var(--s6)) 0 var(--s6);
+  display:block;
+}
+.hero-g{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1.18fr);
+  gap:clamp(2rem,5vw,4.5rem);align-items:center;
+}
+#markC{
+  position:absolute;top:50%;left:-16%;transform:translateY(-50%);
+  width:min(52vw,660px);height:min(52vw,660px);
+  opacity:.5;z-index:0;pointer-events:none;mix-blend-mode:lighten;
+}
+.hero-in{max-width:34rem;}
+.hero h1{font-size:clamp(2.3rem,4.6vw,4rem);}
+/* 4 тоо нарийн баганад 3+1 болж тасардаг тул 2x2 болгов */
+.hero .hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3) var(--s4);max-width:30rem;}
+
+/* Хөтчийн хүрээ */
+.shots{
+  position:relative;border-radius:14px;overflow:hidden;
+  background:var(--surf);border:1px solid var(--line-2);
+  box-shadow:0 36px 80px -28px rgba(0,0,0,.75),0 2px 0 rgba(255,255,255,.04) inset;
+  transform:perspective(1600px) rotateY(-5deg) rotateX(1.2deg);
+  transition:transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.shots:hover{transform:perspective(1600px) rotateY(-2deg) rotateX(0deg);}
+.brow{
+  display:flex;align-items:center;gap:.7rem;
+  padding:.62rem .9rem;border-bottom:1px solid var(--line);
+  background:var(--surf-2);
+}
+.brow .bd{display:flex;gap:.36rem;flex-shrink:0;}
+.brow .bd i{width:9px;height:9px;border-radius:50%;background:var(--line-2);display:block;}
+.brow .url{
+  flex:1;text-align:center;font-size:11.5px;color:var(--mut2);
+  background:var(--bg-2);border-radius:999px;padding:.24rem .9rem;
+  overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+.screen{position:relative;aspect-ratio:16/10;background:var(--bg-2);}
+.screen img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  opacity:0;transition:opacity .9s ease;
+}
+.screen img.on{opacity:1;}
+.screen .cap{
+  position:absolute;left:0;right:0;bottom:0;
+  display:flex;align-items:center;gap:.6rem;
+  padding:1.6rem .95rem .72rem;
+  background:linear-gradient(transparent,rgba(0,0,0,.86));
+  font-size:12px;letter-spacing:.07em;text-transform:uppercase;font-weight:600;color:#fff;
+}
+.screen .cap b{color:var(--acc);font-weight:600;}
+.shot-dots{display:flex;justify-content:center;gap:.4rem;margin-top:var(--s3);}
+.shot-dots button{
+  width:26px;height:26px;padding:0;border:none;background:none;cursor:pointer;
+  display:grid;place-items:center;
+}
+.shot-dots button::after{
+  content:'';width:22px;height:3px;border-radius:2px;
+  background:var(--line-2);transition:background .3s;
+}
+.shot-dots button[aria-current="true"]::after{background:var(--acc);}
+
+/* ═══ ЗАГВАРЫН ХАНА ════════════════════════════════════════
+   DuoFankaar-ийн хэв маяг: олон ажлыг нэг дор нягт харуулж,
+   цар хүрээг нэг харцаар ойлгуулна.                          */
+.wall{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+.tile{
+  position:relative;display:block;overflow:hidden;border-radius:10px;
+  aspect-ratio:16/10;background:var(--surf);
+  border:1px solid var(--line);
+  transition:border-color .28s ease,transform .28s ease;
+}
+.tile img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  transition:transform .5s ease,filter .35s ease;
+  filter:saturate(.82) brightness(.82);
+}
+.tile:hover{border-color:var(--line-2);transform:translateY(-3px);}
+.tile:hover img,.tile:focus-visible img{filter:none;transform:scale(1.035);}
+.tile .tn{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:1.5rem .75rem .6rem;
+  background:linear-gradient(transparent,rgba(0,0,0,.88));
+  font-size:12.5px;font-weight:600;color:#fff;
+  display:flex;align-items:baseline;gap:.45rem;
+}
+.tile .tn s{text-decoration:none;font-size:10.5px;color:#C9CAD0;font-weight:500;}
+.tile[hidden]{display:none;}
+
+.wall-bar{
+  display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
+  margin-bottom:var(--s3);
+}
+.wchip{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;
+  border-radius:999px;border:1px solid var(--line-strong);background:none;
+  font-family:inherit;font-size:13px;font-weight:500;color:var(--mut);
+  cursor:pointer;transition:all .2s;
+}
+.wchip:hover{color:var(--fg);border-color:var(--fg);}
+.wchip[aria-pressed="true"]{background:var(--fg);color:var(--ink);border-color:var(--fg);}
+.wchip .n{opacity:.6;margin-left:.4rem;font-size:11px;}
+.wall-note{margin-top:var(--s3);font-size:13px;color:var(--mut2);}
+
+@media(max-width:1100px){
+  .wall{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:900px){
+  .hero-g{grid-template-columns:1fr;gap:var(--s4);}
+  .hero-in{max-width:none;}
+  .shots{transform:none;}
+  .shots:hover{transform:none;}
+  #markC{left:-34%;opacity:.3;}
+  .wall{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:560px){
+  .wall{grid-template-columns:1fr;}
+}
+@media(prefers-reduced-motion:reduce){
+  .shots,.shots:hover{transform:none;}
+  .tile img{filter:none;}
+}
+
 /* ═══ ХУУЧИН НЭРИЙН НИЙЦ ══════════════════════════════════════
    Цонх, админы хэсэг --dim / --dimmer нэрийг ашигладаг тул
    шинэ токенд холбож өгнө.                                     */
@@ -598,21 +736,39 @@ html.js .rv.in{opacity:1;transform:none;}
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="top">
   <canvas id="markC" aria-hidden="true"></canvas>
-  <div class="wrap">
+  <div class="wrap hero-g">
     <div class="hero-in">
       <p class="eyebrow"><span class="pip" aria-hidden="true"></span>Улаанбаатар · Дорнод</p>
-      <h1 class="h-xl">Санааг ажилладаг<br><em>бүтээгдэхүүн</em> болгоно</h1>
-      <p class="lead">Вэб, мобайл аппликейшн, онлайн дэлгүүр, төлбөрийн холболт — зураглалаас эхлээд ажиллаж эхлэх хүртэл нэг багаас.</p>
+      <h1 class="h-xl">Долоо хоногт<br>амьдардаг <em>вэб</em></h1>
+      <p class="lead">16 бэлэн загвар, эсвэл зөвхөн танд зориулсан шийдэл. Хоёулаа нэг студиэс, нэг хариуцагчтай.</p>
       <div class="btn-row">
-        <button class="btn btn-p" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
-        <a class="btn btn-s" href="#work">Хийсэн ажлууд үзэх</a>
+        <a class="btn btn-p" href="#templates">Загварууд үзэх</a>
+        <button class="btn btn-s" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
       </div>
       <div class="hero-stats">
-        <div><b>2025</b><span>Студи байгуулагдсан</span></div>
-        <div><b>7 хоног</b><span>Бэлэн загвар ашиглавал</span></div>
+        <div><b>16</b><span>Бэлэн загвар</span></div>
+        <div><b>7 хоног</b><span>Хамгийн хурдан нь</span></div>
         <div><b>4</b><span>Үндсэн чиглэл</span></div>
         <div><b>12 сар</b><span>Хамгийн урт дэмжлэг</span></div>
       </div>
+    </div>
+
+    <div>
+      <div class="shots">
+        <div class="brow">
+          <span class="bd" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="url" id="shotUrl">gerelt-solutuions.com/templates/corporate/tulga</span>
+        </div>
+        <div class="screen" id="shotScreen">
+          <img src="templates/images/pv-tulga.webp" class="on" alt="Тулга — байгууллагын танилцуулга загвар" data-n="Тулга" data-c="Байгууллагын танилцуулга" data-u="templates/corporate/tulga">
+          <img src="templates/images/pv-zah.webp" alt="Зах — онлайн дэлгүүр загвар" loading="lazy" data-n="Зах" data-c="Онлайн дэлгүүр" data-u="templates/shop/zah">
+          <img src="templates/images/pv-utaa.webp" alt="Утаа — ресторан загвар" loading="lazy" data-n="Утаа" data-c="Ресторан &amp; кафе" data-u="templates/restaurant/utaa">
+          <img src="templates/images/pv-suljee.webp" alt="Сүлжээ — портфолио загвар" loading="lazy" data-n="Сүлжээ" data-c="Хувийн портфолио" data-u="templates/portfolio/suljee">
+          <img src="templates/images/pv-navch.webp" alt="Навч — кафе загвар" loading="lazy" data-n="Навч" data-c="Ресторан &amp; кафе" data-u="templates/restaurant/navch">
+          <span class="cap"><b id="shotName">Тулга</b><span id="shotCat">Байгууллагын танилцуулга</span></span>
+        </div>
+      </div>
+      <div class="shot-dots" id="shotDots" role="group" aria-label="Загвар солих"></div>
     </div>
   </div>
 </section>
@@ -631,56 +787,85 @@ html.js .rv.in{opacity:1;transform:none;}
   <div class="wrap">
     <div class="sec-head rv">
       <p class="slab"><b>01</b>Бэлэн загвар</p>
-      <h2 class="h-lg">Дөрвөн категор, 16 загвар</h2>
-      <p class="lead">Категор бүрт дөрвөн өөр дизайны шийдэл. Загвараа сонгоод агуулгаа өгвөл болно — өнгө, лого, бичвэрийг тань руу тааруулна.</p>
+      <h2 class="h-lg">Арван зургаан загвар, дөрвөн категор</h2>
+      <p class="lead">Загвар бүр бүтэн ажиллдаг хуудас. Сонгоод агуулгаа өгвөл болно — өнгө, лого, бичвэрийг тань руу тааруулна.</p>
     </div>
-    <div class="tpl rv">
 
-      <article class="tpl-card">
-        <a class="tpl-view tv1" style="background-image:url('templates/images/pv-tulga.webp');background-size:cover;background-position:top center" href="templates/corporate/index.html">
-          <span class="tt">Байгууллагын<br>танилцуулга</span>
-          <span class="tb">Тухай · Үйлчилгээ · Холбоо</span>
-          <span class="tpl-peek">4 загвар үзэх →</span>
-        </a>
-        <div class="tpl-row"><h3>Байгууллагын танилцуулга</h3><span class="amt">4 загвар</span></div>
-        <p class="tpl-sub">Тулга · Хүрд · Цамхаг · Эгнээ</p>
-        <a class="tpl-act" href="templates/corporate/index.html">Загварууд үзэх →</a>
-      </article>
-
-      <article class="tpl-card">
-        <a class="tpl-view tv2" style="background-image:url('templates/images/pv-zah.webp');background-size:cover;background-position:top center" href="templates/shop/index.html">
-          <span class="tt">Онлайн<br>дэлгүүр</span>
-          <span class="tb">Бараа · Сагс · QPay</span>
-          <span class="tpl-peek">4 загвар үзэх →</span>
-        </a>
-        <div class="tpl-row"><h3>Онлайн дэлгүүр</h3><span class="amt">4 загвар</span></div>
-        <p class="tpl-sub">Зах · Сав · Түлхүүр · Хоршоо</p>
-        <a class="tpl-act" href="templates/shop/index.html">Загварууд үзэх →</a>
-      </article>
-
-      <article class="tpl-card">
-        <a class="tpl-view tv3" style="background-image:url('templates/images/pv-guurs.webp');background-size:cover;background-position:top center" href="templates/restaurant/index.html">
-          <span class="tt">Ресторан<br>&amp; кафе</span>
-          <span class="tb">Цэс · Захиалга · Байршил</span>
-          <span class="tpl-peek">4 загвар үзэх →</span>
-        </a>
-        <div class="tpl-row"><h3>Ресторан &amp; кафе</h3><span class="amt">4 загвар</span></div>
-        <p class="tpl-sub">Гуурс · Утаа · Навч · Тогоо</p>
-        <a class="tpl-act" href="templates/restaurant/index.html">Загварууд үзэх →</a>
-      </article>
-
-      <article class="tpl-card">
-        <a class="tpl-view tv4" style="background-image:url('templates/images/pv-or.webp');background-size:cover;background-position:top center" href="templates/portfolio/index.html">
-          <span class="tt">Хувийн<br>портфолио</span>
-          <span class="tb">Ажлын сан · Блог</span>
-          <span class="tpl-peek">4 загвар үзэх →</span>
-        </a>
-        <div class="tpl-row"><h3>Хувийн портфолио</h3><span class="amt">4 загвар</span></div>
-        <p class="tpl-sub">Ор · Хуудас · Зураг · Сүлжээ</p>
-        <a class="tpl-act" href="templates/portfolio/index.html">Загварууд үзэх →</a>
-      </article>
-
+    <div class="wall-bar rv" role="group" aria-label="Категороор шүүх">
+      <button class="wchip" data-cat="all" aria-pressed="true">Бүгд<span class="n">16</span></button>
+      <button class="wchip" data-cat="corporate" aria-pressed="false">Танилцуулга<span class="n">4</span></button>
+      <button class="wchip" data-cat="shop" aria-pressed="false">Дэлгүүр<span class="n">4</span></button>
+      <button class="wchip" data-cat="restaurant" aria-pressed="false">Ресторан<span class="n">4</span></button>
+      <button class="wchip" data-cat="portfolio" aria-pressed="false">Портфолио<span class="n">4</span></button>
     </div>
+
+    <div class="wall rv" id="wall">
+      <a class="tile" href="templates/corporate/tulga.html" data-cat="corporate">
+        <img src="templates/images/pv-tulga.webp" alt="Тулга — Байгууллагын танилцуулга загвар" loading="lazy">
+        <span class="tn">Тулга<s>Швейцарь цэгц</s></span>
+      </a>
+      <a class="tile" href="templates/corporate/hurd.html" data-cat="corporate">
+        <img src="templates/images/pv-hurd.webp" alt="Хүрд — Байгууллагын танилцуулга загвар" loading="lazy">
+        <span class="tn">Хүрд<s>Хар, сериф</s></span>
+      </a>
+      <a class="tile" href="templates/corporate/tsamhag.html" data-cat="corporate">
+        <img src="templates/images/pv-tsamhag.webp" alt="Цамхаг — Байгууллагын танилцуулга загвар" loading="lazy">
+        <span class="tn">Цамхаг<s>Хуваасан дэлгэц</s></span>
+      </a>
+      <a class="tile" href="templates/corporate/egnee.html" data-cat="corporate">
+        <img src="templates/images/pv-egnee.webp" alt="Эгнээ — Байгууллагын танилцуулга загвар" loading="lazy">
+        <span class="tn">Эгнээ<s>Зөөлөн карт</s></span>
+      </a>
+      <a class="tile" href="templates/shop/zah.html" data-cat="shop">
+        <img src="templates/images/pv-zah.webp" alt="Зах — Онлайн дэлгүүр загвар" loading="lazy">
+        <span class="tn">Зах<s>Блок, улбар</s></span>
+      </a>
+      <a class="tile" href="templates/shop/sav.html" data-cat="shop">
+        <img src="templates/images/pv-sav.webp" alt="Сав — Онлайн дэлгүүр загвар" loading="lazy">
+        <span class="tn">Сав<s>Цагаан бутик</s></span>
+      </a>
+      <a class="tile" href="templates/shop/tulhuur.html" data-cat="shop">
+        <img src="templates/images/pv-tulhuur.webp" alt="Түлхүүр — Онлайн дэлгүүр загвар" loading="lazy">
+        <span class="tn">Түлхүүр<s>Харанхуй техник</s></span>
+      </a>
+      <a class="tile" href="templates/shop/horshoo.html" data-cat="shop">
+        <img src="templates/images/pv-horshoo.webp" alt="Хоршоо — Онлайн дэлгүүр загвар" loading="lazy">
+        <span class="tn">Хоршоо<s>Органик</s></span>
+      </a>
+      <a class="tile" href="templates/restaurant/guurs.html" data-cat="restaurant">
+        <img src="templates/images/pv-guurs.webp" alt="Гуурс — Ресторан &amp; кафе загвар" loading="lazy">
+        <span class="tn">Гуурс<s>Дэгжин сериф</s></span>
+      </a>
+      <a class="tile" href="templates/restaurant/utaa.html" data-cat="restaurant">
+        <img src="templates/images/pv-utaa.webp" alt="Утаа — Ресторан &amp; кафе загвар" loading="lazy">
+        <span class="tn">Утаа<s>Харанхуй бистро</s></span>
+      </a>
+      <a class="tile" href="templates/restaurant/navch.html" data-cat="restaurant">
+        <img src="templates/images/pv-navch.webp" alt="Навч — Ресторан &amp; кафе загвар" loading="lazy">
+        <span class="tn">Навч<s>Гэрэлтэй кафе</s></span>
+      </a>
+      <a class="tile" href="templates/restaurant/togoo.html" data-cat="restaurant">
+        <img src="templates/images/pv-togoo.webp" alt="Тогоо — Ресторан &amp; кафе загвар" loading="lazy">
+        <span class="tn">Тогоо<s>Тод, хурдан</s></span>
+      </a>
+      <a class="tile" href="templates/portfolio/or.html" data-cat="portfolio">
+        <img src="templates/images/pv-or.webp" alt="Ор — Хувийн портфолио загвар" loading="lazy">
+        <span class="tn">Ор<s>Бруталист</s></span>
+      </a>
+      <a class="tile" href="templates/portfolio/huudas.html" data-cat="portfolio">
+        <img src="templates/images/pv-huudas.webp" alt="Хуудас — Хувийн портфолио загвар" loading="lazy">
+        <span class="tn">Хуудас<s>Редакторын</s></span>
+      </a>
+      <a class="tile" href="templates/portfolio/zurag.html" data-cat="portfolio">
+        <img src="templates/images/pv-zurag.webp" alt="Зураг — Хувийн портфолио загвар" loading="lazy">
+        <span class="tn">Зураг<s>Бүтэн дэлгэц</s></span>
+      </a>
+      <a class="tile" href="templates/portfolio/suljee.html" data-cat="portfolio">
+        <img src="templates/images/pv-suljee.webp" alt="Сүлжээ — Хувийн портфолио загвар" loading="lazy">
+        <span class="tn">Сүлжээ<s>Моно, сүлжээ</s></span>
+      </a>
+    </div>
+    <p class="wall-note rv">Аль нэг дээр дарвал тухайн загвар шинэ цонхонд нээгдэнэ.</p>
   </div>
 </section>
 
@@ -1630,6 +1815,73 @@ function aTab(id,el){
     });
   },{threshold:.3});
   io.observe(steps[0]);
+})();
+
+// ── HERO-ГИЙН ЗАГВАРЫН СЛАЙДЕР ────────────────────────────────
+// Хөтчийн хүрээнд бэлэн загварууд ээлжилнэ. Харагдахгүй үед,
+// таб нуугдсан үед, хөдөлгөөн багасгах тохиргоотой үед зогсоно.
+(function(){
+  var sc=document.getElementById('shotScreen');
+  if(!sc) return;
+  var imgs=[].slice.call(sc.querySelectorAll('img'));
+  var nameEl=document.getElementById('shotName'),
+      catEl=document.getElementById('shotCat'),
+      urlEl=document.getElementById('shotUrl'),
+      dotWrap=document.getElementById('shotDots');
+  if(!imgs.length) return;
+  var i=0,timer=null,inView=true;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  imgs.forEach(function(im,k){
+    var b=document.createElement('button');
+    b.type='button';
+    b.setAttribute('aria-label',(im.dataset.n||'')+' загвар харуулах');
+    b.setAttribute('aria-current',k===0?'true':'false');
+    b.addEventListener('click',function(){ show(k); pause(); });
+    dotWrap.appendChild(b);
+  });
+  var dots=[].slice.call(dotWrap.querySelectorAll('button'));
+
+  function show(k){
+    i=k;
+    imgs.forEach(function(im,x){ im.classList.toggle('on',x===k); });
+    dots.forEach(function(d,x){ d.setAttribute('aria-current',x===k?'true':'false'); });
+    var im=imgs[k];
+    if(nameEl) nameEl.textContent=im.dataset.n||'';
+    if(catEl)  catEl.textContent=im.dataset.c||'';
+    if(urlEl)  urlEl.textContent='gerelt-solutuions.com/'+(im.dataset.u||'');
+  }
+  function play(){ if(reduce||timer||!inView||document.hidden) return;
+    timer=setInterval(function(){ show((i+1)%imgs.length); },3800); }
+  function pause(){ if(timer){ clearInterval(timer); timer=null; } }
+
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){
+      inView=e[0].isIntersecting; inView?play():pause();
+    },{threshold:.25}).observe(sc);
+  } else { play(); }
+  document.addEventListener('visibilitychange',function(){ document.hidden?pause():play(); });
+  sc.addEventListener('mouseenter',pause);
+  sc.addEventListener('mouseleave',play);
+})();
+
+// ── ЗАГВАРЫН ХАНЫН ШҮҮЛТҮҮР ───────────────────────────────────
+(function(){
+  var wall=document.getElementById('wall');
+  if(!wall) return;
+  var chips=[].slice.call(document.querySelectorAll('.wchip'));
+  var tiles=[].slice.call(wall.querySelectorAll('.tile'));
+  function apply(cat){
+    tiles.forEach(function(t){
+      t.hidden=!(cat==='all'||t.getAttribute('data-cat')===cat);
+    });
+    chips.forEach(function(c){
+      c.setAttribute('aria-pressed', c.getAttribute('data-cat')===cat ? 'true':'false');
+    });
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){ apply(c.getAttribute('data-cat')); });
+  });
 })();
 
 // ── ЦОНХНЫ ГАРЫН УДИРДЛАГА ────────────────────────────────────
