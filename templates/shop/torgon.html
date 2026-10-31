@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Торгон — хувцасны онлайн дэлгүүр загвар | Gerelt Solutions</title>
+<meta name="description" content="Хувцас, загварын брэндэд зориулсан өндөр тодролтой lookbook хэлбэрийн онлайн дэлгүүр загвар.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Oswald / Onest — хоёулаа кирилл үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --ink:#0B0B0B; --soft:#F4F3F1;
+  --mut:#4F4F4F; --mut2:#5C5C5C;
+  --acc:#0B0B0B;
+  --line:#E6E4E0; --line-strong:#8C8A86;
+  --ff-h:'Oswald',Impact,sans-serif; --ff-b:'Onest',system-ui,sans-serif;
+  --pad:clamp(1rem,4vw,3rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:500;text-transform:uppercase;line-height:.96;letter-spacing:-.005em;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--ink);color:#fff;padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1400px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.4rem;}
+.logo{display:flex;align-items:center;min-height:44px;font-family:var(--ff-h);font-size:27px;font-weight:600;letter-spacing:.16em;}
+.nlinks{display:flex;gap:var(--s4);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--ink);}
+.tools{display:flex;gap:.4rem;margin-left:var(--s3);}
+.ic{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);font-size:13px;font-weight:600;transition:background .2s,color .2s;position:relative;}
+.ic:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.ic s{position:absolute;top:2px;right:0;min-width:17px;height:17px;border-radius:50%;background:var(--ink);color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center;text-decoration:none;}
+.ic:hover s{background:#fff;color:var(--ink);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 2.1rem;font-family:var(--ff-h);font-size:13px;font-weight:500;letter-spacing:.17em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--ink);color:#fff;} .btn-p:hover{background:#2C2C2C;}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--ink);} .btn-s:hover{background:var(--ink);color:#fff;}
+.btn-w{background:#fff;color:var(--ink);} .btn-w:hover{background:#E8E6E2;}
+
+/* Hero — бүтэн дэлгэцийн lookbook */
+.hero{position:relative;min-height:min(86vh,760px);display:grid;align-items:end;background:#0B0B0B;overflow:hidden;}
+.hero .bgim{position:absolute;inset:0;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 38%,rgba(0,0,0,.22) 70%,rgba(0,0,0,.45) 100%);}
+.hero-in{position:relative;z-index:2;padding:var(--s6) 0;color:#fff;}
+.ssn{display:inline-block;font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:#fff;
+  border:1px solid rgba(255,255,255,.7);padding:.42rem .9rem;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(3rem,10vw,8rem);color:#fff;max-width:14ch;}
+.hero h1 b{display:block;font-weight:400;-webkit-text-stroke:2px #fff;color:transparent;}
+.hero p{margin-top:var(--s3);font-size:17px;color:#F0EFEC;max-width:42ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+
+.tick{background:var(--ink);color:#fff;overflow:hidden;padding:.8rem 0;}
+.tick-in{display:flex;gap:3rem;white-space:nowrap;font-family:var(--ff-h);font-size:14px;letter-spacing:.2em;text-transform:uppercase;animation:slide 26s linear infinite;}
+.tick-in span{flex-shrink:0;} .tick-in i{font-style:normal;color:#A3A3A3;}
+@keyframes slide{to{transform:translateX(-50%);}}
+
+.sec{padding:var(--s6) 0;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4);
+  padding-bottom:var(--s3);border-bottom:1px solid var(--ink);}
+.hd h2{font-size:clamp(1.9rem,4.6vw,3.4rem);}
+.hd a{font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px;display:inline-flex;align-items:center;min-height:44px;}
+
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3) 1.2rem;}
+.pr{display:block;}
+.pr .ph{display:block;position:relative;aspect-ratio:3/4;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;overflow:hidden;margin-bottom:.8rem;}
+.pr .ph::after{content:'';position:absolute;inset:0;background:rgba(11,11,11,0);transition:background .3s;}
+.pr:hover .ph::after,.pr:focus-visible .ph::after{background:rgba(11,11,11,.1);}
+.pr .tag{position:absolute;top:.7rem;left:.7rem;z-index:2;background:var(--ink);color:#fff;
+  font-family:var(--ff-h);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .6rem;}
+.pr h3{font-family:var(--ff-b);font-size:15px;font-weight:600;text-transform:none;letter-spacing:0;line-height:1.35;}
+.pr .meta{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;margin-top:.2rem;}
+.pr .pz{font-family:var(--ff-h);font-size:16px;}
+.pr .sz{font-size:12px;color:var(--mut2);letter-spacing:.06em;}
+
+/* Хоёр том блок */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.bl{position:relative;min-height:440px;display:grid;align-items:end;overflow:hidden;background:#0B0B0B;}
+.bl .bgim{position:absolute;inset:0;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;transition:transform .7s ease;}
+.bl:hover .bgim{transform:scale(1.04);}
+.bl::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.86),rgba(0,0,0,.18) 58%,rgba(0,0,0,.3));}
+.bl-in{position:relative;z-index:2;padding:var(--s4);color:#fff;}
+.bl h3{font-size:clamp(1.5rem,2.8vw,2.2rem);color:#fff;}
+.bl p{font-size:14.5px;color:#EDECE9;margin:.5rem 0 var(--s3);max-width:32ch;}
+
+.news{background:var(--soft);padding:var(--s6) 0;}
+.news-in{max-width:620px;margin:0 auto;text-align:center;}
+.news h2{font-size:clamp(1.7rem,3.6vw,2.6rem);}
+.news p{color:var(--mut);margin:.7rem 0 var(--s4);}
+.frm{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;}
+.frm input{flex:1;min-width:230px;min-height:52px;padding:0 1.1rem;font-family:inherit;font-size:15px;
+  background:#fff;border:1px solid var(--line-strong);color:var(--ink);}
+.frm input::placeholder{color:var(--mut2);}
+.frm input:focus-visible{outline:2px solid var(--ink);outline-offset:1px;}
+.news small{display:block;margin-top:var(--s2);font-size:12.5px;color:var(--mut2);}
+
+.foot{background:var(--ink);color:#EDECE9;padding:var(--s5) 0 var(--s3);}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot .logo{color:#fff;margin-bottom:.6rem;}
+.foot p{font-size:14.5px;color:#BDBDBD;max-width:30ch;}
+.foot h3{font-family:var(--ff-h);font-size:12px;font-weight:500;letter-spacing:.17em;color:#fff;margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:#BDBDBD;padding:.3rem 0;}
+.fl a:hover{color:#fff;}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid #3A3A3A;font-size:13px;color:#A8A8A8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:1100px){.pg{grid-template-columns:repeat(3,1fr);}.fg{grid-template-columns:1fr 1fr;}}
+@media(max-width:860px){
+  .nlinks{display:none;} .tools{margin-left:auto;}
+  .pg{grid-template-columns:repeat(2,1fr);}
+  .duo{grid-template-columns:1fr;} .bl{min-height:340px;}
+}
+@media(max-width:560px){.fg{grid-template-columns:1fr;}.hero{min-height:auto;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;animation:none!important;}}
+/* Зураг — Pexels, чөлөөт лиценз. Тодролыг шалгасан: 9.6–10.2:1 */
+.im-torgon-hero{background-image:url('../images/torgon-hero.webp');}
+.im-torgon-p1{background-image:url('../images/torgon-p1.webp');}
+.im-torgon-p2{background-image:url('../images/torgon-p2.webp');}
+.im-torgon-p3{background-image:url('../images/torgon-p3.webp');}
+.im-torgon-p4{background-image:url('../images/torgon-p4.webp');}
+.im-torgon-b1{background-image:url('../images/torgon-b1.webp');}
+.im-torgon-b2{background-image:url('../images/torgon-b2.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Торгон</b></span>
+  <a href="../shop/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo">ТОРГОН</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#new">Шинэ</a><a href="#women">Эмэгтэй</a><a href="#men">Эрэгтэй</a><a href="#story">Бидний тухай</a>
+  </nav>
+  <div class="tools">
+    <a class="ic" href="#search" aria-label="Хайх">⌕</a>
+    <a class="ic" href="#cart" aria-label="Сагс — 2 бараа">☰<s aria-hidden="true">2</s></a>
+  </div>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="bgim im-torgon-hero" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <span class="ssn">2026 Хавар–Зун</span>
+    <h1>Хөнгөн<b>Торгон</b></h1>
+    <p>Монголын цаг агаарт зохицсон, байгалийн материалаар бүтсэн хувцас. 24 загвар, хязгаартай тоогоор.</p>
+    <div class="row">
+      <a class="btn btn-w" href="#new">Цуглуулга үзэх</a>
+      <a class="btn btn-s" href="#story" style="color:#fff;border-color:#fff">Бидний тухай</a>
+    </div>
+  </div>
+</section>
+
+<div class="tick"><div class="tick-in" aria-hidden="true">
+  <span>Үнэгүй хүргэлт 150,000₮-с<i> ◆ </i>14 хоногийн сольж буцаалт<i> ◆ </i>Улаанбаатарт тухайн өдөртөө<i> ◆ </i>Байгалийн материал</span>
+  <span>Үнэгүй хүргэлт 150,000₮-с<i> ◆ </i>14 хоногийн сольж буцаалт<i> ◆ </i>Улаанбаатарт тухайн өдөртөө<i> ◆ </i>Байгалийн материал</span>
+</div></div>
+
+<section class="sec wrap" id="new">
+  <div class="hd"><h2>Шинэ ирсэн</h2><a href="#all">Бүгдийг үзэх</a></div>
+  <div class="pg">
+    <a class="pr" href="#p1"><span class="ph im-torgon-p1"><span class="tag">Шинэ</span></span>
+      <h3>Хөнгөн ноосон пальто</h3>
+      <div class="meta"><span class="pz">389,000₮</span><span class="sz">S · M · L</span></div></a>
+    <a class="pr" href="#p2"><span class="ph im-torgon-p2"></span>
+      <h3>Мөр задгай цагаан даашинз</h3>
+      <div class="meta"><span class="pz">215,000₮</span><span class="sz">XS · S · M</span></div></a>
+    <a class="pr" href="#p3"><span class="ph im-torgon-p3"><span class="tag">Хязгаартай</span></span>
+      <h3>Өргөн хөлтэй өмд</h3>
+      <div class="meta"><span class="pz">178,000₮</span><span class="sz">S · M · L · XL</span></div></a>
+    <a class="pr" href="#p4"><span class="ph im-torgon-p4"></span>
+      <h3>Хөвөн цамц, урт ханцуй</h3>
+      <div class="meta"><span class="pz">96,000₮</span><span class="sz">S · M · L</span></div></a>
+  </div>
+</section>
+
+<section class="sec wrap" id="women">
+  <div class="duo">
+    <article class="bl"><span class="bgim im-torgon-b1" aria-hidden="true"></span><div class="bl-in">
+      <h3>Эмэгтэй</h3><p>Өдөр тутмын даашинз, хүрэм, пальто — 14 загвар.</p>
+      <a class="btn btn-w" href="#women-all">Үзэх</a></div></article>
+    <article class="bl" id="men"><span class="bgim im-torgon-b2" aria-hidden="true"></span><div class="bl-in">
+      <h3>Эрэгтэй</h3><p>Цамц, өмд, гадуур хувцас — 10 загвар.</p>
+      <a class="btn btn-w" href="#men-all">Үзэх</a></div></article>
+  </div>
+</section>
+
+<section class="news" id="story">
+  <div class="wrap news-in">
+    <h2>Шинэ цуглуулгыг хамгийн эхэнд</h2>
+    <p>Сард нэг захидал. Шинэ загвар, хязгаартай тооны бараа, зөвхөн захиалагчдад зориулсан үнэ.</p>
+    <form class="frm" onsubmit="event.preventDefault();this.reset();alert('Жишээ загвар — илгээлт хийгдээгүй.');">
+      <label class="sr-only" for="em">И-мэйл хаяг</label>
+      <input id="em" type="email" placeholder="И-мэйл хаяг" required>
+      <button class="btn btn-p" type="submit">Бүртгүүлэх</button>
+    </form>
+    <small>Хүссэн үедээ татгалзаж болно. Жишээ загвар — өгөгдөл хадгалагдахгүй.</small>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fg">
+    <div><span class="logo">ТОРГОН</span><p>Байгалийн материалаар бүтсэн хувцас. Улаанбаатарт зохиож, үйлдвэрлэдэг.</p></div>
+    <div><h3>Дэлгүүр</h3><div class="fl"><a href="#new">Шинэ</a><a href="#women">Эмэгтэй</a><a href="#men">Эрэгтэй</a></div></div>
+    <div><h3>Үйлчилгээ</h3><div class="fl"><a href="#ship">Хүргэлт</a><a href="#return">Сольж буцаалт</a><a href="#size">Размерын хүснэгт</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="mailto:sain@torgon.mn">sain@torgon.mn</a><a href="tel:+97699110000">+976 9911-0000</a><span>Да–Ням, 10:00–20:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Торгон — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

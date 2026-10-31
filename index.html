@@ -545,7 +545,7 @@ html.js .rv.in{opacity:1;transform:none;}
 /* ═══ HERO — ХӨТЧИЙН ХҮРЭЭТЭЙ ═══════════════════════════════
    Awwwards-ийн шинжилгээнээс: шагнал авсан 12 сайтын 4 нь
    бүтээгдэхүүнээ хөтөч/төхөөрөмжийн хүрээнд харуулдаг. Манай
-   хамгийн хүчтэй хөрөнгө бол 16 бэлэн загвар тул тэднийг
+   хамгийн хүчтэй хөрөнгө бол бэлэн загварууд тул тэднийг
    нуухын оронд эхний дэлгэцэнд гаргана.                       */
 .hero{
   position:relative;overflow:hidden;
@@ -740,13 +740,13 @@ html.js .rv.in{opacity:1;transform:none;}
     <div class="hero-in">
       <p class="eyebrow"><span class="pip" aria-hidden="true"></span>Улаанбаатар · Дорнод</p>
       <h1 class="h-xl">Долоо хоногт<br>амьдардаг <em>вэб</em></h1>
-      <p class="lead">16 бэлэн загвар, эсвэл зөвхөн танд зориулсан шийдэл. Хоёулаа нэг студиэс, нэг хариуцагчтай.</p>
+      <p class="lead">20 бэлэн загвар, эсвэл зөвхөн танд зориулсан шийдэл. Хоёулаа нэг студиэс, нэг хариуцагчтай.</p>
       <div class="btn-row">
         <a class="btn btn-p" href="#templates">Загварууд үзэх</a>
         <button class="btn btn-s" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
       </div>
       <div class="hero-stats">
-        <div><b>16</b><span>Бэлэн загвар</span></div>
+        <div><b>20</b><span>Бэлэн загвар</span></div>
         <div><b>7 хоног</b><span>Хамгийн хурдан нь</span></div>
         <div><b>4</b><span>Үндсэн чиглэл</span></div>
         <div><b>12 сар</b><span>Хамгийн урт дэмжлэг</span></div>
@@ -787,16 +787,16 @@ html.js .rv.in{opacity:1;transform:none;}
   <div class="wrap">
     <div class="sec-head rv">
       <p class="slab"><b>01</b>Бэлэн загвар</p>
-      <h2 class="h-lg">Арван зургаан загвар, дөрвөн категор</h2>
+      <h2 class="h-lg">Хорин загвар, дөрвөн категор</h2>
       <p class="lead">Загвар бүр бүтэн ажиллдаг хуудас. Сонгоод агуулгаа өгвөл болно — өнгө, лого, бичвэрийг тань руу тааруулна.</p>
     </div>
 
     <div class="wall-bar rv" role="group" aria-label="Категороор шүүх">
-      <button class="wchip" data-cat="all" aria-pressed="true">Бүгд<span class="n">16</span></button>
-      <button class="wchip" data-cat="corporate" aria-pressed="false">Танилцуулга<span class="n">4</span></button>
-      <button class="wchip" data-cat="shop" aria-pressed="false">Дэлгүүр<span class="n">4</span></button>
-      <button class="wchip" data-cat="restaurant" aria-pressed="false">Ресторан<span class="n">4</span></button>
-      <button class="wchip" data-cat="portfolio" aria-pressed="false">Портфолио<span class="n">4</span></button>
+      <button class="wchip" data-cat="all" aria-pressed="true">Бүгд<span class="n">20</span></button>
+      <button class="wchip" data-cat="corporate" aria-pressed="false">Танилцуулга<span class="n">5</span></button>
+      <button class="wchip" data-cat="shop" aria-pressed="false">Дэлгүүр<span class="n">5</span></button>
+      <button class="wchip" data-cat="restaurant" aria-pressed="false">Ресторан<span class="n">5</span></button>
+      <button class="wchip" data-cat="portfolio" aria-pressed="false">Портфолио<span class="n">5</span></button>
     </div>
 
     <div class="wall rv" id="wall">
@@ -816,6 +816,10 @@ html.js .rv.in{opacity:1;transform:none;}
         <img src="templates/images/pv-egnee.webp" alt="Эгнээ — Байгууллагын танилцуулга загвар" loading="lazy">
         <span class="tn">Эгнээ<s>Зөөлөн карт</s></span>
       </a>
+      <a class="tile" href="templates/corporate/guur.html" data-cat="corporate">
+        <img src="templates/images/pv-guur.webp" alt="Гүүр — Байгууллагын танилцуулга загвар" loading="lazy">
+        <span class="tn">Гүүр<s>Албан ёсны, сериф</s></span>
+      </a>
       <a class="tile" href="templates/shop/zah.html" data-cat="shop">
         <img src="templates/images/pv-zah.webp" alt="Зах — Онлайн дэлгүүр загвар" loading="lazy">
         <span class="tn">Зах<s>Блок, улбар</s></span>
@@ -831,6 +835,10 @@ html.js .rv.in{opacity:1;transform:none;}
       <a class="tile" href="templates/shop/horshoo.html" data-cat="shop">
         <img src="templates/images/pv-horshoo.webp" alt="Хоршоо — Онлайн дэлгүүр загвар" loading="lazy">
         <span class="tn">Хоршоо<s>Органик</s></span>
+      </a>
+      <a class="tile" href="templates/shop/torgon.html" data-cat="shop">
+        <img src="templates/images/pv-torgon.webp" alt="Торгон — Онлайн дэлгүүр загвар" loading="lazy">
+        <span class="tn">Торгон<s>Хувцас, lookbook</s></span>
       </a>
       <a class="tile" href="templates/restaurant/guurs.html" data-cat="restaurant">
         <img src="templates/images/pv-guurs.webp" alt="Гуурс — Ресторан &amp; кафе загвар" loading="lazy">
@@ -848,6 +856,10 @@ html.js .rv.in{opacity:1;transform:none;}
         <img src="templates/images/pv-togoo.webp" alt="Тогоо — Ресторан &amp; кафе загвар" loading="lazy">
         <span class="tn">Тогоо<s>Тод, хурдан</s></span>
       </a>
+      <a class="tile" href="templates/restaurant/zoolon.html" data-cat="restaurant">
+        <img src="templates/images/pv-zoolon.webp" alt="Зөөлөн — Ресторан & кафе загвар" loading="lazy">
+        <span class="tn">Зөөлөн<s>Нарийн боов, ягаан</s></span>
+      </a>
       <a class="tile" href="templates/portfolio/or.html" data-cat="portfolio">
         <img src="templates/images/pv-or.webp" alt="Ор — Хувийн портфолио загвар" loading="lazy">
         <span class="tn">Ор<s>Бруталист</s></span>
@@ -863,6 +875,10 @@ html.js .rv.in{opacity:1;transform:none;}
       <a class="tile" href="templates/portfolio/suljee.html" data-cat="portfolio">
         <img src="templates/images/pv-suljee.webp" alt="Сүлжээ — Хувийн портфолио загвар" loading="lazy">
         <span class="tn">Сүлжээ<s>Моно, сүлжээ</s></span>
+      </a>
+      <a class="tile" href="templates/portfolio/duu.html" data-cat="portfolio">
+        <img src="templates/images/pv-duu.webp" alt="Дуу — Хувийн портфолио загвар" loading="lazy">
+        <span class="tn">Дуу<s>Хөгжим, долгион</s></span>
       </a>
     </div>
     <p class="wall-note rv">Аль нэг дээр дарвал тухайн загвар шинэ цонхонд нээгдэнэ.</p>

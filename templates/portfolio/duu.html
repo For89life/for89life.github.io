@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Дуу — хөгжимчин, продюсерын портфолио загвар | Gerelt Solutions</title>
+<meta name="description" content="Хөгжимчин, продюсер, подкастын зохиогчид зориулсан хар дэвсгэртэй портфолио загвар.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Rubik / Golos Text — хоёулаа кирилл үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;800&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08090C; --bg2:#0E1014; --surf:#15181E; --surf2:#1C2027;
+  --fg:#F2F3F5; --mut:#A8ADB8; --mut2:#9298A4;
+  --acc:#4ADE80; --acc-d:#22C55E;
+  --line:#242830; --line-strong:#5B616D;
+  --ff-h:'Rubik',system-ui,sans-serif; --ff-b:'Golos Text',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--fg);font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:800;line-height:1.06;letter-spacing:-.02em;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc);color:#08090C;padding:.8rem 1.2rem;border-radius:0 0 8px 8px;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;}
+
+.gs{background:#000;color:#F5F5F3;font-size:13px;border-bottom:1px solid var(--line);}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1140px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(8,9,12,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.5rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-family:var(--ff-h);font-size:21px;font-weight:800;letter-spacing:-.02em;}
+.logo i{display:flex;align-items:flex-end;gap:2px;height:18px;font-style:normal;}
+.logo i b{display:block;width:3px;background:var(--acc);border-radius:1px;}
+.logo i b:nth-child(1){height:7px;} .logo i b:nth-child(2){height:16px;} .logo i b:nth-child(3){height:10px;} .logo i b:nth-child(4){height:18px;}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--fg);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;padding:0 1.6rem;border-radius:10px;font-family:var(--ff-b);font-size:15px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#07140C;} .btn-p:hover{background:#6EE79B;}
+.btn-s{background:transparent;color:var(--fg);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--fg);background:var(--surf);}
+.nav .btn{min-height:44px;padding:0 1.1rem;font-size:14px;margin-left:var(--s2);}
+
+/* Hero */
+.hero{position:relative;padding:var(--s6) 0 var(--s5);overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);
+  width:min(900px,120vw);height:560px;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(74,222,128,.14),transparent 68%);}
+.hero-in{position:relative;z-index:2;max-width:46rem;}
+.live{display:inline-flex;align-items:center;gap:.5rem;background:var(--surf);border:1px solid var(--line-strong);
+  border-radius:999px;padding:.38rem .9rem;font-size:13px;color:var(--mut);margin-bottom:var(--s4);}
+.live s{text-decoration:none;width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px rgba(74,222,128,.22);}
+.hero h1{font-size:clamp(2.4rem,6.6vw,5rem);}
+.hero h1 em{font-style:normal;color:var(--acc);}
+.hero p{margin-top:var(--s3);font-size:18px;color:var(--mut);max-width:46ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+
+/* Долгион */
+.wave{display:flex;align-items:flex-end;gap:3px;height:76px;margin-top:var(--s5);
+  padding:0 0 0 2px;overflow:hidden;}
+.wave b{display:block;flex:1;min-width:2px;max-width:7px;border-radius:2px;background:var(--surf2);}
+.wave b.hi{background:var(--acc);}
+
+/* Бичлэгүүд */
+.sec{padding:var(--s6) 0;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4);}
+.flag{display:block;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.7rem,3.8vw,2.6rem);}
+.hd p{color:var(--mut);font-size:15px;max-width:38ch;}
+
+.tl{display:flex;flex-direction:column;border-top:1px solid var(--line);}
+.tr{display:grid;grid-template-columns:2.6rem 1fr auto auto;align-items:center;gap:var(--s3);
+  padding:var(--s3) .4rem;border-bottom:1px solid var(--line);transition:background .2s;}
+.tr:hover{background:var(--surf);}
+.tr .pl{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
+  background:var(--surf2);border:1px solid var(--line-strong);color:var(--fg);font-size:13px;cursor:pointer;
+  transition:background .2s,color .2s,border-color .2s;}
+.tr:hover .pl{background:var(--acc);color:#07140C;border-color:var(--acc);}
+.tr h3{font-family:var(--ff-b);font-size:16.5px;font-weight:600;letter-spacing:0;line-height:1.3;}
+.tr .sub{font-size:13.5px;color:var(--mut2);}
+.tr .yr{font-size:14px;color:var(--mut2);font-variant-numeric:tabular-nums;}
+.tr .dur{font-size:14px;color:var(--mut2);font-variant-numeric:tabular-nums;min-width:3.4rem;text-align:right;}
+
+/* Үйлчилгээ */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.sv{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:var(--s4);
+  transition:border-color .25s,transform .25s;}
+.sv:hover{border-color:var(--line-strong);transform:translateY(-4px);}
+.sv i{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;
+  background:rgba(74,222,128,.13);color:var(--acc);font-size:19px;font-style:normal;margin-bottom:var(--s3);}
+.sv h3{font-size:19px;}
+.sv p{font-size:14.5px;color:var(--mut);margin:.5rem 0 .9rem;}
+.sv .pz{font-family:var(--ff-h);font-size:15px;font-weight:600;color:var(--acc);}
+
+/* Тоонууд */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.nm{background:var(--bg2);padding:var(--s4) var(--s3);text-align:center;}
+.nm b{display:block;font-family:var(--ff-h);font-size:clamp(1.7rem,3.4vw,2.5rem);color:var(--acc);}
+.nm span{font-size:13.5px;color:var(--mut2);}
+
+.cta{padding:var(--s6) 0;}
+.cta-in{background:var(--surf);border:1px solid var(--line);border-radius:20px;
+  padding:clamp(1.8rem,5vw,3.4rem);text-align:center;}
+.cta h2{font-size:clamp(1.8rem,4vw,2.8rem);max-width:22ch;margin:0 auto var(--s3);}
+.cta p{color:var(--mut);max-width:46ch;margin:0 auto var(--s4);}
+.cta .row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:14.5px;color:var(--mut);max-width:32ch;margin-top:.6rem;}
+.foot h3{font-family:var(--ff-b);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:900px){
+  .sg{grid-template-columns:1fr;} .nums{grid-template-columns:1fr 1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fg{grid-template-columns:1fr 1fr;}
+  .tr{grid-template-columns:2.6rem 1fr auto;} .tr .yr{display:none;}
+}
+@media(max-width:560px){.fg{grid-template-columns:1fr;}.wave{height:54px;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Дуу</b></span>
+  <a href="../portfolio/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true"><b></b><b></b><b></b><b></b></i>ДУУ</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#works">Бичлэгүүд</a><a href="#services">Үйлчилгээ</a><a href="#contact">Холбоо барих</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Хамтран ажиллах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-in">
+      <span class="live"><s aria-hidden="true"></s>Шинэ төсөл хүлээн авч байна · 2026 Хавар</span>
+      <h1>Дуу чимээг <em>санаа</em> болгож хувиргадаг</h1>
+      <p>Хөгжмийн продюсер, саунд дизайнер. Монгол зураглалын хөгжим, реклам, подкастын дуу бичлэг — Улаанбаатарт.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#works">Бичлэгүүд сонсох</a>
+        <a class="btn btn-s" href="#services">Үйлчилгээ, үнэ</a>
+      </div>
+    </div>
+    <div class="wave" aria-hidden="true">
+      <b style="height:18%"></b><b style="height:34%"></b><b class="hi" style="height:58%"></b><b style="height:42%"></b>
+      <b style="height:72%"></b><b class="hi" style="height:88%"></b><b style="height:54%"></b><b style="height:30%"></b>
+      <b style="height:46%"></b><b class="hi" style="height:76%"></b><b style="height:62%"></b><b style="height:40%"></b>
+      <b style="height:24%"></b><b style="height:52%"></b><b class="hi" style="height:94%"></b><b style="height:66%"></b>
+      <b style="height:38%"></b><b style="height:28%"></b><b class="hi" style="height:70%"></b><b style="height:48%"></b>
+      <b style="height:82%"></b><b style="height:36%"></b><b class="hi" style="height:60%"></b><b style="height:22%"></b>
+      <b style="height:44%"></b><b style="height:68%"></b><b class="hi" style="height:50%"></b><b style="height:32%"></b>
+      <b style="height:56%"></b><b style="height:20%"></b><b class="hi" style="height:78%"></b><b style="height:42%"></b>
+      <b style="height:64%"></b><b style="height:26%"></b><b class="hi" style="height:48%"></b><b style="height:16%"></b>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="works">
+  <div class="wrap">
+    <div class="hd">
+      <div><span class="flag">Бичлэгүүд</span><h2>Сүүлийн ажлууд</h2></div>
+      <p>Кино зураглал, реклам, бие даасан цомог. Дээр дарж сонсоно.</p>
+    </div>
+    <div class="tl">
+      <div class="tr"><button class="pl" type="button" aria-label="«Говийн зүүд» сонсох">▶</button>
+        <div><h3>Говийн зүүд</h3><span class="sub">Баримтат киноны зураглал · 8 хэсэг</span></div>
+        <span class="yr">2026</span><span class="dur">4:12</span></div>
+      <div class="tr"><button class="pl" type="button" aria-label="«Хот сэрэх» сонсох">▶</button>
+        <div><h3>Хот сэрэх</h3><span class="sub">Телевизийн реклам · МТ Банк</span></div>
+        <span class="yr">2025</span><span class="dur">0:45</span></div>
+      <div class="tr"><button class="pl" type="button" aria-label="«Тал» цомог сонсох">▶</button>
+        <div><h3>Тал</h3><span class="sub">Бие даасан цомог · 11 дуу</span></div>
+        <span class="yr">2025</span><span class="dur">38:20</span></div>
+      <div class="tr"><button class="pl" type="button" aria-label="«Шөнийн радио» сонсох">▶</button>
+        <div><h3>Шөнийн радио</h3><span class="sub">Подкастын танилцуулга, саунд дизайн</span></div>
+        <span class="yr">2024</span><span class="dur">1:30</span></div>
+      <div class="tr"><button class="pl" type="button" aria-label="«Морин хуур, электрон» сонсох">▶</button>
+        <div><h3>Морин хуур, электрон</h3><span class="sub">Туршилтын төсөл · Ulaanbaatar Sound Lab</span></div>
+        <span class="yr">2024</span><span class="dur">6:05</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="hd"><div><span class="flag">Үйлчилгээ</span><h2>Юу хийж чадах вэ</h2></div></div>
+    <div class="sg">
+      <article class="sv"><i aria-hidden="true">◉</i><h3>Хөгжмийн зохиомж</h3>
+        <p>Кино, баримтат, реклам, тоглоомд зориулсан өөрийн зохиомж.</p>
+        <span class="pz">1.5 сая₮-с · 2–4 долоо хоног</span></article>
+      <article class="sv"><i aria-hidden="true">◎</i><h3>Саунд дизайн</h3>
+        <p>Дүрсэнд тохирсон дуу чимээ, атмосфер, Foley бичлэг.</p>
+        <span class="pz">800,000₮-с · 1–2 долоо хоног</span></article>
+      <article class="sv"><i aria-hidden="true">◈</i><h3>Mix & Master</h3>
+        <p>Бэлэн бичлэгийг нийтлэхэд бэлэн болгоно. Streaming стандарт.</p>
+        <span class="pz">180,000₮ / дуу · 3 хоног</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap nums">
+    <div class="nm"><b>12</b><span>жилийн туршлага</span></div>
+    <div class="nm"><b>140+</b><span>дууссан төсөл</span></div>
+    <div class="nm"><b>6</b><span>кино зураглал</span></div>
+    <div class="nm"><b>3</b><span>шагнал</span></div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap"><div class="cta-in">
+    <h2>Санаагаа хуваалцъя</h2>
+    <p>Төслийн тухай товч бичээрэй — төсөв, хугацаа, ямар мэдрэмж хүсэж байгаа. 24 цагийн дотор хариулна.</p>
+    <div class="row">
+      <a class="btn btn-p" href="mailto:sain@duu.mn">sain@duu.mn</a>
+      <a class="btn btn-s" href="tel:+97694110000">+976 9411-0000</a>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fg">
+    <div><span class="logo"><i aria-hidden="true"><b></b><b></b><b></b><b></b></i>ДУУ</span>
+      <p>Хөгжмийн продюсер, саунд дизайнер. Улаанбаатар, Монгол.</p></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="mailto:sain@duu.mn">sain@duu.mn</a><a href="tel:+97694110000">+976 9411-0000</a></div></div>
+    <div><h3>Сүлжээ</h3><div class="fl"><a href="#sc">SoundCloud</a><a href="#sp">Spotify</a><a href="#ig">Instagram</a></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Дуу — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

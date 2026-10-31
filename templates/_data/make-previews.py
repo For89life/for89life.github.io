@@ -22,6 +22,9 @@ SHOTS = [
  ('pv-navch',   '121548-zcn8dt'), ('pv-togoo',   '121548-9tutsm'),
  ('pv-or',      '126753-ujwpgr'), ('pv-huudas',  '126753-v272kd'),
  ('pv-zurag',   '131837-uz7y29'), ('pv-suljee',  '131837-91tc97'),
+ # 5 дэх багц — катигор бүрийн 5 дэх загвар
+ ('pv-guur',    '973877-fh0w16'), ('pv-torgon',  '973877-wl56w0'),
+ ('pv-zoolon',  '978473-l1vie1'), ('pv-duu',     '978474-tta07w'),
 ]
 
 RIBBON = 0.072      # дээд туузны эзлэх хувь

@@ -5,3 +5,4 @@ images/_png-original/
 .agents/
 skills-lock.json
 templates/images/*.src
+templates/_data/.sheet-cache/

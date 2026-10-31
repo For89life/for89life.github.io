@@ -1,0 +1,15 @@
+[
+ {"name":"torgon-hero","url":"https://images.pexels.com/photos/15968866/pexels-photo-15968866.jpeg","shape":"wide","maxw":1500,"band":"bottom","scrim":0.7,"need":4.5,"focus":0.4,"q":70,"note":"Хар цагаан редакцийн зураг, гүүрэн дээрх цагаан костюм"},
+ {"name":"torgon-p1","url":"https://images.pexels.com/photos/7653719/pexels-photo-7653719.jpeg","shape":"portrait","maxw":540,"q":74,"note":"Тэмээн ноосон пальтоны ойрын зураг"},
+ {"name":"torgon-p2","url":"https://images.pexels.com/photos/6270346/pexels-photo-6270346.jpeg","shape":"portrait","maxw":540,"q":74,"note":"Цагаан мөр задгай цамц, студи"},
+ {"name":"torgon-p3","url":"https://images.pexels.com/photos/7202826/pexels-photo-7202826.jpeg","shape":"portrait","maxw":540,"q":74,"note":"Өргөн хөлтэй өмд, цагаан дэвсгэр"},
+ {"name":"torgon-p4","url":"https://images.pexels.com/photos/13915356/pexels-photo-13915356.jpeg","shape":"portrait","maxw":540,"q":74,"note":"Цагаан хөвөн цамцны захны ойрын зураг"},
+ {"name":"torgon-b1","url":"https://images.pexels.com/photos/7202768/pexels-photo-7202768.jpeg","shape":"landscape","maxw":720,"band":"bottom","scrim":0.7,"need":4.5,"focus":0.35,"q":70,"note":"Эмэгтэй костюм, студи"},
+ {"name":"torgon-b2","url":"https://images.pexels.com/photos/39915457/pexels-photo-39915457.jpeg","shape":"landscape","maxw":720,"band":"bottom","scrim":0.7,"need":4.5,"focus":0.3,"q":70,"note":"Эрэгтэй хар хувцас, студи"},
+
+ {"name":"zoolon-hero","url":"https://images.pexels.com/photos/18613262/pexels-photo-18613262.jpeg","shape":"square","maxw":620,"q":74,"note":"Жимсээр бялуу чимэглэж буй гар"},
+ {"name":"zoolon-m1","url":"https://images.pexels.com/photos/19651306/pexels-photo-19651306.jpeg","shape":"landscape","maxw":520,"q":72,"note":"Бялууны зүсэм цагаан таваг дээр"},
+ {"name":"zoolon-m2","url":"https://images.pexels.com/photos/30403209/pexels-photo-30403209.jpeg","shape":"landscape","maxw":520,"q":72,"note":"Круассан овоолсон сагс"},
+ {"name":"zoolon-m3","url":"https://images.pexels.com/photos/11712500/pexels-photo-11712500.jpeg","shape":"landscape","maxw":520,"q":72,"note":"Цагаан давхар бялуу, сарнай цэцэг"},
+ {"name":"zoolon-ord","url":"https://images.pexels.com/photos/10481790/pexels-photo-10481790.jpeg","shape":"landscape","maxw":640,"q":72,"note":"Зуухан дахь нарийн боов"}
+]
