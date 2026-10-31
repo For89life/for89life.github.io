@@ -1,0 +1,154 @@
+[
+ {
+  "name": "oron-hero",
+  "url": "https://images.pexels.com/photos/11631278/pexels-photo-11631278.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Орон сууцны гадна тал"
+ },
+ {
+  "name": "oron-f1",
+  "url": "https://images.pexels.com/photos/29012619/pexels-photo-29012619.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Зочны өрөө"
+ },
+ {
+  "name": "oron-f2",
+  "url": "https://images.pexels.com/photos/7166645/pexels-photo-7166645.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Гал тогоо"
+ },
+ {
+  "name": "oron-f3",
+  "url": "https://images.pexels.com/photos/20296321/pexels-photo-20296321.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Хувийн сууц"
+ },
+ {
+  "name": "barilga-hero",
+  "url": "https://images.pexels.com/photos/17297091/pexels-photo-17297091.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.68,
+  "need": 4.5,
+  "focus": 0.55,
+  "q": 62,
+  "note": "Барилгын кран"
+ },
+ {
+  "name": "barilga-f1",
+  "url": "https://images.pexels.com/photos/6082416/pexels-photo-6082416.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Бетон хутгуур"
+ },
+ {
+  "name": "barilga-f2",
+  "url": "https://images.pexels.com/photos/34965713/pexels-photo-34965713.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Хамгаалалтын дуулга"
+ },
+ {
+  "name": "barilga-f3",
+  "url": "https://images.pexels.com/photos/34891691/pexels-photo-34891691.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Экскаватор"
+ },
+ {
+  "name": "inter-hero",
+  "url": "https://images.pexels.com/photos/28456460/pexels-photo-28456460.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Орчин үеийн дотоод засал"
+ },
+ {
+  "name": "inter-f1",
+  "url": "https://images.pexels.com/photos/6615107/pexels-photo-6615107.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Архитекторууд макеттай"
+ },
+ {
+  "name": "inter-f2",
+  "url": "https://images.pexels.com/photos/40211701/pexels-photo-40211701.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Мушгиа шат"
+ },
+ {
+  "name": "inter-f3",
+  "url": "https://images.pexels.com/photos/36035073/pexels-photo-36035073.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Засвар хийгдэж буй өрөө"
+ },
+ {
+  "name": "turees-hero",
+  "url": "https://images.pexels.com/photos/19219055/pexels-photo-19219055.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Эгнэсэн сууцнууд"
+ },
+ {
+  "name": "turees-f1",
+  "url": "https://images.pexels.com/photos/29094497/pexels-photo-29094497.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Түлхүүр гардуулж байна"
+ },
+ {
+  "name": "turees-f2",
+  "url": "https://images.pexels.com/photos/31424880/pexels-photo-31424880.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Түлхүүр, байшингийн загвар"
+ },
+ {
+  "name": "gazar-hero",
+  "url": "https://images.pexels.com/photos/12445117/pexels-photo-12445117.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.66,
+  "need": 4.5,
+  "focus": 0.5,
+  "q": 62,
+  "note": "Дээрээс харсан талбай, зам"
+ },
+ {
+  "name": "gazar-f1",
+  "url": "https://images.pexels.com/photos/34732063/pexels-photo-34732063.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Тариалангийн зурвас"
+ },
+ {
+  "name": "gazar-f2",
+  "url": "https://images.pexels.com/photos/28382907/pexels-photo-28382907.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Толгод, уудам газар"
+ }
+]

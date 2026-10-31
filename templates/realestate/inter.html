@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Интерьер — дотоод засалын студийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Дотоод засал, архитектурын студид зориулсан нам гүм вэб загвар — ажлууд, үйл явц, үнийн зарчим.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Literata / Onest — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,500;0,600;1,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F6F4; --card:#FFFFFF; --soft:#EBE9E5; --soft2:#F2F1EE;
+  --ink:#1E1C19; --mut:#4A4741; --mut2:#55514A;
+  --acc:#5C4A36; --acc-d:#423423; --acc-soft:#E6DFD4;
+  --line:#E3E0DA; --line-strong:#87827A;
+  --ff-h:'Literata',Georgia,serif; --ff-b:'Onest',system-ui,sans-serif;
+  --pad:clamp(1.1rem,5vw,4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:5.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.82;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;line-height:1.24;letter-spacing:-.012em;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--pad);}
+.wide{max-width:1360px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1360px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,246,244,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:5rem;}
+.logo{display:flex;align-items:center;min-height:44px;font-family:var(--ff-h);font-size:21px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.nlinks{display:flex;gap:var(--s4);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;letter-spacing:.06em;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.8rem;
+  font-family:var(--ff-b);font-size:13.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;border:1px solid transparent;transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--ink);color:#fff;} .btn-p:hover{background:#38342E;}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--ink);background:var(--soft);}
+.nav .btn{min-height:44px;padding:0 1.3rem;font-size:12.5px;margin-left:var(--s3);}
+
+.hero{padding:var(--s6) 0 var(--s5);}
+.hero-in{max-width:34rem;}
+.orn{display:block;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);}
+.hero h1 em{font-style:italic;}
+.hero p{margin-top:var(--s3);font-size:18px;color:var(--mut);}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.hero-im{margin-top:var(--s5);aspect-ratio:21/9;overflow:hidden;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:42ch;margin-bottom:var(--s5);}
+.flag{display:block;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);margin-bottom:.9rem;}
+.hd h2{font-size:clamp(1.8rem,3.4vw,2.5rem);}
+.hd p{margin-top:.9rem;color:var(--mut);}
+
+/* Ажлууд */
+.wg{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5) var(--s4);}
+.wc .ph{aspect-ratio:4/3;overflow:hidden;margin-bottom:var(--s3);
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;
+  transition:opacity .3s;}
+.wc:hover .ph{opacity:.9;}
+.wc .yr{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);}
+.wc h3{font-size:24px;margin:.35rem 0 .4rem;}
+.wc p{font-size:15.5px;color:var(--mut);max-width:44ch;}
+.wc .sp{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:var(--s3);font-size:13.5px;color:var(--mut2);}
+
+/* Үйл явц */
+.proc{background:var(--soft2);padding:var(--s6) 0;}
+.pl{border-top:1px solid var(--line-strong);}
+.pr{display:grid;grid-template-columns:4rem 1fr 11rem;gap:var(--s4);align-items:baseline;
+  padding:var(--s4) 0;border-bottom:1px solid var(--line);}
+.pr .n{font-family:var(--ff-h);font-size:15px;color:var(--acc);}
+.pr h3{font-size:21px;}
+.pr p{font-size:15.5px;color:var(--mut);margin-top:.4rem;max-width:52ch;}
+.pr .wk{font-size:14px;color:var(--mut2);text-align:right;white-space:nowrap;}
+
+/* Үнийн зарчим */
+.prz{padding:var(--s6) 0;}
+.pz-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,5vw,4rem);}
+.pbox{background:var(--card);border:1px solid var(--line);padding:var(--s4);}
+.pbox h3{font-size:21px;margin-bottom:.6rem;}
+.pbox .amt{font-family:var(--ff-h);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--acc-d);display:block;margin-bottom:.4rem;}
+.pbox p{font-size:15px;color:var(--mut);}
+.pbox ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-top:var(--s3);}
+.pbox li{display:flex;gap:.7rem;font-size:15px;color:var(--mut);}
+.pbox li i{color:var(--acc);font-style:normal;flex-shrink:0;}
+
+.cta{padding:var(--s6) 0;text-align:center;}
+.cta h2{font-size:clamp(1.8rem,3.6vw,2.6rem);max-width:20ch;margin:0 auto var(--s3);}
+.cta p{color:var(--mut);max-width:46ch;margin:0 auto var(--s4);}
+.cta .row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc-d);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:900px){
+  .wg,.pz-g{grid-template-columns:1fr;}
+  .pr{grid-template-columns:3rem 1fr;} .pr .wk{grid-column:2;text-align:left;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+  .hero-im{aspect-ratio:16/10;}
+}
+@media(max-width:600px){.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-inter-hero{background-image:url('../images/inter-hero.webp');}
+.im-inter-f1{background-image:url('../images/inter-f1.webp');}
+.im-inter-f2{background-image:url('../images/inter-f2.webp');}
+.im-inter-f3{background-image:url('../images/inter-f3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Интерьер</b></span>
+  <a href="../realestate/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wide nav-in">
+  <a href="#top" class="logo">Тэгш</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#works">Ажлууд</a><a href="#process">Үйл явц</a><a href="#price">Үнэ</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Уулзалт товлох</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wide">
+    <div class="hero-in">
+      <span class="orn">Дотоод засал · Архитектур</span>
+      <h1>Байшин бол <em>агуулах</em> биш, амьдрах арга</h1>
+      <p>Бид тавилга сонгож өгдөггүй. Та өглөө хэрхэн сэрдэг, хаана ном уншдаг, хэдэн хүн хоол идэхээр цуглардгийг асууж, тэндээс эхэлдэг.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#works">Ажлууд үзэх</a>
+        <a class="btn btn-s" href="#price">Үнийн зарчим</a>
+      </div>
+    </div>
+    <div class="hero-im im-inter-hero" role="img" aria-label="Орчин үеийн дотоод засал"></div>
+  </div>
+</section>
+
+<section class="sec" id="works">
+  <div class="wide">
+    <div class="hd">
+      <span class="flag">Ажлууд</span>
+      <h2>Гурван жишээ</h2>
+      <p>Бүх зургийг ажил дууссаны дараа, дэглэлгүйгээр авсан.</p>
+    </div>
+    <div class="wg">
+      <article class="wc"><div class="ph im-inter-f2"></div>
+        <span class="yr">2025 · Орон сууц</span>
+        <h3>Хоёр давхар, нэг гэр бүл</h3>
+        <p>96 м² байрны дээд хэсгийг нээж мушгиа шат тавьсан. Гэрэл дээрээс доош чөлөөтэй унана.</p>
+        <div class="sp"><span>96 м²</span><span>5 сар</span><span>Бүрэн засвар</span></div></article>
+      <article class="wc"><div class="ph im-inter-f1"></div>
+        <span class="yr">2025 · Оффис</span>
+        <h3>Архитектурын товчоо</h3>
+        <p>Нээлттэй орон зай, гэхдээ чимээг нь хуваасан. Акустик панель, ургамлын хана.</p>
+        <div class="sp"><span>240 м²</span><span>7 сар</span><span>Зураг төсөл + хэрэгжилт</span></div></article>
+      <article class="wc"><div class="ph im-inter-f3"></div>
+        <span class="yr">2024 · Орон сууц</span>
+        <h3>Хуучин байрны сэргээлт</h3>
+        <p>1976 оны барилга. Ханыг нураалгүй, зөвхөн гэрэлтүүлэг, өнгө, тавилгаар.</p>
+        <div class="sp"><span>62 м²</span><span>3 сар</span><span>Хэсэгчилсэн</span></div></article>
+      <article class="wc"><div class="ph im-inter-hero"></div>
+        <span class="yr">2024 · Нийтийн</span>
+        <h3>Номын сангийн уншлагын заал</h3>
+        <p>Чимээгүй байдлыг материалаар бүтээсэн. Модон тааз, зөөлөн суудал, нэг хүний бүхээг.</p>
+        <div class="sp"><span>310 м²</span><span>9 сар</span><span>Зураг төсөл</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="proc" id="process">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Үйл явц</span><h2>Дөрвөн үе шат</h2></div>
+    <div class="pl">
+      <div class="pr"><span class="n">01</span>
+        <div><h3>Танилцах</h3><p>Байранд тань очиж хэмжилт хийнэ. Та юунд дургүй байдгаа хэлэх нь дуртай зүйлээсээ илүү хэрэгтэй.</p></div>
+        <span class="wk">1–2 долоо хоног</span></div>
+      <div class="pr"><span class="n">02</span>
+        <div><h3>Зураг төсөл</h3><p>Хоёр хувилбар, 3D дүрслэлтэй. Нэгийг нь сонгоод хамт нарийвчилна.</p></div>
+        <span class="wk">4–6 долоо хоног</span></div>
+      <div class="pr"><span class="n">03</span>
+        <div><h3>Ажлын зураг</h3><p>Цахилгаан, сантехник, тавилгын зураг. Гүйцэтгэгч үүгээр ажиллана.</p></div>
+        <span class="wk">3–4 долоо хоног</span></div>
+      <div class="pr"><span class="n">04</span>
+        <div><h3>Хяналт</h3><p>Долоо хоног бүр талбайд очиж шалгана. Зөрүү гарвал тэр дор нь засна.</p></div>
+        <span class="wk">Ажлын турш</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="prz" id="price">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Үнэ</span><h2>Хоёр аргаар ажилладаг</h2></div>
+    <div class="pz-g">
+      <div class="pbox">
+        <h3>Зөвхөн зураг төсөл</h3>
+        <span class="amt">85,000₮ / м²</span>
+        <p>Та гүйцэтгэгчээ өөрөө сонгоно. Бид бүрэн багц зураг өгч, асуултад хариулна.</p>
+        <ul>
+          <li><i aria-hidden="true">—</i><span>Хэмжилт, төлөвлөлт, 3D</span></li>
+          <li><i aria-hidden="true">—</i><span>Ажлын бүрэн зураг</span></li>
+          <li><i aria-hidden="true">—</i><span>Материалын жагсаалт, үнийн тооцоо</span></li>
+        </ul>
+      </div>
+      <div class="pbox">
+        <h3>Зураг төсөл + хяналт</h3>
+        <span class="amt">125,000₮ / м²</span>
+        <p>Бид гүйцэтгэгчтэй ажиллаж, чанар, хугацааг хариуцна. Та зөвхөн шийдвэр гаргана.</p>
+        <ul>
+          <li><i aria-hidden="true">—</i><span>Дээрх бүх зүйл</span></li>
+          <li><i aria-hidden="true">—</i><span>Долоо хоног тутмын талбайн хяналт</span></li>
+          <li><i aria-hidden="true">—</i><span>Тавилга, материалын захиалга</span></li>
+          <li><i aria-hidden="true">—</i><span>Хүлээлгэн өгөх хүртэл</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Эхний уулзалт төлбөргүй</h2>
+    <p>Байрныхаа зураг, план, юу хүсэж байгаагаа илгээгээрэй. Бид тохирох эсэхийг шулуухан хэлнэ.</p>
+    <div class="row">
+      <a class="btn btn-p" href="mailto:sain@tegsh.mn">sain@tegsh.mn</a>
+      <a class="btn btn-s" href="tel:+97688550000">+976 8855-0000</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wide">
+  <div class="fgr">
+    <div><span class="logo">Тэгш</span>
+      <p>Дотоод засал, архитектурын студи. Улаанбаатар, 2017 оноос.</p></div>
+    <div><h3>Студи</h3><div class="fl"><a href="#works">Ажлууд</a><a href="#process">Үйл явц</a><a href="#price">Үнэ</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="mailto:sain@tegsh.mn">sain@tegsh.mn</a><a href="tel:+97688550000">+976 8855-0000</a><span>Да–Ба, 10:00–18:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Тэгш студи — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

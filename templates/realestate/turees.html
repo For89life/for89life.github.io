@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Түрээс — орон сууцны түрээсийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Түрээсийн зуучид зориулсан ойлгомжтой вэб загвар — зар, нөхцөл, түрээслэгчийн эрх, гэрээний тайлбар.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Rubik / Onest — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBFAF8; --card:#FFFFFF; --soft:#EEF0EC; --soft2:#F4F6F2;
+  --ink:#191B18; --mut:#464A43; --mut2:#50554D;
+  --acc:#3E6B2E; --acc-d:#2C4E20; --acc-soft:#E0EDD9;
+  --warn:#8A5200; --warn-bg:#FAEBD3;
+  --line:#E3E5E0; --line-strong:#838781;
+  --ff-h:'Rubik',system-ui,sans-serif; --ff-b:'Onest',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --r:14px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:700;line-height:1.18;letter-spacing:-.022em;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 10px 10px;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1140px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(251,250,248,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.7rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-family:var(--ff-h);font-size:21px;font-weight:700;letter-spacing:-.02em;}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--acc);color:#fff;font-size:15px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:.25rem;margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .85rem;border-radius:9px;font-size:15px;font-weight:500;color:var(--mut);transition:background .2s,color .2s;}
+.nlinks a:hover{background:var(--soft);color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:50px;padding:0 1.6rem;border-radius:11px;
+  font-family:var(--ff-b);font-size:15px;font-weight:600;cursor:pointer;border:2px solid transparent;
+  transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--acc-soft);}
+.nav .btn{min-height:44px;padding:0 1.15rem;font-size:14.5px;margin-left:var(--s2);}
+
+.hero{padding:var(--s6) 0 var(--s4);}
+.hero-g{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(1.8rem,5vw,3.4rem);align-items:center;}
+.pill{display:inline-flex;align-items:center;gap:.45rem;background:var(--acc-soft);color:var(--acc-d);
+  border-radius:999px;padding:.4rem 1rem;font-size:13.5px;font-weight:600;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.1rem,4.8vw,3.4rem);}
+.hero h1 em{font-style:normal;color:var(--acc);}
+.hero .lead{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:42ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.hero-im{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;
+  box-shadow:0 22px 50px -24px rgba(25,27,24,.3);}
+
+.sec{padding:var(--s6) 0;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4);}
+.hd.c{display:block;text-align:center;max-width:50ch;margin-left:auto;margin-right:auto;margin-bottom:var(--s5);}
+.flag{display:block;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:.4rem;}
+.hd h2{font-size:clamp(1.8rem,3.6vw,2.5rem);}
+.hd p{color:var(--mut);font-size:15px;max-width:34ch;}
+.hd.c p{max-width:none;margin-top:.7rem;}
+
+/* Зарууд */
+.lg{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3);}
+.lc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  display:grid;grid-template-columns:15rem 1fr;transition:border-color .22s,box-shadow .22s;}
+.lc:hover{border-color:var(--acc);box-shadow:0 14px 32px -20px rgba(62,107,46,.3);}
+.lc .ph{align-self:stretch;min-height:180px;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.lc-in{padding:var(--s3);}
+.lc .amt{font-family:var(--ff-h);font-size:21px;font-weight:700;color:var(--acc-d);}
+.lc .per{font-size:13px;color:var(--mut2);}
+.lc h3{font-family:var(--ff-b);font-size:16px;font-weight:600;letter-spacing:0;margin-top:.5rem;}
+.lc .adr{font-size:14px;color:var(--mut);margin-top:.15rem;}
+.lc .sp{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--line);
+  font-size:13px;color:var(--mut2);font-weight:600;}
+
+/* Нөхцөл */
+.cond{background:var(--soft2);padding:var(--s6) 0;}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4) var(--s3);}
+.cc i{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--acc-soft);color:var(--acc-d);font-size:19px;font-style:normal;margin-bottom:var(--s3);}
+.cc h3{font-size:18px;}
+.cc p{font-size:14.5px;color:var(--mut);margin-top:.3rem;}
+
+/* Түрээслэгчийн эрх */
+.rights{padding:var(--s6) 0;}
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3) var(--s5);}
+.ri{display:flex;gap:.9rem;align-items:flex-start;}
+.ri i{flex-shrink:0;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
+  background:var(--acc);color:#fff;font-size:13px;font-style:normal;margin-top:.2rem;}
+.ri h3{font-family:var(--ff-b);font-size:16.5px;font-weight:600;}
+.ri p{font-size:15px;color:var(--mut);margin-top:.15rem;}
+
+.note{padding:0 0 var(--s6);}
+.note-in{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:0 var(--r) var(--r) 0;padding:var(--s4);}
+.note h2{font-family:var(--ff-b);font-size:17.5px;font-weight:700;color:var(--warn);letter-spacing:0;}
+.note p{font-size:15px;color:var(--mut);margin-top:.5rem;max-width:72ch;}
+
+.cta{padding:0 0 var(--s6);text-align:center;}
+.cta h2{font-size:clamp(1.8rem,3.6vw,2.4rem);max-width:22ch;margin:0 auto var(--s3);}
+.cta p{color:var(--mut);max-width:46ch;margin:0 auto var(--s4);}
+.cta .row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc-d);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:1000px){
+  .hero-g{grid-template-columns:1fr;}
+  .lg{grid-template-columns:1fr;} .cg{grid-template-columns:1fr;} .rg{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){.lc{grid-template-columns:1fr;}.lc .ph{min-height:190px;}.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-turees-hero{background-image:url('../images/turees-hero.webp');}
+.im-turees-f1{background-image:url('../images/turees-f1.webp');}
+.im-turees-f2{background-image:url('../images/turees-f2.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Түрээс</b></span>
+  <a href="../realestate/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">⌁</i>Түлхүүр</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#listings">Зарууд</a><a href="#cond">Нөхцөл</a><a href="#rights">Таны эрх</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Байраа түрээслүүлэх</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-g">
+    <div>
+      <span class="pill">✓ Урьдчилгаа барьцаа 1 сар, илүүгүй</span>
+      <h1>Түрээсийн зар <em>яг байгаагаараа</em></h1>
+      <p class="lead">Зураг нь тухайн байрных. Үнэ нь эцсийн дүн. Та очоод «өөр байр байна» гэж сонсохгүй.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#listings">Зар үзэх</a>
+        <a class="btn btn-s" href="#rights">Түрээслэгчийн эрх</a>
+      </div>
+    </div>
+    <div class="hero-im im-turees-hero" role="img" aria-label="Эгнэсэн орон сууцнууд"></div>
+  </div>
+</section>
+
+<section class="sec" id="listings">
+  <div class="wrap">
+    <div class="hd">
+      <div><span class="flag">Зарууд</span><h2>Одоо чөлөөтэй</h2></div>
+      <p>Зар бүрийг долоо хоног тутам шалгаж, түрээслэгдсэнийг нь шууд хасдаг.</p>
+    </div>
+    <div class="lg">
+      <article class="lc"><div class="ph im-turees-f1"></div><div class="lc-in">
+        <span class="amt">1,350,000₮</span><span class="per">сард · коммунал тусдаа</span>
+        <h3>2 өрөө, тавилгатай</h3>
+        <p class="adr">СБД, 6-р хороо · Их дэлгүүрийн ойролцоо</p>
+        <div class="sp"><span>62 м²</span><span>7/12 давхар</span><span>Хамгийн багадаа 6 сар</span></div></div></article>
+      <article class="lc"><div class="ph im-turees-f2"></div><div class="lc-in">
+        <span class="amt">900,000₮</span><span class="per">сард · коммунал орсон</span>
+        <h3>1 өрөө, тавилгагүй</h3>
+        <p class="adr">БЗД, 15-р хороолол · Автобусны буудал 200 м</p>
+        <div class="sp"><span>38 м²</span><span>2/9 давхар</span><span>Хамгийн багадаа 12 сар</span></div></div></article>
+      <article class="lc"><div class="ph im-turees-hero"></div><div class="lc-in">
+        <span class="amt">2,400,000₮</span><span class="per">сард · коммунал тусдаа</span>
+        <h3>3 өрөө, бүрэн тавилгатай</h3>
+        <p class="adr">ХУД, Зайсан · Гэр бүлд тохиромжтой</p>
+        <div class="sp"><span>104 м²</span><span>4/8 давхар</span><span>Амьтантай болно</span></div></div></article>
+      <article class="lc"><div class="ph im-turees-f1"></div><div class="lc-in">
+        <span class="amt">1,100,000₮</span><span class="per">сард · коммунал орсон</span>
+        <h3>Студи, шинэ засвартай</h3>
+        <p class="adr">ЧД, 4-р хороо · Их сургуулийн дэргэд</p>
+        <div class="sp"><span>44 м²</span><span>11/16 давхар</span><span>Оюутанд тохиромжтой</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cond" id="cond">
+  <div class="wrap">
+    <div class="hd c"><span class="flag">Нөхцөл</span><h2>Бүх зард нэг адил</h2>
+      <p>Эдгээр нь тохиролцооны зүйл биш. Зар бүрт мөрдөгдөнө.</p></div>
+    <div class="cg">
+      <div class="cc"><i aria-hidden="true">₮</i><h3>Барьцаа — нэг сар</h3>
+        <p>Хоёр, гурван сарын барьцаа шаардахыг бид зөвшөөрдөггүй. Гарахдаа 14 хоногийн дотор буцаана.</p></div>
+      <div class="cc"><i aria-hidden="true">◷</i><h3>Зуучийн хураамж</h3>
+        <p>Нэг сарын түрээсийн 50%. Зөвхөн гэрээ байгуулагдсан тохиолдолд, нэг л удаа.</p></div>
+      <div class="cc"><i aria-hidden="true">✓</i><h3>Бичгэн гэрээ</h3>
+        <p>Амаар тохирдоггүй. Гэрээний загварыг урьдчилан уншиж болно — доороос татна уу.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rights" id="rights">
+  <div class="wrap">
+    <div class="hd c"><span class="flag">Таны эрх</span><h2>Түрээслэгч юу мэдэх ёстой вэ</h2>
+      <p>Зуучлагч тань талд байх ёстой. Доорх зүйлсийг бид гэрээ бүрд оруулдаг.</p></div>
+    <div class="rg">
+      <div class="ri"><i aria-hidden="true">1</i><div><h3>Урьдчилан мэдэгдэх хугацаа</h3>
+        <p>Эзэн гэрээг цуцлах гэвэл 30 хоногийн өмнө бичгээр мэдэгдэнэ. Та ч мөн адил.</p></div></div>
+      <div class="ri"><i aria-hidden="true">2</i><div><h3>Үнэ дундуур нэмэгдэхгүй</h3>
+        <p>Гэрээний хугацаанд түрээсийн үнэ тогтмол. Шинэчлэх үед л ярилцана.</p></div></div>
+      <div class="ri"><i aria-hidden="true">3</i><div><h3>Засвар хэний хариуцлага вэ</h3>
+        <p>Элэгдлээс үүдсэн эвдрэл (халаалт, сантехник) — эзэн. Таны буруугаас — та. Гэрээнд жагсаана.</p></div></div>
+      <div class="ri"><i aria-hidden="true">4</i><div><h3>Орох эрх</h3>
+        <p>Эзэн таны зөвшөөрөлгүйгээр байранд орох эрхгүй. Яаралтай тохиолдол л үл хамаарна.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="note">
+  <div class="wrap"><div class="note-in">
+    <h2>⚠ Залилангаас сэрэмжлээрэй</h2>
+    <p>Байрыг нь үзэхээс өмнө урьдчилгаа шилжүүлэхийг шаардвал тэр нь залилан. Бид хэзээ ч ингэж асуудаггүй. Мөн иргэний үнэмлэхний хуулбарыг гэрээ байгуулахаас өмнө шаардахгүй.</p>
+  </div></div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Байраа түрээслүүлэх үү</h2>
+    <p>Бид түрээслэгчийг шалгаж, гэрээг боловсруулж, сар бүрийн төлбөрийн хяналтыг хийнэ.</p>
+    <div class="row">
+      <a class="btn btn-p" href="tel:+97694660000">+976 9466-0000</a>
+      <a class="btn btn-s" href="mailto:sain@tulhuur-turees.mn">sain@tulhuur-turees.mn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><i aria-hidden="true">⌁</i>Түлхүүр</span>
+      <p>Орон сууцны түрээсийн зуучлал. Улаанбаатар, 2019 оноос.</p></div>
+    <div><h3>Түрээслэгчид</h3><div class="fl"><a href="#listings">Зарууд</a><a href="#cond">Нөхцөл</a><a href="#rights">Таны эрх</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97694660000">+976 9466-0000</a><a href="mailto:sain@tulhuur-turees.mn">sain@tulhuur-turees.mn</a><span>Да–Бя, 09:00–19:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Түлхүүр түрээс — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

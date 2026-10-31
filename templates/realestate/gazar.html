@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Газар — газрын худалдааны загвар | Gerelt Solutions</title>
+<meta name="description" content="Газар худалдаа, өмчлөлийн зуучид зориулсан вэб загвар — талбай, кадастр, эрх зүйн тайлбар.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Noto Serif / Commissioner — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&family=Commissioner:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBFAF6; --card:#FFFFFF; --soft:#EDEBE2; --soft2:#F4F2EB; --deep:#1B2017;
+  --ink:#1D201A; --mut:#4A4F44; --mut2:#54594E;
+  --acc:#5C6B2A; --acc-d:#434F1D; --acc-soft:#E6EBD2;
+  --earth:#7A5118; --earth-bg:#F5E9D5;
+  --line:#E3E1D7; --line-strong:#858878;
+  --ff-h:'Noto Serif',Georgia,serif; --ff-b:'Commissioner',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --r:10px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.74;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:700;line-height:1.22;letter-spacing:-.012em;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1140px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(251,250,246,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.7rem;}
+.logo{display:flex;flex-direction:column;justify-content:center;min-height:44px;}
+.logo b{font-family:var(--ff-h);font-size:21px;font-weight:700;line-height:1.05;}
+.logo span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;font-weight:500;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:50px;padding:0 1.7rem;border-radius:var(--r);
+  font-family:var(--ff-b);font-size:15px;font-weight:600;cursor:pointer;border:1.5px solid transparent;
+  transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--acc-soft);}
+.btn-w{background:#fff;color:var(--acc-d);} .btn-w:hover{background:#E6EBD2;}
+.btn-o{background:transparent;color:#fff;border-color:#fff;} .btn-o:hover{background:rgba(255,255,255,.18);}
+.nav .btn{min-height:44px;padding:0 1.2rem;font-size:14.5px;margin-left:var(--s2);}
+
+.hero{position:relative;display:grid;align-items:end;min-height:min(74vh,620px);background:var(--deep);overflow:hidden;}
+.hero .bgim{position:absolute;inset:0;background-color:var(--deep);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(14,17,11,.93) 0%,rgba(14,17,11,.6) 44%,rgba(14,17,11,.26) 80%);}
+.hero-in{position:relative;z-index:2;padding:var(--s6) 0 var(--s5);max-width:44rem;color:#fff;}
+.kick{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.55);
+  padding:.35rem .9rem;border-radius:var(--r);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.1rem,5vw,3.5rem);color:#fff;}
+.hero p{margin-top:var(--s3);font-size:17.5px;color:#DFE4D8;max-width:44ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+
+.sec{padding:var(--s6) 0;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4);}
+.hd.c{display:block;text-align:center;max-width:52ch;margin-left:auto;margin-right:auto;margin-bottom:var(--s5);}
+.flag{display:block;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--earth);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.8rem,3.6vw,2.5rem);}
+.hd p{color:var(--mut);font-size:15px;max-width:34ch;}
+.hd.c p{max-width:none;margin-top:.7rem;}
+
+/* Талбайн хүснэгт */
+.tbl{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);}
+.th,.tr{display:grid;grid-template-columns:1fr 8rem 8rem 9rem;gap:var(--s3);align-items:center;padding:.9rem var(--s3);}
+.th{background:var(--soft);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);border-bottom:1px solid var(--line);}
+.tr{border-bottom:1px solid var(--line);transition:background .18s;}
+.tr:last-child{border-bottom:none;}
+.tr:hover{background:var(--soft2);}
+.tr .nm{font-weight:600;font-size:16px;}
+.tr .nm s{display:block;text-decoration:none;font-weight:400;font-size:13.5px;color:var(--mut2);}
+.tr .ar{font-size:15px;font-variant-numeric:tabular-nums;}
+.tr .st{font-size:13px;font-weight:600;border-radius:999px;padding:.15rem .6rem;white-space:nowrap;
+  background:var(--acc-soft);color:var(--acc-d);}
+.tr .st.pend{background:var(--earth-bg);color:var(--earth);}
+.tr .amt{font-family:var(--ff-h);font-size:17px;font-weight:700;color:var(--acc-d);text-align:right;font-variant-numeric:tabular-nums;}
+
+/* Эрх зүйн тайлбар */
+.legal{background:var(--soft2);padding:var(--s6) 0;}
+.lgg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.lc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4) var(--s3);}
+.lc .n{font-family:var(--ff-h);font-size:14px;font-weight:700;color:var(--earth);}
+.lc h3{font-size:18px;margin:.3rem 0 .4rem;}
+.lc p{font-size:14.5px;color:var(--mut);}
+
+/* Шалгах жагсаалт */
+.chk{padding:var(--s6) 0;}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,5vw,3.6rem);align-items:center;}
+.cim{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.chk h2{font-size:clamp(1.8rem,3.4vw,2.4rem);}
+.chk p{color:var(--mut);margin-top:var(--s3);}
+.ul{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-top:var(--s4);}
+.ul li{display:flex;gap:.8rem;align-items:flex-start;font-size:15.5px;}
+.ul i{flex-shrink:0;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;font-size:12px;font-style:normal;margin-top:.25rem;}
+
+.cta{padding:0 0 var(--s6);}
+.cta-in{background:var(--deep);color:#fff;border-radius:var(--r);padding:clamp(1.8rem,5vw,3.4rem);
+  display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s4);align-items:center;}
+.cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:#fff;}
+.cta p{color:#C3CCB7;margin-top:.7rem;max-width:42ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc-d);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .lgg{grid-template-columns:1fr;} .cg{grid-template-columns:1fr;} .cta-in{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+  .th{display:none;}
+  .tr{grid-template-columns:1fr auto;gap:.5rem var(--s3);}
+  .tr .ar{display:none;}
+}
+@media(max-width:600px){.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. Hero тодрол 15.34:1 */
+.im-gazar-hero{background-image:url('../images/gazar-hero.webp');}
+.im-gazar-f1{background-image:url('../images/gazar-f1.webp');}
+.im-gazar-f2{background-image:url('../images/gazar-f2.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Газар</b></span>
+  <a href="../realestate/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><b>Хязгаар</b><span>Газрын зуучлал</span></a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#plots">Талбайнууд</a><a href="#legal">Эрх зүй</a><a href="#check">Шалгах</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Зөвлөгөө авах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="bgim im-gazar-hero" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <span class="kick">Кадастрын мэдээлэлтэй тулгасан</span>
+    <h1>Газар авахдаа эхлээд цаасыг нь шалга</h1>
+    <p>Бид зөвхөн улсын бүртгэлд баталгаажсан, маргаангүй талбайг зуучилдаг. Эргэлзээтэй бол жагсаалтад оруулахгүй.</p>
+    <div class="row">
+      <a class="btn btn-w" href="#plots">Талбайнууд үзэх</a>
+      <a class="btn btn-o" href="#check">Юу шалгах вэ</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="plots">
+  <div class="wrap">
+    <div class="hd">
+      <div><span class="flag">Талбайнууд</span><h2>Одоо зарагдаж байгаа</h2></div>
+      <p>Бүх талбайн кадастрын дугаар, зориулалтыг урьдчилан шалгасан.</p>
+    </div>
+    <div class="tbl">
+      <div class="th"><span>Байршил</span><span>Талбай</span><span>Төлөв</span><span style="text-align:right">Үнэ</span></div>
+      <div class="tr"><span class="nm">Төв аймаг, Эрдэнэ сум<s>Улаанбаатараас 58 км · Зам дагуу</s></span>
+        <span class="ar">0.7 га</span><span class="st">Өмчлөх</span><span class="amt">48 сая₮</span></div>
+      <div class="tr"><span class="nm">Налайх дүүрэг, 4-р хороо<s>Цахилгаан татагдсан · Худаг бий</s></span>
+        <span class="ar">0.12 га</span><span class="st">Өмчлөх</span><span class="amt">36 сая₮</span></div>
+      <div class="tr"><span class="nm">Багануур дүүрэг<s>Үйлдвэрлэлийн зориулалт</s></span>
+        <span class="ar">2.4 га</span><span class="st pend">Эзэмших</span><span class="amt">115 сая₮</span></div>
+      <div class="tr"><span class="nm">Төв аймаг, Батсүмбэр сум<s>Голын эрэг · Аялал жуулчлалын бүс</s></span>
+        <span class="ar">1.1 га</span><span class="st">Өмчлөх</span><span class="amt">92 сая₮</span></div>
+      <div class="tr"><span class="nm">Хан-Уул дүүрэг, 15-р хороо<s>Хот доторх · Инженерийн шугам бий</s></span>
+        <span class="ar">0.08 га</span><span class="st">Өмчлөх</span><span class="amt">178 сая₮</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="legal" id="legal">
+  <div class="wrap">
+    <div class="hd c"><span class="flag">Эрх зүй</span><h2>Өмчлөх, эзэмших, ашиглах</h2>
+      <p>Энэ гурвыг хольж ойлгосноос олон маргаан үүсдэг. Товчхон ялгаа нь:</p></div>
+    <div class="lgg">
+      <div class="lc"><span class="n">I</span><h3>Өмчлөх эрх</h3>
+        <p>Газар таны хувийн өмч болно. Худалдаж, бэлэглэж, барьцаалж болно. Зөвхөн Монгол Улсын иргэнд олгоно.</p></div>
+      <div class="lc"><span class="n">II</span><h3>Эзэмших эрх</h3>
+        <p>Тодорхой хугацаатай (15–60 жил), сунгаж болно. Шилжүүлж болох ч төрийн зөвшөөрөл шаардана.</p></div>
+      <div class="lc"><span class="n">III</span><h3>Ашиглах эрх</h3>
+        <p>Хамгийн хязгаарлагдмал. Гадаадын иргэн, хуулийн этгээдэд олгодог. Шилжүүлэх боломжгүй.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="chk" id="check">
+  <div class="wrap cg">
+    <div class="cim im-gazar-f1" role="img" aria-label="Дээрээс харсан тариалангийн талбай"></div>
+    <div>
+      <span class="flag">Шалгах</span>
+      <h2>Гэрээ хийхээс өмнө таван зүйл</h2>
+      <p>Энэ жагсаалтыг бид үйлчлүүлэгч бүрд өгдөг. Бидэнтэй ажиллахгүй байсан ч ашиглаарай.</p>
+      <ul class="ul">
+        <li><i aria-hidden="true">1</i><span>Улсын бүртгэлийн лавлагаа — эзэмшигч нь худалдагчтай тохирч байна уу</span></li>
+        <li><i aria-hidden="true">2</i><span>Барьцаа, хориг байгаа эсэх — лавлагаан дээр бичигдсэн байна</span></li>
+        <li><i aria-hidden="true">3</i><span>Кадастрын зураг — газрын хэмжээ, хил хязгаар газар дээрээ тохирч байна уу</span></li>
+        <li><i aria-hidden="true">4</i><span>Зориулалт — орон сууц, үйлдвэр, хөдөө аж ахуй. Өөрчлөхөд цаг, мөнгө ордог</span></li>
+        <li><i aria-hidden="true">5</i><span>Инженерийн шугам — цахилгаан, ус хэр хол. Татах зардлыг урьдчилан тооц</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap"><div class="cta-in">
+    <div>
+      <h2>Авах гэж байгаа газраа шалгуулаарай</h2>
+      <p>Бидэнтэй ажиллахгүй байсан ч болно. Кадастрын дугаараа илгээхэд бид лавлагааг нь шалгаж хэлнэ — 50,000₮.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="tel:+97688660000">+976 8866-0000</a>
+      <a class="btn btn-o" href="mailto:sain@hyazgaar.mn">sain@hyazgaar.mn</a>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><b>Хязгаар</b><span>Газрын зуучлал</span></span>
+      <p>Газар худалдаа, эрх зүйн зөвлөгөө. Улаанбаатар, 2016 оноос.</p></div>
+    <div><h3>Үйлчилгээ</h3><div class="fl"><a href="#plots">Талбайнууд</a><a href="#check">Шалгалт</a><a href="#legal">Эрх зүйн зөвлөгөө</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97688660000">+976 8866-0000</a><a href="mailto:sain@hyazgaar.mn">sain@hyazgaar.mn</a><span>Да–Ба, 09:00–18:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Хязгаар — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Орон сууц — үл хөдлөх зуучийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Үл хөдлөх хөрөнгийн зуучид зориулсан вэб загвар — зарын жагсаалт, шүүлтүүр, ипотекийн тооцоолуур.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Inter Tight / Onest — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAFA; --card:#FFFFFF; --soft:#EFF1F3; --soft2:#F5F6F8;
+  --ink:#16191C; --mut:#454A50; --mut2:#4F555C;
+  --acc:#1B4FA0; --acc-d:#133A79; --acc-soft:#DCE6F6;
+  --hot:#8A3A18; --hot-bg:#F8E5DC;
+  --line:#E2E5E9; --line-strong:#848A92;
+  --ff-h:'Inter Tight',system-ui,sans-serif; --ff-b:'Onest',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --r:12px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:800;line-height:1.16;letter-spacing:-.028em;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 10px 10px;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1200px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.6rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-family:var(--ff-h);font-size:20px;font-weight:800;letter-spacing:-.03em;}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--acc);color:#fff;font-size:15px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:.25rem;margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .8rem;border-radius:8px;font-size:15px;font-weight:600;color:var(--mut);transition:background .2s,color .2s;}
+.nlinks a:hover{background:var(--soft);color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:50px;padding:0 1.5rem;border-radius:10px;
+  font-family:var(--ff-b);font-size:15px;font-weight:600;cursor:pointer;border:1.5px solid transparent;
+  transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--acc-soft);}
+.nav .btn{min-height:44px;padding:0 1.1rem;font-size:14.5px;margin-left:var(--s2);}
+
+.hero{padding:var(--s6) 0 var(--s4);}
+.hero-g{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(1.8rem,5vw,3.4rem);align-items:center;}
+.pill{display:inline-flex;align-items:center;gap:.45rem;background:var(--hot-bg);color:var(--hot);
+  border-radius:999px;padding:.4rem 1rem;font-size:13.5px;font-weight:600;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.1rem,4.8vw,3.4rem);}
+.hero h1 em{font-style:normal;color:var(--acc);}
+.hero .lead{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:42ch;}
+.hero-im{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;
+  box-shadow:0 22px 50px -24px rgba(22,25,28,.3);}
+
+/* Шүүлтүүр */
+.flt{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:var(--s3);margin-top:var(--s4);box-shadow:0 10px 26px -18px rgba(22,25,28,.2);}
+.ff{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:.8rem;align-items:end;}
+.fg{display:flex;flex-direction:column;gap:.3rem;}
+.fg label{font-size:12.5px;font-weight:600;color:var(--mut2);}
+.fg select,.fg input{min-height:48px;padding:0 .85rem;border-radius:9px;border:1px solid var(--line-strong);
+  background:#fff;font-family:inherit;font-size:15px;color:var(--ink);}
+.fg select:focus-visible,.fg input:focus-visible{outline:3px solid var(--acc);outline-offset:1px;}
+
+.sec{padding:var(--s6) 0;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4);}
+.flag{display:block;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:.4rem;}
+.hd h2{font-size:clamp(1.8rem,3.6vw,2.5rem);}
+.hd p{color:var(--mut);font-size:15px;max-width:34ch;}
+
+/* Зарын жагсаалт */
+.lg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.lc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color .22s,box-shadow .22s,transform .22s;}
+.lc:hover{border-color:var(--acc);box-shadow:0 16px 36px -20px rgba(27,79,160,.28);transform:translateY(-4px);}
+.lc .ph{position:relative;aspect-ratio:16/10;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.lc .tag{position:absolute;top:.7rem;left:.7rem;background:var(--acc);color:#fff;border-radius:6px;
+  font-size:11.5px;font-weight:700;letter-spacing:.04em;padding:.22rem .6rem;}
+.lc-in{padding:var(--s3);display:flex;flex-direction:column;flex:1;}
+.lc .amt{font-family:var(--ff-h);font-size:23px;font-weight:800;color:var(--ink);letter-spacing:-.03em;}
+.lc .per{font-size:13px;color:var(--mut2);margin-bottom:.5rem;}
+.lc h3{font-family:var(--ff-b);font-size:16px;font-weight:600;letter-spacing:0;}
+.lc .adr{font-size:14px;color:var(--mut);margin-top:.15rem;flex:1;}
+.lc .sp{display:flex;gap:1rem;flex-wrap:wrap;margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--line);
+  font-size:13.5px;color:var(--mut2);font-weight:600;}
+
+/* Ипотекийн тооцоолуур */
+.calc{background:var(--soft2);padding:var(--s6) 0;}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,5vw,3.4rem);align-items:center;}
+.cbox{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4);}
+.cr{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:15.5px;}
+.cr:last-of-type{border-bottom:none;}
+.cr b{font-family:var(--ff-h);font-size:17px;font-weight:700;}
+.cr.tot{margin-top:var(--s3);padding-top:var(--s3);border-top:2px solid var(--line-strong);border-bottom:none;}
+.cr.tot b{font-size:24px;color:var(--acc-d);letter-spacing:-.03em;}
+.calc h2{font-size:clamp(1.8rem,3.4vw,2.4rem);}
+.calc p{color:var(--mut);margin-top:var(--s3);}
+.cnote{font-size:13.5px;color:var(--mut2);margin-top:var(--s3);}
+
+.cta{padding:var(--s6) 0;text-align:center;}
+.cta h2{font-size:clamp(1.8rem,3.6vw,2.5rem);max-width:22ch;margin:0 auto var(--s3);}
+.cta p{color:var(--mut);max-width:46ch;margin:0 auto var(--s4);}
+.cta .row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:30ch;margin-top:.6rem;}
+.foot h3{font-family:var(--ff-b);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc-d);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:1000px){
+  .hero-g,.cg{grid-template-columns:1fr;}
+  .ff{grid-template-columns:1fr 1fr;} .lg{grid-template-columns:1fr 1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){.ff,.lg,.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-oron-hero{background-image:url('../images/oron-hero.webp');}
+.im-oron-f1{background-image:url('../images/oron-f1.webp');}
+.im-oron-f2{background-image:url('../images/oron-f2.webp');}
+.im-oron-f3{background-image:url('../images/oron-f3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Орон сууц</b></span>
+  <a href="../realestate/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">⌂</i>Гэрэгэ</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#listings">Зарууд</a><a href="#calc">Тооцоолуур</a><a href="#contact">Холбоо барих</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Үнэлгээ авах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-g">
+      <div>
+        <span class="pill">◷ Энэ долоо хоногт 23 шинэ зар</span>
+        <h1>Байраа <em>бодитоор</em> харж сонгоорой</h1>
+        <p class="lead">Зар бүрт жинхэнэ зураг, яг талбай, давхар, барилгын он. Байхгүй зүйлийг бид бичдэггүй.</p>
+      </div>
+      <div class="hero-im im-oron-hero" role="img" aria-label="Орон сууцны барилгын гадна тал"></div>
+    </div>
+
+    <form class="flt" onsubmit="event.preventDefault();alert('Жишээ загвар — хайлт хийгдээгүй.');">
+      <div class="ff">
+        <div class="fg"><label for="dist">Байршил</label>
+          <select id="dist"><option>Бүх дүүрэг</option><option>Сүхбаатар</option><option>Чингэлтэй</option><option>Баянзүрх</option><option>Хан-Уул</option></select></div>
+        <div class="fg"><label for="rooms">Өрөө</label>
+          <select id="rooms"><option>Бүгд</option><option>1 өрөө</option><option selected>2 өрөө</option><option>3 өрөө</option><option>4+</option></select></div>
+        <div class="fg"><label for="pmin">Үнэ, саяар (доод)</label><input id="pmin" type="number" value="150" min="0"></div>
+        <div class="fg"><label for="pmax">Үнэ, саяар (дээд)</label><input id="pmax" type="number" value="350" min="0"></div>
+        <button class="btn btn-p" type="submit">Хайх</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="sec" id="listings">
+  <div class="wrap">
+    <div class="hd">
+      <div><span class="flag">Зарууд</span><h2>Шинээр нэмэгдсэн</h2></div>
+      <p>Үнэ нь тохиролцооны дүн биш, зарагчийн зарласан үнэ.</p>
+    </div>
+    <div class="lg">
+      <article class="lc"><div class="ph im-oron-f1"><span class="tag">Шинэ</span></div><div class="lc-in">
+        <span class="amt">285 сая₮</span><span class="per">1 м² = 3.9 сая₮</span>
+        <h3>2 өрөө байр, 73 м²</h3>
+        <p class="adr">СБД, 1-р хороо · Их сургуулийн гудамж</p>
+        <div class="sp"><span>73 м²</span><span>9/16 давхар</span><span>2019 он</span></div></div></article>
+      <article class="lc"><div class="ph im-oron-f2"></div><div class="lc-in">
+        <span class="amt">412 сая₮</span><span class="per">1 м² = 4.3 сая₮</span>
+        <h3>3 өрөө байр, 96 м²</h3>
+        <p class="adr">ХУД, Зайсан · Богд уулын харагдацтай</p>
+        <div class="sp"><span>96 м²</span><span>5/12 давхар</span><span>2021 он</span></div></div></article>
+      <article class="lc"><div class="ph im-oron-f3"><span class="tag">Хямдарсан</span></div><div class="lc-in">
+        <span class="amt">196 сая₮</span><span class="per">1 м² = 3.3 сая₮</span>
+        <h3>2 өрөө байр, 59 м²</h3>
+        <p class="adr">БЗД, 13-р хороолол · Сургуулийн дэргэд</p>
+        <div class="sp"><span>59 м²</span><span>3/9 давхар</span><span>2014 он</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="calc" id="calc">
+  <div class="wrap cg">
+    <div>
+      <span class="flag">Тооцоолуур</span>
+      <h2>Сар бүр хэдийг төлөх вэ</h2>
+      <p>285 сая төгрөгийн байрыг 30% урьдчилгаатай, 20 жилийн хугацаатай, жилийн 6% хүүтэй орон сууцны зээлээр авбал:</p>
+      <p class="cnote">Энэ бол жишээ тооцоо. Банк бүрийн нөхцөл, таны орлогоос хамаарч өөрчлөгдөнө. Бид зээлийн зуучлал хийдэггүй — зөвхөн ойлгоход тусалж байна.</p>
+    </div>
+    <div class="cbox">
+      <div class="cr"><span>Байрны үнэ</span><b>285,000,000₮</b></div>
+      <div class="cr"><span>Урьдчилгаа (30%)</span><b>85,500,000₮</b></div>
+      <div class="cr"><span>Зээлийн дүн</span><b>199,500,000₮</b></div>
+      <div class="cr"><span>Хугацаа</span><b>20 жил</b></div>
+      <div class="cr"><span>Жилийн хүү</span><b>6.0%</b></div>
+      <div class="cr tot"><span>Сарын төлөлт</span><b>1,429,000₮</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Байраа зарах уу, худалдаж авах уу</h2>
+    <p>Үнэлгээ үнэгүй. Зуучийн хураамж зөвхөн гүйлгээ амжилттай болсон тохиолдолд.</p>
+    <div class="row">
+      <a class="btn btn-p" href="tel:+97699550000">+976 9955-0000</a>
+      <a class="btn btn-s" href="mailto:sain@gerege.mn">sain@gerege.mn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><i aria-hidden="true">⌂</i>Гэрэгэ</span>
+      <p>Үл хөдлөх хөрөнгийн зуучлал. Улаанбаатар, 2015 оноос.</p></div>
+    <div><h3>Үйлчилгээ</h3><div class="fl"><a href="#listings">Зарууд</a><a href="#contact">Үнэлгээ</a><a href="#calc">Тооцоолуур</a></div></div>
+    <div><h3>Мэдээлэл</h3><div class="fl"><a href="#terms">Зуучийн хураамж</a><a href="#docs">Бүрдүүлэх бичиг</a><a href="#faq">Түгээмэл асуулт</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97699550000">+976 9955-0000</a><a href="mailto:sain@gerege.mn">sain@gerege.mn</a><span>Да–Бя, 09:00–19:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Гэрэгэ — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>
