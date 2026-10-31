@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Эмийн сан — эмийн сангийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Эмийн санд зориулсан практик вэб загвар — бэлэн байдал шалгах, хүргэлт, жор хүлээн авах хэсэгтэй.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Spectral / Inter Tight — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFCFA; --card:#FFFFFF; --soft:#E9F3EC; --soft2:#F2F8F4;
+  --ink:#16261C; --mut:#45584C; --mut2:#4F6256;
+  --acc:#1B6B3A; --acc-d:#134E2A; --acc-soft:#D6EBDE;
+  --warn:#8A4A00; --warn-bg:#FBEBD5;
+  --line:#DDE8E0; --line-strong:#85938A;
+  --ff-h:'Spectral',Georgia,serif; --ff-b:'Inter Tight',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --r:14px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:700;line-height:1.2;letter-spacing:-.012em;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 10px 10px;font-weight:700;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1160px;margin:0 auto;}
+.gs b{font-weight:700;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.open{background:var(--acc-soft);color:var(--acc-d);font-size:14px;font-weight:600;}
+.open-in{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;min-height:42px;}
+.open s{text-decoration:none;width:8px;height:8px;border-radius:50%;background:var(--acc);flex-shrink:0;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,252,250,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.6rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-family:var(--ff-h);font-size:22px;font-weight:700;color:var(--acc-d);}
+.logo i{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:var(--acc);color:#fff;font-size:19px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:500;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:50px;padding:0 1.6rem;border-radius:10px;font-family:var(--ff-b);font-size:15.5px;font-weight:600;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--soft);}
+.btn-w{background:#fff;color:var(--acc-d);} .btn-w:hover{background:#DBEDE2;}
+.btn-o{background:transparent;color:#fff;border-color:#fff;} .btn-o:hover{background:rgba(255,255,255,.16);}
+.nav .btn{min-height:44px;padding:0 1.15rem;font-size:14.5px;margin-left:var(--s2);}
+
+/* Hero — бүтэн өргөн зураг, дээр нь хайлт */
+.hero{position:relative;display:grid;align-items:end;min-height:min(66vh,540px);background:#0E2317;overflow:hidden;}
+.hero .bgim{position:absolute;inset:0;background-color:#0E2317;background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(5,18,11,.94) 0%,rgba(5,18,11,.66) 46%,rgba(5,18,11,.3) 82%);}
+.hero-in{position:relative;z-index:2;padding:var(--s6) 0 var(--s5);color:#fff;max-width:42rem;}
+.hero h1{font-size:clamp(2.1rem,5vw,3.5rem);color:#fff;}
+.hero p{margin-top:var(--s3);font-size:17.5px;color:#D9E7DF;max-width:44ch;}
+
+/* Бэлэн байдал шалгах хайлт */
+.srch{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:var(--s4);}
+.srch input{flex:1;min-width:230px;min-height:54px;padding:0 1.1rem;border-radius:10px;
+  border:2px solid rgba(255,255,255,.65);background:rgba(255,255,255,.96);
+  font-family:inherit;font-size:16px;color:var(--ink);}
+.srch input::placeholder{color:var(--mut2);}
+.srch input:focus-visible{outline:3px solid #7FD6A1;outline-offset:2px;}
+.hero small{display:block;margin-top:var(--s2);font-size:13.5px;color:#BCD3C6;}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:52ch;margin-bottom:var(--s4);}
+.hd.c{margin-left:auto;margin-right:auto;text-align:center;}
+.flag{display:block;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.75rem,3.6vw,2.5rem);}
+.hd p{margin-top:.6rem;color:var(--mut);}
+
+/* Үйлчилгээний хэсэг */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color .22s,box-shadow .22s;}
+.sc:hover{border-color:var(--acc);box-shadow:0 14px 30px -18px rgba(22,38,28,.32);}
+.sc .ph{aspect-ratio:16/10;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.sc-in{padding:var(--s3);display:flex;flex-direction:column;flex:1;}
+.sc h3{font-size:19px;}
+.sc p{font-size:14.5px;color:var(--mut);margin:.4rem 0 var(--s3);flex:1;}
+.sc .m{font-size:13.5px;font-weight:600;color:var(--acc-d);background:var(--soft);border-radius:999px;padding:.2rem .7rem;align-self:flex-start;}
+
+/* Хүргэлтийн блок */
+.del{background:var(--soft2);padding:var(--s6) 0;}
+.dg{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);}
+.dc{background:var(--card);border-radius:var(--r);border:1px solid var(--line);padding:var(--s4) var(--s3);}
+.dc i{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--acc-soft);color:var(--acc-d);font-size:19px;font-style:normal;margin-bottom:var(--s3);}
+.dc h3{font-size:17px;}
+.dc p{font-size:14.5px;color:var(--mut);margin-top:.3rem;}
+
+/* Анхааруулга */
+.note{padding:var(--s5) 0;}
+.note-in{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:0 var(--r) var(--r) 0;padding:var(--s4);}
+.note h2{font-family:var(--ff-b);font-size:17.5px;font-weight:700;color:var(--warn);letter-spacing:0;}
+.note p{font-size:15px;color:var(--mut);margin-top:.5rem;max-width:72ch;}
+
+.cta{background:var(--acc-d);color:#fff;padding:var(--s6) 0;}
+.cta-g{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--s4);align-items:center;}
+.cta h2{font-size:clamp(1.7rem,3.6vw,2.4rem);color:#fff;}
+.cta p{color:#C5E2D1;margin-top:.7rem;max-width:44ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+
+.foot{background:var(--ink);color:#C2D2C8;padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot .logo{color:#fff;} .foot .logo i{background:#4FAE74;color:var(--ink);}
+.foot p{font-size:14.5px;color:#9BB0A3;max-width:30ch;margin-top:.6rem;}
+.foot h3{font-family:var(--ff-b);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:#9BB0A3;padding:.3rem 0;}
+.fl a:hover{color:#fff;}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid #2C4335;font-size:13px;color:#8AA094;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .sg{grid-template-columns:1fr;} .dg{grid-template-columns:1fr 1fr;}
+  .cta-g{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.dg,.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. Hero тодрол 10.64:1 */
+.im-emsan-hero{background-image:url('../images/emsan-hero.webp');}
+.im-emsan-f1{background-image:url('../images/emsan-f1.webp');}
+.im-emsan-f2{background-image:url('../images/emsan-f2.webp');}
+.im-emsan-f3{background-image:url('../images/emsan-f3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Эмийн сан</b></span>
+  <a href="../health/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<div class="open"><div class="wrap open-in">
+  <s aria-hidden="true"></s><span>Яг одоо нээлттэй · 22:00 хүртэл · Хүргэлт 2 цагийн дотор</span>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">✚</i>Өлзий</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#services">Үйлчилгээ</a><a href="#delivery">Хүргэлт</a><a href="#contact">Холбоо барих</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Жор илгээх</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="bgim im-emsan-hero" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <h1>Эм байгаа эсэхийг явахаасаа өмнө мэдээрэй</h1>
+    <p>Эмийн нэрээ бичнэ үү — бэлэн байдал, үнэ, хэдэн ширхэг үлдсэнийг шууд харуулна.</p>
+    <form class="srch" onsubmit="event.preventDefault();alert('Жишээ загвар — хайлт хийгдээгүй.');">
+      <label class="sr-only" for="q">Эмийн нэр</label>
+      <input id="q" type="search" placeholder="Жишээ нь: парацетамол, амоксициллин">
+      <button class="btn btn-p" type="submit">Шалгах</button>
+    </form>
+    <small>Жорын эмийг зөвхөн эмчийн бичиг үзүүлж авна.</small>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Үйлчилгээ</span>
+      <h2>Зөвхөн эм зарж зогсохгүй</h2>
+      <p>Эм зүйч тань үргэлж лангуун дээр байна. Асуух зүйл байвал асуугаарай — төлбөргүй.</p>
+    </div>
+    <div class="sg">
+      <article class="sc"><div class="ph im-emsan-f1"></div><div class="sc-in">
+        <h3>4,200 нэр төрлийн эм</h3>
+        <p>Жорын болон жоргүй эм, хоолны нэмэлт, эмнэлгийн хэрэгсэл. Бэлэн байдлыг цахимаар шалгана.</p>
+        <span class="m">Өдөр бүр нөхөгддөг</span></div></article>
+      <article class="sc"><div class="ph im-emsan-f2"></div><div class="sc-in">
+        <h3>Эм зүйчийн зөвлөгөө</h3>
+        <p>Хэрхэн уух, юутай хавсарч болохгүй, гаж нөлөө гарвал яах — тайлбарлаж өгнө.</p>
+        <span class="m">Төлбөргүй</span></div></article>
+      <article class="sc"><div class="ph im-emsan-f3"></div><div class="sc-in">
+        <h3>Урт хугацааны эм</h3>
+        <p>Даралт, чихрийн шижингийн эмийг сар бүр бэлдэж, дуусахаас өмнө сануулна.</p>
+        <span class="m">Үнэгүй сануулга</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="del" id="delivery">
+  <div class="wrap">
+    <div class="hd c"><span class="flag">Хүргэлт</span><h2>Гэрт нь хүргэнэ</h2></div>
+    <div class="dg">
+      <div class="dc"><i aria-hidden="true">⇢</i><h3>2 цагийн дотор</h3><p>Улаанбаатар хотын төвийн 6 дүүрэгт.</p></div>
+      <div class="dc"><i aria-hidden="true">₮</i><h3>50,000₮-с дээш үнэгүй</h3><p>Доогуур бол 5,000₮ хүргэлтийн хураамж.</p></div>
+      <div class="dc"><i aria-hidden="true">✚</i><h3>Жорыг зургаар</h3><p>Эмчийн бичгийг зураг авч илгээхэд болно.</p></div>
+      <div class="dc"><i aria-hidden="true">◷</i><h3>22:00 хүртэл</h3><p>Оройн захиалгыг маргааш өглөө хүргэнэ.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="note">
+  <div class="wrap"><div class="note-in">
+    <h2>⚠ Анхааруулга</h2>
+    <p>Энэ хуудас дахь мэдээлэл нь эмчийн зөвлөгөөг орлохгүй. Эмийг эмчийн заавраар, зааврын дагуу хэрэглээрэй. Биедээ шинэ шинж тэмдэг илэрвэл эмчид хандана уу. Хүүхдэд зориулсан тунг насанд хүрэгчийнхээс тусад нь тооцдог.</p>
+  </div></div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap cta-g">
+    <div>
+      <h2>Жороо илгээгээд хүлээлгүй аваарай</h2>
+      <p>Эмчийн бичгийн зургийг илгээвэл бид бэлдээд мэдэгдэнэ. Та зөвхөн ирж авна — эсвэл хүргүүлнэ.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="tel:+97677220000">+976 7722-0000</a>
+      <a class="btn btn-o" href="mailto:zahialga@ulzii.mn">zahialga@ulzii.mn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><i aria-hidden="true">✚</i>Өлзий</span>
+      <p>Эмийн сан. Улаанбаатар, 4 салбар. 2008 оноос.</p></div>
+    <div><h3>Үйлчилгээ</h3><div class="fl"><a href="#services">Бэлэн байдал</a><a href="#services">Эм зүйчийн зөвлөгөө</a><a href="#delivery">Хүргэлт</a></div></div>
+    <div><h3>Салбарууд</h3><div class="fl"><span>СБД · Их тойруу</span><span>ХУД · Зайсан</span><span>БЗД · 13-р хороолол</span><span>ЧД · Сансар</span></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97677220000">+976 7722-0000</a><a href="mailto:zahialga@ulzii.mn">zahialga@ulzii.mn</a><span>Өдөр бүр 08:00–22:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Өлзий эмийн сан — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

@@ -29,6 +29,10 @@ SHOTS = [
  ('pv-surah',      '923669-ef0yw7'), ('pv-mergejil',   '923669-mkad7f'),
  ('pv-onlain',     '923669-dbfd3b'), ('pv-tsetserleg', '930535-3oln89'),
  ('pv-ihsurguuli', '930535-381h5n'),
+ # Эрүүл мэнд
+ ('pv-emneleg', '406060-1ntg82'), ('pv-shud',   '406060-kchb9c'),
+ ('pv-setgel',  '406060-guy9i7'), ('pv-emsan',  '406060-18gi1m'),
+ ('pv-lab',     '412274-t3ii7j'),
 ]
 
 RIBBON = 0.072      # дээд туузны эзлэх хувь

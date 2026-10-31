@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Лаборатори — оношилгооны төвийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Оношилгооны лабораторид зориулсан техникийн нягт вэб загвар — шинжилгээний жагсаалт, үнэ, хариу хүлээх хугацаа.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- IBM Plex Sans / Golos Text — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F9FA; --card:#FFFFFF; --surf:#EDF1F3; --deep:#0C1A22;
+  --ink:#13232B; --mut:#44565F; --mut2:#4E6069;
+  --acc:#105C87; --acc-d:#0C4566; --acc-soft:#DBEAF3;
+  --ok:#1C6B3F; --ok-bg:#DCEFE3;
+  --line:#DCE4E8; --line-strong:#848F95;
+  --ff-h:'IBM Plex Sans',system-ui,sans-serif; --ff-b:'Golos Text',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;line-height:1.16;letter-spacing:-.018em;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1180px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,249,250,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.5rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-family:var(--ff-h);font-size:20px;font-weight:700;letter-spacing:-.02em;}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:7px;background:var(--acc);color:#fff;font-size:15px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;font-weight:500;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:50px;padding:0 1.6rem;border-radius:6px;font-family:var(--ff-b);font-size:15px;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--acc-soft);}
+.btn-w{background:#fff;color:var(--acc-d);} .btn-w:hover{background:#DDEAF2;}
+.btn-o{background:transparent;color:#fff;border-color:#fff;} .btn-o:hover{background:rgba(255,255,255,.15);}
+.nav .btn{min-height:44px;padding:0 1.1rem;font-size:14px;margin-left:var(--s2);}
+
+/* Hero — бүтэн өргөн, доод талд бичвэр */
+.hero{position:relative;display:grid;align-items:end;min-height:min(70vh,580px);background:var(--deep);overflow:hidden;}
+.hero .bgim{position:absolute;inset:0;background-color:var(--deep);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(6,15,20,.93) 0%,rgba(6,15,20,.66) 44%,rgba(6,15,20,.3) 80%);}
+.hero-in{position:relative;z-index:2;padding:var(--s6) 0 var(--s5);color:#fff;max-width:44rem;}
+.kick{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);
+  padding:.35rem .85rem;border-radius:4px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.1rem,5vw,3.6rem);color:#fff;}
+.hero p{margin-top:var(--s3);font-size:17.5px;color:#DCE7EC;max-width:46ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+
+.bar{background:var(--deep);color:#C5D6DE;border-top:1px solid #1D3440;}
+.bar-in{display:grid;grid-template-columns:repeat(4,1fr);}
+.bi{padding:var(--s4) var(--s3);text-align:center;border-right:1px solid #1D3440;}
+.bi:last-child{border-right:none;}
+.bi b{display:block;font-family:var(--ff-h);font-size:clamp(1.5rem,2.8vw,2.1rem);color:#fff;font-weight:600;}
+.bi span{font-size:13px;color:#9DB5C0;}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:54ch;margin-bottom:var(--s4);}
+.flag{display:block;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.7rem,3.6vw,2.5rem);}
+.hd p{margin-top:.6rem;color:var(--mut);}
+
+/* Шинжилгээний хүснэгт */
+.tbl{background:var(--card);border:1px solid var(--line);overflow:hidden;}
+.th,.tr{display:grid;grid-template-columns:1fr 7rem 8rem 7rem;gap:var(--s3);align-items:center;padding:.85rem var(--s3);}
+.th{background:var(--surf);font-family:var(--ff-h);font-size:12px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--mut2);border-bottom:1px solid var(--line);}
+.tr{border-bottom:1px solid var(--line);transition:background .18s;}
+.tr:last-child{border-bottom:none;}
+.tr:hover{background:var(--surf);}
+.tr .nm{font-weight:600;font-size:15.5px;}
+.tr .nm s{display:block;text-decoration:none;font-weight:400;font-size:13px;color:var(--mut2);}
+.tr .cd{font-family:var(--ff-h);font-size:13.5px;color:var(--mut2);font-variant-numeric:tabular-nums;}
+.tr .rdy{display:inline-flex;align-items:center;gap:.35rem;font-size:13px;font-weight:600;
+  color:var(--ok);background:var(--ok-bg);border-radius:4px;padding:.15rem .5rem;white-space:nowrap;}
+.tr .amt{font-family:var(--ff-h);font-size:16px;font-weight:600;color:var(--acc-d);text-align:right;font-variant-numeric:tabular-nums;}
+.tnote{margin-top:var(--s3);font-size:14px;color:var(--mut2);}
+
+.how{background:var(--surf);padding:var(--s6) 0;}
+.hg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.hc{background:var(--card);border:1px solid var(--line);overflow:hidden;}
+.hc .ph{aspect-ratio:16/10;background-color:var(--surf);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hc-in{padding:var(--s3);}
+.hc .n{font-family:var(--ff-h);font-size:12.5px;font-weight:600;letter-spacing:.1em;color:var(--acc);}
+.hc h3{font-size:18px;margin:.3rem 0 .35rem;}
+.hc p{font-size:14.5px;color:var(--mut);}
+
+.prep{padding:var(--s6) 0;}
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3) var(--s5);}
+.pi{display:flex;gap:.9rem;align-items:flex-start;}
+.pi i{flex-shrink:0;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  background:var(--acc-soft);color:var(--acc-d);font-size:14px;font-style:normal;font-weight:600;margin-top:.15rem;}
+.pi h3{font-size:16.5px;}
+.pi p{font-size:14.5px;color:var(--mut);margin-top:.15rem;}
+
+.cta{background:var(--acc-d);color:#fff;padding:var(--s6) 0;}
+.cta-g{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--s4);align-items:center;}
+.cta h2{font-size:clamp(1.7rem,3.6vw,2.5rem);color:#fff;}
+.cta p{color:#C3DCEB;margin-top:.7rem;max-width:44ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+
+.foot{background:var(--deep);color:#BDD0D9;padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot .logo{color:#fff;} .foot .logo i{background:#3F93C0;color:var(--deep);}
+.foot p{font-size:14.5px;color:#93AEBA;max-width:30ch;margin-top:.6rem;}
+.foot h3{font-family:var(--ff-b);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:#93AEBA;padding:.3rem 0;}
+.fl a:hover{color:#fff;}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid #1D3440;font-size:13px;color:#84A0AD;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .hg{grid-template-columns:1fr;} .pg{grid-template-columns:1fr;}
+  .cta-g{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .bar-in{grid-template-columns:1fr 1fr;} .bi:nth-child(2){border-right:none;}
+  .fgr{grid-template-columns:1fr 1fr;}
+  .th{display:none;}
+  .tr{grid-template-columns:1fr auto;gap:.5rem var(--s3);}
+  .tr .cd{display:none;}
+}
+@media(max-width:600px){.bar-in,.fgr{grid-template-columns:1fr;}.bi{border-right:none;border-bottom:1px solid #1D3440;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. Hero тодрол 9.00:1 */
+.im-lab-hero{background-image:url('../images/lab-hero.webp');}
+.im-lab-f1{background-image:url('../images/lab-f1.webp');}
+.im-lab-f2{background-image:url('../images/lab-f2.webp');}
+.im-lab-f3{background-image:url('../images/lab-f3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Лаборатори</b></span>
+  <a href="../health/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">◴</i>Хэмжүүр</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#tests">Шинжилгээ</a><a href="#how">Яаж хийгддэг</a><a href="#prep">Бэлтгэл</a>
+  </nav>
+  <a class="btn btn-p" href="#result">Хариу харах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="bgim im-lab-hero" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <span class="kick">ISO 15189 магадлан итгэмжлэлтэй</span>
+    <h1>Хариу нь зөв байх нь хурдан байхаас чухал</h1>
+    <p>186 төрлийн шинжилгээ. Сорьц бүр хоёр удаа хэмжигдэж, зөрвөл гурав дахь удаад баталгаажна.</p>
+    <div class="row">
+      <a class="btn btn-w" href="#tests">Шинжилгээ, үнэ</a>
+      <a class="btn btn-o" href="#result">Хариугаа харах</a>
+    </div>
+  </div>
+</section>
+
+<div class="bar"><div class="wrap bar-in">
+  <div class="bi"><b>186</b><span>төрлийн шинжилгээ</span></div>
+  <div class="bi"><b>2 цаг</b><span>яаралтайн хариу</span></div>
+  <div class="bi"><b>99.7%</b><span>дотоод хяналтын давтамж</span></div>
+  <div class="bi"><b>07:00</b><span>сорьц авч эхлэх цаг</span></div>
+</div></div>
+
+<section class="sec" id="tests">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Шинжилгээ</span>
+      <h2>Хамгийн их хийгддэг шинжилгээнүүд</h2>
+      <p>Бүрэн жагсаалтыг лабораторийн лангуунаас эсвэл утсаар асууна уу.</p>
+    </div>
+    <div class="tbl">
+      <div class="th"><span>Шинжилгээ</span><span>Код</span><span>Хариу</span><span style="text-align:right">Үнэ</span></div>
+      <div class="tr"><span class="nm">Цусны дэлгэрэнгүй<s>18 үзүүлэлт, автомат анализатор</s></span>
+        <span class="cd">CBC-18</span><span class="rdy">◷ 2 цаг</span><span class="amt">18,000₮</span></div>
+      <div class="tr"><span class="nm">Биохимийн багц<s>Элэг, бөөр, өөх тос — 12 үзүүлэлт</s></span>
+        <span class="cd">BIO-12</span><span class="rdy">◷ 4 цаг</span><span class="amt">46,000₮</span></div>
+      <div class="tr"><span class="nm">Бамбай булчирхай<s>TSH, T3, T4 сул</s></span>
+        <span class="cd">THY-03</span><span class="rdy">◷ 6 цаг</span><span class="amt">52,000₮</span></div>
+      <div class="tr"><span class="nm">Гликозилэгдсэн гемоглобин<s>HbA1c — 3 сарын дундаж сахар</s></span>
+        <span class="cd">HBA-1C</span><span class="rdy">◷ 4 цаг</span><span class="amt">28,000₮</span></div>
+      <div class="tr"><span class="nm">Шээсний ерөнхий<s>Физик, хими, тунадас</s></span>
+        <span class="cd">URN-01</span><span class="rdy">◷ 2 цаг</span><span class="amt">12,000₮</span></div>
+      <div class="tr"><span class="nm">Витамин D<s>25-OH витамин D</s></span>
+        <span class="cd">VTD-25</span><span class="rdy">◷ 24 цаг</span><span class="amt">68,000₮</span></div>
+    </div>
+    <p class="tnote">Үнэд сорьц авах хураамж орсон. Гэрээр үйлчлэхэд 15,000₮ нэмэгдэнэ.</p>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Яаж хийгддэг</span><h2>Сорьцны замнал</h2></div>
+    <div class="hg">
+      <article class="hc"><div class="ph im-lab-f2"></div><div class="hc-in">
+        <span class="n">01</span><h3>Сорьц авах</h3>
+        <p>Нэг удаагийн багажаар. Хоолойн дугаар тэр дороо баркод болж бүртгэгдэнэ.</p></div></article>
+      <article class="hc"><div class="ph im-lab-f3"></div><div class="hc-in">
+        <span class="n">02</span><h3>Боловсруулалт</h3>
+        <p>Центрифуг, хуваарилалт. Хугацаа, температурыг тасралтгүй бүртгэнэ.</p></div></article>
+      <article class="hc"><div class="ph im-lab-f1"></div><div class="hc-in">
+        <span class="n">03</span><h3>Хэмжилт, баталгаажуулалт</h3>
+        <p>Автомат анализатор, дараа нь лаборантын хяналт. Эргэлзээтэй бол давтана.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="prep" id="prep">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Бэлтгэл</span><h2>Ирэхээсээ өмнө</h2></div>
+    <div class="pg">
+      <div class="pi"><i aria-hidden="true">1</i><div><h3>Өлөн ирэх</h3><p>Ихэнх цусны шинжилгээнд 8–12 цаг хоол идэхгүй. Цэвэр ус уухыг зөвшөөрнө.</p></div></div>
+      <div class="pi"><i aria-hidden="true">2</i><div><h3>Эмээ хэлэх</h3><p>Байнга уудаг эм, хоолны нэмэлтээ бүртгүүлэхдээ хэлнэ үү — зарим нь үр дүнг өөрчилнө.</p></div></div>
+      <div class="pi"><i aria-hidden="true">3</i><div><h3>Өглөө эрт</h3><p>07:00–10:00 цагт ирэхийг зөвлөнө. Зарим гормоны хэмжээ өдрийн турш өөрчлөгддөг.</p></div></div>
+      <div class="pi"><i aria-hidden="true">4</i><div><h3>Иргэний үнэмлэх</h3><p>Хариуг зөвхөн өөрт нь эсвэл итгэмжлэгдсэн хүнд өгнө.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="result">
+  <div class="wrap cta-g">
+    <div>
+      <h2>Хариугаа цахимаар харна</h2>
+      <p>Сорьц өгөхөд код өгнө. Тэр кодоор бүх хариугаа харах, татаж авах, эмчдээ илгээх боломжтой.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="#portal">Хариу харах</a>
+      <a class="btn btn-o" href="tel:+97611660000">+976 1166-0000</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><i aria-hidden="true">◴</i>Хэмжүүр</span>
+      <p>Оношилгооны лабораторийн төв. ISO 15189. Улаанбаатар, 2011 оноос.</p></div>
+    <div><h3>Шинжилгээ</h3><div class="fl"><a href="#tests">Цусны</a><a href="#tests">Биохими</a><a href="#tests">Гормон</a></div></div>
+    <div><h3>Үйлчлүүлэгчид</h3><div class="fl"><a href="#result">Хариу харах</a><a href="#prep">Бэлтгэл</a><a href="#how">Чанарын хяналт</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97611660000">+976 1166-0000</a><a href="mailto:lab@hemjuur.mn">lab@hemjuur.mn</a><span>Да–Бя, 07:00–18:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Хэмжүүр лаборатори — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

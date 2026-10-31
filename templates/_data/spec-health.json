@@ -1,0 +1,146 @@
+[
+ {
+  "name": "emneleg-hero",
+  "url": "https://images.pexels.com/photos/7578798/pexels-photo-7578798.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 72,
+  "note": "Эмч өвчтөнтэй ярилцаж байна"
+ },
+ {
+  "name": "emneleg-f1",
+  "url": "https://images.pexels.com/photos/5998455/pexels-photo-5998455.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Хүүхдийн эмч үзлэг хийж байна"
+ },
+ {
+  "name": "emneleg-f2",
+  "url": "https://images.pexels.com/photos/5407238/pexels-photo-5407238.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Чагнуур, тэмдэглэлийн дэвтэр"
+ },
+ {
+  "name": "shud-hero",
+  "url": "https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 72,
+  "note": "Эрүүл инээмсэглэл"
+ },
+ {
+  "name": "shud-f1",
+  "url": "https://images.pexels.com/photos/7800666/pexels-photo-7800666.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Шүдний эмнэлгийн өрөө"
+ },
+ {
+  "name": "shud-f2",
+  "url": "https://images.pexels.com/photos/4269265/pexels-photo-4269265.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Орчин үеийн шүдний сандал"
+ },
+ {
+  "name": "lab-hero",
+  "url": "https://images.pexels.com/photos/8442029/pexels-photo-8442029.jpeg",
+  "shape": "wide",
+  "maxw": 1300,
+  "band": "bottom",
+  "scrim": 0.68,
+  "need": 4.5,
+  "focus": 0.5,
+  "q": 66,
+  "note": "Цусны сорьцны хоолой"
+ },
+ {
+  "name": "lab-f1",
+  "url": "https://images.pexels.com/photos/9574397/pexels-photo-9574397.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Микроскоп"
+ },
+ {
+  "name": "lab-f2",
+  "url": "https://images.pexels.com/photos/6285344/pexels-photo-6285344.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Цус авч байна"
+ },
+ {
+  "name": "lab-f3",
+  "url": "https://images.pexels.com/photos/6627687/pexels-photo-6627687.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Центрифуг, сорьцны хоолойнууд"
+ },
+ {
+  "name": "setgel-hero",
+  "url": "https://images.pexels.com/photos/33646085/pexels-photo-33646085.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 72,
+  "note": "Тайван өрөө, хоёр сандал"
+ },
+ {
+  "name": "setgel-f1",
+  "url": "https://images.pexels.com/photos/7176302/pexels-photo-7176302.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Сэтгэл зүйчийн уулзалт"
+ },
+ {
+  "name": "setgel-f2",
+  "url": "https://images.pexels.com/photos/7858887/pexels-photo-7858887.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Усан будгаар зурж байна"
+ },
+ {
+  "name": "emsan-hero",
+  "url": "https://images.pexels.com/photos/32116001/pexels-photo-32116001.jpeg",
+  "shape": "wide",
+  "maxw": 1300,
+  "band": "bottom",
+  "scrim": 0.7,
+  "need": 4.5,
+  "focus": 0.5,
+  "q": 64,
+  "note": "Эмийн сангийн гадна тал"
+ },
+ {
+  "name": "emsan-f1",
+  "url": "https://images.pexels.com/photos/16211537/pexels-photo-16211537.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Эмийн тавиур"
+ },
+ {
+  "name": "emsan-f2",
+  "url": "https://images.pexels.com/photos/8657297/pexels-photo-8657297.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Эм зүйч лангууны ард"
+ },
+ {
+  "name": "emsan-f3",
+  "url": "https://images.pexels.com/photos/3873150/pexels-photo-3873150.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Эмийн блистер"
+ }
+]
