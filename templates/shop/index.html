@@ -52,23 +52,28 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
 
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);padding:var(--s5) 0 var(--s6);}
 .card{display:flex;flex-direction:column;}
-.cover{position:relative;display:flex;flex-direction:column;justify-content:space-between;
-  aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;padding:var(--s4);
+/* Нүүр дээр бичвэр тавихаа больсон. Шалтгаан: нүүр нь загварын
+   жинхэнэ дэлгэцийн зураг бөгөөд ихэнх нь цайвар сайт. Хэмжихэд
+   цагаан гарчиг 25 картын 12 дээр 2.0:1 хүртэл унаж байв. Далд
+   давхаргыг хүчтэй болговол дэлгэцийн зураг нь харагдахаа болино —
+   тэгвэл нүүрний утга алга. Нэр, шошго нь доорх цул хэсэгт аль
+   хэдийн бичигддэг тул давхардлыг нь авлаа. */
+.cover{position:relative;display:block;
+  aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;
   border:1px solid var(--line);transition:transform .32s ease,border-color .32s ease;}
-/* Градиентын цайвар үзүүрт цагаан бичвэр 1.2:1 хүртэл унадаг тул
-   бичвэр байрлах дээд, доод зурвасыг далдална. Дунд нь өнгөө хадгална. */
-.cover::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.2) 38%,rgba(0,0,0,.26) 60%,rgba(0,0,0,.84));}
-.cover .nm,.cover .tg{position:relative;z-index:2;}
 .card:hover .cover{transform:translateY(-5px);border-color:var(--line2);}
-.cover .nm{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:600;letter-spacing:-.03em;color:#fff;}
-.cover .tg{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.88);}
-.cover .peek{position:absolute;left:0;right:0;bottom:0;padding:.85rem var(--s4);
-  background:linear-gradient(transparent,rgba(0,0,0,.75));
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#fff;
-  opacity:0;transform:translateY(8px);transition:opacity .28s,transform .28s;}
-.cover:hover .peek,.cover:focus-visible .peek{opacity:1;transform:none;}
+/* «Загвар нээх» нь өөрийн цул дэвсгэртэй тул доорх зургаас үл хамаарч
+   уншигдана — 14.7:1. */
+.cover .peek{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.94);
+  display:inline-flex;align-items:center;min-height:38px;padding:0 1.1rem;border-radius:999px;
+  background:rgba(10,10,11,.93);
+  font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#fff;
+  white-space:nowrap;opacity:0;transition:opacity .26s,transform .26s;}
+.cover:hover .peek,.cover:focus-visible .peek{opacity:1;transform:translate(-50%,-50%) scale(1);}
+@media(hover:none){.cover .peek{opacity:1;transform:translate(-50%,-50%) scale(1);}}
 .row{display:flex;align-items:baseline;gap:.8rem;padding-top:var(--s3);}
+.card .tg{margin-top:.35rem;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--mut2);font-weight:500;}
 .row h2{flex:1;font-size:18px;font-weight:600;}
 .row .amt{font-size:15px;font-weight:600;white-space:nowrap;}
 .card p.d{padding-top:.4rem;font-size:14px;color:var(--mut);max-width:48ch;}
@@ -127,56 +132,56 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
 <div class="wrap">
   <div class="grid">
     <article class="card">
-      <a class="cover" href="zah.html" style="background-image:url('../images/pv-zah.webp');background-size:cover;background-position:top center">
-        <span class="nm">Зах</span>
-        <span class="tg">Блок · Улбар · Олон бараа</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="zah.html" aria-label="Зах загварыг нээх"
+         style="background-image:url('../images/pv-zah.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Зах</h2><span class="amt">₮500,000</span></div>
+      <p class="tg">Блок · Улбар · Олон бараа</p>
       <p class="d">Блок бүтэц, эрч хүчтэй улбар. Олон ангилал, хямдрал онцолсон.</p>
       <button class="act" onclick="ask('Онлайн дэлгүүр — Зах')">Хүсэлт илгээх →</button>
     </article>
 
     <article class="card">
-      <a class="cover" href="sav.html" style="background-image:url('../images/pv-sav.webp');background-size:cover;background-position:top center">
-        <span class="nm">Сав</span>
-        <span class="tg">Бутик · Цагаан · Задгай</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="sav.html" aria-label="Сав загварыг нээх"
+         style="background-image:url('../images/pv-sav.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Сав</h2><span class="amt">₮500,000</span></div>
+      <p class="tg">Бутик · Цагаан · Задгай</p>
       <p class="d">Цагаан бутик. Том зураг, задгай зай, цөөн бараа онцолсон.</p>
       <button class="act" onclick="ask('Онлайн дэлгүүр — Сав')">Хүсэлт илгээх →</button>
     </article>
 
     <article class="card">
-      <a class="cover" href="tulhuur.html" style="background-image:url('../images/pv-tulhuur.webp');background-size:cover;background-position:top center">
-        <span class="nm">Түлхүүр</span>
-        <span class="tg">Харанхуй · Техник · Неон</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="tulhuur.html" aria-label="Түлхүүр загварыг нээх"
+         style="background-image:url('../images/pv-tulhuur.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Түлхүүр</h2><span class="amt">₮550,000</span></div>
+      <p class="tg">Харанхуй · Техник · Неон</p>
       <p class="d">Харанхуй, техникийн. Цахилгаан бараа, тодорхойлолт, харьцуулалт.</p>
       <button class="act" onclick="ask('Онлайн дэлгүүр — Түлхүүр')">Хүсэлт илгээх →</button>
     </article>
 
     <article class="card">
-      <a class="cover" href="horshoo.html" style="background-image:url('../images/pv-horshoo.webp');background-size:cover;background-position:top center">
-        <span class="nm">Хоршоо</span>
-        <span class="tg">Органик · Ногоон · Дулаан</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="horshoo.html" aria-label="Хоршоо загварыг нээх"
+         style="background-image:url('../images/pv-horshoo.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Хоршоо</h2><span class="amt">₮500,000</span></div>
+      <p class="tg">Органик · Ногоон · Дулаан</p>
       <p class="d">Органик, дулаан ногоон. Хүнс, гар урлал, жижиг үйлдвэрлэлд.</p>
       <button class="act" onclick="ask('Онлайн дэлгүүр — Хоршоо')">Хүсэлт илгээх →</button>
     </article>
 
     <article class="card">
-      <a class="cover" href="torgon.html" style="background-image:url('../images/pv-torgon.webp');background-size:cover;background-position:top center">
-        <span class="nm">Торгон</span>
-        <span class="tg">Хувцас · Эсрэгцэл · Lookbook</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="torgon.html" aria-label="Торгон загварыг нээх"
+         style="background-image:url('../images/pv-torgon.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Торгон</h2><span class="amt">₮550,000</span></div>
+      <p class="tg">Хувцас · Эсрэгцэл · Lookbook</p>
       <p class="d">Хувцасны lookbook. Бүтэн дэлгэцийн зураг, өндөр эсрэгцэл, хар цагаан.</p>
       <button class="act" onclick="ask('Онлайн дэлгүүр — Торгон')">Хүсэлт илгээх →</button>
     </article>
@@ -190,6 +195,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
       <a href="../corporate/index.html">Байгууллагын танилцуулга</a>
       <a href="../restaurant/index.html">Ресторан & кафе</a>
       <a href="../portfolio/index.html">Хувийн портфолио</a>
+      <a href="../education/index.html">Боловсрол</a>
     </nav>
   </div>
 </section>

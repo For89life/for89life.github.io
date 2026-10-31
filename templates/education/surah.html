@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сурах — ерөнхий боловсролын сургуулийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Сургууль, сургалтын төвд зориулсан гэрэлтэй, найрсаг вэб загвар — элсэлт, хөтөлбөр, багш нарын хэсэгтэй.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Nunito — кирилл үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --soft:#F1F6FD; --soft2:#FFF8E6; --card:#FFFFFF;
+  --ink:#10243D; --mut:#48566B; --mut2:#53617A;
+  --acc:#1D63C9; --acc-d:#154A99; --acc-soft:#DCE9FB;
+  --warn:#8A6300; --warn-bg:#FFEFC2;
+  --line:#DFE6F0; --line-strong:#8C97A8;
+  --ff:'Nunito',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --r:18px; --r-s:12px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-weight:800;line-height:1.16;letter-spacing:-.018em;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 10px 10px;font-weight:700;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1160px;margin:0 auto;}
+.gs b{font-weight:700;} .gs .sp{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.7rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-size:21px;font-weight:800;letter-spacing:-.02em;}
+.logo i{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--acc);color:#fff;font-size:17px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:.3rem;margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .85rem;border-radius:10px;font-size:15px;font-weight:600;color:var(--mut);transition:background .2s,color .2s;}
+.nlinks a:hover{background:var(--soft);color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.6rem;border-radius:12px;font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s,transform .15s;}
+.btn:active{transform:translateY(1px);}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--soft);}
+.nav .btn{min-height:44px;padding:0 1.15rem;font-size:14.5px;margin-left:var(--s2);}
+
+/* Hero */
+.hero{padding:var(--s6) 0 var(--s5);}
+.hero-g{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center;}
+.pill{display:inline-flex;align-items:center;gap:.45rem;background:var(--warn-bg);color:var(--warn);
+  border-radius:999px;padding:.4rem 1rem;font-size:13.5px;font-weight:700;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);}
+.hero h1 em{font-style:normal;color:var(--acc);}
+.hero .lead{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:44ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.hero-im{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;
+  box-shadow:0 24px 54px -22px rgba(16,36,61,.3);}
+.hero-tag{position:absolute;left:var(--s3);bottom:var(--s3);background:#fff;border-radius:var(--r-s);
+  padding:.65rem .95rem;display:flex;align-items:center;gap:.6rem;font-size:13.5px;font-weight:700;}
+.hero-tag i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--acc-soft);color:var(--acc-d);font-style:normal;font-size:14px;}
+
+.marks{background:var(--soft);border-radius:var(--r);padding:var(--s4) var(--s3);margin-top:var(--s5);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);text-align:center;}
+.mk b{display:block;font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--acc-d);line-height:1.1;}
+.mk span{font-size:13.5px;color:var(--mut2);font-weight:600;}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:52ch;margin:0 auto var(--s5);text-align:center;}
+.flag{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.8rem,3.8vw,2.7rem);}
+.hd p{margin-top:.6rem;color:var(--mut);}
+
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4) var(--s3);
+  transition:border-color .22s,box-shadow .22s,transform .22s;}
+.pc:hover{border-color:var(--acc);box-shadow:0 16px 36px -18px rgba(29,99,201,.3);transform:translateY(-4px);}
+.pc i{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--soft);color:var(--acc-d);font-size:22px;font-style:normal;margin-bottom:var(--s3);}
+.pc h3{font-size:20px;}
+.pc p{font-size:15px;color:var(--mut);margin:.45rem 0 .8rem;}
+.pc .ages{display:inline-block;background:var(--soft2);color:var(--warn);border-radius:999px;padding:.2rem .7rem;font-size:12.5px;font-weight:700;}
+
+.split{background:var(--soft);padding:var(--s6) 0;}
+.split-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center;}
+.split-im{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;
+  background-color:#dfe6f0;background-position:center;background-size:cover;background-repeat:no-repeat;}
+.split h2{font-size:clamp(1.8rem,3.6vw,2.6rem);}
+.split p{color:var(--mut);margin:var(--s3) 0;}
+.ul{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:var(--s4);}
+.ul li{display:flex;gap:.7rem;align-items:flex-start;font-size:15.5px;}
+.ul i{flex-shrink:0;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;font-size:13px;font-style:normal;margin-top:.2rem;}
+
+.enr{padding:var(--s6) 0;}
+.enr-in{background:var(--acc-d);color:#fff;border-radius:22px;padding:clamp(1.8rem,5vw,3.4rem);
+  display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s4);align-items:center;}
+.enr h2{font-size:clamp(1.7rem,3.6vw,2.5rem);color:#fff;}
+.enr p{color:#CFE0F8;margin-top:.7rem;max-width:40ch;}
+.enr .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+.enr .btn-w{background:#fff;color:var(--acc-d);} .enr .btn-w:hover{background:#E4EEFC;}
+.enr .btn-o{background:transparent;color:#fff;border-color:#fff;} .enr .btn-o:hover{background:rgba(255,255,255,.14);}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:30ch;margin-top:.6rem;}
+.foot h3{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mut2);margin-bottom:.6rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc-d);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .hero-g,.split-g,.enr-in{grid-template-columns:1fr;}
+  .pg{grid-template-columns:1fr 1fr;}
+  .marks{grid-template-columns:1fr 1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fg{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.pg,.fg{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-surah-hero{background-image:url('../images/surah-hero.webp');}
+.im-surah-f1{background-image:url('../images/surah-f1.webp');}
+.im-surah-f2{background-image:url('../images/surah-f2.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="sp">·</span> Бэлэн загвар — <b>Сурах</b></span>
+  <a href="../education/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">✦</i>Сурах</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#programs">Хөтөлбөр</a><a href="#about">Бидний тухай</a><a href="#enroll">Элсэлт</a>
+  </nav>
+  <a class="btn btn-p" href="#enroll">Элсэлт 2026</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-g">
+      <div>
+        <span class="pill">◷ Элсэлт 5-р сарын 15 хүртэл нээлттэй</span>
+        <h1>Хүүхэд бүр <em>өөрийн хурдаар</em> ургадаг</h1>
+        <p class="lead">Улаанбаатарын төвд, 1–12 дугаар анги. Нэг ангид 18 хүртэл сурагч — багш хүүхэд бүрийг нэрээр нь мэднэ.</p>
+        <div class="row">
+          <a class="btn btn-p" href="#enroll">Элсэлтийн маягт</a>
+          <a class="btn btn-s" href="#programs">Хөтөлбөр үзэх</a>
+        </div>
+      </div>
+      <div class="hero-im im-surah-hero">
+        <span class="hero-tag"><i aria-hidden="true">★</i>24 жилийн түүхтэй</span>
+      </div>
+    </div>
+    <div class="marks">
+      <div class="mk"><b>18</b><span>нэг ангид дээд тал нь</span></div>
+      <div class="mk"><b>96%</b><span>их сургуульд элссэн</span></div>
+      <div class="mk"><b>42</b><span>багш, ажилтан</span></div>
+      <div class="mk"><b>3</b><span>гадаад хэл</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="programs">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Хөтөлбөр</span>
+      <h2>Гурван шат, нэг чиглэл</h2>
+      <p>Сурагч ахих тусам бие даасан байдал нэмэгдэж, багшийн үүрэг хөтлөгчөөс зөвлөх рүү шилждэг.</p>
+    </div>
+    <div class="pg">
+      <article class="pc"><i aria-hidden="true">✎</i>
+        <h3>Бага боловсрол</h3>
+        <p>Уншлага, тоо бодлого, байгаль судлал. Өдөрт 2 цаг гадаа тоглоом, хөдөлгөөн.</p>
+        <span class="ages">1–5 анги · 6–11 нас</span></article>
+      <article class="pc"><i aria-hidden="true">◱</i>
+        <h3>Суурь боловсрол</h3>
+        <p>Хичээл сонголт эхэлнэ. Төслийн ажил, танилцуулга хийх чадвар онцолсон.</p>
+        <span class="ages">6–9 анги · 12–15 нас</span></article>
+      <article class="pc"><i aria-hidden="true">◈</i>
+        <h3>Бүрэн дунд</h3>
+        <p>ЭЕШ-д бэлтгэх, мэргэжил сонгох зөвлөгөө, гадаад сургуулийн бүртгэлийн дэмжлэг.</p>
+        <span class="ages">10–12 анги · 16–18 нас</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="split" id="about">
+  <div class="wrap split-g">
+    <div class="split-im im-surah-f1" role="img" aria-label="Багш самбарын дэргэд сурагчидтай ажиллаж байна"></div>
+    <div>
+      <span class="flag">Бидний тухай</span>
+      <h2>Багш бүр хүүхэд бүрийг мэднэ</h2>
+      <p>Том ангитай сургуульд хүүхэд алга болдог. Бид анги тус бүрийг 18-аар хязгаарлаж, долоо хоног бүр ахиц дэвшлийн тэмдэглэл хөтөлдөг.</p>
+      <ul class="ul">
+        <li><i aria-hidden="true">✓</i><span>Улирал бүр эцэг эхтэй ганцаарчилсан уулзалт</span></li>
+        <li><i aria-hidden="true">✓</i><span>Сурагч бүрт хувийн хөгжлийн төлөвлөгөө</span></li>
+        <li><i aria-hidden="true">✓</i><span>Цахим журнал — гэрээсээ ахиц дэвшлийг харна</span></li>
+      </ul>
+      <a class="btn btn-p" href="#enroll">Уулзалт товлох</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap split-g">
+    <div>
+      <span class="flag">Хичээлээс гадуур</span>
+      <h2>Өдрийн хоёр дахь хагас</h2>
+      <p>14:30-аас хойш 16 дугуйлан ажиллана — шатар, робот, хөгжим, сагсан бөмбөг, театр. Нэмэлт төлбөргүй.</p>
+      <ul class="ul">
+        <li><i aria-hidden="true">✓</i><span>16 дугуйлан, долоо хоногт 4 өдөр</span></li>
+        <li><i aria-hidden="true">✓</i><span>18:00 хүртэл хүүхэд харах үйлчилгээ</span></li>
+        <li><i aria-hidden="true">✓</i><span>Жилд 2 удаа аялал, хээрийн судалгаа</span></li>
+      </ul>
+    </div>
+    <div class="split-im im-surah-f2" role="img" aria-label="Хүүхэд насанд хүрэгчтэй хамт зурж байна"></div>
+  </div>
+</section>
+
+<section class="enr" id="enroll">
+  <div class="wrap"><div class="enr-in">
+    <div>
+      <h2>2026–2027 оны элсэлт нээлттэй</h2>
+      <p>Маягт бөглөснөөс хойш 3 ажлын өдрийн дотор бид ярилцлагын цаг тохирно. Элсэлтийн шалгалт байхгүй — ярилцлага, ажиглалт.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="tel:+97611330000">+976 1133-0000</a>
+      <a class="btn btn-o" href="mailto:elselt@surah.mn">elselt@surah.mn</a>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fg">
+    <div><span class="logo"><i aria-hidden="true">✦</i>Сурах</span>
+      <p>Ерөнхий боловсролын сургууль. 1–12 анги. Улаанбаатар, 2002 оноос.</p></div>
+    <div><h3>Хөтөлбөр</h3><div class="fl"><a href="#programs">Бага боловсрол</a><a href="#programs">Суурь боловсрол</a><a href="#programs">Бүрэн дунд</a></div></div>
+    <div><h3>Эцэг эхэд</h3><div class="fl"><a href="#enroll">Элсэлт</a><a href="#about">Цахим журнал</a><a href="#about">Цагийн хуваарь</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97611330000">+976 1133-0000</a><a href="mailto:elselt@surah.mn">elselt@surah.mn</a><span>УБ, СБД, 6-р хороо</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Сурах — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

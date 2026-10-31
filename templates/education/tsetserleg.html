@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Цэцэрлэг — цэцэрлэг, өдөр өнжүүлэхийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Цэцэрлэг, өдөр өнжүүлэх төвд зориулсан дулаан, тоглоомч вэб загвар — өдрийн хуваарь, элсэлттэй.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Comfortaa / Nunito — хоёулаа кирилл үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFBF4; --card:#FFFFFF; --soft:#FFEEDC; --soft2:#DFF3F0; --soft3:#FDE7EE;
+  --ink:#38271A; --mut:#60493A; --mut2:#6B5343;
+  --acc:#C2561B; --acc-d:#9C4414; --teal:#15706A; --teal-bg:#D5EEEB;
+  --line:#F0E2D1; --line-strong:#9B8873;
+  --ff-h:'Comfortaa',system-ui,sans-serif; --ff-b:'Nunito',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --r:26px; --r-s:16px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.72;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:700;line-height:1.24;letter-spacing:-.01em;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 12px 12px;font-weight:700;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1140px;margin:0 auto;}
+.gs b{font-weight:700;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,251,244,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.8rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-family:var(--ff-h);font-size:22px;font-weight:700;color:var(--acc-d);}
+.logo i{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--acc);color:#fff;font-size:18px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:.3rem;margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .9rem;border-radius:999px;font-size:15px;font-weight:700;color:var(--mut);transition:background .2s,color .2s;}
+.nlinks a:hover{background:var(--soft);color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:54px;padding:0 1.8rem;border-radius:999px;font-family:var(--ff-b);font-size:16px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s,transform .15s;}
+.btn:active{transform:translateY(1px);}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:var(--card);color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--soft);}
+.btn-t{background:var(--teal);color:#fff;} .btn-t:hover{background:#0F5A55;}
+.nav .btn{min-height:44px;padding:0 1.25rem;font-size:15px;margin-left:var(--s2);}
+
+/* Hero */
+.hero{padding:var(--s6) 0 var(--s5);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-180px;left:-120px;width:420px;height:420px;border-radius:50%;
+  background:var(--soft);opacity:.75;pointer-events:none;}
+.hero-g{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center;}
+.pill{display:inline-flex;align-items:center;gap:.45rem;background:var(--teal-bg);color:var(--teal);
+  border-radius:999px;padding:.42rem 1rem;font-size:14px;font-weight:700;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.1rem,4.8vw,3.4rem);}
+.hero h1 em{font-style:normal;color:var(--acc);}
+.hero .lead{margin-top:var(--s3);font-size:18px;color:var(--mut);max-width:42ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+.hero-im{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;
+  box-shadow:0 26px 56px -24px rgba(56,39,26,.32);}
+.hero-tag{position:absolute;left:var(--s3);bottom:var(--s3);right:var(--s3);background:#fff;border-radius:var(--r-s);
+  padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem;font-size:14px;font-weight:700;}
+.hero-tag i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--soft);color:var(--acc-d);font-style:normal;font-size:16px;flex-shrink:0;}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:52ch;margin:0 auto var(--s5);text-align:center;}
+.flag{display:inline-block;font-size:13.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc-d);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.8rem,3.8vw,2.6rem);}
+.hd p{margin-top:.6rem;color:var(--mut);}
+
+/* Өдрийн хуваарь */
+.day{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.dc{background:var(--card);border:2px solid var(--line);border-radius:var(--r);overflow:hidden;
+  transition:border-color .22s,transform .22s;}
+.dc:hover{border-color:var(--acc);transform:translateY(-5px);}
+.dc .ph{aspect-ratio:1/1;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.dc-in{padding:var(--s3);}
+.dc .tm{display:inline-block;background:var(--soft2);color:var(--teal);border-radius:999px;padding:.2rem .75rem;font-size:13px;font-weight:700;margin-bottom:.5rem;}
+.dc h3{font-size:19px;}
+.dc p{font-size:15px;color:var(--mut);margin-top:.35rem;}
+
+.why{background:var(--soft);padding:var(--s6) 0;}
+.wg{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);}
+.wc{background:var(--card);border-radius:var(--r-s);padding:var(--s4) var(--s3);text-align:center;}
+.wc i{display:grid;place-items:center;width:54px;height:54px;margin:0 auto .8rem;border-radius:50%;
+  background:var(--soft3);color:var(--acc-d);font-size:23px;font-style:normal;}
+.wc h3{font-size:17px;}
+.wc p{font-size:14.5px;color:var(--mut);margin-top:.3rem;}
+
+/* Үнэ */
+.pz{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.pc{background:var(--card);border:2px solid var(--line);border-radius:var(--r);padding:var(--s4);display:flex;flex-direction:column;}
+.pc.hi{border-color:var(--acc);}
+.pc .nm{font-family:var(--ff-h);font-size:17px;font-weight:700;color:var(--acc-d);}
+.pc .px{font-family:var(--ff-h);font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:700;margin:.3rem 0 .1rem;}
+.pc .per{font-size:14px;color:var(--mut2);margin-bottom:var(--s3);}
+.pc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;flex:1;margin-bottom:var(--s4);}
+.pc li{display:flex;gap:.6rem;font-size:15px;color:var(--mut);}
+.pc li i{color:var(--teal);font-style:normal;flex-shrink:0;}
+
+.cta{padding:var(--s6) 0;}
+.cta-in{background:var(--teal);color:#fff;border-radius:var(--r);padding:clamp(1.8rem,5vw,3.4rem);
+  display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s4);align-items:center;}
+.cta h2{font-size:clamp(1.7rem,3.6vw,2.4rem);color:#fff;}
+.cta p{color:#CFE9E6;margin-top:.7rem;max-width:40ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+.cta .btn-w{background:#fff;color:var(--teal);} .cta .btn-w:hover{background:#E2F2F0;}
+.cta .btn-o{background:transparent;color:#fff;border-color:#fff;} .cta .btn-o:hover{background:rgba(255,255,255,.16);}
+
+.foot{border-top:2px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;margin-top:.6rem;}
+.foot h3{font-family:var(--ff-b);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut2);margin-bottom:.6rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc-d);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .hero-g,.cta-in{grid-template-columns:1fr;}
+  .day,.pz{grid-template-columns:1fr;} .wg{grid-template-columns:1fr 1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fg{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.wg,.fg{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-tsetser-hero{background-image:url('../images/tsetser-hero.webp');}
+.im-tsetser-f1{background-image:url('../images/tsetser-f1.webp');}
+.im-tsetser-f2{background-image:url('../images/tsetser-f2.webp');}
+.im-tsetser-f3{background-image:url('../images/tsetser-f3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Цэцэрлэг</b></span>
+  <a href="../education/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">☀</i>Нарлаг</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#day">Өдрийн хуваарь</a><a href="#why">Яагаад бид</a><a href="#price">Төлбөр</a>
+  </nav>
+  <a class="btn btn-p" href="#visit">Ирж үзэх</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-g">
+    <div>
+      <span class="pill">◷ 2–5 нас · 07:30–18:30</span>
+      <h1>Тоглож байхдаа <em>хамгийн их</em> сурдаг</h1>
+      <p class="lead">Нэг багшид 6 хүүхэд. Өдөрт хоёр удаа гадаа. Хоол нь манай гал тогоонд тэр өдөртөө л хийгддэг.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#visit">Ирж үзэх цаг авах</a>
+        <a class="btn btn-s" href="#day">Өдрийн хуваарь</a>
+      </div>
+    </div>
+    <div class="hero-im im-tsetser-hero">
+      <span class="hero-tag"><i aria-hidden="true">✓</i>Эрүүл мэндийн газрын зөвшөөрөлтэй · 2014 оноос</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="day">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Өдрийн хуваарь</span>
+      <h2>Нэг өдөр ийм өнгөрнө</h2>
+      <p>Хуваарь тогтмол — хүүхэд дараа нь юу болохыг мэдэж байвал тайван байдаг.</p>
+    </div>
+    <div class="day">
+      <article class="dc"><div class="ph im-tsetser-f1"></div><div class="dc-in">
+        <span class="tm">08:00–10:00</span>
+        <h3>Өглөөний тойрог</h3>
+        <p>Мэндчилгээ, өдрийн төлөвлөгөө, дуу. Дараа нь чөлөөт тоглоом.</p></div></article>
+      <article class="dc"><div class="ph im-tsetser-f2"></div><div class="dc-in">
+        <span class="tm">10:30–12:00</span>
+        <h3>Гар урлал, хөдөлгөөн</h3>
+        <p>Шавар, зураг, усан будаг. Цаг агаар зөвшөөрвөл гадаа.</p></div></article>
+      <article class="dc"><div class="ph im-tsetser-f3"></div><div class="dc-in">
+        <span class="tm">15:00–17:00</span>
+        <h3>Үдээс хойш</h3>
+        <p>Унтаад сэрсний дараа ном, үлгэр, бүлгийн тоглоом.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Яагаад бид</span>
+      <h2>Эцэг эхчүүдийн хамгийн их асуудаг дөрөв</h2>
+    </div>
+    <div class="wg">
+      <div class="wc"><i aria-hidden="true">♥</i><h3>6 хүүхэд : 1 багш</h3><p>Багш хүүхэд бүрт хүрч амжина.</p></div>
+      <div class="wc"><i aria-hidden="true">✿</i><h3>Өдөрт 2 цаг гадаа</h3><p>Хашаандаа тоглоомын талбайтай.</p></div>
+      <div class="wc"><i aria-hidden="true">◉</i><h3>Гал тогоо байрандаа</h3><p>Хоол тэр өдөртөө хийгдэнэ.</p></div>
+      <div class="wc"><i aria-hidden="true">▣</i><h3>Өдөр бүр зураг</h3><p>Эцэг эхийн апп-д зураг, тэмдэглэл.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="price">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Төлбөр</span>
+      <h2>Нуусан зардалгүй</h2>
+      <p>Хоол, хичээлийн хэрэглэгдэхүүн, дугуйлан бүгд орсон. Нэмэлт төлбөр байхгүй.</p>
+    </div>
+    <div class="pz">
+      <div class="pc"><span class="nm">Хагас өдөр</span><span class="px">450,000₮</span><span class="per">Сард · 08:00–13:00</span>
+        <ul><li><i aria-hidden="true">✓</i>Өглөөний цай, үдийн хоол</li><li><i aria-hidden="true">✓</i>Бүх хичээл, тоглоом</li><li><i aria-hidden="true">✓</i>Өдөр бүрийн тэмдэглэл</li></ul>
+        <a class="btn btn-s" href="#visit">Сонирхож байна</a></div>
+      <div class="pc hi"><span class="nm">Бүтэн өдөр</span><span class="px">720,000₮</span><span class="per">Сард · 07:30–18:30</span>
+        <ul><li><i aria-hidden="true">✓</i>Өдөрт 4 удаагийн хоол</li><li><i aria-hidden="true">✓</i>Унтлагын цаг</li><li><i aria-hidden="true">✓</i>Бүх дугуйлан</li><li><i aria-hidden="true">✓</i>Эцэг эхийн апп</li></ul>
+        <a class="btn btn-p" href="#visit">Ирж үзэх</a></div>
+      <div class="pc"><span class="nm">Ах дүү</span><span class="px">−20%</span><span class="per">Хоёр дахь хүүхдээс</span>
+        <ul><li><i aria-hidden="true">✓</i>Аль ч багцад хамаарна</li><li><i aria-hidden="true">✓</i>Хугацааны хязгааргүй</li><li><i aria-hidden="true">✓</i>Автоматаар тооцогдоно</li></ul>
+        <a class="btn btn-s" href="#visit">Дэлгэрэнгүй</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="visit">
+  <div class="wrap"><div class="cta-in">
+    <div>
+      <h2>Эхлээд ирж үзээрэй</h2>
+      <p>Хүүхэдтэйгээ хамт ирж нэг өглөө бидэнтэй өнгөрүүлээрэй. Төлбөргүй, үүрэг хүлээхгүй.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="tel:+97699220000">+976 9922-0000</a>
+      <a class="btn btn-o" href="mailto:sain@narlag.mn">sain@narlag.mn</a>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fg">
+    <div><span class="logo"><i aria-hidden="true">☀</i>Нарлаг</span>
+      <p>Хувийн цэцэрлэг, өдөр өнжүүлэх төв. 2–5 нас. Улаанбаатар, 2014 оноос.</p></div>
+    <div><h3>Мэдээлэл</h3><div class="fl"><a href="#day">Өдрийн хуваарь</a><a href="#price">Төлбөр</a><a href="#why">Яагаад бид</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97699220000">+976 9922-0000</a><a href="mailto:sain@narlag.mn">sain@narlag.mn</a><span>УБ, БЗД, 13-р хороо</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Нарлаг — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

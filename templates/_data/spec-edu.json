@@ -1,0 +1,146 @@
+[
+ {
+  "name": "surah-hero",
+  "url": "https://images.pexels.com/photos/5212648/pexels-photo-5212648.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 72,
+  "note": "Орчин үеийн ангид багш"
+ },
+ {
+  "name": "surah-f1",
+  "url": "https://images.pexels.com/photos/8617627/pexels-photo-8617627.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Багш самбарын дэргэд сурагчидтай"
+ },
+ {
+  "name": "surah-f2",
+  "url": "https://images.pexels.com/photos/5311406/pexels-photo-5311406.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 72,
+  "note": "Эцэг эх хүүхэдтэйгээ зурж байна"
+ },
+ {
+  "name": "mergejil-hero",
+  "url": "https://images.pexels.com/photos/34039390/pexels-photo-34039390.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.6,
+  "need": 4.5,
+  "focus": 0.45,
+  "q": 68,
+  "note": "Гагнуурын оч"
+ },
+ {
+  "name": "mergejil-c1",
+  "url": "https://images.pexels.com/photos/6471913/pexels-photo-6471913.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Багаж барьсан гар"
+ },
+ {
+  "name": "mergejil-c2",
+  "url": "https://images.pexels.com/photos/33694016/pexels-photo-33694016.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Электроник засвар"
+ },
+ {
+  "name": "mergejil-c3",
+  "url": "https://images.pexels.com/photos/8761327/pexels-photo-8761327.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Сургалтын танхим"
+ },
+ {
+  "name": "onlain-hero",
+  "url": "https://images.pexels.com/photos/4314216/pexels-photo-4314216.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Чихэвчтэй суралцагч"
+ },
+ {
+  "name": "onlain-av",
+  "url": "https://images.pexels.com/photos/3807755/pexels-photo-3807755.jpeg",
+  "shape": "square",
+  "maxw": 200,
+  "q": 76,
+  "note": "Багшийн хөрөг"
+ },
+ {
+  "name": "tsetser-hero",
+  "url": "https://images.pexels.com/photos/5275834/pexels-photo-5275834.jpeg",
+  "shape": "square",
+  "maxw": 660,
+  "q": 72,
+  "note": "Баяртай хүүхэд гараа өргөсөн"
+ },
+ {
+  "name": "tsetser-f1",
+  "url": "https://images.pexels.com/photos/8422262/pexels-photo-8422262.jpeg",
+  "shape": "square",
+  "maxw": 420,
+  "q": 72,
+  "note": "Шалан дээр тоглож буй хүүхдүүд"
+ },
+ {
+  "name": "tsetser-f2",
+  "url": "https://images.pexels.com/photos/12585867/pexels-photo-12585867.jpeg",
+  "shape": "square",
+  "maxw": 420,
+  "q": 72,
+  "note": "Шавар зуурч буй хүүхдийн гар"
+ },
+ {
+  "name": "tsetser-f3",
+  "url": "https://images.pexels.com/photos/3662630/pexels-photo-3662630.jpeg",
+  "shape": "square",
+  "maxw": 420,
+  "q": 72,
+  "note": "Харандаагаар зурж буй хүүхдүүд"
+ },
+ {
+  "name": "ihsur-hero",
+  "url": "https://images.pexels.com/photos/19554793/pexels-photo-19554793.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.7,
+  "need": 4.5,
+  "focus": 0.55,
+  "q": 52,
+  "note": "Тоосгон их сургуулийн байр"
+ },
+ {
+  "name": "ihsur-f1",
+  "url": "https://images.pexels.com/photos/5940844/pexels-photo-5940844.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Номын санд суралцаж буй оюутан"
+ },
+ {
+  "name": "ihsur-f2",
+  "url": "https://images.pexels.com/photos/9243372/pexels-photo-9243372.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Лабораторид микроскоп"
+ },
+ {
+  "name": "ihsur-f3",
+  "url": "https://images.pexels.com/photos/8106623/pexels-photo-8106623.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 72,
+  "note": "Төгсөгчид"
+ }
+]

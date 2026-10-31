@@ -52,23 +52,28 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
 
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);padding:var(--s5) 0 var(--s6);}
 .card{display:flex;flex-direction:column;}
-.cover{position:relative;display:flex;flex-direction:column;justify-content:space-between;
-  aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;padding:var(--s4);
+/* Нүүр дээр бичвэр тавихаа больсон. Шалтгаан: нүүр нь загварын
+   жинхэнэ дэлгэцийн зураг бөгөөд ихэнх нь цайвар сайт. Хэмжихэд
+   цагаан гарчиг 25 картын 12 дээр 2.0:1 хүртэл унаж байв. Далд
+   давхаргыг хүчтэй болговол дэлгэцийн зураг нь харагдахаа болино —
+   тэгвэл нүүрний утга алга. Нэр, шошго нь доорх цул хэсэгт аль
+   хэдийн бичигддэг тул давхардлыг нь авлаа. */
+.cover{position:relative;display:block;
+  aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;
   border:1px solid var(--line);transition:transform .32s ease,border-color .32s ease;}
-/* Градиентын цайвар үзүүрт цагаан бичвэр 1.2:1 хүртэл унадаг тул
-   бичвэр байрлах дээд, доод зурвасыг далдална. Дунд нь өнгөө хадгална. */
-.cover::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.2) 38%,rgba(0,0,0,.26) 60%,rgba(0,0,0,.84));}
-.cover .nm,.cover .tg{position:relative;z-index:2;}
 .card:hover .cover{transform:translateY(-5px);border-color:var(--line2);}
-.cover .nm{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:600;letter-spacing:-.03em;color:#fff;}
-.cover .tg{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.88);}
-.cover .peek{position:absolute;left:0;right:0;bottom:0;padding:.85rem var(--s4);
-  background:linear-gradient(transparent,rgba(0,0,0,.75));
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#fff;
-  opacity:0;transform:translateY(8px);transition:opacity .28s,transform .28s;}
-.cover:hover .peek,.cover:focus-visible .peek{opacity:1;transform:none;}
+/* «Загвар нээх» нь өөрийн цул дэвсгэртэй тул доорх зургаас үл хамаарч
+   уншигдана — 14.7:1. */
+.cover .peek{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.94);
+  display:inline-flex;align-items:center;min-height:38px;padding:0 1.1rem;border-radius:999px;
+  background:rgba(10,10,11,.93);
+  font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#fff;
+  white-space:nowrap;opacity:0;transition:opacity .26s,transform .26s;}
+.cover:hover .peek,.cover:focus-visible .peek{opacity:1;transform:translate(-50%,-50%) scale(1);}
+@media(hover:none){.cover .peek{opacity:1;transform:translate(-50%,-50%) scale(1);}}
 .row{display:flex;align-items:baseline;gap:.8rem;padding-top:var(--s3);}
+.card .tg{margin-top:.35rem;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--mut2);font-weight:500;}
 .row h2{flex:1;font-size:18px;font-weight:600;}
 .row .amt{font-size:15px;font-weight:600;white-space:nowrap;}
 .card p.d{padding-top:.4rem;font-size:14px;color:var(--mut);max-width:48ch;}
@@ -127,56 +132,56 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
 <div class="wrap">
   <div class="grid">
     <article class="card">
-      <a class="cover" href="tulga.html" style="background-image:url('../images/pv-tulga.webp');background-size:cover;background-position:top center">
-        <span class="nm">Тулга</span>
-        <span class="tg">Цэгцтэй · Цэнхэр · Тоо баримт</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="tulga.html" aria-label="Тулга загварыг нээх"
+         style="background-image:url('../images/pv-tulga.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Тулга</h2><span class="amt">₮300,000</span></div>
+      <p class="tg">Цэгцтэй · Цэнхэр · Тоо баримт</p>
       <p class="d">Швейцарь маягийн цэгц. Цайвар дэвсгэр, цэнхэр өргөлт, тоон үзүүлэлт онцолсон.</p>
       <button class="act" onclick="ask('Байгууллагын танилцуулга — Тулга')">Хүсэлт илгээх →</button>
     </article>
 
     <article class="card">
-      <a class="cover" href="hurd.html" style="background-image:url('../images/pv-hurd.webp');background-size:cover;background-position:top center">
-        <span class="nm">Хүрд</span>
-        <span class="tg">Харанхуй · Сериф · Алтлаг</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="hurd.html" aria-label="Хүрд загварыг нээх"
+         style="background-image:url('../images/pv-hurd.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Хүрд</h2><span class="amt">₮350,000</span></div>
+      <p class="tg">Харанхуй · Сериф · Алтлаг</p>
       <p class="d">Хар дэвсгэр, сериф гарчиг. Нэр хүнд, туршлага онцолсон нягт дүр төрх.</p>
       <button class="act" onclick="ask('Байгууллагын танилцуулга — Хүрд')">Хүсэлт илгээх →</button>
     </article>
 
     <article class="card">
-      <a class="cover" href="tsamhag.html" style="background-image:url('../images/pv-tsamhag.webp');background-size:cover;background-position:top center">
-        <span class="nm">Цамхаг</span>
-        <span class="tg">Хуваасан · Зоригтой · Ногоон</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="tsamhag.html" aria-label="Цамхаг загварыг нээх"
+         style="background-image:url('../images/pv-tsamhag.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Цамхаг</h2><span class="amt">₮350,000</span></div>
+      <p class="tg">Хуваасан · Зоригтой · Ногоон</p>
       <p class="d">Хуваасан дэлгэц, зоригтой том үсэг. Хурдан ойлгогдох, цөөн үгтэй.</p>
       <button class="act" onclick="ask('Байгууллагын танилцуулга — Цамхаг')">Хүсэлт илгээх →</button>
     </article>
 
     <article class="card">
-      <a class="cover" href="egnee.html" style="background-image:url('../images/pv-egnee.webp');background-size:cover;background-position:top center">
-        <span class="nm">Эгнээ</span>
-        <span class="tg">Зөөлөн · Цайвар · Найрсаг</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="egnee.html" aria-label="Эгнээ загварыг нээх"
+         style="background-image:url('../images/pv-egnee.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Эгнээ</h2><span class="amt">₮300,000</span></div>
+      <p class="tg">Зөөлөн · Цайвар · Найрсаг</p>
       <p class="d">Зөөлөн булантай картууд, цайвар өнгө. Жижиг, дунд бизнест ээлтэй.</p>
       <button class="act" onclick="ask('Байгууллагын танилцуулга — Эгнээ')">Хүсэлт илгээх →</button>
     </article>
 
     <article class="card">
-      <a class="cover" href="guur.html" style="background-image:url('../images/pv-guur.webp');background-size:cover;background-position:top center">
-        <span class="nm">Гүүр</span>
-        <span class="tg">Албан ёсны · Хүрэн шар · Сериф</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="guur.html" aria-label="Гүүр загварыг нээх"
+         style="background-image:url('../images/pv-guur.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>Гүүр</h2><span class="amt">₮350,000</span></div>
+      <p class="tg">Албан ёсны · Хүрэн шар · Сериф</p>
       <p class="d">Албан ёсны, тэгш хэмтэй. Хууль, зөвлөх, санхүүгийн үйлчилгээнд.</p>
       <button class="act" onclick="ask('Байгууллагын танилцуулга — Гүүр')">Хүсэлт илгээх →</button>
     </article>
@@ -190,6 +195,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.08;}
       <a href="../shop/index.html">Онлайн дэлгүүр</a>
       <a href="../restaurant/index.html">Ресторан & кафе</a>
       <a href="../portfolio/index.html">Хувийн портфолио</a>
+      <a href="../education/index.html">Боловсрол</a>
     </nav>
   </div>
 </section>

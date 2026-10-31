@@ -61,6 +61,20 @@ CATS = [
         dict(f='duu',     n='Дуу',     d='Хөгжимчин, продюсерт. Дуу долгионы хэлбэр, бичлэгийн жагсаалт, харанхуй.',
              tags='Хөгжим · Харанхуй · Долгион', p='₮320,000', g='linear-gradient(140deg,#08090C,#1C2027 58%,#4ADE80)'),
       ]),
+ dict(slug='education', name='Боловсрол',
+      lead='Сургууль, цэцэрлэг, сургалтын төв, онлайн курс — элсэлт, хөтөлбөр, төлбөрийн хэсэгтэй.',
+      items=[
+        dict(f='surah',      n='Сурах',     d='Ерөнхий боловсролын сургууль. Гэрэлтэй, найрсаг, элсэлт онцолсон.',
+             tags='Сургууль · Цэнхэр · Найрсаг', p='₮350,000', g='linear-gradient(140deg,#0C2A52,#1D63C9 58%,#9CC4F5)'),
+        dict(f='mergejil',   n='Мэргэжил',  d='Мэргэжлийн сургалт. Хатуу бүтэц, дадлага, ажлын байр онцолсон.',
+             tags='Мэргэжил · Ногоон · Сериф', p='₮380,000', g='linear-gradient(140deg,#0B1C14,#1F6B45 58%,#9BD9B5)'),
+        dict(f='onlain',     n='Онлайн',    d='Цахим сургалтын платформ. Харанхуй, тоглуулагч, явцын мөр, үнийн багц.',
+             tags='Платформ · Харанхуй · Нил ягаан', p='₮450,000', g='linear-gradient(140deg,#0B0C14,#2E2F55 58%,#8B8CFB)'),
+        dict(f='tsetserleg', n='Цэцэрлэг',  d='Цэцэрлэг, өдөр өнжүүлэх. Дулаан, бөөрөнхий, өдрийн хуваарьтай.',
+             tags='Цэцэрлэг · Улбар · Дулаан', p='₮350,000', g='linear-gradient(140deg,#3A2416,#C2561B 58%,#FFD9B3)'),
+        dict(f='ihsurguuli', n='Дээд',      d='Их сургууль, коллеж. Албан ёсны, сериф, мэдээ, элсэлтийн хэсэгтэй.',
+             tags='Их сургууль · Час улаан · Сериф', p='₮420,000', g='linear-gradient(140deg,#2A1013,#8E1F2B 58%,#D4A843)'),
+      ]),
 ]
 
 HEAD = u'''<!DOCTYPE html>
@@ -117,23 +131,28 @@ h1,h2,h3{{font-weight:600;letter-spacing:-.025em;line-height:1.08;}}
 
 .grid{{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);padding:var(--s5) 0 var(--s6);}}
 .card{{display:flex;flex-direction:column;}}
-.cover{{position:relative;display:flex;flex-direction:column;justify-content:space-between;
-  aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;padding:var(--s4);
+/* Нүүр дээр бичвэр тавихаа больсон. Шалтгаан: нүүр нь загварын
+   жинхэнэ дэлгэцийн зураг бөгөөд ихэнх нь цайвар сайт. Хэмжихэд
+   цагаан гарчиг 25 картын 12 дээр 2.0:1 хүртэл унаж байв. Далд
+   давхаргыг хүчтэй болговол дэлгэцийн зураг нь харагдахаа болино —
+   тэгвэл нүүрний утга алга. Нэр, шошго нь доорх цул хэсэгт аль
+   хэдийн бичигддэг тул давхардлыг нь авлаа. */
+.cover{{position:relative;display:block;
+  aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;
   border:1px solid var(--line);transition:transform .32s ease,border-color .32s ease;}}
-/* Градиентын цайвар үзүүрт цагаан бичвэр 1.2:1 хүртэл унадаг тул
-   бичвэр байрлах дээд, доод зурвасыг далдална. Дунд нь өнгөө хадгална. */
-.cover::before{{content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.2) 38%,rgba(0,0,0,.26) 60%,rgba(0,0,0,.84));}}
-.cover .nm,.cover .tg{{position:relative;z-index:2;}}
 .card:hover .cover{{transform:translateY(-5px);border-color:var(--line2);}}
-.cover .nm{{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:600;letter-spacing:-.03em;color:#fff;}}
-.cover .tg{{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.88);}}
-.cover .peek{{position:absolute;left:0;right:0;bottom:0;padding:.85rem var(--s4);
-  background:linear-gradient(transparent,rgba(0,0,0,.75));
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#fff;
-  opacity:0;transform:translateY(8px);transition:opacity .28s,transform .28s;}}
-.cover:hover .peek,.cover:focus-visible .peek{{opacity:1;transform:none;}}
+/* «Загвар нээх» нь өөрийн цул дэвсгэртэй тул доорх зургаас үл хамаарч
+   уншигдана — 14.7:1. */
+.cover .peek{{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.94);
+  display:inline-flex;align-items:center;min-height:38px;padding:0 1.1rem;border-radius:999px;
+  background:rgba(10,10,11,.93);
+  font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#fff;
+  white-space:nowrap;opacity:0;transition:opacity .26s,transform .26s;}}
+.cover:hover .peek,.cover:focus-visible .peek{{opacity:1;transform:translate(-50%,-50%) scale(1);}}
+@media(hover:none){{.cover .peek{{opacity:1;transform:translate(-50%,-50%) scale(1);}}}}
 .row{{display:flex;align-items:baseline;gap:.8rem;padding-top:var(--s3);}}
+.card .tg{{margin-top:.35rem;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--mut2);font-weight:500;}}
 .row h2{{flex:1;font-size:18px;font-weight:600;}}
 .row .amt{{font-size:15px;font-weight:600;white-space:nowrap;}}
 .card p.d{{padding-top:.4rem;font-size:14px;color:var(--mut);max-width:48ch;}}
@@ -223,12 +242,12 @@ function ask(name){{
 '''
 
 CARD = u'''    <article class="card">
-      <a class="cover" href="{f}.html" style="background-image:url('../images/pv-{f}.webp');background-size:cover;background-position:top center">
-        <span class="nm">{n}</span>
-        <span class="tg">{tags}</span>
-        <span class="peek">Загвар нээх →</span>
+      <a class="cover" href="{f}.html" aria-label="{n} загварыг нээх"
+         style="background-image:url('../images/pv-{f}.webp');background-size:cover;background-position:top center">
+        <span class="peek" aria-hidden="true">Загвар нээх →</span>
       </a>
       <div class="row"><h2>{n}</h2><span class="amt">{p}</span></div>
+      <p class="tg">{tags}</p>
       <p class="d">{d}</p>
       <button class="act" onclick="ask('{cat} — {n}')">Хүсэлт илгээх →</button>
     </article>'''

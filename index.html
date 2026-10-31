@@ -635,10 +635,14 @@ html.js .rv.in{opacity:1;transform:none;}
 }
 .tile:hover{border-color:var(--line-2);transform:translateY(-3px);}
 .tile:hover img,.tile:focus-visible img{filter:none;transform:scale(1.035);}
+/* Цул зурвас, градиент биш. Градиентын цайвар үзүүрт бичвэр
+   тухайн дэлгэцийн зургаас хамаарч 2.9:1 хүртэл унаж байв —
+   25 тайлын 16 нь тэнцээгүй. Цул дэвсгэр нь доорх зургаас үл
+   хамааран 10:1 өгнө. */
 .tile .tn{
   position:absolute;left:0;right:0;bottom:0;
-  padding:1.5rem .75rem .6rem;
-  background:linear-gradient(transparent,rgba(0,0,0,.88));
+  padding:.5rem .7rem;
+  background:rgba(10,10,11,.92);
   font-size:12.5px;font-weight:600;color:#fff;
   display:flex;align-items:baseline;gap:.45rem;
 }
@@ -740,13 +744,13 @@ html.js .rv.in{opacity:1;transform:none;}
     <div class="hero-in">
       <p class="eyebrow"><span class="pip" aria-hidden="true"></span>Улаанбаатар · Дорнод</p>
       <h1 class="h-xl">Долоо хоногт<br>амьдардаг <em>вэб</em></h1>
-      <p class="lead">20 бэлэн загвар, эсвэл зөвхөн танд зориулсан шийдэл. Хоёулаа нэг студиэс, нэг хариуцагчтай.</p>
+      <p class="lead">25 бэлэн загвар, эсвэл зөвхөн танд зориулсан шийдэл. Хоёулаа нэг студиэс, нэг хариуцагчтай.</p>
       <div class="btn-row">
         <a class="btn btn-p" href="#templates">Загварууд үзэх</a>
         <button class="btn btn-s" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
       </div>
       <div class="hero-stats">
-        <div><b>20</b><span>Бэлэн загвар</span></div>
+        <div><b>25</b><span>Бэлэн загвар</span></div>
         <div><b>7 хоног</b><span>Хамгийн хурдан нь</span></div>
         <div><b>4</b><span>Үндсэн чиглэл</span></div>
         <div><b>12 сар</b><span>Хамгийн урт дэмжлэг</span></div>
@@ -787,16 +791,17 @@ html.js .rv.in{opacity:1;transform:none;}
   <div class="wrap">
     <div class="sec-head rv">
       <p class="slab"><b>01</b>Бэлэн загвар</p>
-      <h2 class="h-lg">Хорин загвар, дөрвөн категор</h2>
+      <h2 class="h-lg">Хорин таван загвар, таван категор</h2>
       <p class="lead">Загвар бүр бүтэн ажиллдаг хуудас. Сонгоод агуулгаа өгвөл болно — өнгө, лого, бичвэрийг тань руу тааруулна.</p>
     </div>
 
     <div class="wall-bar rv" role="group" aria-label="Категороор шүүх">
-      <button class="wchip" data-cat="all" aria-pressed="true">Бүгд<span class="n">20</span></button>
+      <button class="wchip" data-cat="all" aria-pressed="true">Бүгд<span class="n">25</span></button>
       <button class="wchip" data-cat="corporate" aria-pressed="false">Танилцуулга<span class="n">5</span></button>
       <button class="wchip" data-cat="shop" aria-pressed="false">Дэлгүүр<span class="n">5</span></button>
       <button class="wchip" data-cat="restaurant" aria-pressed="false">Ресторан<span class="n">5</span></button>
       <button class="wchip" data-cat="portfolio" aria-pressed="false">Портфолио<span class="n">5</span></button>
+      <button class="wchip" data-cat="education" aria-pressed="false">Боловсрол<span class="n">5</span></button>
     </div>
 
     <div class="wall rv" id="wall">
@@ -879,6 +884,26 @@ html.js .rv.in{opacity:1;transform:none;}
       <a class="tile" href="templates/portfolio/duu.html" data-cat="portfolio">
         <img src="templates/images/pv-duu.webp" alt="Дуу — Хувийн портфолио загвар" loading="lazy">
         <span class="tn">Дуу<s>Хөгжим, долгион</s></span>
+      </a>
+      <a class="tile" href="templates/education/surah.html" data-cat="education">
+        <img src="templates/images/pv-surah.webp" alt="Сурах — Боловсрол загвар" loading="lazy">
+        <span class="tn">Сурах<s>Сургууль, цэнхэр</s></span>
+      </a>
+      <a class="tile" href="templates/education/mergejil.html" data-cat="education">
+        <img src="templates/images/pv-mergejil.webp" alt="Мэргэжил — Боловсрол загвар" loading="lazy">
+        <span class="tn">Мэргэжил<s>Сургалт, ногоон</s></span>
+      </a>
+      <a class="tile" href="templates/education/onlain.html" data-cat="education">
+        <img src="templates/images/pv-onlain.webp" alt="Онлайн — Боловсрол загвар" loading="lazy">
+        <span class="tn">Онлайн<s>Платформ, хар</s></span>
+      </a>
+      <a class="tile" href="templates/education/tsetserleg.html" data-cat="education">
+        <img src="templates/images/pv-tsetserleg.webp" alt="Цэцэрлэг — Боловсрол загвар" loading="lazy">
+        <span class="tn">Цэцэрлэг<s>Цэцэрлэг, улбар</s></span>
+      </a>
+      <a class="tile" href="templates/education/ihsurguuli.html" data-cat="education">
+        <img src="templates/images/pv-ihsurguuli.webp" alt="Дээд — Боловсрол загвар" loading="lazy">
+        <span class="tn">Дээд<s>Их сургууль, сериф</s></span>
       </a>
     </div>
     <p class="wall-note rv">Аль нэг дээр дарвал тухайн загвар шинэ цонхонд нээгдэнэ.</p>
@@ -1141,10 +1166,10 @@ html.js .rv.in{opacity:1;transform:none;}
     <button class="mclose" onclick="closeRequest()">×</button>
     <h3>Хүсэлт илгээх</h3>
     <p class="msub" id="rPkg">Багц</p>
-    <div class="fg"><label>Нэр / байгууллага</label><input id="rName" type="text" placeholder="Таны нэр"></div>
-    <div class="fg"><label>Утас эсвэл имэйл</label><input id="rContact" type="text" placeholder="+976 эсвэл example@mail.com"></div>
+    <div class="fg"><label for="rName">Нэр / байгууллага</label><input id="rName" type="text" placeholder="Таны нэр"></div>
+    <div class="fg"><label for="rContact">Утас эсвэл имэйл</label><input id="rContact" type="text" placeholder="+976 эсвэл example@mail.com"></div>
     <div class="fg">
-      <label>Юу хийлгэх вэ</label>
+      <label for="rService">Юу хийлгэх вэ</label>
       <select id="rService">
         <option>Вэб хөгжүүлэлт</option>
         <option>Мобайл аппликейшн</option>
@@ -1155,7 +1180,7 @@ html.js .rv.in{opacity:1;transform:none;}
       </select>
     </div>
     <div class="fg">
-      <label>Төсөв</label>
+      <label for="rBudget">Төсөв</label>
       <select id="rBudget">
         <option>₮300,000–500,000</option>
         <option>₮500,000–1,500,000</option>
@@ -1165,7 +1190,7 @@ html.js .rv.in{opacity:1;transform:none;}
         <option>Хараахан тодорхойгүй</option>
       </select>
     </div>
-    <div class="fg"><label>Товч тайлбар</label><textarea id="rBrief" placeholder="Ямар зорилготой, хэзээ хүртэл шаардлагатай вэ?"></textarea></div>
+    <div class="fg"><label for="rBrief">Товч тайлбар</label><textarea id="rBrief" placeholder="Ямар зорилготой, хэзээ хүртэл шаардлагатай вэ?"></textarea></div>
     <button class="sbtn" style="width:100%;" onclick="submitRequest()">Илгээх →</button>
   </div>
 </div>
@@ -1181,8 +1206,8 @@ html.js .rv.in{opacity:1;transform:none;}
     <div class="alogin">
       <h2>Нэвтрэх</h2>
       <p>Зөвхөн зөвшөөрөлтэй хэрэглэгчид нэвтэрнэ</p>
-      <div class="fg"><label>Нэвтрэх нэр</label><input type="text" id="aU" placeholder="admin"></div>
-      <div class="fg"><label>Нууц үг</label><input type="password" id="aP" placeholder="••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <div class="fg"><label for="aU">Нэвтрэх нэр</label><input type="text" id="aU" placeholder="admin"></div>
+      <div class="fg"><label for="aP">Нууц үг</label><input type="password" id="aP" placeholder="••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
       <button class="btn dark" style="width:100%;margin-top:.5rem;" onclick="doLogin()">Нэвтрэх →</button>
     </div>
   </div>
@@ -1232,10 +1257,10 @@ html.js .rv.in{opacity:1;transform:none;}
         <div class="aform">
           <h3>Ерөнхий тохиргоо</h3>
           <div class="fg-row">
-            <div class="fg"><label>Компанийн нэр</label><input type="text" value="Gerelt Solutions"></div>
-            <div class="fg"><label>Утас</label><input type="text" value="+976 7210-0262"></div>
+            <div class="fg"><label for="aCompany">Компанийн нэр</label><input id="aCompany" type="text" value="Gerelt Solutions"></div>
+            <div class="fg"><label for="aPhone">Утас</label><input id="aPhone" type="text" value="+976 7210-0262"></div>
           </div>
-          <div class="fg"><label>Имэйл</label><input type="email" value="gereltsolutions01@gmail.com"></div>
+          <div class="fg"><label for="aEmail">Имэйл</label><input id="aEmail" type="email" value="gereltsolutions01@gmail.com"></div>
           <button class="btn dark" style="max-width:160px;" onclick="alert('Тохиргоо хадгалагдлаа!')">Хадгалах</button>
           <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #eee;">
             <button class="del-btn" style="font-size:.75rem;padding:.4rem .9rem;" onclick="clearAllData()">⚠ Бүх өгөгдлийг устгах</button>
