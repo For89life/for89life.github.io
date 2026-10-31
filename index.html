@@ -6,6 +6,22 @@
 <title>Gerelt Solutions Studio — Вэб, мобайл, дижитал шийдэл</title>
 <meta name="description" content="Улаанбаатар, Дорнодод төвтэй дижитал студи. Вэб хөгжүүлэлт, мобайл аппликейшн, онлайн дэлгүүр, төлбөрийн холболт.">
 <link rel="icon" href="images/logo.webp">
+<!-- SEO:BEGIN -->
+<link rel="canonical" href="https://gerelt-solutuions.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gerelt Solutions Studio">
+<meta property="og:locale" content="mn_MN">
+<meta property="og:url" content="https://gerelt-solutuions.com/">
+<meta property="og:title" content="Gerelt Solutions Studio — Вэб, мобайл, дижитал шийдэл">
+<meta property="og:description" content="Улаанбаатар, Дорнодод төвтэй дижитал студи. Вэб хөгжүүлэлт, мобайл аппликейшн, онлайн дэлгүүр, төлбөрийн холболт.">
+<meta property="og:image" content="https://gerelt-solutuions.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gerelt Solutions Studio — Вэб, мобайл, дижитал шийдэл">
+<meta name="twitter:description" content="Улаанбаатар, Дорнодод төвтэй дижитал студи. Вэб хөгжүүлэлт, мобайл аппликейшн, онлайн дэлгүүр, төлбөрийн холболт.">
+<meta name="twitter:image" content="https://gerelt-solutuions.com/images/og.jpg">
+<!-- SEO:END -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Golos Text — Paratype кирилл үсгийг үндсэн бичиг болгон зохиосон.
@@ -699,6 +715,27 @@ html.js .rv.in{opacity:1;transform:none;}
   outline:2px solid var(--acc);outline-offset:3px;
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Gerelt Solutions Studio",
+  "url": "https://gerelt-solutuions.com/",
+  "logo": "https://gerelt-solutuions.com/images/logo.webp",
+  "image": "https://gerelt-solutuions.com/images/og.jpg",
+  "description": "Вэб хөгжүүлэлт, мобайл аппликейшн, онлайн дэлгүүр, төлбөрийн холболт. 50 бэлэн загвар.",
+  "telephone": "+976-7210-0262",
+  "email": "gereltsolutions01@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Улаанбаатар",
+    "addressCountry": "MN"
+  },
+  "areaServed": { "@type": "Country", "name": "Монгол Улс" },
+  "knowsLanguage": ["mn", "en"],
+  "priceRange": "₮₮"
+}
+</script>
 </head>
 <body>
 
@@ -1378,39 +1415,44 @@ html.js .rv.in{opacity:1;transform:none;}
 
 
 <script>
-// ── GOOGLE FORM ХҮЛЭЭН АВАГЧ ─────────────────────────────────
-// Сайтын гурван форм (захиалга, үнийн санал, багцын хүсэлт) нь нэг
-// Google Form руу илгээгдэнэ. Тэндээс хариултууд Google Sheet-д
-// автоматаар бүртгэгдэж, Gmail руу мэдэгдэл ирнэ.
-// Тохируулах заавар: google-form/ТОХИРУУЛГА.md
-// Хоосон үлдээвэл мэдээлэл зөвхөн хөтөч дотор (админ панелд) үлдэнэ.
-var GFORM={
-  url:'',            // .../formResponse гэж төгсөх хаяг
-  fields:{
-    type:'',         // entry.1234567890 — Төрөл
-    name:'',         // Нэр
-    contact:'',      // Холбоо барих
-    service:'',      // Үйлчилгээ
-    budget:'',       // Төсөв
-    message:''       // Мессеж
-  }
+// ── ХҮСЭЛТ ХҮЛЭЭН АВАГЧ (Web3Forms) ─────────────
+// Захиалгын маягт энд илгээгдэж, доорх имэйл рүү шууд ирнэ.
+// Түлхүүр авах: web3forms.com → имэйлээ оруулна (бүртгэл хэрэггүй).
+//
+// ЧУХАЛ: түлхүүр хоосон эсвэл илгээлт амжилтгүй бол хэрэглэгчид
+// «хүлээн авлаа» гэж ХЭЛЭХГҮЙ. Өмнө нь хэлдэг байсан тул жинхэнэ
+// үйлчлүүлэгч хариу хүлээж, бидэнд юу ч ирдэггүй байв.
+var FORM = {
+  key: '',                       // Web3Forms access key
+  subject: 'Gerelt Solutions — шинэ хүсэлт',
+  fallback: { phone: '+976 7210-0262', mail: 'gereltsolutions01@gmail.com' }
 };
 
-// Чимээгүй илгээнэ. Google Form CORS толгой буцаадаггүй тул no-cors
-// горимд хариуг уншихгүй — илгээлт амжилтгүй болсон ч хэрэглэгчийн
-// урсгал тасрахгүй, мэдээлэл админ панелд хэвээр үлдэнэ.
-function sendToForm(p){
-  if(!GFORM.url) return;
+// Амжилттай эсэхийг буцаана. Сүлжээ тасарсан, түлхүүр буруу,
+// серверээс алдаа ирсэн — бүгд false.
+async function sendToForm(p){
+  if (!FORM.key) return false;
   try{
-    var f=GFORM.fields, fd=new FormData();
-    if(f.type)    fd.append(f.type,    p.type||'');
-    if(f.name)    fd.append(f.name,    p.name||'');
-    if(f.contact) fd.append(f.contact, p.contact||'');
-    if(f.service) fd.append(f.service, p.service||'');
-    if(f.budget)  fd.append(f.budget,  p.budget||'');
-    if(f.message) fd.append(f.message, p.message||'');
-    fetch(GFORM.url,{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
-  }catch(e){}
+    var r = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: FORM.key,
+        subject: FORM.subject,
+        from_name: p.name || 'Нэргүй',
+        'Төрөл': p.type || '',
+        'Нэр': p.name || '',
+        'Холбоо барих': p.contact || '',
+        'Үйлчилгээ': p.service || '',
+        'Төсөв': p.budget || '',
+        'Тайлбар': p.message || '',
+        'Илгээсэн хуудас': location.href,
+        botcheck: ''                 // спам шүүлтүүр
+      })
+    });
+    var d = await r.json().catch(function(){ return {}; });
+    return r.ok && d.success === true;
+  }catch(e){ return false; }
 }
 
 // ── DATA LAYER ──────────────────────────────────────────────
@@ -1437,7 +1479,7 @@ function openRequest(pkg,budget){
 }
 function closeRequest(){document.getElementById('reqModal').classList.remove('open');}
 
-function submitRequest(){
+async function submitRequest(){
   const name=document.getElementById('rName').value.trim();
   const contact=document.getElementById('rContact').value.trim();
   const service=document.getElementById('rService').value;
@@ -1460,14 +1502,26 @@ function submitRequest(){
     status:'Шинэ'
   });
   saveData('gs_messages',msgs);
-  sendToForm({type:'Багцын хүсэлт — '+_reqPkg,name,contact,service,budget,message:brief});
 
-  document.getElementById('rName').value='';
-  document.getElementById('rContact').value='';
-  document.getElementById('rBrief').value='';
-  closeRequest();
+  // Илгээж байх хооронд товчийг түгжинэ — давхар илгээхээс сэргийлнэ
+  const btn=document.querySelector('#reqModal .sbtn');
+  const label=btn?btn.textContent:'';
+  if(btn){btn.disabled=true;btn.textContent='Илгээж байна…';}
 
-  setTimeout(()=>alert('✅ Таны хүсэлт хүлээн авлаа!\n\nАжлын нэг өдрийн дотор холбоо барина.'),150);
+  const ok=await sendToForm({type:'Багцын хүсэлт — '+_reqPkg,name,contact,service,budget,message:brief});
+
+  if(btn){btn.disabled=false;btn.textContent=label;}
+
+  if(ok){
+    document.getElementById('rName').value='';
+    document.getElementById('rContact').value='';
+    document.getElementById('rBrief').value='';
+    closeRequest();
+    setTimeout(()=>alert('✅ Таны хүсэлт хүлээн авлаа!\n\nАжлын нэг өдрийн дотор холбоо барина.'),150);
+  }else{
+    // Хуурахгүй. Юу болсныг хэлж, өөр зам санал болгоно.
+    alert('⚠ Хүсэлтийг илгээж чадсангүй.\n\nСүлжээгээ шалгаад дахин оролдоно уу, эсвэл шууд холбогдоорой:\n' + FORM.fallback.phone + '\n' + FORM.fallback.mail + '\n\nБөглөсөн мэдээлэл тань хэвээр байна.');
+  }
 }
 
 // ── ADMIN ────────────────────────────────────────────────────

@@ -75,6 +75,15 @@ async function main() {
       try {
         const res = await page.goto(url, { waitUntil: 'load', timeout: 25000 });
         await page.evaluate(() => document.fonts.ready);
+        /* Илрэх хөдөлгөөнийг бүрэн зогсоож, эцсийн төлөвийг хэмжинэ.
+           Хүлээх арга найдваргүй байв: .in нэмэгдсэн ч CSS шилжилт
+           дуусаагүй байхад axe хагас тунгалаг өнгөөр хэмжиж, жинхэнэ
+           хөтөч дээр тэнцдэг 15 элементийг унасан гэж зааж байв. */
+        await page.addStyleTag({ content:
+          '.rv{opacity:1!important;transform:none!important;transition:none!important}' +
+          '*,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important}'
+        });
+        await page.waitForTimeout(120);
         if (!res || !res.ok()) {
           detail.push(`  [${vp.name}] ХУУДАС АЧААЛАГДСАНГҮЙ (${res ? res.status() : 'no response'})`);
           pageViolations++;
