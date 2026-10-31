@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Аялал — аялал зохион байгуулагчийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Аялал зохион байгуулагчид зориулсан вэб загвар — өдөр тутмын хөтөлбөр, бэлтгэл, үнийн задаргаа.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Oswald / Onest — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF8; --card:#FFFFFF; --soft:#EDEEEA; --soft2:#F4F5F1; --deep:#141A16;
+  --ink:#191D1A; --mut:#474F49; --mut2:#515A53;
+  --acc:#2F6B3F; --acc-d:#1F4C2B; --acc-soft:#DBEBE0;
+  --clay:#8A4A1E; --clay-bg:#F7E6D9;
+  --line:#E2E4DE; --line-strong:#848A84;
+  --ff-h:'Oswald',Impact,sans-serif; --ff-b:'Onest',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.4rem);
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;line-height:1.1;letter-spacing:-.005em;text-transform:uppercase;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;font-weight:600;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1160px;margin:0 auto;}
+.gs b{font-weight:600;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:600;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.6rem;}
+.logo{display:flex;align-items:center;gap:.5rem;min-height:44px;font-family:var(--ff-h);font-size:22px;font-weight:600;letter-spacing:.06em;}
+.logo i{display:grid;place-items:center;width:32px;height:32px;background:var(--acc);color:#fff;font-size:14px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:var(--s3);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.8rem;
+  font-family:var(--ff-h);font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;border:1.5px solid transparent;transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);color:var(--acc-d);}
+.btn-w{background:#fff;color:var(--acc-d);} .btn-w:hover{background:#DEEAE2;}
+.btn-o{background:transparent;color:#fff;border-color:#fff;} .btn-o:hover{background:rgba(255,255,255,.18);}
+.nav .btn{min-height:44px;padding:0 1.2rem;font-size:13px;margin-left:var(--s2);}
+
+.hero{position:relative;display:grid;align-items:end;min-height:min(80vh,680px);background:var(--deep);overflow:hidden;}
+.hero .bgim{position:absolute;inset:0;background-color:var(--deep);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,13,10,.93) 0%,rgba(8,13,10,.6) 44%,rgba(8,13,10,.26) 80%);}
+.hero-in{position:relative;z-index:2;padding:var(--s6) 0 var(--s5);max-width:46rem;color:#fff;}
+.kick{display:inline-flex;align-items:center;gap:.5rem;background:var(--clay);color:#fff;
+  padding:.35rem .9rem;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);color:#fff;}
+.hero p{margin-top:var(--s3);font-size:17.5px;color:#DDE4DF;max-width:46ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+
+.bar{background:var(--deep);color:#C3CFC7;border-top:1px solid #243027;}
+.bar-in{display:grid;grid-template-columns:repeat(4,1fr);}
+.bi{padding:var(--s4) var(--s3);text-align:center;border-right:1px solid #243027;}
+.bi:last-child{border-right:none;}
+.bi b{display:block;font-family:var(--ff-h);font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;}
+.bi span{font-size:13px;color:#9FB3A6;}
+
+.sec{padding:var(--s6) 0;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4);}
+.flag{display:block;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.8rem,4vw,2.8rem);}
+.hd p{color:var(--mut);font-size:15px;max-width:36ch;}
+
+/* Өдөр тутмын хөтөлбөр */
+.itin{border-left:2px solid var(--line-strong);margin-left:.8rem;padding-left:var(--s4);}
+.day{position:relative;padding-bottom:var(--s4);}
+.day:last-child{padding-bottom:0;}
+.day::before{content:'';position:absolute;left:calc(-1 * var(--s4) - 7px);top:.55rem;
+  width:12px;height:12px;border-radius:50%;background:var(--acc);border:2px solid var(--bg);}
+.day .n{font-family:var(--ff-h);font-size:13px;font-weight:600;letter-spacing:.14em;color:var(--acc);text-transform:uppercase;}
+.day h3{font-size:21px;margin:.2rem 0 .4rem;}
+.day p{font-size:15px;color:var(--mut);max-width:58ch;}
+.day .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem;}
+.day .tags span{background:var(--soft);border-radius:999px;padding:.2rem .7rem;font-size:12.5px;font-weight:600;color:var(--mut2);}
+
+/* Зурган эгнээ */
+.strip{background:var(--soft2);padding:var(--s5) 0;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.si{position:relative;overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.si::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,13,10,.88),rgba(8,13,10,.05) 58%);}
+.si span{position:absolute;left:var(--s3);bottom:.85rem;z-index:2;font-family:var(--ff-h);font-size:16px;font-weight:500;letter-spacing:.06em;color:#fff;text-transform:uppercase;}
+
+/* Үнийн задаргаа */
+.inc{padding:var(--s6) 0;}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);}
+.icol h3{font-family:var(--ff-h);font-size:18px;letter-spacing:.06em;margin-bottom:var(--s3);padding-bottom:.6rem;border-bottom:2px solid var(--line-strong);}
+.icol ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.icol li{display:flex;gap:.7rem;font-size:15.5px;color:var(--mut);}
+.icol li i{font-style:normal;flex-shrink:0;}
+.icol.yes li i{color:var(--acc);} .icol.no li i{color:var(--clay);}
+
+.cta{background:var(--acc-d);color:#fff;padding:var(--s6) 0;}
+.cta-g{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--s4);align-items:center;}
+.cta h2{font-size:clamp(1.8rem,3.8vw,2.6rem);color:#fff;}
+.cta p{color:#C7DDD0;margin-top:.7rem;max-width:44ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+
+.foot{background:var(--deep);color:#B9C8BF;padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot .logo{color:#fff;} .foot .logo i{background:#5FA873;color:var(--deep);}
+.foot p{font-size:14.5px;color:#93A89B;max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:14.5px;color:#93A89B;padding:.3rem 0;}
+.fl a:hover{color:#fff;}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid #243027;font-size:13px;color:#85998C;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .sg{grid-template-columns:1fr;} .ig{grid-template-columns:1fr;}
+  .cta-g{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .bar-in{grid-template-columns:1fr 1fr;} .bi:nth-child(2){border-right:none;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.bar-in,.fgr{grid-template-columns:1fr;}.bi{border-right:none;border-bottom:1px solid #243027;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. Hero тодрол 16.56:1 */
+.im-ayalal-hero{background-image:url('../images/ayalal-hero.webp');}
+.im-ayalal-f1{background-image:url('../images/ayalal-f1.webp');}
+.im-ayalal-f2{background-image:url('../images/ayalal-f2.webp');}
+.im-ayalal-f3{background-image:url('../images/ayalal-f3.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Аялал</b></span>
+  <a href="../travel/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">▲</i>Зам</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#itinerary">Хөтөлбөр</a><a href="#included">Юу багтсан</a><a href="#book">Бүртгэл</a>
+  </nav>
+  <a class="btn btn-p" href="#book">Суудал авах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="bgim im-ayalal-hero" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <span class="kick">8-р сарын 12 · 4 суудал үлдсэн</span>
+    <h1>Алтай таван богд<br>8 хоног</h1>
+    <p>Баян-Өлгийн уулсаар явган. Мөстөлийн бэл хүртэл, казах айлын гэрт хонож, бүргэдчинтэй уулзана.</p>
+    <div class="row">
+      <a class="btn btn-w" href="#itinerary">Хөтөлбөр үзэх</a>
+      <a class="btn btn-o" href="#book">Суудал авах</a>
+    </div>
+  </div>
+</section>
+
+<div class="bar"><div class="wrap bar-in">
+  <div class="bi"><b>8</b><span>хоног</span></div>
+  <div class="bi"><b>86 км</b><span>явган зам</span></div>
+  <div class="bi"><b>3,100 м</b><span>дээд цэг</span></div>
+  <div class="bi"><b>8–12</b><span>хүний бүлэг</span></div>
+</div></div>
+
+<section class="sec" id="itinerary">
+  <div class="wrap">
+    <div class="hd">
+      <div><span class="flag">Хөтөлбөр</span><h2>Өдөр тутмын төлөвлөгөө</h2></div>
+      <p>Цаг агаараас шалтгаалж өдрүүд солигдож болно. Хөтөч тухайн өдөр шийднэ.</p>
+    </div>
+    <div class="itin">
+      <div class="day"><span class="n">1–2 дахь өдөр</span>
+        <h3>Улаанбаатар — Өлгий</h3>
+        <p>Дотоодын нислэг, хотод нэг хонож, зах үзэх. Багаж хэрэгсэл шалгах, хөтөчтэй танилцах уулзалт.</p>
+        <div class="tags"><span>Нислэг</span><span>Зочид буудал</span><span>Бэлтгэл</span></div></div>
+      <div class="day"><span class="n">3–4 дэх өдөр</span>
+        <h3>Хөндий рүү орох</h3>
+        <p>Жолоочтой машинаар баазын цэг хүртэл, тэндээс явган. Өдөрт 12–16 км. Майханд хонох эхний шөнө.</p>
+        <div class="tags"><span>14 км</span><span>Майхан</span><span>Дунд хүндрэл</span></div></div>
+      <div class="day"><span class="n">5–6 дахь өдөр</span>
+        <h3>Мөсөн голын бэл</h3>
+        <p>Аяллын гол хэсэг. Потанины мөсөн голын ажиглалтын цэг хүртэл. Буцахдаа нуурын эрэгт хонох.</p>
+        <div class="tags"><span>18 км</span><span>3,100 м</span><span>Хүнд</span></div></div>
+      <div class="day"><span class="n">7–8 дахь өдөр</span>
+        <h3>Казах айл, буцах</h3>
+        <p>Бүргэдчин айлд зочилж хоноод, Өлгий рүү буцна. Орой нислэгээр Улаанбаатар.</p>
+        <div class="tags"><span>Соёл</span><span>Гэрт хонох</span><span>Нислэг</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap sg">
+    <div class="si im-ayalal-f1"><span>Бүлгээрээ явна</span></div>
+    <div class="si im-ayalal-f2"><span>Цөлийн хэсэг</span></div>
+    <div class="si im-ayalal-f3"><span>Мөсөн голын харагдац</span></div>
+  </div>
+</section>
+
+<section class="inc" id="included">
+  <div class="wrap">
+    <div class="hd"><div><span class="flag">Юу багтсан</span><h2>Шулуухан хэлье</h2></div>
+      <p>Нийт үнэ: нэг хүн 2,450,000₮</p></div>
+    <div class="ig">
+      <div class="icol yes">
+        <h3>Үнэд багтсан</h3>
+        <ul>
+          <li><i aria-hidden="true">✓</i><span>Дотоодын нислэг (УБ–Өлгий–УБ)</span></li>
+          <li><i aria-hidden="true">✓</i><span>Бүх хоол, ус</span></li>
+          <li><i aria-hidden="true">✓</i><span>Майхан, унтлагын уут, дэвсгэр</span></li>
+          <li><i aria-hidden="true">✓</i><span>Монгол ба англи хэлтэй хөтөч</span></li>
+          <li><i aria-hidden="true">✓</i><span>Тэмээ, морь ачаа тээвэрт</span></li>
+          <li><i aria-hidden="true">✓</i><span>Байгалийн цогцолборт газрын хураамж</span></li>
+          <li><i aria-hidden="true">✓</i><span>Аяллын даатгал</span></li>
+        </ul>
+      </div>
+      <div class="icol no">
+        <h3>Багтаагүй</h3>
+        <ul>
+          <li><i aria-hidden="true">✕</i><span>Олон улсын нислэг, виз</span></li>
+          <li><i aria-hidden="true">✕</i><span>Хувийн тоног төхөөрөмж (гутал, хүрэм)</span></li>
+          <li><i aria-hidden="true">✕</i><span>Архи, согтууруулах ундаа</span></li>
+          <li><i aria-hidden="true">✕</i><span>Хөтөч, жолоочийн шан</span></li>
+          <li><i aria-hidden="true">✕</i><span>Нэмэлт шөнө Өлгийд</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="book">
+  <div class="wrap cta-g">
+    <div>
+      <h2>Ганцаараа ирсэн ч болно</h2>
+      <p>Манай бүлгийн тал хувь нь ганцаараа ирдэг. Майхан хуваах эсвэл нэмэлт төлбөрөөр ганцаараа унтаж болно.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="tel:+97694220000">+976 9422-0000</a>
+      <a class="btn btn-o" href="mailto:sain@zam.mn">sain@zam.mn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><i aria-hidden="true">▲</i>Зам</span>
+      <p>Явган аялал зохион байгуулагч. Улаанбаатар, 2013 оноос.</p></div>
+    <div><h3>Аялал</h3><div class="fl"><a href="#itinerary">Хөтөлбөр</a><a href="#included">Юу багтсан</a><a href="#book">Бүртгэл</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97694220000">+976 9422-0000</a><a href="mailto:sain@zam.mn">sain@zam.mn</a><span>Да–Ба, 10:00–19:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Зам аялал — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

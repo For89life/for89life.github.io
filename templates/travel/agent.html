@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Агентлаг — аялалын агентлагийн загвар | Gerelt Solutions</title>
+<meta name="description" content="Аялалын агентлагт зориулсан практик вэб загвар — чиглэл хайх, виз, багцын үнэ, байнгын асуулт.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Montserrat / Onest — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAFC; --card:#FFFFFF; --soft:#EDEFF6; --soft2:#F4F5FA;
+  --ink:#15192B; --mut:#454B63; --mut2:#4F566E;
+  --acc:#2B4BA8; --acc-d:#1E3780; --acc-soft:#DCE3F7;
+  --go:#1C6B45; --go-bg:#DCEFE5;
+  --line:#E1E4EE; --line-strong:#848AA0;
+  --ff-h:'Montserrat',system-ui,sans-serif; --ff-b:'Onest',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.2rem);
+  --r:14px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:800;line-height:1.18;letter-spacing:-.022em;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 10px 10px;font-weight:700;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1160px;margin:0 auto;}
+.gs b{font-weight:700;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,252,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.7rem;}
+.logo{display:flex;align-items:center;gap:.55rem;min-height:44px;font-family:var(--ff-h);font-size:20px;font-weight:800;letter-spacing:-.025em;}
+.logo i{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;font-size:16px;font-style:normal;flex-shrink:0;}
+.nlinks{display:flex;gap:.25rem;margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 .85rem;border-radius:9px;font-size:15px;font-weight:600;color:var(--mut);transition:background .2s,color .2s;}
+.nlinks a:hover{background:var(--soft);color:var(--acc-d);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.6rem;border-radius:11px;
+  font-family:var(--ff-b);font-size:15.5px;font-weight:600;cursor:pointer;border:2px solid transparent;
+  transition:background .2s,color .2s,border-color .2s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--soft);}
+.nav .btn{min-height:44px;padding:0 1.15rem;font-size:14.5px;margin-left:var(--s2);}
+
+.hero{padding:var(--s6) 0 var(--s4);}
+.hero-g{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.8rem,5vw,3.6rem);align-items:center;}
+.pill{display:inline-flex;align-items:center;gap:.45rem;background:var(--go-bg);color:var(--go);
+  border-radius:999px;padding:.4rem 1rem;font-size:13.5px;font-weight:600;margin-bottom:var(--s3);}
+.hero h1{font-size:clamp(2.1rem,4.8vw,3.4rem);}
+.hero h1 em{font-style:normal;color:var(--acc);}
+.hero .lead{margin-top:var(--s3);font-size:17.5px;color:var(--mut);max-width:42ch;}
+.hero-im{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;
+  box-shadow:0 22px 50px -24px rgba(21,25,43,.3);}
+
+/* Хайлт */
+.srch{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:var(--s3);margin-top:var(--s4);box-shadow:0 10px 28px -18px rgba(21,25,43,.2);}
+.sf{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:.8rem;align-items:end;}
+.fg{display:flex;flex-direction:column;gap:.3rem;}
+.fg label{font-size:12.5px;font-weight:600;color:var(--mut2);}
+.fg input,.fg select{min-height:48px;padding:0 .85rem;border-radius:9px;border:1px solid var(--line-strong);
+  background:#fff;font-family:inherit;font-size:15px;color:var(--ink);}
+.fg input:focus-visible,.fg select:focus-visible{outline:3px solid var(--acc);outline-offset:1px;}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:50ch;margin:0 auto var(--s5);text-align:center;}
+.flag{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem;}
+.hd h2{font-size:clamp(1.8rem,3.6vw,2.5rem);}
+.hd p{margin-top:.7rem;color:var(--mut);}
+
+/* Чиглэлүүд */
+.dg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+.dc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4) var(--s3);
+  display:flex;flex-direction:column;transition:border-color .22s,box-shadow .22s,transform .22s;}
+.dc:hover{border-color:var(--acc);box-shadow:0 16px 36px -20px rgba(43,75,168,.3);transform:translateY(-4px);}
+.dc .ct{font-family:var(--ff-h);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);}
+.dc h3{font-size:22px;margin:.3rem 0 .4rem;}
+.dc p{font-size:14.5px;color:var(--mut);flex:1;margin-bottom:var(--s3);}
+.dc .f{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;padding-top:var(--s3);border-top:1px solid var(--line);}
+.dc .f b{font-family:var(--ff-h);font-size:19px;color:var(--acc-d);}
+.dc .f s{text-decoration:none;font-size:13px;color:var(--mut2);}
+
+/* Виз */
+.visa{background:var(--soft2);padding:var(--s6) 0;}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,5vw,3.6rem);align-items:center;}
+.vim{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;
+  background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.visa h2{font-size:clamp(1.8rem,3.4vw,2.4rem);}
+.visa p{color:var(--mut);margin-top:var(--s3);}
+.ul{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-top:var(--s4);}
+.ul li{display:flex;gap:.8rem;align-items:flex-start;font-size:15.5px;}
+.ul i{flex-shrink:0;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;font-size:12px;font-style:normal;margin-top:.25rem;}
+
+/* Асуулт */
+.faq{padding:var(--s6) 0;}
+.fq{border-bottom:1px solid var(--line);}
+.fq summary{display:flex;align-items:center;gap:.8rem;min-height:60px;cursor:pointer;
+  font-family:var(--ff-h);font-size:17px;font-weight:700;list-style:none;padding:.6rem 0;}
+.fq summary::-webkit-details-marker{display:none;}
+.fq summary::after{content:'+';margin-left:auto;font-size:22px;color:var(--acc);font-weight:600;flex-shrink:0;}
+.fq[open] summary::after{content:'−';}
+.fq p{font-size:15.5px;color:var(--mut);padding-bottom:var(--s3);max-width:62ch;}
+
+.cta{padding:0 0 var(--s6);}
+.cta-in{background:var(--acc-d);color:#fff;border-radius:var(--r);padding:clamp(1.8rem,5vw,3.4rem);
+  display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s4);align-items:center;}
+.cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:#fff;}
+.cta p{color:#C6D2F0;margin-top:.7rem;max-width:40ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+.cta .btn-w{background:#fff;color:var(--acc-d);} .cta .btn-w:hover{background:#DCE3F7;}
+.cta .btn-o{background:transparent;color:#fff;border-color:#fff;} .cta .btn-o:hover{background:rgba(255,255,255,.16);}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:30ch;margin-top:.6rem;}
+.foot h3{font-family:var(--ff-b);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc-d);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .hero-g,.vg,.cta-in{grid-template-columns:1fr;}
+  .sf{grid-template-columns:1fr 1fr;} .dg{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.sf,.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. */
+.im-agent-hero{background-image:url('../images/agent-hero.webp');}
+.im-agent-f1{background-image:url('../images/agent-f1.webp');}
+.im-agent-f2{background-image:url('../images/agent-f2.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Агентлаг</b></span>
+  <a href="../travel/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><i aria-hidden="true">✈</i>Жигүүр</a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#dest">Чиглэл</a><a href="#visa">Виз</a><a href="#faq">Асуулт</a>
+  </nav>
+  <a class="btn btn-p" href="#contact">Зөвлөгөө авах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-g">
+      <div>
+        <span class="pill">✓ IATA гишүүн · 2009 оноос</span>
+        <h1>Нислэг, буудал, виз — <em>нэг дуудлагаар</em></h1>
+        <p class="lead">Өөрөө хайж ядрахын оронд бидэнд хэлээрэй. Бид 20 минутын дотор гурван хувилбар, үнэтэй нь илгээнэ.</p>
+      </div>
+      <div class="hero-im im-agent-hero" role="img" aria-label="Онгоцны цонхоор харах"></div>
+    </div>
+
+    <form class="srch" onsubmit="event.preventDefault();alert('Жишээ загвар — хайлт хийгдээгүй.');">
+      <div class="sf">
+        <div class="fg"><label for="to">Хаашаа</label><input id="to" type="text" placeholder="Сөүл, Бангкок, Истанбул..."></div>
+        <div class="fg"><label for="dt">Хэзээ</label><input id="dt" type="date" value="2026-05-20"></div>
+        <div class="fg"><label for="pp">Хэдүүлээ</label>
+          <select id="pp"><option>1 хүн</option><option selected>2 хүн</option><option>Гэр бүл</option><option>Бүлэг (6+)</option></select></div>
+        <button class="btn btn-p" type="submit">Санал авах</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="sec" id="dest">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Чиглэл</span>
+      <h2>Энэ улиралд эрэлттэй</h2>
+      <p>Үнэ нь нислэг, буудал, шилжилтийн багцад. Хүн тутамд, хоёр хүн нэг өрөөнд.</p>
+    </div>
+    <div class="dg">
+      <article class="dc"><span class="ct">БНСУ · 5 хоног</span>
+        <h3>Сөүл</h3>
+        <p>Шууд нислэг, 3.5 цаг. Визгүй 30 хоног. Дөрвөн одтой буудал, төв хэсэгт.</p>
+        <div class="f"><b>2,150,000₮</b><s>нэг хүн</s></div></article>
+      <article class="dc"><span class="ct">Тайланд · 7 хоног</span>
+        <h3>Бангкок, Пхүкет</h3>
+        <p>Шилжилттэй нислэг. Визгүй. Далайн эргийн буудал, өглөөний цайтай.</p>
+        <div class="f"><b>3,480,000₮</b><s>нэг хүн</s></div></article>
+      <article class="dc"><span class="ct">Турк · 8 хоног</span>
+        <h3>Истанбул, Каппадокиа</h3>
+        <p>Цахим виз. Дотоодын нислэг, агаарын бөмбөлөг багтсан.</p>
+        <div class="f"><b>4,920,000₮</b><s>нэг хүн</s></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="visa" id="visa">
+  <div class="wrap vg">
+    <div class="vim im-agent-f1" role="img" aria-label="Газрын зураг судалж байна"></div>
+    <div>
+      <span class="flag">Виз</span>
+      <h2>Визийн бичиг баримтыг бид бэлдэнэ</h2>
+      <p>Шенген, АНУ, Их Британи, Япон, БНХАУ. Анкет бөглөх, баримт бүрдүүлэх, цаг авахыг бид хариуцна.</p>
+      <ul class="ul">
+        <li><i aria-hidden="true">1</i><span>Анхны зөвлөгөө үнэгүй — танд виз гарах магадлалыг шулуухан хэлнэ</span></li>
+        <li><i aria-hidden="true">2</i><span>Баримт бүрдүүлэх жагсаалт, анкетыг бид бөглөнө</span></li>
+        <li><i aria-hidden="true">3</i><span>Элчин сайдын яаманд цаг авч, ярилцлагад бэлтгэнэ</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Асуулт</span><h2>Байнга асуудаг</h2></div>
+    <details class="fq"><summary>Өөрөө онлайнаар захиалбал хямд биш үү?</summary>
+      <p>Заримдаа тийм. Гэхдээ нислэг цуцлагдах, буудал таарахгүй байх, виз гарахгүй байх зэрэг асуудал гарвал та дангаараа үлдэнэ. Бид тийм тохиолдолд шийдэж өгдөг — үүний төлөө л хүмүүс бидэнд төлдөг.</p></details>
+    <details class="fq"><summary>Виз гарахгүй бол мөнгө буцаах уу?</summary>
+      <p>Манай үйлчилгээний хураамжийг буцаана. Элчин сайдын яамны хураамж, нислэгийн тасалбарын нөхцөл тухайн компанийн журмаар шийдэгдэнэ — үүнийг эхлэхээс өмнө бичгээр тайлбарлана.</p></details>
+    <details class="fq"><summary>Хэзээ захиалах нь хамгийн зөв вэ?</summary>
+      <p>Зуны амралтад 3–4 сарын өмнө. Виз шаардлагатай улсад 2 сараас багагүй хугацаа үлдээх хэрэгтэй. Сүүлийн мөчид ч олдог боловч үнэ 30–50% өндөр байдаг.</p></details>
+    <details class="fq"><summary>Хүүхэдтэй явахад юу анхаарах вэ?</summary>
+      <p>Хүүхдийн гадаад паспорт, нэг эцэг эх дагалдаж байвал нотариатаар батлуулсан зөвшөөрөл шаардлагатай. Бид жагсаалтыг урьдчилан өгнө.</p></details>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap"><div class="cta-in">
+    <div>
+      <h2>Эхлээд ярилцъя</h2>
+      <p>Хаашаа, хэзээ, хэдэн төгрөгийн төсөвтэй — энэ гурвыг хэлэхэд хангалттай. Бусдыг нь бид хийнэ.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="tel:+97611880000">+976 1188-0000</a>
+      <a class="btn btn-o" href="mailto:sain@jiguur.mn">sain@jiguur.mn</a>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><i aria-hidden="true">✈</i>Жигүүр</span>
+      <p>Аялалын агентлаг. IATA гишүүн. Улаанбаатар, 2009 оноос.</p></div>
+    <div><h3>Үйлчилгээ</h3><div class="fl"><a href="#dest">Багц аялал</a><a href="#visa">Визийн бүрдүүлэлт</a><a href="#contact">Нислэгийн тасалбар</a></div></div>
+    <div><h3>Мэдээлэл</h3><div class="fl"><a href="#faq">Байнгын асуулт</a><a href="#terms">Үйлчилгээний нөхцөл</a><a href="#ins">Аяллын даатгал</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97611880000">+976 1188-0000</a><a href="mailto:sain@jiguur.mn">sain@jiguur.mn</a><span>Да–Ба, 09:00–19:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Жигүүр аялал — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

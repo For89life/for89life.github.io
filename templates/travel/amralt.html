@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Амралт — нуурын амралтын газрын загвар | Gerelt Solutions</title>
+<meta name="description" content="Амралтын газар, аялал жуулчлалын бааз зориулсан агаартай вэб загвар — байшин, үйл ажиллагаа, үнэ.">
+<link rel="icon" href="../../images/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Cormorant / Nunito Sans — Ө ү зэрэг монгол үсэг бүрэн. -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFCFC; --card:#FFFFFF; --soft:#E4EFF0; --soft2:#F1F7F7;
+  --ink:#152225; --mut:#415055; --mut2:#4B5A5F;
+  --acc:#15666E; --acc-d:#0F4C53; --acc-soft:#D4EAEC;
+  --sand:#8A6A2A; --sand-bg:#F6EDD9;
+  --line:#DCE8E9; --line-strong:#83918F;
+  --ff-h:'Cormorant',Georgia,serif; --ff-b:'Nunito Sans',system-ui,sans-serif;
+  --pad:clamp(1.1rem,4.5vw,3.4rem);
+  --r:18px;
+  --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:5rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5.5rem;}
+body{font-family:var(--ff-b);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.76;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--ff-h);font-weight:600;line-height:1.14;letter-spacing:-.01em;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:absolute;left:1rem;top:-100px;z-index:400;background:var(--acc-d);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 10px 10px;font-weight:700;font-size:14px;transition:top .18s;}
+.skip:focus{top:0;}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;}
+
+.gs{background:#0A0A0B;color:#F5F5F3;font-size:13px;}
+.gs-in{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;padding:.65rem var(--pad);max-width:1140px;margin:0 auto;}
+.gs b{font-weight:700;} .gs .dot{color:#83848C;}
+.gs a{margin-left:auto;display:inline-flex;align-items:center;min-height:36px;padding:0 1rem;border-radius:999px;background:#FEC43A;color:#0A0A0B;font-weight:700;font-size:12.5px;}
+.gs a:hover{background:#FFD468;}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,252,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:4.8rem;}
+.logo{display:flex;flex-direction:column;justify-content:center;min-height:44px;}
+.logo b{font-family:var(--ff-h);font-size:27px;font-weight:600;line-height:1;letter-spacing:.02em;}
+.logo span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);}
+.nlinks{display:flex;gap:var(--s4);margin-left:auto;}
+.nlinks a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;font-weight:600;color:var(--mut);transition:color .2s;}
+.nlinks a:hover{color:var(--acc);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:52px;padding:0 1.8rem;border-radius:999px;
+  font-family:var(--ff-b);font-size:15px;font-weight:700;cursor:pointer;border:2px solid transparent;
+  transition:background .22s,color .22s,border-color .22s;}
+.btn-p{background:var(--acc);color:#fff;} .btn-p:hover{background:var(--acc-d);}
+.btn-s{background:#fff;color:var(--acc-d);border-color:var(--line-strong);} .btn-s:hover{border-color:var(--acc);background:var(--acc-soft);}
+.btn-w{background:#fff;color:var(--acc-d);} .btn-w:hover{background:#DBEBEC;}
+.btn-o{background:transparent;color:#fff;border-color:#fff;} .btn-o:hover{background:rgba(255,255,255,.18);}
+.nav .btn{min-height:44px;padding:0 1.3rem;font-size:14px;margin-left:var(--s3);}
+
+.hero{position:relative;display:grid;align-items:end;min-height:min(84vh,700px);background:#0F2A2D;overflow:hidden;}
+.hero .bgim{position:absolute;inset:0;background-color:#0F2A2D;background-position:center;background-size:cover;background-repeat:no-repeat;}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(6,20,22,.94) 0%,rgba(6,20,22,.56) 46%,rgba(6,20,22,.2) 82%);}
+.hero-in{position:relative;z-index:2;padding:var(--s6) 0 var(--s5);max-width:44rem;color:#fff;}
+.orn{display:inline-flex;align-items:center;gap:.9rem;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#9FD9DD;margin-bottom:var(--s3);}
+.orn::before{content:'';width:28px;height:1px;background:#9FD9DD;}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);color:#fff;}
+.hero h1 em{font-style:italic;}
+.hero p{margin-top:var(--s3);font-size:17.5px;color:#DCE9EA;max-width:42ch;}
+.hero .row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:var(--s4);}
+
+.sec{padding:var(--s6) 0;}
+.hd{max-width:48ch;margin:0 auto var(--s5);text-align:center;}
+.flag{display:inline-block;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--sand);margin-bottom:.8rem;}
+.hd h2{font-size:clamp(2rem,4vw,2.9rem);}
+.hd p{margin-top:.8rem;color:var(--mut);}
+
+/* Байшингууд */
+.lg{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);}
+.lc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  transition:box-shadow .24s,transform .24s;}
+.lc:hover{box-shadow:0 20px 44px -24px rgba(21,34,37,.34);transform:translateY(-4px);}
+.lc .ph{aspect-ratio:16/10;background-color:var(--soft);background-position:center;background-size:cover;background-repeat:no-repeat;}
+.lc-in{padding:var(--s4) var(--s3);}
+.lc h3{font-size:25px;}
+.lc p{font-size:15px;color:var(--mut);margin:.4rem 0 var(--s3);}
+.lc .am{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:var(--s3);}
+.lc .am span{background:var(--soft2);border-radius:999px;padding:.2rem .75rem;font-size:12.5px;font-weight:700;color:var(--mut2);}
+.lc .pz{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;padding-top:var(--s3);border-top:1px solid var(--line);}
+.lc .pz b{font-family:var(--ff-h);font-size:24px;color:var(--acc-d);}
+.lc .pz s{text-decoration:none;font-size:13.5px;color:var(--mut2);}
+
+/* Үйл ажиллагаа */
+.act{background:var(--soft2);padding:var(--s6) 0;}
+.ag{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);}
+.ac{text-align:center;}
+.ac i{display:grid;place-items:center;width:58px;height:58px;margin:0 auto .9rem;border-radius:50%;
+  background:var(--card);color:var(--acc);font-size:22px;font-style:normal;border:1px solid var(--line);}
+.ac h3{font-family:var(--ff-b);font-size:16.5px;font-weight:700;}
+.ac p{font-size:14.5px;color:var(--mut);margin-top:.2rem;}
+
+.quote{padding:var(--s6) 0;}
+.quote-in{max-width:44rem;margin:0 auto;text-align:center;}
+.quote blockquote{font-family:var(--ff-h);font-style:italic;font-size:clamp(1.5rem,3.2vw,2.3rem);line-height:1.34;}
+.quote cite{display:block;margin-top:var(--s3);font-style:normal;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);}
+
+.cta{padding:0 0 var(--s6);}
+.cta-in{background:var(--acc-d);color:#fff;border-radius:var(--r);padding:clamp(1.8rem,5vw,3.4rem);
+  display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s4);align-items:center;}
+.cta h2{font-size:clamp(1.9rem,3.8vw,2.6rem);color:#fff;}
+.cta p{color:#BFDDDF;margin-top:.7rem;max-width:40ch;}
+.cta .row{display:flex;gap:.7rem;flex-wrap:wrap;}
+
+.foot{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s3);}
+.fgr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s4);}
+.foot p{font-size:15px;color:var(--mut);max-width:32ch;margin-top:.7rem;}
+.foot h3{font-family:var(--ff-b);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mut2);margin-bottom:.7rem;}
+.fl{display:flex;flex-direction:column;}
+.fl a,.fl span{font-size:15px;color:var(--mut);padding:.3rem 0;}
+.fl a:hover{color:var(--acc);}
+.fb{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);font-size:13.5px;color:var(--mut2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+@media(max-width:980px){
+  .lg{grid-template-columns:1fr;} .ag{grid-template-columns:1fr 1fr;}
+  .cta-in{grid-template-columns:1fr;}
+  .nlinks{display:none;} .nav .btn{margin-left:auto;}
+  .fgr{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){.ag,.fgr{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms!important;}}
+
+/* Зураг — Pexels, чөлөөт лиценз. Hero тодрол 14.58:1 */
+.im-amralt-hero{background-image:url('../images/amralt-hero.webp');}
+.im-amralt-f1{background-image:url('../images/amralt-f1.webp');}
+.im-amralt-f2{background-image:url('../images/amralt-f2.webp');}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Шууд агуулга руу</a>
+
+<div class="gs"><div class="gs-in">
+  <span><b>Gerelt Solutions</b> <span class="dot">·</span> Бэлэн загвар — <b>Амралт</b></span>
+  <a href="../travel/index.html">Бусад загвар үзэх →</a>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><b>Цэнхэр</b><span>Нуурын амралт</span></a>
+  <nav class="nlinks" aria-label="Үндсэн цэс">
+    <a href="#lodges">Байшин</a><a href="#activities">Үйл ажиллагаа</a><a href="#book">Захиалга</a>
+  </nav>
+  <a class="btn btn-p" href="#book">Захиалах</a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="bgim im-amralt-hero" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <p class="orn">Хөвсгөл нуур · 1,645 м</p>
+    <h1>Усны ирмэгээс <em>20 алхам</em></h1>
+    <p>Арван модон байшин нуурын эрэг дагуу. Хамгийн ойрын хөрш 60 метрт. Шөнийн чимээ бол зөвхөн давалгаа.</p>
+    <div class="row">
+      <a class="btn btn-w" href="#lodges">Байшин үзэх</a>
+      <a class="btn btn-o" href="#book">Захиалга өгөх</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="lodges">
+  <div class="wrap">
+    <div class="hd">
+      <span class="flag">Байшин</span>
+      <h2>Хоёр төрөл</h2>
+      <p>Бүгд модон, халаалттай, бие засах газар доторлогоотой. Гал тогоо нийтийн байшинд.</p>
+    </div>
+    <div class="lg">
+      <article class="lc"><div class="ph im-amralt-f1"></div><div class="lc-in">
+        <h3>Эргийн байшин</h3>
+        <p>Уснаас 20 метрт. Том цонх, тагт, гадаа гал түлэх талбай. Нар жаргахыг ороосоо харна.</p>
+        <div class="am"><span>42 м²</span><span>2–4 хүн</span><span>Нуур руу харсан</span><span>Тагт</span></div>
+        <div class="pz"><b>420,000₮</b><s>нэг шөнө</s></div></div></article>
+      <article class="lc"><div class="ph im-amralt-f2"></div><div class="lc-in">
+        <h3>Ойн байшин</h3>
+        <p>Шилмүүст ойн дунд, уснаас 150 метрт. Илүү нам гүм, илүү хямд. Гэр бүлд тохиромжтой.</p>
+        <div class="am"><span>56 м²</span><span>4–6 хүн</span><span>Ой руу харсан</span><span>Хоёр унтлагын өрөө</span></div>
+        <div class="pz"><b>350,000₮</b><s>нэг шөнө</s></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="act" id="activities">
+  <div class="wrap">
+    <div class="hd"><span class="flag">Үйл ажиллагаа</span><h2>Юу хийж болох вэ</h2></div>
+    <div class="ag">
+      <div class="ac"><i aria-hidden="true">◇</i><h3>Завь, сал</h3><p>Сэлүүрт завь үнэгүй, моторт завь цагаар.</p></div>
+      <div class="ac"><i aria-hidden="true">◈</i><h3>Загасчлал</h3><p>Зөвшөөрөлтэй, барьж тавих журмаар.</p></div>
+      <div class="ac"><i aria-hidden="true">◉</i><h3>Морь унах</h3><p>Хөтөчтэй, 2 цаг эсвэл бүтэн өдөр.</p></div>
+      <div class="ac"><i aria-hidden="true">◎</i><h3>Сауна</h3><p>Нуурын эрэг дээр, захиалгаар.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap quote-in">
+    <blockquote>«Энд ирсэн хүмүүс эхний өдөр утсаа хайдаг. Гурав дахь өдөр нь мартдаг.»</blockquote>
+    <cite>Цэнхэр амралтын газар</cite>
+  </div>
+</section>
+
+<section class="cta" id="book">
+  <div class="wrap"><div class="cta-in">
+    <div>
+      <h2>6-р сарын 10-наас 9-р сарын 15 хүртэл</h2>
+      <p>Долоо хоногийн өдрүүд 20% хямд. Хоёроос дээш шөнө хонивол буудлын унаа үнэгүй.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-w" href="tel:+97699440000">+976 9944-0000</a>
+      <a class="btn btn-o" href="mailto:sain@tsenher.mn">sain@tsenher.mn</a>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fgr">
+    <div><span class="logo"><b>Цэнхэр</b><span>Нуурын амралт</span></span>
+      <p>Хөвсгөл аймаг, Хатгал. 10 модон байшин. 6–9 дүгээр сард.</p></div>
+    <div><h3>Амралт</h3><div class="fl"><a href="#lodges">Байшингууд</a><a href="#activities">Үйл ажиллагаа</a><a href="#book">Захиалга</a></div></div>
+    <div><h3>Холбоо барих</h3><div class="fl"><a href="tel:+97699440000">+976 9944-0000</a><a href="mailto:sain@tsenher.mn">sain@tsenher.mn</a><span>УБ оффис: Да–Ба 09:00–18:00</span></div></div>
+  </div>
+  <div class="fb"><span>© 2026 Цэнхэр амралт — жишээ агуулга</span><span>Gerelt Solutions Studio загвар</span></div>
+</div></footer>
+</body>
+</html>

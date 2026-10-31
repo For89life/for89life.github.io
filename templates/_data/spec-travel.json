@@ -1,0 +1,150 @@
+[
+ {
+  "name": "ger-hero",
+  "url": "https://images.pexels.com/photos/28224323/pexels-photo-28224323.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.6,
+  "need": 4.5,
+  "focus": 0.5,
+  "q": 64,
+  "note": "Дээрээс харсан гэр бааз"
+ },
+ {
+  "name": "ger-f1",
+  "url": "https://images.pexels.com/photos/28103660/pexels-photo-28103660.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Ногоон тал, уулс"
+ },
+ {
+  "name": "ger-f2",
+  "url": "https://images.pexels.com/photos/27740073/pexels-photo-27740073.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Адуу ногоон талд"
+ },
+ {
+  "name": "ger-f3",
+  "url": "https://images.pexels.com/photos/11113247/pexels-photo-11113247.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Майхан, баазын амьдрал"
+ },
+ {
+  "name": "buudal-hero",
+  "url": "https://images.pexels.com/photos/34496701/pexels-photo-34496701.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Зочид буудлын өрөө, хотын харагдац"
+ },
+ {
+  "name": "buudal-f1",
+  "url": "https://images.pexels.com/photos/6876607/pexels-photo-6876607.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Хүлээн авалтын лангуу"
+ },
+ {
+  "name": "buudal-f2",
+  "url": "https://images.pexels.com/photos/10660270/pexels-photo-10660270.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Өрөөний дотор тал"
+ },
+ {
+  "name": "ayalal-hero",
+  "url": "https://images.pexels.com/photos/27769600/pexels-photo-27769600.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.6,
+  "need": 4.5,
+  "focus": 0.5,
+  "q": 62,
+  "note": "Уулын зам, аялагчид"
+ },
+ {
+  "name": "ayalal-f1",
+  "url": "https://images.pexels.com/photos/29070685/pexels-photo-29070685.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Үүргэвчтэй аялагчид"
+ },
+ {
+  "name": "ayalal-f2",
+  "url": "https://images.pexels.com/photos/8863495/pexels-photo-8863495.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Тэмээн жин, цөл"
+ },
+ {
+  "name": "ayalal-f3",
+  "url": "https://images.pexels.com/photos/3098647/pexels-photo-3098647.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Цаст хөндий харж буй аялагч"
+ },
+ {
+  "name": "amralt-hero",
+  "url": "https://images.pexels.com/photos/27667695/pexels-photo-27667695.jpeg",
+  "shape": "wide",
+  "maxw": 1400,
+  "band": "bottom",
+  "scrim": 0.68,
+  "need": 4.5,
+  "focus": 0.55,
+  "q": 62,
+  "note": "Ууланд орших цэнхэр нуур"
+ },
+ {
+  "name": "amralt-f1",
+  "url": "https://images.pexels.com/photos/3218443/pexels-photo-3218443.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Уул, ус"
+ },
+ {
+  "name": "amralt-f2",
+  "url": "https://images.pexels.com/photos/452690/pexels-photo-452690.jpeg",
+  "shape": "landscape",
+  "maxw": 520,
+  "q": 70,
+  "note": "Нуур, ойт эрэг"
+ },
+ {
+  "name": "agent-hero",
+  "url": "https://images.pexels.com/photos/3374249/pexels-photo-3374249.jpeg",
+  "shape": "landscape",
+  "maxw": 760,
+  "q": 70,
+  "note": "Онгоцны цонхоор харах"
+ },
+ {
+  "name": "agent-f1",
+  "url": "https://images.pexels.com/photos/6108074/pexels-photo-6108074.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Газрын зураг судалж байна"
+ },
+ {
+  "name": "agent-f2",
+  "url": "https://images.pexels.com/photos/16562841/pexels-photo-16562841.jpeg",
+  "shape": "landscape",
+  "maxw": 480,
+  "q": 70,
+  "note": "Онгоц буудал дээр"
+ }
+]
