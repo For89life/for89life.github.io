@@ -18,7 +18,7 @@ SHOTS = [
  ('pv-tsamhag', '066993-h2g2st'), ('pv-egnee',   '066993-ico2it'),
  ('pv-zah',     '100647-55hh6l'), ('pv-sav',     '100647-v1l4iq'),
  ('pv-tulhuur', '110985-8k3gi2'), ('pv-horshoo', '110985-rz7hvz'),
- ('pv-guurs',   '116207-28w8bq'), ('pv-utaa',    '116207-fa39gn'),
+ ('pv-guurs',   '716253-o90s98'), ('pv-utaa',    '716253-uncxi9'),
  ('pv-navch',   '121548-zcn8dt'), ('pv-togoo',   '121548-9tutsm'),
  ('pv-or',      '126753-ujwpgr'), ('pv-huudas',  '126753-v272kd'),
  ('pv-zurag',   '131837-uz7y29'), ('pv-suljee',  '131837-91tc97'),

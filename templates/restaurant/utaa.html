@@ -7,8 +7,10 @@
 <meta name="description" content="Харанхуй бистро, бар маягийн ресторан загвар.">
 <link rel="icon" href="../../images/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Playfair Display / Manrope — хоёулаа кирилл үсэг бүрэн. -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Фонтыг сольсон: Playfair Display болон Jost нь cyrillic-ext дэд
+     олонлоггүй тул Ө ө Ү ү үсгийг агуулдаггүй — тэдгээр нь системийн
+     фонтоор орлогдож бичвэр жигд бус болдог. _data/font-check.py үз. -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Элементийн хүрээ. --line нь зураасанд, энэ нь
@@ -18,7 +20,7 @@
   --fg:#F3EEE4; --mut:#AFA495; --mut2:#9A8F7F;
   --acc:#D4A845; --acc-d:#B38C2F; --ink:#0E0C0A;
   --line:rgba(243,238,228,.10); --line2:rgba(243,238,228,.2);
-  --ff-h:'Playfair Display',Georgia,serif; --ff-b:'Manrope',system-ui,sans-serif;
+  --ff-h:'Cormorant',Georgia,serif; --ff-b:'Manrope',system-ui,sans-serif;
   --pad:clamp(1.2rem,5vw,4.5rem);
   --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:6.5rem;
 }
