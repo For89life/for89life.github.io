@@ -6,6 +6,9 @@
 <title>Gerelt Solutions Studio — Вэб, мобайл, дижитал шийдэл</title>
 <meta name="description" content="Улаанбаатар, Дорнодод төвтэй дижитал студи. Вэб хөгжүүлэлт, мобайл аппликейшн, онлайн дэлгүүр, төлбөрийн холболт.">
 <link rel="icon" href="images/logo.webp">
+<!-- LCP: hero-гийн эхний дэлгэцийн зураг. Үүнгүйгээр хөтөч түүнийг
+     HTML-ийг задалж дуусмагц л олдог тул эхлэл 0.5-1 сек хоцордог. -->
+<link rel="preload" as="image" href="templates/images/pv-tulga.webp" fetchpriority="high">
 <!-- SEO:BEGIN -->
 <link rel="canonical" href="https://gerelt-solutuions.com/">
 <meta property="og:type" content="website">
@@ -801,7 +804,7 @@ html.js .rv.in{opacity:1;transform:none;}
           <span class="url" id="shotUrl">gerelt-solutuions.com/templates/corporate/tulga</span>
         </div>
         <div class="screen" id="shotScreen">
-          <img src="templates/images/pv-tulga.webp" class="on" alt="Тулга — байгууллагын танилцуулга загвар" data-n="Тулга" data-c="Байгууллагын танилцуулга" data-u="templates/corporate/tulga">
+          <img src="templates/images/pv-tulga.webp" class="on" fetchpriority="high" decoding="async" alt="Тулга — байгууллагын танилцуулга загвар" data-n="Тулга" data-c="Байгууллагын танилцуулга" data-u="templates/corporate/tulga">
           <img src="templates/images/pv-zah.webp" alt="Зах — онлайн дэлгүүр загвар" loading="lazy" data-n="Зах" data-c="Онлайн дэлгүүр" data-u="templates/shop/zah">
           <img src="templates/images/pv-utaa.webp" alt="Утаа — ресторан загвар" loading="lazy" data-n="Утаа" data-c="Ресторан &amp; кафе" data-u="templates/restaurant/utaa">
           <img src="templates/images/pv-suljee.webp" alt="Сүлжээ — портфолио загвар" loading="lazy" data-n="Сүлжээ" data-c="Хувийн портфолио" data-u="templates/portfolio/suljee">
