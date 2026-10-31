@@ -73,7 +73,8 @@ async function main() {
       const ctx = await browser.newContext({ viewport: vp, locale: 'mn-MN' });
       const page = await ctx.newPage();
       try {
-        const res = await page.goto(url, { waitUntil: 'networkidle', timeout: 25000 });
+        const res = await page.goto(url, { waitUntil: 'load', timeout: 25000 });
+        await page.evaluate(() => document.fonts.ready);
         if (!res || !res.ok()) {
           detail.push(`  [${vp.name}] ХУУДАС АЧААЛАГДСАНГҮЙ (${res ? res.status() : 'no response'})`);
           pageViolations++;

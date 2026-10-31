@@ -1,70 +1,58 @@
 # -*- coding: utf-8 -*-
-"""Загвар бүрийн дэлгэцийн зургийг картын нүүр болгож боловсруулна.
+"""_shots/ доторх PNG-үүдийг картын нүүрний WebP болгоно.
 
-Хөтчийн цонхноос авсан зургийг blob файлаас уншина. Дээд талын
-Gerelt-ийн тууз нь урьдчилан харахад хэрэггүй тул тайрна.
+Өмнө нь хөтчийн blob файлыг нэрээр нь хайдаг байсан: blob-ийн нэрийг
+гараар бичиж өгөх шаардлагатай, самбарын өргөнөөс хамааран хэмжээ
+555–800px хооронд хэлбэлздэг байв. Одоо shots.mjs яг 1440×900-аар
+авч, энэ скрипт зөвхөн багасгаж WebP болгоно.
+
+Урсгал:
+    node templates/_data/shots.mjs --only fitness
+    python templates/_data/make-previews.py
+
+(Хуучин хувилбарыг make-previews-blob.py.bak нэрээр хадгалсан.)
 """
-import io, os, sys
+import glob
+import os
+import sys
+
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(os.path.dirname(HERE), 'images')
-BLOBS = ('C:/Users/For89/.claude/projects/C--D-General-Web-gerelt-site/'
-         'f0f11d57-9155-46a2-b282-3c1491b84864/tool-results')
+IMAGES = os.path.join(os.path.dirname(HERE), 'images')
+SHOTS = os.path.join(IMAGES, '_shots')
 
-# (гаралтын нэр, blob-ийн сүүлийн хэсэг)
-SHOTS = [
- ('pv-tulga',   '066993-cqitsq'), ('pv-hurd',    '066993-ihsjaf'),
- ('pv-tsamhag', '066993-h2g2st'), ('pv-egnee',   '066993-ico2it'),
- ('pv-zah',     '100647-55hh6l'), ('pv-sav',     '100647-v1l4iq'),
- ('pv-tulhuur', '110985-8k3gi2'), ('pv-horshoo', '110985-rz7hvz'),
- ('pv-guurs',   '716253-o90s98'), ('pv-utaa',    '716253-uncxi9'),
- ('pv-navch',   '121548-zcn8dt'), ('pv-togoo',   '121548-9tutsm'),
- ('pv-or',      '126753-ujwpgr'), ('pv-huudas',  '126753-v272kd'),
- ('pv-zurag',   '131837-uz7y29'), ('pv-suljee',  '131837-91tc97'),
- # 5 дэх багц — катигор бүрийн 5 дэх загвар
- ('pv-guur',    '973877-fh0w16'), ('pv-torgon',  '973877-wl56w0'),
- ('pv-zoolon',  '978473-l1vie1'), ('pv-duu',     '978474-tta07w'),
- # Боловсрол
- ('pv-surah',      '923669-ef0yw7'), ('pv-mergejil',   '923669-mkad7f'),
- ('pv-onlain',     '923669-dbfd3b'), ('pv-tsetserleg', '930535-3oln89'),
- ('pv-ihsurguuli', '930535-381h5n'),
- # Эрүүл мэнд
- ('pv-emneleg', '406060-1ntg82'), ('pv-shud',   '406060-kchb9c'),
- ('pv-setgel',  '406060-guy9i7'), ('pv-emsan',  '406060-18gi1m'),
- ('pv-lab',     '412274-t3ii7j'),
-]
+TARGET_W = 760          # картын харуулагдах өргөнөөс 2 дахин том
+QUALITY = 78
 
-RIBBON = 0.072      # дээд туузны эзлэх хувь
-TARGET = 16 / 10.0  # картын харьцаа
 
 def main():
-    os.makedirs(OUT, exist_ok=True)
-    rows, missing = [], []
-    for name, tag in SHOTS:
-        hits = [f for f in os.listdir(BLOBS) if tag in f]
-        if not hits:
-            missing.append(name); continue
-        im = Image.open(os.path.join(BLOBS, hits[0])).convert('RGB')
-        w, h = im.size
-        im = im.crop((0, int(h * RIBBON), w, h))      # тууз тайрна
-        w, h = im.size
-        if w / h > TARGET:                            # 16:10 болгоно
-            nw = int(h * TARGET); im = im.crop(((w - nw)//2, 0, (w - nw)//2 + nw, h))
-        else:
-            nh = int(w / TARGET); im = im.crop((0, 0, w, nh))
-        if im.width > 760:
-            im = im.resize((760, int(760 / TARGET)), Image.LANCZOS)
-        dest = os.path.join(OUT, name + '.webp')
-        im.save(dest, 'WEBP', quality=76, method=6)
-        rows.append((name, '%dx%d' % im.size, os.path.getsize(dest)//1024))
+    if not os.path.isdir(SHOTS):
+        print('_shots/ alga - ehleed shots.mjs ajillahuul.')
+        return 1
+    only = sys.argv[1] if len(sys.argv) > 1 else None
+
+    rows = []
+    for src in sorted(glob.glob(os.path.join(SHOTS, '*.png'))):
+        name = os.path.splitext(os.path.basename(src))[0]
+        if only and only not in name:
+            continue
+        im = Image.open(src).convert('RGB')
+        if im.width > TARGET_W:
+            h = round(im.height * TARGET_W / im.width)
+            im = im.resize((TARGET_W, h), Image.LANCZOS)
+        dest = os.path.join(IMAGES, 'pv-%s.webp' % name)
+        im.save(dest, 'WEBP', quality=QUALITY, method=6)
+        rows.append((name, '%dx%d' % im.size, os.path.getsize(dest) // 1024))
+
     print('%-14s %-10s %s' % ('name', 'size', 'KB'))
     for r in rows:
         print('%-14s %-10s %d' % r)
-    if missing:
-        print('MISSING:', ', '.join(missing))
-    tot = sum(r[2] for r in rows)
-    print('total %d KB for %d previews' % (tot, len(rows)))
+    total = sum(os.path.getsize(f)
+                for f in glob.glob(os.path.join(IMAGES, 'pv-*.webp')))
+    print('\n%d previews written; pv-* total %d KB' % (len(rows), total // 1024))
+    return 0
+
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())

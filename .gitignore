@@ -9,3 +9,4 @@ templates/_data/.sheet-cache/
 node_modules/
 package-lock.json
 .playwright-report/
+templates/images/_shots/
