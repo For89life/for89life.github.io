@@ -582,12 +582,13 @@ html.js .rv.in{opacity:1;transform:none;}
   opacity:.5;z-index:0;pointer-events:none;mix-blend-mode:lighten;
 }
 .hero-in{max-width:34rem;}
-/* Hero гарчиг нь лоозон биш, хоёр нөхцөлийг зэрэгцүүлсэн
-   мэдээлэл тул дэлгэцийн хэмжээнээс бага. Их томоор тавихад
-   зургаан мөр болж hero-г дүүргэдэг. */
-.hero h1{font-size:clamp(1.9rem,3.3vw,2.9rem);letter-spacing:-.025em;line-height:1.18;}
-/* «3–5 хоногт» утсан дээр зураасаар тасарч байсан */
-.hero h1 em{white-space:nowrap;}
+/* Hero гурван түвшин: уриа → хүргэх хугацаа → тайлбар */
+.hero h1{font-size:clamp(2.2rem,4.4vw,3.8rem);letter-spacing:-.03em;line-height:1.1;}
+/* Урианы гол хэсэг болон тоон муж зураасаар тасрахгүй */
+.hero h1 em,.hero-sub b{white-space:nowrap;}
+.hero-sub{margin-top:var(--s3);font-size:clamp(17px,1.9vw,21px);
+  line-height:1.5;color:var(--fg);max-width:46ch;}
+.hero-sub b{font-weight:600;color:var(--acc);}
 /* 4 тоо нарийн баганад 3+1 болж тасардаг тул 2x2 болгов */
 .hero .hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3) var(--s4);max-width:30rem;}
 
@@ -792,8 +793,9 @@ html.js .rv.in{opacity:1;transform:none;}
   <div class="wrap hero-g">
     <div class="hero-in">
       <p class="eyebrow"><span class="pip" aria-hidden="true"></span>Улаанбаатар · Дорнод</p>
-      <h1 class="h-xl">Загвараа сонговол <em>3–5 хоногт</em>,<br>захиалгаар хийлгэх бол <em>14+ хоногт</em> бэлэн болно</h1>
-      <p class="lead">50 бэлэн загвар, эсвэл зөвхөн танд зориулсан шийдэл. Аль аль нь нэг студи, нэг хариуцагчтай.</p>
+      <h1 class="h-xl">Хэрэгцээ шаардлагад тань нийцсэн<br>таны <em>«АМАР ШИЙДЭЛ»</em></h1>
+      <p class="hero-sub">Загвараа сонговол <b>3–5 хоногт</b>, захиалгаар хийлгэх бол <b>14+ хоногт</b> бэлэн болно.</p>
+      <p class="lead">50 бэлэн загвар, эсвэл зөвхөн танд зориулсан шийдэл.</p>
       <div class="btn-row">
         <a class="btn btn-p" href="#templates">Загварууд үзэх</a>
         <button class="btn btn-s" onclick="openRequest('Үнийн санал','Хараахан тодорхойгүй')">Үнийн санал авах</button>
