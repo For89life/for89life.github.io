@@ -582,7 +582,12 @@ html.js .rv.in{opacity:1;transform:none;}
   opacity:.5;z-index:0;pointer-events:none;mix-blend-mode:lighten;
 }
 .hero-in{max-width:34rem;}
-.hero h1{font-size:clamp(2.3rem,4.6vw,4rem);}
+/* Hero гарчиг нь лоозон биш, хоёр нөхцөлийг зэрэгцүүлсэн
+   мэдээлэл тул дэлгэцийн хэмжээнээс бага. Их томоор тавихад
+   зургаан мөр болж hero-г дүүргэдэг. */
+.hero h1{font-size:clamp(1.9rem,3.3vw,2.9rem);letter-spacing:-.025em;line-height:1.18;}
+/* «3–5 хоногт» утсан дээр зураасаар тасарч байсан */
+.hero h1 em{white-space:nowrap;}
 /* 4 тоо нарийн баганад 3+1 болж тасардаг тул 2x2 болгов */
 .hero .hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3) var(--s4);max-width:30rem;}
 
@@ -687,7 +692,11 @@ html.js .rv.in{opacity:1;transform:none;}
   .wall{grid-template-columns:repeat(3,1fr);}
 }
 @media(max-width:900px){
-  .hero-g{grid-template-columns:1fr;gap:var(--s4);}
+  /* minmax(0,1fr) — ердийн 1fr нь min-width:auto-той тул багана
+   агуулгын доод өргөнөөс бага болж чадахгүй. 375px дээр багана
+   386px болж, hero-гийн товч, бичвэр баруун талаасаа тасарч байв.
+   Хуудас хэвтээ гүйдэггүй (overflow:hidden) тул огт харагдахгүй байсан. */
+  .hero-g{grid-template-columns:minmax(0,1fr);gap:var(--s4);}
   .hero-in{max-width:none;}
   .shots{transform:none;}
   .shots:hover{transform:none;}
@@ -783,7 +792,7 @@ html.js .rv.in{opacity:1;transform:none;}
   <div class="wrap hero-g">
     <div class="hero-in">
       <p class="eyebrow"><span class="pip" aria-hidden="true"></span>Улаанбаатар · Дорнод</p>
-      <h1 class="h-xl">Загвараа сонгоод<br>долоо хоногт <em>нээгээрэй</em></h1>
+      <h1 class="h-xl">Загвараа сонговол <em>3–5 хоногт</em>,<br>захиалгаар хийлгэх бол <em>14+ хоногт</em> бэлэн болно</h1>
       <p class="lead">50 бэлэн загвар, эсвэл зөвхөн танд зориулсан шийдэл. Аль аль нь нэг студи, нэг хариуцагчтай.</p>
       <div class="btn-row">
         <a class="btn btn-p" href="#templates">Загварууд үзэх</a>
@@ -791,7 +800,7 @@ html.js .rv.in{opacity:1;transform:none;}
       </div>
       <div class="hero-stats">
         <div><b>50</b><span>Бэлэн загвар</span></div>
-        <div><b>7 хоног</b><span>Хамгийн хурдан нь</span></div>
+        <div><b>3 хоног</b><span>Хамгийн хурдан нь</span></div>
         <div><b>4</b><span>Үндсэн чиглэл</span></div>
         <div><b>12 сар</b><span>Хамгийн урт дэмжлэг</span></div>
       </div>
@@ -1208,7 +1217,7 @@ html.js .rv.in{opacity:1;transform:none;}
           <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Бэлэн загвар дээр суурилна</li>
           <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Таны агуулга, өнгө</li>
           <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Мобайл нийцтэй</li>
-          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5–7 хоногт бэлэн</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3–5 хоногт бэлэн</li>
         </ul>
         <button class="btn btn-s" onclick="openRequest('Бэлэн загвар','300,000–500,000₮')">Хүсэлт илгээх</button>
       </div>
