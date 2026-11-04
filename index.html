@@ -642,8 +642,10 @@ html.js .rv.in{opacity:1;transform:none;}
 /* ═══ ЗАГВАРЫН ХАНА ════════════════════════════════════════
    DuoFankaar-ийн хэв маяг: олон ажлыг нэг дор нягт харуулж,
    цар хүрээг нэг харцаар ойлгуулна.                          */
+/* Категор бүр яг таван загвартай тул таван багана — нээхэд
+   нэг эгнээ болж, дан үлдсэн тайл доош унахгүй. */
 .wall{
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
   gap:10px;
 }
 .tile{
@@ -672,12 +674,12 @@ html.js .rv.in{opacity:1;transform:none;}
   display:flex;align-items:baseline;gap:.45rem;
 }
 .tile .tn s{text-decoration:none;font-size:10.5px;color:#C9CAD0;font-weight:500;}
-.tile[hidden]{display:none;}
 
 .wall-bar{
-  display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
-  margin-bottom:var(--s3);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.75rem;flex-wrap:wrap;margin-bottom:var(--s2);
 }
+.wall-sum{font-size:13px;color:var(--mut2);}
 .wchip{
   display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;
   border-radius:999px;border:1px solid var(--line-strong);background:none;
@@ -686,11 +688,56 @@ html.js .rv.in{opacity:1;transform:none;}
 }
 .wchip:hover{color:var(--fg);border-color:var(--fg);}
 .wchip[aria-pressed="true"]{background:var(--fg);color:var(--ink);border-color:var(--fg);}
-.wchip .n{opacity:.6;margin-left:.4rem;font-size:11px;}
 .wall-note{margin-top:var(--s3);font-size:13px;color:var(--mut2);}
 
+/* ── Нугалдаг категор ──────────────────────────────────────
+   Тавин тайл нэг дор байхад хуудас хэмжээгүй урт болж,
+   сонгох нь хүндэрдэг байв. Одоо категор бүр нэг мөр. */
+.wcat{border-top:1px solid var(--line);}
+.wcat:last-child{border-bottom:1px solid var(--line);}
+.wcat-h{margin:0;font-size:inherit;font-weight:inherit;line-height:inherit;}
+.wcat-b{
+  display:flex;align-items:center;gap:1rem;width:100%;
+  min-height:64px;padding:1rem .25rem;
+  background:none;border:0;cursor:pointer;text-align:left;
+  font-family:inherit;color:var(--fg);
+  transition:color .2s ease;
+}
+.wcat-b:hover{color:var(--acc);}
+.wcat-x{
+  flex:none;font-size:11px;font-weight:600;color:var(--mut2);
+  letter-spacing:.08em;font-variant-numeric:tabular-nums;
+}
+.wcat-n{flex:none;font-size:clamp(16px,1.9vw,19px);font-weight:600;letter-spacing:-.01em;}
+.wcat-d{flex:1;min-width:0;font-size:13px;color:var(--mut);}
+.wcat-c{flex:none;font-size:12px;color:var(--mut2);font-variant-numeric:tabular-nums;}
+/* Сум: хаалттай үед доош, нээлттэй үед дээш */
+.wcat-i{
+  flex:none;width:9px;height:9px;margin-right:.4rem;
+  border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+  transition:transform .3s ease;
+}
+.wcat[data-open="true"] .wcat-i{transform:translateY(2px) rotate(225deg);}
+.wcat[data-open="true"] .wcat-n{color:var(--acc);}
+
+/* 0fr→1fr нь агуулгын жинхэнэ өндрийг мэдэлгүй жигд нээнэ */
+.wcat-p{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .4s cubic-bezier(.4,0,.2,1);
+}
+.wcat[data-open="true"] .wcat-p{grid-template-rows:1fr;}
+/* visibility нь хаалттай тайлуудыг Tab-ийн дараалалаас гаргана.
+   Хаах хөдөлгөөн дуустал хүлээнэ, нээхэд шууд. */
+.wcat-in{
+  overflow:hidden;min-height:0;
+  visibility:hidden;transition:visibility 0s .4s;
+}
+.wcat[data-open="true"] .wcat-in{visibility:visible;transition:visibility 0s 0s;}
+.wcat-in>.wall{padding:.25rem 0 1.5rem;}
+
 @media(max-width:1100px){
-  .wall{grid-template-columns:repeat(3,1fr);}
+  .wall{grid-template-columns:repeat(3,minmax(0,1fr));}
 }
 @media(max-width:900px){
   /* minmax(0,1fr) — ердийн 1fr нь min-width:auto-той тул багана
@@ -704,12 +751,20 @@ html.js .rv.in{opacity:1;transform:none;}
   #markC{left:-34%;opacity:.3;}
   .wall{grid-template-columns:repeat(2,1fr);}
 }
+@media(max-width:760px){
+  /* Тайлбар багтахгүй. Нэр нь зайг эзэлснээр тоо, сум
+     баруун ирмэг рүү тавигдана. */
+  .wcat-d{display:none;}
+  .wcat-n{flex:1;min-width:0;}
+  .wcat-b{gap:.75rem;}
+}
 @media(max-width:560px){
   .wall{grid-template-columns:1fr;}
 }
 @media(prefers-reduced-motion:reduce){
   .shots,.shots:hover{transform:none;}
   .tile img{filter:none;}
+  .wcat-p,.wcat-i{transition:none;}
 }
 
 /* ═══ ХУУЧИН НЭРИЙН НИЙЦ ══════════════════════════════════════
@@ -846,221 +901,342 @@ html.js .rv.in{opacity:1;transform:none;}
       <p class="lead">Загвар бүр бүтэн ажилладаг хуудас. Өнгө, лого, бичвэрийг танд тааруулна.</p>
     </div>
 
-    <div class="wall-bar rv" role="group" aria-label="Категороор шүүх"><!-- WALL:BAR -->
-      <button class="wchip" data-cat="all" aria-pressed="true">Бүгд<span class="n">50</span></button>
-      <button class="wchip" data-cat="corporate" aria-pressed="false">Танилцуулга<span class="n">5</span></button>
-      <button class="wchip" data-cat="shop" aria-pressed="false">Дэлгүүр<span class="n">5</span></button>
-      <button class="wchip" data-cat="restaurant" aria-pressed="false">Ресторан<span class="n">5</span></button>
-      <button class="wchip" data-cat="portfolio" aria-pressed="false">Портфолио<span class="n">5</span></button>
-      <button class="wchip" data-cat="education" aria-pressed="false">Боловсрол<span class="n">5</span></button>
-      <button class="wchip" data-cat="health" aria-pressed="false">Эрүүл мэнд<span class="n">5</span></button>
-      <button class="wchip" data-cat="fitness" aria-pressed="false">Фитнес<span class="n">5</span></button>
-      <button class="wchip" data-cat="travel" aria-pressed="false">Аялал<span class="n">5</span></button>
-      <button class="wchip" data-cat="realestate" aria-pressed="false">Үл хөдлөх<span class="n">5</span></button>
-      <button class="wchip" data-cat="event" aria-pressed="false">Арга хэмжээ<span class="n">5</span></button>
+    <div class="wall-bar rv"><!-- WALL:BAR -->
+      <p class="wall-sum">10 категор · 50 загвар</p>
+      <button type="button" class="wchip" id="wallAll" aria-pressed="false">Бүгдийг нээх</button>
     <!-- /WALL:BAR --></div>
 
-    <div class="wall rv" id="wall"><!-- WALL:TILES -->
-      <a class="tile" href="templates/corporate/tulga.html" data-cat="corporate">
-        <img src="templates/images/pv-tulga.webp" alt="Тулга — Байгууллагын танилцуулга загвар" loading="lazy">
-        <span class="tn">Тулга<s>Цэгцтэй, цэнхэр</s></span>
-      </a>
-      <a class="tile" href="templates/corporate/hurd.html" data-cat="corporate">
-        <img src="templates/images/pv-hurd.webp" alt="Хүрд — Байгууллагын танилцуулга загвар" loading="lazy">
-        <span class="tn">Хүрд<s>Харанхуй, сериф</s></span>
-      </a>
-      <a class="tile" href="templates/corporate/tsamhag.html" data-cat="corporate">
-        <img src="templates/images/pv-tsamhag.webp" alt="Цамхаг — Байгууллагын танилцуулга загвар" loading="lazy">
-        <span class="tn">Цамхаг<s>Хуваасан, зоригтой</s></span>
-      </a>
-      <a class="tile" href="templates/corporate/egnee.html" data-cat="corporate">
-        <img src="templates/images/pv-egnee.webp" alt="Эгнээ — Байгууллагын танилцуулга загвар" loading="lazy">
-        <span class="tn">Эгнээ<s>Зөөлөн, цайвар</s></span>
-      </a>
-      <a class="tile" href="templates/corporate/guur.html" data-cat="corporate">
-        <img src="templates/images/pv-guur.webp" alt="Гүүр — Байгууллагын танилцуулга загвар" loading="lazy">
-        <span class="tn">Гүүр<s>Албан ёсны, хүрэн шар</s></span>
-      </a>
-      <a class="tile" href="templates/shop/zah.html" data-cat="shop">
-        <img src="templates/images/pv-zah.webp" alt="Зах — Онлайн дэлгүүр загвар" loading="lazy">
-        <span class="tn">Зах<s>Блок, улбар</s></span>
-      </a>
-      <a class="tile" href="templates/shop/sav.html" data-cat="shop">
-        <img src="templates/images/pv-sav.webp" alt="Сав — Онлайн дэлгүүр загвар" loading="lazy">
-        <span class="tn">Сав<s>Бутик, цагаан</s></span>
-      </a>
-      <a class="tile" href="templates/shop/tulhuur.html" data-cat="shop">
-        <img src="templates/images/pv-tulhuur.webp" alt="Түлхүүр — Онлайн дэлгүүр загвар" loading="lazy">
-        <span class="tn">Түлхүүр<s>Харанхуй, техник</s></span>
-      </a>
-      <a class="tile" href="templates/shop/horshoo.html" data-cat="shop">
-        <img src="templates/images/pv-horshoo.webp" alt="Хоршоо — Онлайн дэлгүүр загвар" loading="lazy">
-        <span class="tn">Хоршоо<s>Органик, ногоон</s></span>
-      </a>
-      <a class="tile" href="templates/shop/torgon.html" data-cat="shop">
-        <img src="templates/images/pv-torgon.webp" alt="Торгон — Онлайн дэлгүүр загвар" loading="lazy">
-        <span class="tn">Торгон<s>Хувцас, эсрэгцэл</s></span>
-      </a>
-      <a class="tile" href="templates/restaurant/guurs.html" data-cat="restaurant">
-        <img src="templates/images/pv-guurs.webp" alt="Гуурс — Ресторан & кафе загвар" loading="lazy">
-        <span class="tn">Гуурс<s>Дэгжин, цөцгий</s></span>
-      </a>
-      <a class="tile" href="templates/restaurant/utaa.html" data-cat="restaurant">
-        <img src="templates/images/pv-utaa.webp" alt="Утаа — Ресторан & кафе загвар" loading="lazy">
-        <span class="tn">Утаа<s>Харанхуй, бар</s></span>
-      </a>
-      <a class="tile" href="templates/restaurant/navch.html" data-cat="restaurant">
-        <img src="templates/images/pv-navch.webp" alt="Навч — Ресторан & кафе загвар" loading="lazy">
-        <span class="tn">Навч<s>Гэрэлтэй, кафе</s></span>
-      </a>
-      <a class="tile" href="templates/restaurant/togoo.html" data-cat="restaurant">
-        <img src="templates/images/pv-togoo.webp" alt="Тогоо — Ресторан & кафе загвар" loading="lazy">
-        <span class="tn">Тогоо<s>Тод, хурдан</s></span>
-      </a>
-      <a class="tile" href="templates/restaurant/zoolon.html" data-cat="restaurant">
-        <img src="templates/images/pv-zoolon.webp" alt="Зөөлөн — Ресторан & кафе загвар" loading="lazy">
-        <span class="tn">Зөөлөн<s>Нарийн боов, ягаан</s></span>
-      </a>
-      <a class="tile" href="templates/portfolio/or.html" data-cat="portfolio">
-        <img src="templates/images/pv-or.webp" alt="Ор — Хувийн портфолио загвар" loading="lazy">
-        <span class="tn">Ор<s>Бруталист, хар</s></span>
-      </a>
-      <a class="tile" href="templates/portfolio/huudas.html" data-cat="portfolio">
-        <img src="templates/images/pv-huudas.webp" alt="Хуудас — Хувийн портфолио загвар" loading="lazy">
-        <span class="tn">Хуудас<s>Редактор, сериф</s></span>
-      </a>
-      <a class="tile" href="templates/portfolio/zurag.html" data-cat="portfolio">
-        <img src="templates/images/pv-zurag.webp" alt="Зураг — Хувийн портфолио загвар" loading="lazy">
-        <span class="tn">Зураг<s>Зураг, бүтэн дэлгэц</s></span>
-      </a>
-      <a class="tile" href="templates/portfolio/suljee.html" data-cat="portfolio">
-        <img src="templates/images/pv-suljee.webp" alt="Сүлжээ — Хувийн портфолио загвар" loading="lazy">
-        <span class="tn">Сүлжээ<s>Хөгжүүлэгч, моно</s></span>
-      </a>
-      <a class="tile" href="templates/portfolio/duu.html" data-cat="portfolio">
-        <img src="templates/images/pv-duu.webp" alt="Дуу — Хувийн портфолио загвар" loading="lazy">
-        <span class="tn">Дуу<s>Хөгжим, харанхуй</s></span>
-      </a>
-      <a class="tile" href="templates/education/surah.html" data-cat="education">
-        <img src="templates/images/pv-surah.webp" alt="Сурах — Боловсрол загвар" loading="lazy">
-        <span class="tn">Сурах<s>Сургууль, цэнхэр</s></span>
-      </a>
-      <a class="tile" href="templates/education/mergejil.html" data-cat="education">
-        <img src="templates/images/pv-mergejil.webp" alt="Мэргэжил — Боловсрол загвар" loading="lazy">
-        <span class="tn">Мэргэжил<s>Мэргэжил, ногоон</s></span>
-      </a>
-      <a class="tile" href="templates/education/onlain.html" data-cat="education">
-        <img src="templates/images/pv-onlain.webp" alt="Онлайн — Боловсрол загвар" loading="lazy">
-        <span class="tn">Онлайн<s>Платформ, харанхуй</s></span>
-      </a>
-      <a class="tile" href="templates/education/tsetserleg.html" data-cat="education">
-        <img src="templates/images/pv-tsetserleg.webp" alt="Цэцэрлэг — Боловсрол загвар" loading="lazy">
-        <span class="tn">Цэцэрлэг<s>Цэцэрлэг, улбар</s></span>
-      </a>
-      <a class="tile" href="templates/education/ihsurguuli.html" data-cat="education">
-        <img src="templates/images/pv-ihsurguuli.webp" alt="Дээд — Боловсрол загвар" loading="lazy">
-        <span class="tn">Дээд<s>Их сургууль, час улаан</s></span>
-      </a>
-      <a class="tile" href="templates/health/emneleg.html" data-cat="health">
-        <img src="templates/images/pv-emneleg.webp" alt="Эмнэлэг — Эрүүл мэнд загвар" loading="lazy">
-        <span class="tn">Эмнэлэг<s>Клиник, номин цэнхэр</s></span>
-      </a>
-      <a class="tile" href="templates/health/shud.html" data-cat="health">
-        <img src="templates/images/pv-shud.webp" alt="Шүд — Эрүүл мэнд загвар" loading="lazy">
-        <span class="tn">Шүд<s>Шүд, ногоон</s></span>
-      </a>
-      <a class="tile" href="templates/health/lab.html" data-cat="health">
-        <img src="templates/images/pv-lab.webp" alt="Лаборатори — Эрүүл мэнд загвар" loading="lazy">
-        <span class="tn">Лаборатори<s>Лаборатори, техник</s></span>
-      </a>
-      <a class="tile" href="templates/health/setgel.html" data-cat="health">
-        <img src="templates/images/pv-setgel.webp" alt="Сэтгэл — Эрүүл мэнд загвар" loading="lazy">
-        <span class="tn">Сэтгэл<s>Зөвлөгөө, дулаан</s></span>
-      </a>
-      <a class="tile" href="templates/health/emsan.html" data-cat="health">
-        <img src="templates/images/pv-emsan.webp" alt="Эмийн сан — Эрүүл мэнд загвар" loading="lazy">
-        <span class="tn">Эмийн сан<s>Эмийн сан, ногоон</s></span>
-      </a>
-      <a class="tile" href="templates/fitness/zaal.html" data-cat="fitness">
-        <img src="templates/images/pv-zaal.webp" alt="Заал — Фитнес & гоо сайхан загвар" loading="lazy">
-        <span class="tn">Заал<s>Фитнес, харанхуй</s></span>
-      </a>
-      <a class="tile" href="templates/fitness/yog.html" data-cat="fitness">
-        <img src="templates/images/pv-yog.webp" alt="Йог — Фитнес & гоо сайхан загвар" loading="lazy">
-        <span class="tn">Йог<s>Йог, цайвар</s></span>
-      </a>
-      <a class="tile" href="templates/fitness/goo.html" data-cat="fitness">
-        <img src="templates/images/pv-goo.webp" alt="Гоо сайхан — Фитнес & гоо сайхан загвар" loading="lazy">
-        <span class="tn">Гоо сайхан<s>Салон, ягаан</s></span>
-      </a>
-      <a class="tile" href="templates/fitness/spa.html" data-cat="fitness">
-        <img src="templates/images/pv-spa.webp" alt="Спа — Фитнес & гоо сайхан загвар" loading="lazy">
-        <span class="tn">Спа<s>Спа, харанхуй</s></span>
-      </a>
-      <a class="tile" href="templates/fitness/barber.html" data-cat="fitness">
-        <img src="templates/images/pv-barber.webp" alt="Үсчин — Фитнес & гоо сайхан загвар" loading="lazy">
-        <span class="tn">Үсчин<s>Үсчин, хүрэн</s></span>
-      </a>
-      <a class="tile" href="templates/travel/ger.html" data-cat="travel">
-        <img src="templates/images/pv-ger.webp" alt="Гэр бааз — Аялал & зочид буудал загвар" loading="lazy">
-        <span class="tn">Гэр бааз<s>Бааз, хүрэн шар</s></span>
-      </a>
-      <a class="tile" href="templates/travel/buudal.html" data-cat="travel">
-        <img src="templates/images/pv-buudal.webp" alt="Зочид буудал — Аялал & зочид буудал загвар" loading="lazy">
-        <span class="tn">Зочид буудал<s>Буудал, ногоон</s></span>
-      </a>
-      <a class="tile" href="templates/travel/ayalal.html" data-cat="travel">
-        <img src="templates/images/pv-ayalal.webp" alt="Аялал — Аялал & зочид буудал загвар" loading="lazy">
-        <span class="tn">Аялал<s>Аялал, ногоон</s></span>
-      </a>
-      <a class="tile" href="templates/travel/amralt.html" data-cat="travel">
-        <img src="templates/images/pv-amralt.webp" alt="Амралт — Аялал & зочид буудал загвар" loading="lazy">
-        <span class="tn">Амралт<s>Амралт, номин</s></span>
-      </a>
-      <a class="tile" href="templates/travel/agent.html" data-cat="travel">
-        <img src="templates/images/pv-agent.webp" alt="Агентлаг — Аялал & зочид буудал загвар" loading="lazy">
-        <span class="tn">Агентлаг<s>Агентлаг, хөх</s></span>
-      </a>
-      <a class="tile" href="templates/realestate/oron.html" data-cat="realestate">
-        <img src="templates/images/pv-oron.webp" alt="Орон сууц — Үл хөдлөх & барилга загвар" loading="lazy">
-        <span class="tn">Орон сууц<s>Зуучлал, хөх</s></span>
-      </a>
-      <a class="tile" href="templates/realestate/barilga.html" data-cat="realestate">
-        <img src="templates/images/pv-barilga.webp" alt="Барилга — Үл хөдлөх & барилга загвар" loading="lazy">
-        <span class="tn">Барилга<s>Барилга, харанхуй</s></span>
-      </a>
-      <a class="tile" href="templates/realestate/inter.html" data-cat="realestate">
-        <img src="templates/images/pv-inter.webp" alt="Интерьер — Үл хөдлөх & барилга загвар" loading="lazy">
-        <span class="tn">Интерьер<s>Интерьер, саарал</s></span>
-      </a>
-      <a class="tile" href="templates/realestate/turees.html" data-cat="realestate">
-        <img src="templates/images/pv-turees.webp" alt="Түрээс — Үл хөдлөх & барилга загвар" loading="lazy">
-        <span class="tn">Түрээс<s>Түрээс, ногоон</s></span>
-      </a>
-      <a class="tile" href="templates/realestate/gazar.html" data-cat="realestate">
-        <img src="templates/images/pv-gazar.webp" alt="Газар — Үл хөдлөх & барилга загвар" loading="lazy">
-        <span class="tn">Газар<s>Газар, хөх ногоон</s></span>
-      </a>
-      <a class="tile" href="templates/event/hurim.html" data-cat="event">
-        <img src="templates/images/pv-hurim.webp" alt="Хурим — Арга хэмжээ & хурим загвар" loading="lazy">
-        <span class="tn">Хурим<s>Хурим, зэс</s></span>
-      </a>
-      <a class="tile" href="templates/event/arga.html" data-cat="event">
-        <img src="templates/images/pv-arga.webp" alt="Арга хэмжээ — Арга хэмжээ & хурим загвар" loading="lazy">
-        <span class="tn">Арга хэмжээ<s>Эвент, харанхуй</s></span>
-      </a>
-      <a class="tile" href="templates/event/tanhim.html" data-cat="event">
-        <img src="templates/images/pv-tanhim.webp" alt="Танхим — Арга хэмжээ & хурим загвар" loading="lazy">
-        <span class="tn">Танхим<s>Танхим, хүрэн</s></span>
-      </a>
-      <a class="tile" href="templates/event/tsetseg.html" data-cat="event">
-        <img src="templates/images/pv-tsetseg.webp" alt="Цэцэг — Арга хэмжээ & хурим загвар" loading="lazy">
-        <span class="tn">Цэцэг<s>Цэцэг, ягаан</s></span>
-      </a>
-      <a class="tile" href="templates/event/bayar.html" data-cat="event">
-        <img src="templates/images/pv-bayar.webp" alt="Баяр — Арга хэмжээ & хурим загвар" loading="lazy">
-        <span class="tn">Баяр<s>Баяр, улбар</s></span>
-      </a>
+    <div class="wall-acc rv" id="wall"><!-- WALL:TILES -->
+      <div class="wcat" data-open="true">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-corporate" aria-expanded="true" aria-controls="wc-corporate">
+          <span class="wcat-x">01</span>
+          <span class="wcat-n">Танилцуулга</span>
+          <span class="wcat-d">Компани, байгууллагын нүүр</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-corporate" aria-labelledby="wb-corporate"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/corporate/tulga.html" target="_blank" rel="noopener">
+            <img src="templates/images/pv-tulga.webp" loading="lazy" alt="Тулга — Байгууллагын танилцуулга загвар">
+            <span class="tn">Тулга<s>Цэгцтэй, цэнхэр</s></span>
+          </a>
+          <a class="tile" href="templates/corporate/hurd.html" target="_blank" rel="noopener">
+            <img src="templates/images/pv-hurd.webp" loading="lazy" alt="Хүрд — Байгууллагын танилцуулга загвар">
+            <span class="tn">Хүрд<s>Харанхуй, сериф</s></span>
+          </a>
+          <a class="tile" href="templates/corporate/tsamhag.html" target="_blank" rel="noopener">
+            <img src="templates/images/pv-tsamhag.webp" loading="lazy" alt="Цамхаг — Байгууллагын танилцуулга загвар">
+            <span class="tn">Цамхаг<s>Хуваасан, зоригтой</s></span>
+          </a>
+          <a class="tile" href="templates/corporate/egnee.html" target="_blank" rel="noopener">
+            <img src="templates/images/pv-egnee.webp" loading="lazy" alt="Эгнээ — Байгууллагын танилцуулга загвар">
+            <span class="tn">Эгнээ<s>Зөөлөн, цайвар</s></span>
+          </a>
+          <a class="tile" href="templates/corporate/guur.html" target="_blank" rel="noopener">
+            <img src="templates/images/pv-guur.webp" loading="lazy" alt="Гүүр — Байгууллагын танилцуулга загвар">
+            <span class="tn">Гүүр<s>Албан ёсны, хүрэн шар</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-shop" aria-expanded="false" aria-controls="wc-shop">
+          <span class="wcat-x">02</span>
+          <span class="wcat-n">Дэлгүүр</span>
+          <span class="wcat-d">Сагс, захиалга, төлбөр</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-shop" aria-labelledby="wb-shop"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/shop/zah.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-zah.webp" alt="Зах — Онлайн дэлгүүр загвар">
+            <span class="tn">Зах<s>Блок, улбар</s></span>
+          </a>
+          <a class="tile" href="templates/shop/sav.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-sav.webp" alt="Сав — Онлайн дэлгүүр загвар">
+            <span class="tn">Сав<s>Бутик, цагаан</s></span>
+          </a>
+          <a class="tile" href="templates/shop/tulhuur.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-tulhuur.webp" alt="Түлхүүр — Онлайн дэлгүүр загвар">
+            <span class="tn">Түлхүүр<s>Харанхуй, техник</s></span>
+          </a>
+          <a class="tile" href="templates/shop/horshoo.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-horshoo.webp" alt="Хоршоо — Онлайн дэлгүүр загвар">
+            <span class="tn">Хоршоо<s>Органик, ногоон</s></span>
+          </a>
+          <a class="tile" href="templates/shop/torgon.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-torgon.webp" alt="Торгон — Онлайн дэлгүүр загвар">
+            <span class="tn">Торгон<s>Хувцас, эсрэгцэл</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-restaurant" aria-expanded="false" aria-controls="wc-restaurant">
+          <span class="wcat-x">03</span>
+          <span class="wcat-n">Ресторан</span>
+          <span class="wcat-d">Цэс, байршил, ширээний захиалга</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-restaurant" aria-labelledby="wb-restaurant"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/restaurant/guurs.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-guurs.webp" alt="Гуурс — Ресторан & кафе загвар">
+            <span class="tn">Гуурс<s>Дэгжин, цөцгий</s></span>
+          </a>
+          <a class="tile" href="templates/restaurant/utaa.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-utaa.webp" alt="Утаа — Ресторан & кафе загвар">
+            <span class="tn">Утаа<s>Харанхуй, бар</s></span>
+          </a>
+          <a class="tile" href="templates/restaurant/navch.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-navch.webp" alt="Навч — Ресторан & кафе загвар">
+            <span class="tn">Навч<s>Гэрэлтэй, кафе</s></span>
+          </a>
+          <a class="tile" href="templates/restaurant/togoo.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-togoo.webp" alt="Тогоо — Ресторан & кафе загвар">
+            <span class="tn">Тогоо<s>Тод, хурдан</s></span>
+          </a>
+          <a class="tile" href="templates/restaurant/zoolon.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-zoolon.webp" alt="Зөөлөн — Ресторан & кафе загвар">
+            <span class="tn">Зөөлөн<s>Нарийн боов, ягаан</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-portfolio" aria-expanded="false" aria-controls="wc-portfolio">
+          <span class="wcat-x">04</span>
+          <span class="wcat-n">Портфолио</span>
+          <span class="wcat-d">Ажлын сан, хувь хүн</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-portfolio" aria-labelledby="wb-portfolio"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/portfolio/or.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-or.webp" alt="Ор — Хувийн портфолио загвар">
+            <span class="tn">Ор<s>Бруталист, хар</s></span>
+          </a>
+          <a class="tile" href="templates/portfolio/huudas.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-huudas.webp" alt="Хуудас — Хувийн портфолио загвар">
+            <span class="tn">Хуудас<s>Редактор, сериф</s></span>
+          </a>
+          <a class="tile" href="templates/portfolio/zurag.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-zurag.webp" alt="Зураг — Хувийн портфолио загвар">
+            <span class="tn">Зураг<s>Зураг, бүтэн дэлгэц</s></span>
+          </a>
+          <a class="tile" href="templates/portfolio/suljee.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-suljee.webp" alt="Сүлжээ — Хувийн портфолио загвар">
+            <span class="tn">Сүлжээ<s>Хөгжүүлэгч, моно</s></span>
+          </a>
+          <a class="tile" href="templates/portfolio/duu.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-duu.webp" alt="Дуу — Хувийн портфолио загвар">
+            <span class="tn">Дуу<s>Хөгжим, харанхуй</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-education" aria-expanded="false" aria-controls="wc-education">
+          <span class="wcat-x">05</span>
+          <span class="wcat-n">Боловсрол</span>
+          <span class="wcat-d">Элсэлт, хөтөлбөр, төлбөр</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-education" aria-labelledby="wb-education"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/education/surah.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-surah.webp" alt="Сурах — Боловсрол загвар">
+            <span class="tn">Сурах<s>Сургууль, цэнхэр</s></span>
+          </a>
+          <a class="tile" href="templates/education/mergejil.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-mergejil.webp" alt="Мэргэжил — Боловсрол загвар">
+            <span class="tn">Мэргэжил<s>Мэргэжил, ногоон</s></span>
+          </a>
+          <a class="tile" href="templates/education/onlain.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-onlain.webp" alt="Онлайн — Боловсрол загвар">
+            <span class="tn">Онлайн<s>Платформ, харанхуй</s></span>
+          </a>
+          <a class="tile" href="templates/education/tsetserleg.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-tsetserleg.webp" alt="Цэцэрлэг — Боловсрол загвар">
+            <span class="tn">Цэцэрлэг<s>Цэцэрлэг, улбар</s></span>
+          </a>
+          <a class="tile" href="templates/education/ihsurguuli.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-ihsurguuli.webp" alt="Дээд — Боловсрол загвар">
+            <span class="tn">Дээд<s>Их сургууль, час улаан</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-health" aria-expanded="false" aria-controls="wc-health">
+          <span class="wcat-x">06</span>
+          <span class="wcat-n">Эрүүл мэнд</span>
+          <span class="wcat-d">Цаг авах, үнэ, бэлтгэл</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-health" aria-labelledby="wb-health"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/health/emneleg.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-emneleg.webp" alt="Эмнэлэг — Эрүүл мэнд загвар">
+            <span class="tn">Эмнэлэг<s>Клиник, номин цэнхэр</s></span>
+          </a>
+          <a class="tile" href="templates/health/shud.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-shud.webp" alt="Шүд — Эрүүл мэнд загвар">
+            <span class="tn">Шүд<s>Шүд, ногоон</s></span>
+          </a>
+          <a class="tile" href="templates/health/lab.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-lab.webp" alt="Лаборатори — Эрүүл мэнд загвар">
+            <span class="tn">Лаборатори<s>Лаборатори, техник</s></span>
+          </a>
+          <a class="tile" href="templates/health/setgel.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-setgel.webp" alt="Сэтгэл — Эрүүл мэнд загвар">
+            <span class="tn">Сэтгэл<s>Зөвлөгөө, дулаан</s></span>
+          </a>
+          <a class="tile" href="templates/health/emsan.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-emsan.webp" alt="Эмийн сан — Эрүүл мэнд загвар">
+            <span class="tn">Эмийн сан<s>Эмийн сан, ногоон</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-fitness" aria-expanded="false" aria-controls="wc-fitness">
+          <span class="wcat-x">07</span>
+          <span class="wcat-n">Фитнес</span>
+          <span class="wcat-d">Хуваарь, гишүүнчлэл, цаг захиалга</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-fitness" aria-labelledby="wb-fitness"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/fitness/zaal.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-zaal.webp" alt="Заал — Фитнес & гоо сайхан загвар">
+            <span class="tn">Заал<s>Фитнес, харанхуй</s></span>
+          </a>
+          <a class="tile" href="templates/fitness/yog.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-yog.webp" alt="Йог — Фитнес & гоо сайхан загвар">
+            <span class="tn">Йог<s>Йог, цайвар</s></span>
+          </a>
+          <a class="tile" href="templates/fitness/goo.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-goo.webp" alt="Гоо сайхан — Фитнес & гоо сайхан загвар">
+            <span class="tn">Гоо сайхан<s>Салон, ягаан</s></span>
+          </a>
+          <a class="tile" href="templates/fitness/spa.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-spa.webp" alt="Спа — Фитнес & гоо сайхан загвар">
+            <span class="tn">Спа<s>Спа, харанхуй</s></span>
+          </a>
+          <a class="tile" href="templates/fitness/barber.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-barber.webp" alt="Үсчин — Фитнес & гоо сайхан загвар">
+            <span class="tn">Үсчин<s>Үсчин, хүрэн</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-travel" aria-expanded="false" aria-controls="wc-travel">
+          <span class="wcat-x">08</span>
+          <span class="wcat-n">Аялал</span>
+          <span class="wcat-d">Багц, улирал, захиалга</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-travel" aria-labelledby="wb-travel"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/travel/ger.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-ger.webp" alt="Гэр бааз — Аялал & зочид буудал загвар">
+            <span class="tn">Гэр бааз<s>Бааз, хүрэн шар</s></span>
+          </a>
+          <a class="tile" href="templates/travel/buudal.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-buudal.webp" alt="Зочид буудал — Аялал & зочид буудал загвар">
+            <span class="tn">Зочид буудал<s>Буудал, ногоон</s></span>
+          </a>
+          <a class="tile" href="templates/travel/ayalal.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-ayalal.webp" alt="Аялал — Аялал & зочид буудал загвар">
+            <span class="tn">Аялал<s>Аялал, ногоон</s></span>
+          </a>
+          <a class="tile" href="templates/travel/amralt.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-amralt.webp" alt="Амралт — Аялал & зочид буудал загвар">
+            <span class="tn">Амралт<s>Амралт, номин</s></span>
+          </a>
+          <a class="tile" href="templates/travel/agent.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-agent.webp" alt="Агентлаг — Аялал & зочид буудал загвар">
+            <span class="tn">Агентлаг<s>Агентлаг, хөх</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-realestate" aria-expanded="false" aria-controls="wc-realestate">
+          <span class="wcat-x">09</span>
+          <span class="wcat-n">Үл хөдлөх</span>
+          <span class="wcat-d">Зар, төсөл, түрээс</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-realestate" aria-labelledby="wb-realestate"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/realestate/oron.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-oron.webp" alt="Орон сууц — Үл хөдлөх & барилга загвар">
+            <span class="tn">Орон сууц<s>Зуучлал, хөх</s></span>
+          </a>
+          <a class="tile" href="templates/realestate/barilga.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-barilga.webp" alt="Барилга — Үл хөдлөх & барилга загвар">
+            <span class="tn">Барилга<s>Барилга, харанхуй</s></span>
+          </a>
+          <a class="tile" href="templates/realestate/inter.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-inter.webp" alt="Интерьер — Үл хөдлөх & барилга загвар">
+            <span class="tn">Интерьер<s>Интерьер, саарал</s></span>
+          </a>
+          <a class="tile" href="templates/realestate/turees.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-turees.webp" alt="Түрээс — Үл хөдлөх & барилга загвар">
+            <span class="tn">Түрээс<s>Түрээс, ногоон</s></span>
+          </a>
+          <a class="tile" href="templates/realestate/gazar.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-gazar.webp" alt="Газар — Үл хөдлөх & барилга загвар">
+            <span class="tn">Газар<s>Газар, хөх ногоон</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
+      <div class="wcat" data-open="false">
+        <h3 class="wcat-h"><button type="button" class="wcat-b" id="wb-event" aria-expanded="false" aria-controls="wc-event">
+          <span class="wcat-x">10</span>
+          <span class="wcat-n">Арга хэмжээ</span>
+          <span class="wcat-d">Хурим, корпорейт, танхим</span>
+          <span class="wcat-c">5 загвар</span>
+          <span class="wcat-i" aria-hidden="true"></span>
+        </button></h3>
+        <section class="wcat-p" id="wc-event" aria-labelledby="wb-event"><div class="wcat-in">
+          <div class="wall">
+          <a class="tile" href="templates/event/hurim.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-hurim.webp" alt="Хурим — Арга хэмжээ & хурим загвар">
+            <span class="tn">Хурим<s>Хурим, зэс</s></span>
+          </a>
+          <a class="tile" href="templates/event/arga.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-arga.webp" alt="Арга хэмжээ — Арга хэмжээ & хурим загвар">
+            <span class="tn">Арга хэмжээ<s>Эвент, харанхуй</s></span>
+          </a>
+          <a class="tile" href="templates/event/tanhim.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-tanhim.webp" alt="Танхим — Арга хэмжээ & хурим загвар">
+            <span class="tn">Танхим<s>Танхим, хүрэн</s></span>
+          </a>
+          <a class="tile" href="templates/event/tsetseg.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-tsetseg.webp" alt="Цэцэг — Арга хэмжээ & хурим загвар">
+            <span class="tn">Цэцэг<s>Цэцэг, ягаан</s></span>
+          </a>
+          <a class="tile" href="templates/event/bayar.html" target="_blank" rel="noopener">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10'%3E%3C/svg%3E" data-src="templates/images/pv-bayar.webp" alt="Баяр — Арга хэмжээ & хурим загвар">
+            <span class="tn">Баяр<s>Баяр, улбар</s></span>
+          </a>
+          </div>
+        </div></section>
+      </div>
     <!-- /WALL:TILES --></div>
     <p class="wall-note rv">Аль нэг дээр дарвал тухайн загвар шинэ цонхонд нээгдэнэ.</p>
   </div>
@@ -2079,23 +2255,53 @@ function aTab(id,el){
   sc.addEventListener('mouseleave',play);
 })();
 
-// ── ЗАГВАРЫН ХАНЫН ШҮҮЛТҮҮР ───────────────────────────────────
+// ── НУГАЛДАГ ЗАГВАРЫН ЖАГСААЛТ ──────────────────
+// Өнгө, өндөр CSS-ээр солигдоно. JS нь зөвхөн
+// data-open ба aria-expanded хоёрыг зэрэг солино.
 (function(){
-  var wall=document.getElementById('wall');
-  if(!wall) return;
-  var chips=[].slice.call(document.querySelectorAll('.wchip'));
-  var tiles=[].slice.call(wall.querySelectorAll('.tile'));
-  function apply(cat){
-    tiles.forEach(function(t){
-      t.hidden=!(cat==='all'||t.getAttribute('data-cat')===cat);
-    });
-    chips.forEach(function(c){
-      c.setAttribute('aria-pressed', c.getAttribute('data-cat')===cat ? 'true':'false');
-    });
+  var acc=document.getElementById('wall');
+  if(!acc) return;
+  var cats=[].slice.call(acc.querySelectorAll('.wcat'));
+  if(!cats.length) return;
+  var all=document.getElementById('wallAll');
+
+  function isOpen(c){ return c.getAttribute('data-open')==='true'; }
+  // Нээхээс өмнө зургуудыг эхлүүлнэ. Хаалттай хавтас тэг
+  // өндөртэй тул loading="lazy" ажилладаггүй — хөтөч бүгдийг
+  // шууд татдаг. Тиймээс src-г энд л өгнө.
+  function load(c){
+    var imgs=c.querySelectorAll('img[data-src]');
+    for(var i=0;i<imgs.length;i++){
+      imgs[i].src=imgs[i].getAttribute('data-src');
+      imgs[i].removeAttribute('data-src');
+    }
   }
-  chips.forEach(function(c){
-    c.addEventListener('click',function(){ apply(c.getAttribute('data-cat')); });
+  function set(c,open){
+    if(open) load(c);
+    c.setAttribute('data-open', open?'true':'false');
+    c.querySelector('.wcat-b').setAttribute('aria-expanded', open?'true':'false');
+  }
+  function sync(){
+    if(!all) return;
+    var every=cats.every(isOpen);
+    all.setAttribute('aria-pressed', every?'true':'false');
+    all.textContent = every ? 'Бүгдийг хаах' : 'Бүгдийг нээх';
+  }
+
+  cats.forEach(function(c){
+    c.querySelector('.wcat-b').addEventListener('click',function(){
+      set(c,!isOpen(c));
+      sync();
+    });
   });
+
+  if(all) all.addEventListener('click',function(){
+    var open = all.getAttribute('aria-pressed')!=='true';
+    cats.forEach(function(c){ set(c,open); });
+    sync();
+  });
+
+  sync();
 })();
 
 // ── ЦОНХНЫ ГАРЫН УДИРДЛАГА ────────────────────────────────────

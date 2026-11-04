@@ -38,7 +38,9 @@ const VIEWPORTS = [
 
 function pages() {
   const out = [];
-  if (!ONLY) out.push('index.html');
+  // --only index нь зөвхөн нүүр хуудсыг шалгана
+  if (!ONLY || ONLY === 'index') out.push('index.html');
+  if (ONLY === 'index') return out;
   for (const dir of readdirSync(TPL)) {
     if (dir.startsWith('_')) continue;
     const d = join(TPL, dir);

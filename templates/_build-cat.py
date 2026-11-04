@@ -328,14 +328,22 @@ CARD = u'''    <article class="card">
       <button class="act" onclick="ask('{cat} — {n}')">Хүсэлт илгээх →</button>
     </article>'''
 
-base = os.path.dirname(os.path.abspath(__file__))
-for c in CATS:
-    cards = '\n\n'.join(CARD.format(cat=c['name'], **it) for it in c['items'])
-    others = '\n'.join(
-        '      <a href="../%s/index.html">%s</a>' % (o['slug'], o['name'])
-        for o in CATS if o['slug'] != c['slug'])
-    html = HEAD.format(name=c['name'], lead=c['lead'], n=len(c['items']),
-                       cards=cards, others=others)
-    path = os.path.join(base, c['slug'], 'index.html')
-    io.open(path, 'w', encoding='utf-8', newline='').write(html)
-    print('wrote', c['slug'])
+# _sync-home.py энэ файлаас зөвхөн CATS-ыг уншихын тулд import хийдэг.
+# Хамгаалалтгүй үед тэр import нь категорын хуудсуудыг дахин бичиж,
+# seo.py-гийн нэмсэн блокийг арилгаж байв.
+def main():
+    base = os.path.dirname(os.path.abspath(__file__))
+    for c in CATS:
+        cards = '\n\n'.join(CARD.format(cat=c['name'], **it) for it in c['items'])
+        others = '\n'.join(
+            '      <a href="../%s/index.html">%s</a>' % (o['slug'], o['name'])
+            for o in CATS if o['slug'] != c['slug'])
+        html = HEAD.format(name=c['name'], lead=c['lead'], n=len(c['items']),
+                           cards=cards, others=others)
+        path = os.path.join(base, c['slug'], 'index.html')
+        io.open(path, 'w', encoding='utf-8', newline='').write(html)
+        print('wrote', c['slug'])
+
+
+if __name__ == '__main__':
+    main()
